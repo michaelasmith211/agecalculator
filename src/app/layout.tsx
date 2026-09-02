@@ -105,6 +105,9 @@ export default function RootLayout({
   return (
     <html lang="en" data-scroll-behavior="smooth" className="scroll-smooth bg-slate-50 text-slate-900">
       <head>
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="icon" href="/icon" sizes="32x32" type="image/png" />
+        <link rel="apple-touch-icon" href="/apple-icon" />
         <GlobalWebSiteJsonLd />
       </head>
       <body className="min-h-screen flex flex-col bg-slate-50 text-slate-900 font-sans antialiased selection:bg-blue-100 selection:text-blue-900">
