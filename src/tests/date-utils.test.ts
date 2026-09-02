@@ -4,7 +4,10 @@ import {
   getDaysInMonth,
   isValidDate,
   parseDateString,
+  parseTimeString,
+  formatDisplayTime,
   calculateAge,
+  calculateLifeStats,
   calculateAgeDifference,
   calculateDateOfBirthFromAge,
   calculateDaysBetweenDates,
@@ -44,6 +47,13 @@ describe('Date Utilities & Leap Year Engine', () => {
     expect(parseDateString('2023-02-29')).toBeNull();
     expect(parseDateString('invalid')).toBeNull();
   });
+
+  it('parses and formats time strings safely', () => {
+    expect(parseTimeString('14:30')).toEqual({ hours: 14, minutes: 30, seconds: 0 });
+    expect(parseTimeString('08:15:45')).toEqual({ hours: 8, minutes: 15, seconds: 45 });
+    expect(formatDisplayTime({ hours: 14, minutes: 30 })).toBe('2:30 PM');
+    expect(formatDisplayTime({ hours: 8, minutes: 5 })).toBe('8:05 AM');
+  });
 });
 
 describe('Core Age Calculation Logic', () => {
@@ -56,6 +66,17 @@ describe('Core Age Calculation Logic', () => {
     expect(res.months).toBe(7);
     expect(res.days).toBe(18);
     expect(res.totalDays).toBe(9727);
+  });
+
+  it('calculates with exact birth and target time', () => {
+    const dob = { year: 2000, month: 1, day: 15 };
+    const target = { year: 2000, month: 1, day: 16 };
+    const birthTime = { hours: 10, minutes: 0, seconds: 0 };
+    const targetTime = { hours: 12, minutes: 0, seconds: 0 };
+    const res = calculateAge(dob, target, birthTime, targetTime);
+
+    expect(res.totalHours).toBe(26);
+    expect(res.totalSeconds).toBe(26 * 3600);
   });
 
   it('handles same birth date and target date', () => {
@@ -95,7 +116,6 @@ describe('Core Age Calculation Logic', () => {
   });
 
   it('handles month day borrowing with differing month lengths', () => {
-    // Born March 31, target April 30
     const dob = { year: 2020, month: 3, day: 31 };
     const target = { year: 2020, month: 4, day: 30 };
     const res = calculateAge(dob, target);
@@ -107,12 +127,19 @@ describe('Core Age Calculation Logic', () => {
 
   it('handles February 29 birthdays in leap and common years', () => {
     const dob = { year: 2000, month: 2, day: 29 };
-    // Target on non-leap year Feb 28, 2025
     const target = { year: 2025, month: 2, day: 28 };
     const res = calculateAge(dob, target);
     expect(res.years).toBe(24);
     expect(res.months).toBe(11);
     expect(res.days).toBe(30);
+  });
+
+  it('calculates life stats and planetary ages correctly', () => {
+    const totalSecs = 10000000;
+    const stats = calculateLifeStats(totalSecs, 100);
+    expect(stats.estimatedHeartbeats).toBeGreaterThan(0);
+    expect(stats.estimatedBreaths).toBeGreaterThan(0);
+    expect(stats.ageOnMars).toBeGreaterThan(0);
   });
 
   it('throws error when target date is before birth date', () => {

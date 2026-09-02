@@ -17,12 +17,16 @@ import {
   AgeResult,
   calculateAge,
   getTodayCalendarDate,
+  getCurrentSystemTime,
   parseDateString,
+  parseTimeString,
   toDateString,
-  formatDisplayDate
+  formatDisplayDate,
+  CalendarTime
 } from '@/lib/date-utils';
 import { trackEvent } from '@/lib/analytics';
 import SocialShare from '@/components/SocialShare';
+import LiveAgeTicker from '@/components/calculators/LiveAgeTicker';
 
 interface MainAgeCalculatorProps {
   initialBirthDate?: string;
@@ -39,9 +43,15 @@ export default function MainAgeCalculator({
   const [birthDateStr, setBirthDateStr] = useState<string>(initialBirthDate);
   const [targetDateStr, setTargetDateStr] = useState<string>(initialTargetDate || todayStr);
   const [isCustomTarget, setIsCustomTarget] = useState<boolean>(!!initialTargetDate && initialTargetDate !== todayStr);
+
+  // Optional birth time support
+  const [includeTime, setIncludeTime] = useState<boolean>(false);
+  const [birthTimeStr, setBirthTimeStr] = useState<string>('08:30');
+  const [targetTimeStr, setTargetTimeStr] = useState<string>('12:00');
+
   const [copied, setCopied] = useState<boolean>(false);
 
-  // Synchronous calculation
+  // Synchronous calculation initialization
   const [result, setResult] = useState<AgeResult | null>(() => {
     const b = parseDateString(initialBirthDate);
     const t = parseDateString(initialTargetDate || todayStr);
@@ -57,7 +67,13 @@ export default function MainAgeCalculator({
 
   const [error, setError] = useState<string | null>(null);
 
-  const performCalculation = (bStr: string, tStr: string) => {
+  const performCalculation = (
+    bStr: string,
+    tStr: string,
+    useTime = includeTime,
+    bTimeStr = birthTimeStr,
+    tTimeStr = targetTimeStr
+  ) => {
     setError(null);
     if (!bStr) {
       setError('Please select or enter your Date of Birth.');
@@ -79,12 +95,25 @@ export default function MainAgeCalculator({
       return;
     }
 
+    let bTime: CalendarTime | undefined = undefined;
+    let tTime: CalendarTime | undefined = undefined;
+
+    if (useTime) {
+      bTime = parseTimeString(bTimeStr) || { hours: 0, minutes: 0, seconds: 0 };
+      if (!isCustomTarget) {
+        tTime = getCurrentSystemTime();
+      } else {
+        tTime = parseTimeString(tTimeStr) || { hours: 12, minutes: 0, seconds: 0 };
+      }
+    }
+
     try {
-      const res = calculateAge(bDate, tDate);
+      const res = calculateAge(bDate, tDate, bTime, tTime);
       setResult(res);
       trackEvent('age_calculator_used', {
         birth_year: bDate.year,
-        calculated_age_years: res.years
+        calculated_age_years: res.years,
+        used_time: useTime
       });
     } catch (err: unknown) {
       const message = err instanceof Error ? err.message : 'An error occurred during calculation.';
@@ -97,6 +126,9 @@ export default function MainAgeCalculator({
     setBirthDateStr('');
     setTargetDateStr(todayStr);
     setIsCustomTarget(false);
+    setIncludeTime(false);
+    setBirthTimeStr('08:30');
+    setTargetTimeStr('12:00');
     setResult(null);
     setError(null);
     trackEvent('reset_calculator');
@@ -104,7 +136,8 @@ export default function MainAgeCalculator({
 
   const handleCopyResult = () => {
     if (!result) return;
-    const text = `Age: ${result.years} Years, ${result.months} Months, ${result.days} Days (${result.totalDays.toLocaleString()} total days lived). Calculated on agecalculators.dev`;
+    const timeSuffix = result.birthTimeFormatted ? ` (born at ${result.birthTimeFormatted})` : '';
+    const text = `Age: ${result.years} Years, ${result.months} Months, ${result.days} Days${timeSuffix} (${result.totalDays.toLocaleString()} total days lived). Calculated on agecalculators.dev`;
     navigator.clipboard.writeText(text);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
@@ -116,19 +149,24 @@ export default function MainAgeCalculator({
     }
   };
 
+  const parsedBirthDate = parseDateString(birthDateStr);
+  const parsedBirthTime = includeTime ? parseTimeString(birthTimeStr) || undefined : undefined;
+  const parsedTargetDate = parseDateString(targetDateStr) || today;
+  const isTodayTarget = !isCustomTarget || targetDateStr === todayStr;
+
   return (
     <div id="calculator" className="calculator-card p-6 sm:p-8 bg-white border border-slate-200 rounded-2xl shadow-sm">
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-slate-100">
         <div>
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-100 mb-1.5">
             <Sparkles className="w-3.5 h-3.5 text-blue-600" />
-            <span>Instant Calendar-Accurate Calculation</span>
+            <span>Instant Calendar & Time Precision Calculation</span>
           </div>
           <h2 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">
             Online Age Calculator
           </h2>
           <p className="text-sm text-slate-600 mt-0.5">
-            Enter your date of birth to calculate your exact age in years, months, and days.
+            Enter your date of birth (and optional birth time) to calculate your exact age in years, months, days, and live running seconds.
           </p>
         </div>
 
@@ -137,7 +175,7 @@ export default function MainAgeCalculator({
             <button
               type="button"
               onClick={handleCopyResult}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium text-slate-700 bg-slate-100 hover:bg-slate-200 transition-colors"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium text-slate-700 bg-slate-100 hover:bg-slate-200 transition-colors cursor-pointer"
               title="Copy result summary"
             >
               {copied ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5 text-slate-500" />}
@@ -146,7 +184,7 @@ export default function MainAgeCalculator({
             <button
               type="button"
               onClick={handlePrint}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium text-slate-700 bg-slate-100 hover:bg-slate-200 transition-colors"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium text-slate-700 bg-slate-100 hover:bg-slate-200 transition-colors cursor-pointer"
               title="Print result"
             >
               <Printer className="w-3.5 h-3.5 text-slate-500" />
@@ -208,7 +246,7 @@ export default function MainAgeCalculator({
                     performCalculation(birthDateStr, todayStr);
                   }
                 }}
-                className="text-xs text-blue-600 hover:text-blue-800 font-semibold underline"
+                className="text-xs text-blue-600 hover:text-blue-800 font-semibold underline cursor-pointer"
               >
                 {isCustomTarget ? 'Use Today' : 'Change Date'}
               </button>
@@ -235,16 +273,77 @@ export default function MainAgeCalculator({
             <p className="text-xs text-slate-500">
               {isCustomTarget
                 ? 'Calculate how old you were or will be on this specific date.'
-                : 'Default is set to today\'s date.'}
+                : 'Default is synchronized to your current local system date.'}
             </p>
           </div>
         </div>
 
-        {/* Buttons */}
+        {/* Optional Exact Birth Time Toggle */}
+        <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-3">
+          <div className="flex items-center justify-between">
+            <label htmlFor="time-toggle" className="flex items-center gap-2 cursor-pointer select-none">
+              <input
+                id="time-toggle"
+                type="checkbox"
+                checked={includeTime}
+                onChange={(e) => {
+                  setIncludeTime(e.target.checked);
+                  performCalculation(birthDateStr, targetDateStr, e.target.checked);
+                }}
+                className="w-4 h-4 rounded text-blue-600 focus:ring-blue-500 border-slate-300 cursor-pointer"
+              />
+              <span className="text-xs font-bold text-slate-800 flex items-center gap-1.5">
+                <Clock className="w-3.5 h-3.5 text-blue-600" />
+                <span>Include Exact Birth Time (Optional)</span>
+              </span>
+            </label>
+            <span className="text-[11px] text-slate-500">For down-to-the-minute precision</span>
+          </div>
+
+          {includeTime && (
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2 border-t border-slate-200/80 animate-in fade-in duration-150">
+              <div>
+                <label htmlFor="birth-time" className="block text-xs font-semibold text-slate-700 mb-1">
+                  Time of Birth (Local Time)
+                </label>
+                <input
+                  id="birth-time"
+                  type="time"
+                  value={birthTimeStr}
+                  onChange={(e) => {
+                    setBirthTimeStr(e.target.value);
+                    performCalculation(birthDateStr, targetDateStr, true, e.target.value);
+                  }}
+                  className="w-full px-3 py-2 bg-white border border-slate-300 focus:border-blue-600 rounded-lg text-slate-900 font-medium text-sm"
+                />
+              </div>
+
+              {isCustomTarget && (
+                <div>
+                  <label htmlFor="target-time" className="block text-xs font-semibold text-slate-700 mb-1">
+                    Target Time
+                  </label>
+                  <input
+                    id="target-time"
+                    type="time"
+                    value={targetTimeStr}
+                    onChange={(e) => {
+                      setTargetTimeStr(e.target.value);
+                      performCalculation(birthDateStr, targetDateStr, true, birthTimeStr, e.target.value);
+                    }}
+                    className="w-full px-3 py-2 bg-white border border-slate-300 focus:border-blue-600 rounded-lg text-slate-900 font-medium text-sm"
+                  />
+                </div>
+              )}
+            </div>
+          )}
+        </div>
+
+        {/* Action Buttons */}
         <div className="flex flex-wrap items-center gap-3 pt-2">
           <button
             type="submit"
-            className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl text-base font-bold bg-blue-600 text-white hover:bg-blue-700 shadow-sm hover:shadow transition-all focus:ring-4 focus:ring-blue-100"
+            className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl text-base font-bold bg-blue-600 text-white hover:bg-blue-700 shadow-sm hover:shadow transition-all focus:ring-4 focus:ring-blue-100 cursor-pointer"
           >
             <Calendar className="w-5 h-5" />
             <span>Calculate Age</span>
@@ -253,7 +352,7 @@ export default function MainAgeCalculator({
           <button
             type="button"
             onClick={handleReset}
-            className="inline-flex items-center justify-center gap-1.5 px-4 py-3 rounded-xl text-sm font-semibold text-slate-600 bg-slate-100 hover:bg-slate-200 hover:text-slate-800 transition-colors"
+            className="inline-flex items-center justify-center gap-1.5 px-4 py-3 rounded-xl text-sm font-semibold text-slate-600 bg-slate-100 hover:bg-slate-200 hover:text-slate-800 transition-colors cursor-pointer"
           >
             <RotateCcw className="w-4 h-4" />
             <span>Reset</span>
@@ -270,7 +369,7 @@ export default function MainAgeCalculator({
       )}
 
       {/* Results Section */}
-      {result && (
+      {result && parsedBirthDate && (
         <div className="mt-8 space-y-6 animate-in fade-in duration-200">
           {/* Primary Result Banner */}
           <div className="p-6 bg-gradient-to-br from-blue-50 to-indigo-50/50 border border-blue-200 rounded-2xl">
@@ -299,11 +398,31 @@ export default function MainAgeCalculator({
             </div>
 
             <div className="mt-3 text-sm text-slate-700 flex flex-wrap items-center gap-x-4 gap-y-1">
-              <span>Born: <strong>{result.birthDateFormatted}</strong> ({result.dayOfWeekBorn})</span>
+              <span>
+                Born: <strong>{result.birthDateFormatted}</strong>
+                {result.birthTimeFormatted ? ` at ${result.birthTimeFormatted}` : ''} ({result.dayOfWeekBorn})
+              </span>
               <span>•</span>
-              <span>Calculated on: <strong>{result.targetDateFormatted}</strong></span>
+              <span>
+                Calculated on: <strong>{result.targetDateFormatted}</strong>
+                {result.targetTimeFormatted ? ` at ${result.targetTimeFormatted}` : ''}
+              </span>
             </div>
           </div>
+
+          {/* LIVE MILLISECONDS ODOMETER & INTERACTIVE STATS */}
+          <LiveAgeTicker
+            birthDate={parsedBirthDate}
+            birthTime={parsedBirthTime}
+            targetDate={parsedTargetDate}
+            isTodayTarget={isTodayTarget}
+            years={result.years}
+            months={result.months}
+            days={result.days}
+            daysUntilNextBirthday={result.daysUntilNextBirthday}
+            ageTurningNext={result.ageTurningNext}
+            birthDateFormatted={result.birthDateFormatted}
+          />
 
           {/* Quick Metrics Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -339,11 +458,11 @@ export default function MainAgeCalculator({
                 <span className="text-xs font-semibold uppercase tracking-wider">Total Days Lived</span>
                 <CalendarDays className="w-4 h-4 text-blue-500" />
               </div>
-              <div className="text-xl font-extrabold text-slate-900">
+              <div className="text-xl font-extrabold text-slate-900 font-mono">
                 {result.totalDays.toLocaleString()} Days
               </div>
               <div className="text-xs text-slate-600 mt-1">
-                Exact calendar days between birth & target date
+                Exact calendar days lived
               </div>
             </div>
 
@@ -353,7 +472,7 @@ export default function MainAgeCalculator({
                 <span className="text-xs font-semibold uppercase tracking-wider">Total Weeks</span>
                 <Clock className="w-4 h-4 text-emerald-500" />
               </div>
-              <div className="text-xl font-extrabold text-slate-900">
+              <div className="text-xl font-extrabold text-slate-900 font-mono">
                 {result.totalWeeks.toLocaleString()} Weeks
               </div>
               <div className="text-xs text-slate-600 mt-1">
@@ -381,26 +500,26 @@ export default function MainAgeCalculator({
 
               <div className="bg-white p-3 rounded-lg border border-slate-200/80">
                 <div className="text-xs text-slate-500 font-medium">Total Hours</div>
-                <div className="text-lg font-bold text-slate-900 mt-0.5">
+                <div className="text-lg font-bold text-slate-900 mt-0.5 font-mono">
                   {result.totalHours.toLocaleString()}
                 </div>
-                <div className="text-[11px] text-slate-400">Estimate (24h/day)</div>
+                <div className="text-[11px] text-slate-400">Total elapsed hours</div>
               </div>
 
               <div className="bg-white p-3 rounded-lg border border-slate-200/80">
                 <div className="text-xs text-slate-500 font-medium">Total Minutes</div>
-                <div className="text-lg font-bold text-slate-900 mt-0.5">
+                <div className="text-lg font-bold text-slate-900 mt-0.5 font-mono">
                   {result.totalMinutes.toLocaleString()}
                 </div>
-                <div className="text-[11px] text-slate-400">Estimate (1440m/day)</div>
+                <div className="text-[11px] text-slate-400">Total elapsed minutes</div>
               </div>
 
               <div className="bg-white p-3 rounded-lg border border-slate-200/80">
                 <div className="text-xs text-slate-500 font-medium">Total Seconds</div>
-                <div className="text-lg font-bold text-slate-900 mt-0.5 truncate">
+                <div className="text-lg font-bold text-slate-900 mt-0.5 truncate font-mono">
                   {result.totalSeconds.toLocaleString()}
                 </div>
-                <div className="text-[11px] text-slate-400">Estimate (86400s/day)</div>
+                <div className="text-[11px] text-slate-400">Total elapsed seconds</div>
               </div>
             </div>
 

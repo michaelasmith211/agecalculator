@@ -9,6 +9,12 @@ export interface CalendarDate {
   day: number;   // 1 - 31
 }
 
+export interface CalendarTime {
+  hours: number;   // 0 - 23
+  minutes: number; // 0 - 59
+  seconds?: number; // 0 - 59
+}
+
 export interface AgeResult {
   years: number;
   months: number;
@@ -30,6 +36,22 @@ export interface AgeResult {
   chineseZodiac: string;
   birthDateFormatted: string;
   targetDateFormatted: string;
+  birthTimeFormatted?: string;
+  targetTimeFormatted?: string;
+  exactElapsedSeconds?: number;
+}
+
+export interface LifeStats {
+  estimatedHeartbeats: number;
+  estimatedBreaths: number;
+  estimatedBlinks: number;
+  estimatedHoursSlept: number;
+  estimatedDaysSlept: number;
+  sunOrbitProgressPercent: number;
+  ageOnMercury: number;
+  ageOnVenus: number;
+  ageOnMars: number;
+  ageOnJupiter: number;
 }
 
 export interface DateDifferenceResult {
@@ -158,6 +180,22 @@ export function parseDateString(dateStr: string): CalendarDate | null {
 }
 
 /**
+ * Parse HH:MM string into CalendarTime
+ */
+export function parseTimeString(timeStr: string): CalendarTime | null {
+  if (!timeStr || typeof timeStr !== 'string') return null;
+  const parts = timeStr.trim().split(':');
+  if (parts.length < 2) return null;
+  const hours = parseInt(parts[0], 10);
+  const minutes = parseInt(parts[1], 10);
+  const seconds = parts[2] ? parseInt(parts[2], 10) : 0;
+  if (isNaN(hours) || isNaN(minutes) || hours < 0 || hours > 23 || minutes < 0 || minutes > 59) {
+    return null;
+  }
+  return { hours, minutes, seconds: isNaN(seconds) ? 0 : seconds };
+}
+
+/**
  * Convert CalendarDate to standard YYYY-MM-DD string
  */
 export function toDateString(date: CalendarDate): string {
@@ -165,6 +203,18 @@ export function toDateString(date: CalendarDate): string {
   const m = String(date.month).padStart(2, '0');
   const d = String(date.day).padStart(2, '0');
   return `${y}-${m}-${d}`;
+}
+
+/**
+ * Format CalendarTime to 12-hour or 24-hour string (e.g. "08:30 AM")
+ */
+export function formatDisplayTime(time: CalendarTime): string {
+  const h = time.hours;
+  const m = String(time.minutes).padStart(2, '0');
+  const s = time.seconds !== undefined ? `:${String(time.seconds).padStart(2, '0')}` : '';
+  const ampm = h >= 12 ? 'PM' : 'AM';
+  const displayHours = h % 12 === 0 ? 12 : h % 12;
+  return `${displayHours}:${m}${s} ${ampm}`;
 }
 
 /**
@@ -194,10 +244,21 @@ export function getTodayCalendarDate(): CalendarDate {
 }
 
 /**
+ * Get current system time as a CalendarTime
+ */
+export function getCurrentSystemTime(): CalendarTime {
+  const now = new Date();
+  return {
+    hours: now.getHours(),
+    minutes: now.getMinutes(),
+    seconds: now.getSeconds()
+  };
+}
+
+/**
  * Get Day of Week for a CalendarDate (Sunday = 0, ..., Saturday = 6)
  */
 export function getDayOfWeekIndex(year: number, month: number, day: number): number {
-  // Using UTC to avoid local daylight savings shift
   const d = new Date(Date.UTC(year, month - 1, day));
   return d.getUTCDay();
 }
@@ -219,8 +280,11 @@ export function compareDates(a: CalendarDate, b: CalendarDate): number {
 /**
  * Convert CalendarDate to UTC timestamp in milliseconds (midnight UTC)
  */
-export function toUtcTimestamp(date: CalendarDate): number {
-  return Date.UTC(date.year, date.month - 1, date.day);
+export function toUtcTimestamp(date: CalendarDate, time?: CalendarTime): number {
+  const hours = time?.hours || 0;
+  const minutes = time?.minutes || 0;
+  const seconds = time?.seconds || 0;
+  return Date.UTC(date.year, date.month - 1, date.day, hours, minutes, seconds);
 }
 
 /**
@@ -265,10 +329,56 @@ export function getChineseZodiac(year: number): string {
 }
 
 /**
- * CORE AGE CALCULATION
- * Accurate calendar calculation with month/day borrowing.
+ * Interactive Life & Biology Statistics
  */
-export function calculateAge(birthDate: CalendarDate, targetDate: CalendarDate): AgeResult {
+export function calculateLifeStats(totalSeconds: number, daysUntilNextBirthday: number): LifeStats {
+  const totalDays = totalSeconds / 86400;
+  
+  // Heartbeats: ~80 beats per minute average
+  const estimatedHeartbeats = Math.round(totalSeconds * (80 / 60));
+  // Breaths: ~16 breaths per minute average
+  const estimatedBreaths = Math.round(totalSeconds * (16 / 60));
+  // Blinks: ~17 blinks per minute average
+  const estimatedBlinks = Math.round(totalSeconds * (17 / 60));
+  // Sleep: ~8 hours per day (1/3 of life)
+  const estimatedHoursSlept = Math.round(totalDays * 8);
+  const estimatedDaysSlept = Math.round(totalDays / 3);
+
+  // Solar progress percentage through the current age year
+  const daysInYear = 365.2422;
+  const daysElapsedInYear = Math.max(0, daysInYear - daysUntilNextBirthday);
+  const sunOrbitProgressPercent = Math.min(100, Math.max(0, parseFloat(((daysElapsedInYear / daysInYear) * 100).toFixed(1))));
+
+  // Planetary ages
+  const ageOnMercury = parseFloat((totalDays / 87.97).toFixed(2));
+  const ageOnVenus = parseFloat((totalDays / 224.7).toFixed(2));
+  const ageOnMars = parseFloat((totalDays / 686.98).toFixed(2));
+  const ageOnJupiter = parseFloat((totalDays / 4332.59).toFixed(2));
+
+  return {
+    estimatedHeartbeats,
+    estimatedBreaths,
+    estimatedBlinks,
+    estimatedHoursSlept,
+    estimatedDaysSlept,
+    sunOrbitProgressPercent,
+    ageOnMercury,
+    ageOnVenus,
+    ageOnMars,
+    ageOnJupiter
+  };
+}
+
+/**
+ * CORE AGE CALCULATION
+ * Accurate calendar calculation with month/day/time borrowing.
+ */
+export function calculateAge(
+  birthDate: CalendarDate,
+  targetDate: CalendarDate,
+  birthTime?: CalendarTime,
+  targetTime?: CalendarTime
+): AgeResult {
   if (!isValidDate(birthDate.year, birthDate.month, birthDate.day)) {
     throw new Error('Invalid birth date.');
   }
@@ -286,7 +396,6 @@ export function calculateAge(birthDate: CalendarDate, targetDate: CalendarDate):
   // Handle Day Borrowing
   if (days < 0) {
     months -= 1;
-    // Determine the month prior to targetDate.month in targetDate.year
     let prevMonth = targetDate.month - 1;
     let prevYear = targetDate.year;
     if (prevMonth === 0) {
@@ -308,9 +417,21 @@ export function calculateAge(birthDate: CalendarDate, targetDate: CalendarDate):
   const totalWeeks = Math.floor(totalDays / 7);
   const remainingDaysInWeek = totalDays % 7;
   const totalMonthsApprox = parseFloat((years * 12 + months + days / 30.4375).toFixed(1));
-  const totalHours = totalDays * 24;
-  const totalMinutes = totalHours * 60;
-  const totalSeconds = totalMinutes * 60;
+
+  // Base date calculations
+  let totalHours = totalDays * 24;
+  let totalMinutes = totalHours * 60;
+  let totalSeconds = totalMinutes * 60;
+
+  // If time was specified, adjust total seconds, minutes, and hours
+  if (birthTime && targetTime) {
+    const birthSecs = birthTime.hours * 3600 + birthTime.minutes * 60 + (birthTime.seconds || 0);
+    const targetSecs = targetTime.hours * 3600 + targetTime.minutes * 60 + (targetTime.seconds || 0);
+    const timeDeltaSecs = targetSecs - birthSecs;
+    totalSeconds = Math.max(0, totalDays * 86400 + timeDeltaSecs);
+    totalMinutes = Math.floor(totalSeconds / 60);
+    totalHours = Math.floor(totalSeconds / 3600);
+  }
 
   const dayOfWeekBorn = getDayOfWeek(birthDate.year, birthDate.month, birthDate.day);
 
@@ -318,7 +439,6 @@ export function calculateAge(birthDate: CalendarDate, targetDate: CalendarDate):
   const bDayInTargetYearMonth = birthDate.month;
   let bDayInTargetYearDay = birthDate.day;
 
-  // If born on Feb 29 and target year is not leap, standard common observation is Feb 28 (or March 1)
   if (birthDate.month === 2 && birthDate.day === 29 && !isLeapYear(targetDate.year)) {
     bDayInTargetYearDay = 28;
   }
@@ -340,7 +460,6 @@ export function calculateAge(birthDate: CalendarDate, targetDate: CalendarDate):
     nextBirthdayYear = targetDate.year + 1;
   }
 
-  // Next birthday date
   const nextBirthdayMonth = birthDate.month;
   let nextBirthdayDay = birthDate.day;
   if (birthDate.month === 2 && birthDate.day === 29 && !isLeapYear(nextBirthdayYear)) {
@@ -377,7 +496,10 @@ export function calculateAge(birthDate: CalendarDate, targetDate: CalendarDate):
     zodiacSign: getZodiacSign(birthDate.month, birthDate.day),
     chineseZodiac: getChineseZodiac(birthDate.year),
     birthDateFormatted: formatDisplayDate(birthDate),
-    targetDateFormatted: formatDisplayDate(targetDate)
+    targetDateFormatted: formatDisplayDate(targetDate),
+    birthTimeFormatted: birthTime ? formatDisplayTime(birthTime) : undefined,
+    targetTimeFormatted: targetTime ? formatDisplayTime(targetTime) : undefined,
+    exactElapsedSeconds: totalSeconds
   };
 }
 
@@ -418,7 +540,6 @@ export function calculateDateOfBirthFromAge(
     birthDay += daysInMonth;
   }
 
-  // Cap day if month has fewer days
   const maxDays = getDaysInMonth(birthYear, birthMonth);
   if (birthDay > maxDays) {
     birthDay = maxDays;
