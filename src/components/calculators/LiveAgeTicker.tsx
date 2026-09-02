@@ -104,7 +104,7 @@ export default function LiveAgeTicker({
 
   return (
     <div className="space-y-4 sm:space-y-6">
-      {/* Real-time Ticking Odometer Banner (Mobile Optimized) */}
+      {/* Real-time Ticking Odometer Banner (Mobile-First) */}
       <div className="p-4 sm:p-6 md:p-8 bg-slate-900 text-white border border-slate-800 rounded-2xl shadow-lg relative overflow-hidden">
         {/* Decorative glow */}
         <div className="absolute top-0 right-0 w-48 sm:w-64 h-48 sm:h-64 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
@@ -139,11 +139,11 @@ export default function LiveAgeTicker({
           <div className="text-[11px] font-semibold uppercase tracking-wider text-slate-400 mb-1">
             Running Total Seconds Lived
           </div>
-          <div className="flex flex-wrap items-baseline justify-center sm:justify-start gap-x-1 gap-y-0 font-mono">
-            <span className="text-3xl sm:text-5xl md:text-6xl font-black text-white tracking-tight">
+          <div className="flex flex-wrap items-baseline justify-center sm:justify-start gap-x-1 gap-y-0">
+            <span className="text-3xl sm:text-5xl md:text-6xl font-black text-white tracking-tight tabular-nums">
               {liveSeconds.toLocaleString()}
             </span>
-            <span className="text-xl sm:text-3xl md:text-4xl font-extrabold text-blue-400">
+            <span className="text-xl sm:text-3xl md:text-4xl font-extrabold text-blue-400 tabular-nums">
               .{String(liveMillis).padStart(3, '0')}
             </span>
             <span className="text-sm sm:text-lg font-bold text-slate-400 ml-1">
@@ -163,7 +163,7 @@ export default function LiveAgeTicker({
               <Compass className="w-3.5 h-3.5 text-amber-400 shrink-0" />
               <span>Solar Year Progress (Age {years} → {ageTurningNext})</span>
             </span>
-            <span className="font-mono text-amber-400 font-bold text-xs sm:text-sm">
+            <span className="text-amber-400 font-bold text-xs sm:text-sm tabular-nums">
               {lifeStats.sunOrbitProgressPercent}% Completed
             </span>
           </div>
@@ -192,7 +192,7 @@ export default function LiveAgeTicker({
             </h3>
           </div>
 
-          {/* Segmented Control - Full width on mobile */}
+          {/* Segmented Control */}
           <div className="w-full sm:w-auto grid grid-cols-2 sm:flex items-center bg-slate-100 p-1 rounded-xl text-xs font-semibold text-slate-600 text-center">
             <button
               type="button"
@@ -220,103 +220,103 @@ export default function LiveAgeTicker({
         </div>
 
         {activeTab === 'biology' ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 animate-in fade-in duration-150">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-3.5 animate-in fade-in duration-150">
             {/* Heartbeats */}
-            <div className="p-3.5 sm:p-4 bg-rose-50/70 border border-rose-100 rounded-xl space-y-1.5 min-w-0">
+            <div className="p-3 sm:p-4 bg-rose-50/70 border border-rose-100 rounded-xl space-y-1">
               <div className="flex items-center justify-between text-rose-700">
-                <span className="text-xs font-bold uppercase tracking-wider">Heartbeats</span>
-                <Heart className="w-4 h-4 text-rose-500 animate-bounce shrink-0" />
+                <span className="text-[11px] sm:text-xs font-bold uppercase tracking-wider">Heartbeats</span>
+                <Heart className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-rose-500 animate-bounce shrink-0" />
               </div>
-              <div className="text-[clamp(13px,3.8vw,1.25rem)] font-black text-rose-950 font-mono tracking-tight leading-tight whitespace-nowrap overflow-x-auto scrollbar-none">
+              <div className="text-sm xs:text-base sm:text-lg lg:text-xl font-extrabold text-rose-950 tracking-tight tabular-nums leading-tight">
                 ~{lifeStats.estimatedHeartbeats.toLocaleString()}
               </div>
-              <div className="text-[11px] text-slate-500">Approx. 80 beats / min</div>
+              <div className="text-[10px] sm:text-[11px] text-slate-500 leading-tight">Approx. 80 beats / min</div>
             </div>
 
             {/* Breaths */}
-            <div className="p-3.5 sm:p-4 bg-sky-50/70 border border-sky-100 rounded-xl space-y-1.5 min-w-0">
+            <div className="p-3 sm:p-4 bg-sky-50/70 border border-sky-100 rounded-xl space-y-1">
               <div className="flex items-center justify-between text-sky-700">
-                <span className="text-xs font-bold uppercase tracking-wider">Breaths Taken</span>
-                <Wind className="w-4 h-4 text-sky-500 shrink-0" />
+                <span className="text-[11px] sm:text-xs font-bold uppercase tracking-wider">Breaths Taken</span>
+                <Wind className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-sky-500 shrink-0" />
               </div>
-              <div className="text-[clamp(13px,3.8vw,1.25rem)] font-black text-sky-950 font-mono tracking-tight leading-tight whitespace-nowrap overflow-x-auto scrollbar-none">
+              <div className="text-sm xs:text-base sm:text-lg lg:text-xl font-extrabold text-sky-950 tracking-tight tabular-nums leading-tight">
                 ~{lifeStats.estimatedBreaths.toLocaleString()}
               </div>
-              <div className="text-[11px] text-slate-500">Approx. 16 breaths / min</div>
+              <div className="text-[10px] sm:text-[11px] text-slate-500 leading-tight">Approx. 16 breaths / min</div>
             </div>
 
             {/* Blinks */}
-            <div className="p-3.5 sm:p-4 bg-amber-50/70 border border-amber-100 rounded-xl space-y-1.5 min-w-0">
+            <div className="p-3 sm:p-4 bg-amber-50/70 border border-amber-100 rounded-xl space-y-1">
               <div className="flex items-center justify-between text-amber-800">
-                <span className="text-xs font-bold uppercase tracking-wider">Eye Blinks</span>
-                <Eye className="w-4 h-4 text-amber-600 shrink-0" />
+                <span className="text-[11px] sm:text-xs font-bold uppercase tracking-wider">Eye Blinks</span>
+                <Eye className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-600 shrink-0" />
               </div>
-              <div className="text-[clamp(13px,3.8vw,1.25rem)] font-black text-amber-950 font-mono tracking-tight leading-tight whitespace-nowrap overflow-x-auto scrollbar-none">
+              <div className="text-sm xs:text-base sm:text-lg lg:text-xl font-extrabold text-amber-950 tracking-tight tabular-nums leading-tight">
                 ~{lifeStats.estimatedBlinks.toLocaleString()}
               </div>
-              <div className="text-[11px] text-slate-500">Approx. 17 blinks / min</div>
+              <div className="text-[10px] sm:text-[11px] text-slate-500 leading-tight">Approx. 17 blinks / min</div>
             </div>
 
             {/* Sleep */}
-            <div className="p-3.5 sm:p-4 bg-purple-50/70 border border-purple-100 rounded-xl space-y-1.5 min-w-0">
+            <div className="p-3 sm:p-4 bg-purple-50/70 border border-purple-100 rounded-xl space-y-1">
               <div className="flex items-center justify-between text-purple-700">
-                <span className="text-xs font-bold uppercase tracking-wider">Time Asleep</span>
-                <Moon className="w-4 h-4 text-purple-500 shrink-0" />
+                <span className="text-[11px] sm:text-xs font-bold uppercase tracking-wider">Time Asleep</span>
+                <Moon className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-purple-500 shrink-0" />
               </div>
-              <div className="text-[clamp(13px,3.8vw,1.25rem)] font-black text-purple-950 font-mono tracking-tight leading-tight whitespace-nowrap overflow-x-auto scrollbar-none">
+              <div className="text-sm xs:text-base sm:text-lg lg:text-xl font-extrabold text-purple-950 tracking-tight tabular-nums leading-tight">
                 ~{lifeStats.estimatedDaysSlept.toLocaleString()} Days
               </div>
-              <div className="text-[11px] text-slate-500">~{lifeStats.estimatedHoursSlept.toLocaleString()} hrs (1/3 of life)</div>
+              <div className="text-[10px] sm:text-[11px] text-slate-500 leading-tight">~{lifeStats.estimatedHoursSlept.toLocaleString()} hrs (1/3 of life)</div>
             </div>
           </div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 animate-in fade-in duration-150">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-3.5 animate-in fade-in duration-150">
             {/* Mercury */}
-            <div className="p-3.5 sm:p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-1.5 min-w-0">
+            <div className="p-3 sm:p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-1">
               <div className="flex items-center justify-between text-slate-700">
-                <span className="text-xs font-bold uppercase tracking-wider">Mercury</span>
-                <Globe2 className="w-4 h-4 text-slate-500 shrink-0" />
+                <span className="text-[11px] sm:text-xs font-bold uppercase tracking-wider">Mercury</span>
+                <Globe2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-slate-500 shrink-0" />
               </div>
-              <div className="text-[clamp(13px,3.8vw,1.25rem)] font-black text-slate-900 font-mono tracking-tight leading-tight whitespace-nowrap">
+              <div className="text-sm xs:text-base sm:text-lg lg:text-xl font-extrabold text-slate-900 tracking-tight tabular-nums leading-tight">
                 {lifeStats.ageOnMercury} Years
               </div>
-              <div className="text-[11px] text-slate-500">88 Earth days per orbit</div>
+              <div className="text-[10px] sm:text-[11px] text-slate-500 leading-tight">88 Earth days / orbit</div>
             </div>
 
             {/* Venus */}
-            <div className="p-3.5 sm:p-4 bg-amber-50/70 border border-amber-200 rounded-xl space-y-1.5 min-w-0">
+            <div className="p-3 sm:p-4 bg-amber-50/70 border border-amber-200 rounded-xl space-y-1">
               <div className="flex items-center justify-between text-amber-800">
-                <span className="text-xs font-bold uppercase tracking-wider">Venus</span>
-                <Sparkles className="w-4 h-4 text-amber-600 shrink-0" />
+                <span className="text-[11px] sm:text-xs font-bold uppercase tracking-wider">Venus</span>
+                <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-600 shrink-0" />
               </div>
-              <div className="text-[clamp(13px,3.8vw,1.25rem)] font-black text-amber-950 font-mono tracking-tight leading-tight whitespace-nowrap">
+              <div className="text-sm xs:text-base sm:text-lg lg:text-xl font-extrabold text-amber-950 tracking-tight tabular-nums leading-tight">
                 {lifeStats.ageOnVenus} Years
               </div>
-              <div className="text-[11px] text-slate-500">224.7 Earth days per orbit</div>
+              <div className="text-[10px] sm:text-[11px] text-slate-500 leading-tight">224.7 Earth days / orbit</div>
             </div>
 
             {/* Mars */}
-            <div className="p-3.5 sm:p-4 bg-rose-50/70 border border-rose-200 rounded-xl space-y-1.5 min-w-0">
+            <div className="p-3 sm:p-4 bg-rose-50/70 border border-rose-200 rounded-xl space-y-1">
               <div className="flex items-center justify-between text-rose-700">
-                <span className="text-xs font-bold uppercase tracking-wider">Mars</span>
-                <Globe2 className="w-4 h-4 text-rose-600 shrink-0" />
+                <span className="text-[11px] sm:text-xs font-bold uppercase tracking-wider">Mars</span>
+                <Globe2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-rose-600 shrink-0" />
               </div>
-              <div className="text-[clamp(13px,3.8vw,1.25rem)] font-black text-rose-950 font-mono tracking-tight leading-tight whitespace-nowrap">
+              <div className="text-sm xs:text-base sm:text-lg lg:text-xl font-extrabold text-rose-950 tracking-tight tabular-nums leading-tight">
                 {lifeStats.ageOnMars} Years
               </div>
-              <div className="text-[11px] text-slate-500">687 Earth days per orbit</div>
+              <div className="text-[10px] sm:text-[11px] text-slate-500 leading-tight">687 Earth days / orbit</div>
             </div>
 
             {/* Jupiter */}
-            <div className="p-3.5 sm:p-4 bg-indigo-50/70 border border-indigo-200 rounded-xl space-y-1.5 min-w-0">
+            <div className="p-3 sm:p-4 bg-indigo-50/70 border border-indigo-200 rounded-xl space-y-1">
               <div className="flex items-center justify-between text-indigo-700">
-                <span className="text-xs font-bold uppercase tracking-wider">Jupiter</span>
-                <Globe2 className="w-4 h-4 text-indigo-600 shrink-0" />
+                <span className="text-[11px] sm:text-xs font-bold uppercase tracking-wider">Jupiter</span>
+                <Globe2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-indigo-600 shrink-0" />
               </div>
-              <div className="text-[clamp(13px,3.8vw,1.25rem)] font-black text-indigo-950 font-mono tracking-tight leading-tight whitespace-nowrap">
+              <div className="text-sm xs:text-base sm:text-lg lg:text-xl font-extrabold text-indigo-950 tracking-tight tabular-nums leading-tight">
                 {lifeStats.ageOnJupiter} Years
               </div>
-              <div className="text-[11px] text-slate-500">11.86 Earth years per orbit</div>
+              <div className="text-[10px] sm:text-[11px] text-slate-500 leading-tight">11.86 Earth years / orbit</div>
             </div>
           </div>
         )}
