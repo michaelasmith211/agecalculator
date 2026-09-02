@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next';
 import './globals.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import CookieBanner from '@/components/CookieBanner';
 import { GlobalWebSiteJsonLd } from '@/components/JsonLd';
 import { SITE_CONFIG } from '@/lib/constants';
 
@@ -109,6 +110,7 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
+        <CookieBanner />
       </body>
     </html>
   );

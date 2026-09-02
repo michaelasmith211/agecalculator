@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useSyncExternalStore } from 'react';
 import {
   Calendar,
   Clock,
@@ -11,7 +11,10 @@ import {
   Copy,
   Check,
   AlertCircle,
-  Printer
+  Printer,
+  BookmarkCheck,
+  Trash2,
+  History
 } from 'lucide-react';
 import {
   AgeResult,
@@ -24,6 +27,12 @@ import {
   formatDisplayDate,
   CalendarTime
 } from '@/lib/date-utils';
+import {
+  saveUserBirthday,
+  getSavedUserBirthday,
+  clearSavedUserBirthday,
+  SavedBirthdayData
+} from '@/lib/cookie-utils';
 import { trackEvent } from '@/lib/analytics';
 import SocialShare from '@/components/SocialShare';
 import LiveAgeTicker from '@/components/calculators/LiveAgeTicker';
@@ -33,6 +42,8 @@ interface MainAgeCalculatorProps {
   initialTargetDate?: string;
 }
 
+const emptySubscribe = () => () => {};
+
 export default function MainAgeCalculator({
   initialBirthDate = '2000-01-15',
   initialTargetDate
@@ -40,7 +51,21 @@ export default function MainAgeCalculator({
   const today = getTodayCalendarDate();
   const todayStr = toDateString(today);
 
-  const [birthDateStr, setBirthDateStr] = useState<string>(initialBirthDate);
+  // Client-safe detection of saved cookie birthday
+  const savedCookieJson = useSyncExternalStore(
+    emptySubscribe,
+    () => {
+      const saved = getSavedUserBirthday();
+      return saved ? JSON.stringify(saved) : '';
+    },
+    () => ''
+  );
+
+  const savedData: SavedBirthdayData | null = savedCookieJson ? JSON.parse(savedCookieJson) : null;
+
+  const [birthDateStr, setBirthDateStr] = useState<string>(() => {
+    return initialBirthDate;
+  });
   const [targetDateStr, setTargetDateStr] = useState<string>(initialTargetDate || todayStr);
   const [isCustomTarget, setIsCustomTarget] = useState<boolean>(!!initialTargetDate && initialTargetDate !== todayStr);
 
@@ -51,7 +76,7 @@ export default function MainAgeCalculator({
 
   const [copied, setCopied] = useState<boolean>(false);
 
-  // Synchronous calculation initialization
+  // Synchronous calculation
   const [result, setResult] = useState<AgeResult | null>(() => {
     const b = parseDateString(initialBirthDate);
     const t = parseDateString(initialTargetDate || todayStr);
@@ -110,6 +135,10 @@ export default function MainAgeCalculator({
     try {
       const res = calculateAge(bDate, tDate, bTime, tTime);
       setResult(res);
+
+      // Save entered birthday and time to browser cookie for next visits
+      saveUserBirthday(bStr, useTime ? bTimeStr : undefined, useTime);
+
       trackEvent('age_calculator_used', {
         birth_year: bDate.year,
         calculated_age_years: res.years,
@@ -122,6 +151,16 @@ export default function MainAgeCalculator({
     }
   };
 
+  const handleApplySavedBirthday = (saved: SavedBirthdayData) => {
+    setBirthDateStr(saved.dob);
+    if (saved.tob) {
+      setBirthTimeStr(saved.tob);
+    }
+    const withTime = !!saved.includeTime;
+    setIncludeTime(withTime);
+    performCalculation(saved.dob, targetDateStr, withTime, saved.tob || birthTimeStr);
+  };
+
   const handleReset = () => {
     setBirthDateStr('');
     setTargetDateStr(todayStr);
@@ -131,7 +170,12 @@ export default function MainAgeCalculator({
     setTargetTimeStr('12:00');
     setResult(null);
     setError(null);
+    clearSavedUserBirthday();
     trackEvent('reset_calculator');
+  };
+
+  const handleClearSavedCookie = () => {
+    clearSavedUserBirthday();
   };
 
   const handleCopyResult = () => {
@@ -155,8 +199,8 @@ export default function MainAgeCalculator({
   const isTodayTarget = !isCustomTarget || targetDateStr === todayStr;
 
   return (
-    <div id="calculator" className="calculator-card p-6 sm:p-8 bg-white border border-slate-200 rounded-2xl shadow-sm">
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-slate-100">
+    <div id="calculator" className="calculator-card p-4 sm:p-6 md:p-8 bg-white border border-slate-200 rounded-2xl shadow-sm">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-5 border-b border-slate-100">
         <div>
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-100 mb-1.5">
             <Sparkles className="w-3.5 h-3.5 text-blue-600" />
@@ -194,6 +238,40 @@ export default function MainAgeCalculator({
         )}
       </div>
 
+      {/* Saved Birthday Quick-Load Banner */}
+      {savedData && savedData.dob && (
+        <div className="mt-4 p-3 bg-emerald-50/90 border border-emerald-200 rounded-xl flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 text-xs text-emerald-900 animate-in fade-in duration-150">
+          <div className="flex items-center gap-2">
+            <BookmarkCheck className="w-4 h-4 text-emerald-600 shrink-0" />
+            <span>
+              <strong>Saved in Cookie:</strong> Born <strong>{savedData.dob}</strong>{savedData.tob ? ` at ${savedData.tob}` : ''}
+            </span>
+          </div>
+
+          <div className="flex items-center gap-2 self-end sm:self-auto">
+            {birthDateStr !== savedData.dob && (
+              <button
+                type="button"
+                onClick={() => handleApplySavedBirthday(savedData)}
+                className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-emerald-600 text-white font-bold hover:bg-emerald-700 transition-colors cursor-pointer"
+              >
+                <History className="w-3 h-3" />
+                <span>Load My Birthday</span>
+              </button>
+            )}
+            <button
+              type="button"
+              onClick={handleClearSavedCookie}
+              className="text-emerald-700 hover:text-emerald-900 font-semibold underline flex items-center gap-1 px-1 py-0.5 cursor-pointer"
+              title="Forget saved birthday on this browser"
+            >
+              <Trash2 className="w-3 h-3" />
+              <span>Clear</span>
+            </button>
+          </div>
+        </div>
+      )}
+
       {/* Input Form */}
       <form
         onSubmit={(e) => {
@@ -226,7 +304,7 @@ export default function MainAgeCalculator({
               />
             </div>
             <p id="dob-helper" className="text-xs text-slate-500">
-              Select your birth day, month, and year (DD / MM / YYYY).
+              Select your birth day, month, and year (DD / MM / YYYY). Automatically saved in your browser cookie.
             </p>
           </div>
 
