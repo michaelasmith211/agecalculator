@@ -1,0 +1,97 @@
+import React from 'react';
+import { Metadata } from 'next';
+import Link from 'next/link';
+import { ArrowRight } from 'lucide-react';
+import DateOfBirthCalculator from '@/components/calculators/DateOfBirthCalculator';
+import Breadcrumbs from '@/components/Breadcrumbs';
+import FAQAccordion from '@/components/ui/FAQAccordion';
+import AdSlot from '@/components/AdSlot';
+import { WebApplicationJsonLd, FaqJsonLd } from '@/components/JsonLd';
+
+export const metadata: Metadata = {
+  title: 'Date of Birth Calculator – Find Your Birth Date',
+  description:
+    'Estimate your possible date of birth by entering your age in years, months, and days. Fast, accurate reverse birthday lookup tool.',
+  alternates: {
+    canonical: '/date-of-birth-calculator'
+  }
+};
+
+const FAQS = [
+  {
+    question: 'How does a Date of Birth Calculator estimate birth date from age?',
+    answer:
+      'The calculator performs reverse calendar subtraction by taking a reference date (such as today) and subtracting the specified number of days, months, and years while correctly borrowing calendar days from preceding months.'
+  },
+  {
+    question: 'Why might an estimated birth date vary by one day?',
+    answer:
+      'Because months have variable lengths (28, 29, 30, and 31 days) and leap years occur quadrennially, subtracting an approximate age without knowing the exact calendar month boundaries can occasionally result in a 1-day variance. Our tool accounts for preceding month lengths accurately.'
+  },
+  {
+    question: 'Can I find a birth date for someone whose exact birthday was forgotten?',
+    answer:
+      'Yes. If you know their age from a specific date (for example on a past medical record, legal document, or census entry), you can enter that age and reference date to find their exact birth date.'
+  }
+];
+
+export default function DateOfBirthPage() {
+  return (
+    <>
+      <WebApplicationJsonLd
+        name="Date of Birth Calculator"
+        description="Estimate date of birth from current age in years, months, and days."
+        url="/date-of-birth-calculator"
+        applicationCategory="UtilityApplication"
+      />
+      <FaqJsonLd items={FAQS} />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10">
+        <Breadcrumbs
+          items={[
+            { name: 'Age Calculators', href: '/' },
+            { name: 'Date of Birth Calculator', href: '/date-of-birth-calculator' }
+          ]}
+        />
+
+        <div className="max-w-4xl mx-auto mt-4">
+          <div className="text-center mb-8">
+            <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+              Date of Birth Calculator
+            </h1>
+            <p className="mt-2 text-base text-slate-600 max-w-xl mx-auto">
+              Reverse age calculator: enter your known age in years, months, and days to calculate your estimated birth date.
+            </p>
+          </div>
+
+          <DateOfBirthCalculator />
+
+          <AdSlot slotId="dob-mid" format="horizontal" />
+
+          {/* Educational Section */}
+          <div className="mt-12 bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 space-y-4">
+            <h2 className="text-xl sm:text-2xl font-bold text-slate-900">
+              When Is a Reverse DOB Calculator Useful?
+            </h2>
+            <p className="text-sm text-slate-600 leading-relaxed">
+              A reverse date of birth calculator is invaluable in genealogy research, historical document analysis, medical intake forms, and legal record verification where only an age on a specific date is recorded rather than a complete date of birth.
+            </p>
+
+            <div className="pt-4 border-t border-slate-100 flex items-center justify-between text-sm">
+              <span className="text-slate-600">Want to calculate forward from date of birth instead?</span>
+              <Link
+                href="/age-calculator"
+                className="font-bold text-amber-700 hover:text-amber-800 inline-flex items-center gap-1"
+              >
+                <span>Go to Age Calculator</span>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </div>
+
+          <FAQAccordion items={FAQS} />
+        </div>
+      </div>
+    </>
+  );
+}
