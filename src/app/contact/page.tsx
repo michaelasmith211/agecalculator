@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { Mail, Send, CheckCircle2 } from 'lucide-react';
 import Breadcrumbs from '@/components/Breadcrumbs';
+import { BreadcrumbJsonLd } from '@/components/JsonLd';
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
@@ -16,13 +17,20 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10">
-      <Breadcrumbs
+    <>
+      <BreadcrumbJsonLd
         items={[
-          { name: 'Company', href: '/' },
-          { name: 'Contact', href: '/contact' }
+          { name: 'Home', item: '/' },
+          { name: 'Contact', item: '/contact/' }
         ]}
       />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10">
+        <Breadcrumbs
+          items={[
+            { name: 'Company', href: '/' },
+            { name: 'Contact', href: '/contact/' }
+          ]}
+        />
 
       <div className="max-w-2xl mx-auto mt-6 bg-white border border-slate-200 rounded-2xl p-6 sm:p-10 shadow-xs">
         <div className="text-center mb-8">
@@ -106,5 +114,6 @@ export default function ContactPage() {
         )}
       </div>
     </div>
+    </>
   );
 }

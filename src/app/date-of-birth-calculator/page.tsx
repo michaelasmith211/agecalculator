@@ -7,7 +7,7 @@ import Breadcrumbs from '@/components/Breadcrumbs';
 import FAQAccordion from '@/components/ui/FAQAccordion';
 import AdSlot from '@/components/AdSlot';
 import SocialShare from '@/components/SocialShare';
-import { WebApplicationJsonLd, FaqJsonLd } from '@/components/JsonLd';
+import { WebApplicationJsonLd, FaqJsonLd, BreadcrumbJsonLd } from '@/components/JsonLd';
 import { SITE_CONFIG } from '@/lib/constants';
 
 export const metadata: Metadata = {
@@ -58,6 +58,12 @@ export default function DateOfBirthPage() {
         description="Estimate date of birth from current age in years, months, and days."
         url="/date-of-birth-calculator/"
         applicationCategory="UtilityApplication"
+      />
+      <BreadcrumbJsonLd
+        items={[
+          { name: 'Home', item: '/' },
+          { name: 'Date of Birth Calculator', item: '/date-of-birth-calculator/' }
+        ]}
       />
       <FaqJsonLd items={FAQS} />
 

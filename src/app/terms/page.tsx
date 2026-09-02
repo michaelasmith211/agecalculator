@@ -2,6 +2,7 @@ import React from 'react';
 import { Metadata } from 'next';
 import { FileText } from 'lucide-react';
 import Breadcrumbs from '@/components/Breadcrumbs';
+import { BreadcrumbJsonLd } from '@/components/JsonLd';
 import { SITE_CONFIG } from '@/lib/constants';
 
 export const metadata: Metadata = {
@@ -28,7 +29,14 @@ export const metadata: Metadata = {
 
 export default function TermsPage() {
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10">
+    <>
+      <BreadcrumbJsonLd
+        items={[
+          { name: 'Home', item: '/' },
+          { name: 'Terms of Service', item: '/terms/' }
+        ]}
+      />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10">
       <Breadcrumbs
         items={[
           { name: 'Company', href: '/' },
@@ -90,5 +98,6 @@ export default function TermsPage() {
         </section>
       </article>
     </div>
+    </>
   );
 }

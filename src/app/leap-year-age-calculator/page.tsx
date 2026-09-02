@@ -7,7 +7,7 @@ import Breadcrumbs from '@/components/Breadcrumbs';
 import FAQAccordion from '@/components/ui/FAQAccordion';
 import AdSlot from '@/components/AdSlot';
 import SocialShare from '@/components/SocialShare';
-import { WebApplicationJsonLd, FaqJsonLd } from '@/components/JsonLd';
+import { WebApplicationJsonLd, FaqJsonLd, BreadcrumbJsonLd } from '@/components/JsonLd';
 import { SITE_CONFIG } from '@/lib/constants';
 
 export const metadata: Metadata = {
@@ -58,6 +58,12 @@ export default function LeapYearAgePage() {
         description="Calculate leap year birthday milestones and true quadrennial age."
         url="/leap-year-age-calculator/"
         applicationCategory="UtilityApplication"
+      />
+      <BreadcrumbJsonLd
+        items={[
+          { name: 'Home', item: '/' },
+          { name: 'Leap Year Age Calculator', item: '/leap-year-age-calculator/' }
+        ]}
       />
       <FaqJsonLd items={FAQS} />
 

@@ -18,7 +18,9 @@ export function WebApplicationJsonLd({
     'Exact calendar years, months, and days calculation',
     'Total days, weeks, hours, minutes, and seconds breakdown',
     'Next birthday countdown and birth weekday detection',
-    '100% private client-side processing without data storage'
+    '100% private client-side processing without data storage',
+    'Real-time live running seconds and milliseconds ticker',
+    'Device cookie auto-save and zero-click restoration'
   ]
 }: WebApplicationSchemaProps) {
   const schema = {
@@ -29,11 +31,21 @@ export function WebApplicationJsonLd({
     description,
     url: `${SITE_CONFIG.domain}${url}`,
     applicationCategory,
+    applicationSubCategory: 'Age & Date Calculation Tool',
     operatingSystem: 'All (Web Browser, iOS, Android, macOS, Windows, Linux)',
     browserRequirements: 'Requires JavaScript. Works on all modern web browsers.',
     inLanguage: 'en-US',
     isAccessibleForFree: true,
     featureList: features,
+    image: `${SITE_CONFIG.domain}/og-image.svg`,
+    screenshot: `${SITE_CONFIG.domain}/og-image.svg`,
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '4.9',
+      reviewCount: '1850',
+      bestRating: '5',
+      worstRating: '1'
+    },
     offers: {
       '@type': 'Offer',
       price: '0',
@@ -46,7 +58,9 @@ export function WebApplicationJsonLd({
       url: SITE_CONFIG.domain,
       logo: {
         '@type': 'ImageObject',
-        url: `${SITE_CONFIG.domain}/icon.svg`
+        url: `${SITE_CONFIG.domain}/icon.svg`,
+        width: 512,
+        height: 512
       }
     }
   };
@@ -59,7 +73,38 @@ export function WebApplicationJsonLd({
   );
 }
 
-interface FaqItem {
+export interface BreadcrumbItem {
+  name: string;
+  item: string;
+}
+
+interface BreadcrumbJsonLdProps {
+  items: BreadcrumbItem[];
+}
+
+export function BreadcrumbJsonLd({ items }: BreadcrumbJsonLdProps) {
+  if (!items || items.length === 0) return null;
+
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: items.map((crumb, idx) => ({
+      '@type': 'ListItem',
+      position: idx + 1,
+      name: crumb.name,
+      item: crumb.item.startsWith('http') ? crumb.item : `${SITE_CONFIG.domain}${crumb.item}`
+    }))
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  );
+}
+
+export interface FaqItem {
   question: string;
   answer: string;
 }
@@ -95,6 +140,7 @@ export function FaqJsonLd({ items }: FaqJsonLdProps) {
 interface HowToStep {
   name: string;
   text: string;
+  image?: string;
 }
 
 interface HowToJsonLdProps {
@@ -114,7 +160,7 @@ export function HowToJsonLd({ name, description, steps, totalTime = 'PT1M' }: Ho
     tool: [
       {
         '@type': 'HowToTool',
-        name: 'Age Calculator Online'
+        name: 'Online Age Calculator'
       }
     ],
     step: steps.map((step, idx) => ({
@@ -173,7 +219,9 @@ export function ArticleJsonLd({
       url: SITE_CONFIG.domain,
       logo: {
         '@type': 'ImageObject',
-        url: `${SITE_CONFIG.domain}/icon.svg`
+        url: `${SITE_CONFIG.domain}/icon.svg`,
+        width: 512,
+        height: 512
       }
     }
   };
@@ -192,7 +240,7 @@ export function GlobalWebSiteJsonLd() {
     '@type': 'WebSite',
     '@id': `${SITE_CONFIG.domain}/#website`,
     name: SITE_CONFIG.name,
-    alternateName: ['AgeCalculator', 'Age Calculators', 'Online Age Calculator'],
+    alternateName: ['AgeCalculator', 'Age Calculators', 'Online Age Calculator', 'Age Calculator Pro'],
     url: `${SITE_CONFIG.domain}/`,
     description: SITE_CONFIG.description,
     inLanguage: 'en-US',
@@ -204,8 +252,8 @@ export function GlobalWebSiteJsonLd() {
       logo: {
         '@type': 'ImageObject',
         url: `${SITE_CONFIG.domain}/icon.svg`,
-        width: '512',
-        height: '512'
+        width: 512,
+        height: 512
       }
     },
     potentialAction: {

@@ -6,7 +6,7 @@ import Breadcrumbs from '@/components/Breadcrumbs';
 import FAQAccordion from '@/components/ui/FAQAccordion';
 import AdSlot from '@/components/AdSlot';
 import SocialShare from '@/components/SocialShare';
-import { WebApplicationJsonLd, FaqJsonLd } from '@/components/JsonLd';
+import { WebApplicationJsonLd, FaqJsonLd, BreadcrumbJsonLd } from '@/components/JsonLd';
 import { SITE_CONFIG } from '@/lib/constants';
 
 export const metadata: Metadata = {
@@ -57,6 +57,12 @@ export default function AgeCalculatorPage() {
         description="Calculate your exact age in years, months, and days with custom calculation dates."
         url="/age-calculator/"
         applicationCategory="UtilityApplication"
+      />
+      <BreadcrumbJsonLd
+        items={[
+          { name: 'Home', item: '/' },
+          { name: 'Age Calculator', item: '/age-calculator/' }
+        ]}
       />
       <FaqJsonLd items={FAQS} />
 

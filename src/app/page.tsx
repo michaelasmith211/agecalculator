@@ -20,7 +20,7 @@ import MainAgeCalculator from '@/components/calculators/MainAgeCalculator';
 import AgeReferenceTable from '@/components/ui/AgeReferenceTable';
 import FAQAccordion from '@/components/ui/FAQAccordion';
 import AdSlot from '@/components/AdSlot';
-import { WebApplicationJsonLd, FaqJsonLd } from '@/components/JsonLd';
+import { WebApplicationJsonLd, FaqJsonLd, BreadcrumbJsonLd } from '@/components/JsonLd';
 
 export const metadata: Metadata = {
   title: 'Age Calculator – Calculate Your Exact Age',
@@ -79,6 +79,7 @@ export default function HomePage() {
         url="/"
         applicationCategory="UtilityApplication"
       />
+      <BreadcrumbJsonLd items={[{ name: 'Home', item: '/' }]} />
       <FaqJsonLd items={HOMEPAGE_FAQS} />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">

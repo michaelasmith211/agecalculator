@@ -7,7 +7,7 @@ import FAQAccordion from '@/components/ui/FAQAccordion';
 import AgeReferenceTable from '@/components/ui/AgeReferenceTable';
 import AdSlot from '@/components/AdSlot';
 import SocialShare from '@/components/SocialShare';
-import { FaqJsonLd, ArticleJsonLd, HowToJsonLd } from '@/components/JsonLd';
+import { FaqJsonLd, ArticleJsonLd, HowToJsonLd, BreadcrumbJsonLd } from '@/components/JsonLd';
 import { SITE_CONFIG } from '@/lib/constants';
 
 export const metadata: Metadata = {
@@ -77,6 +77,12 @@ export default function HowToCalculateAgePage() {
         name="How to Calculate Exact Age Manually"
         description="Learn how to calculate exact chronological age in years, months, and days using standard calendar borrow subtraction."
         steps={HOW_TO_STEPS}
+      />
+      <BreadcrumbJsonLd
+        items={[
+          { name: 'Home', item: '/' },
+          { name: 'How to Calculate Age', item: '/how-to-calculate-age/' }
+        ]}
       />
       <FaqJsonLd items={FAQS} />
 

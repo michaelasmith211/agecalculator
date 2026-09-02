@@ -7,7 +7,7 @@ import Breadcrumbs from '@/components/Breadcrumbs';
 import FAQAccordion from '@/components/ui/FAQAccordion';
 import AdSlot from '@/components/AdSlot';
 import SocialShare from '@/components/SocialShare';
-import { WebApplicationJsonLd, FaqJsonLd } from '@/components/JsonLd';
+import { WebApplicationJsonLd, FaqJsonLd, BreadcrumbJsonLd } from '@/components/JsonLd';
 import { SITE_CONFIG } from '@/lib/constants';
 
 export const metadata: Metadata = {
@@ -58,6 +58,12 @@ export default function BirthdayCountdownPage() {
         description="Live real-time ticking countdown timer to next birthday."
         url="/birthday-countdown/"
         applicationCategory="UtilityApplication"
+      />
+      <BreadcrumbJsonLd
+        items={[
+          { name: 'Home', item: '/' },
+          { name: 'Birthday Countdown', item: '/birthday-countdown/' }
+        ]}
       />
       <FaqJsonLd items={FAQS} />
 

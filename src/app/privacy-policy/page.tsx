@@ -3,6 +3,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import { ShieldCheck } from 'lucide-react';
 import Breadcrumbs from '@/components/Breadcrumbs';
+import { BreadcrumbJsonLd } from '@/components/JsonLd';
 import { SITE_CONFIG } from '@/lib/constants';
 
 export const metadata: Metadata = {
@@ -29,13 +30,20 @@ export const metadata: Metadata = {
 
 export default function PrivacyPolicyPage() {
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10">
-      <Breadcrumbs
+    <>
+      <BreadcrumbJsonLd
         items={[
-          { name: 'Company', href: '/' },
-          { name: 'Privacy Policy', href: '/privacy-policy/' }
+          { name: 'Home', item: '/' },
+          { name: 'Privacy Policy', item: '/privacy-policy/' }
         ]}
       />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10">
+        <Breadcrumbs
+          items={[
+            { name: 'Company', href: '/' },
+            { name: 'Privacy Policy', href: '/privacy-policy/' }
+          ]}
+        />
 
       <article className="max-w-3xl mx-auto mt-6 bg-white border border-slate-200 rounded-2xl p-6 sm:p-10 space-y-6 shadow-xs text-sm text-slate-600 leading-relaxed">
         <header className="space-y-2 border-b border-slate-100 pb-4">
@@ -100,5 +108,6 @@ export default function PrivacyPolicyPage() {
         </section>
       </article>
     </div>
+    </>
   );
 }
