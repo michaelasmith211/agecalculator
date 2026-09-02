@@ -372,32 +372,32 @@ export default function MainAgeCalculator({
       {result && parsedBirthDate && (
         <div className="mt-8 space-y-6 animate-in fade-in duration-200">
           {/* Primary Result Banner */}
-          <div className="p-6 bg-gradient-to-br from-blue-50 to-indigo-50/50 border border-blue-200 rounded-2xl">
+          <div className="p-4 sm:p-6 bg-gradient-to-br from-blue-50 to-indigo-50/50 border border-blue-200 rounded-2xl overflow-hidden">
             <div className="text-xs font-semibold text-blue-700 uppercase tracking-wider mb-1">
               Your Exact Age
             </div>
             <div className="flex flex-wrap items-baseline gap-2 sm:gap-4 mt-2">
-              <div className="flex items-baseline gap-1.5">
-                <span className="text-4xl sm:text-5xl font-extrabold text-blue-900 tracking-tight">
+              <div className="flex items-baseline gap-1">
+                <span className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-blue-900 tracking-tight font-mono">
                   {result.years}
                 </span>
-                <span className="text-base sm:text-lg font-bold text-blue-700">Years</span>
+                <span className="text-sm sm:text-base font-bold text-blue-700">Years</span>
               </div>
-              <div className="flex items-baseline gap-1.5">
-                <span className="text-4xl sm:text-5xl font-extrabold text-blue-900 tracking-tight">
+              <div className="flex items-baseline gap-1">
+                <span className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-blue-900 tracking-tight font-mono">
                   {result.months}
                 </span>
-                <span className="text-base sm:text-lg font-bold text-blue-700">Months</span>
+                <span className="text-sm sm:text-base font-bold text-blue-700">Months</span>
               </div>
-              <div className="flex items-baseline gap-1.5">
-                <span className="text-4xl sm:text-5xl font-extrabold text-blue-900 tracking-tight">
+              <div className="flex items-baseline gap-1">
+                <span className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-blue-900 tracking-tight font-mono">
                   {result.days}
                 </span>
-                <span className="text-base sm:text-lg font-bold text-blue-700">Days</span>
+                <span className="text-sm sm:text-base font-bold text-blue-700">Days</span>
               </div>
             </div>
 
-            <div className="mt-3 text-sm text-slate-700 flex flex-wrap items-center gap-x-4 gap-y-1">
+            <div className="mt-3 text-xs sm:text-sm text-slate-700 flex flex-wrap items-center gap-x-3 gap-y-1">
               <span>
                 Born: <strong>{result.birthDateFormatted}</strong>
                 {result.birthTimeFormatted ? ` at ${result.birthTimeFormatted}` : ''} ({result.dayOfWeekBorn})
