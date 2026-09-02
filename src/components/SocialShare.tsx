@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useSyncExternalStore } from 'react';
 import { Share2, Copy, Check, MessageCircle } from 'lucide-react';
 import { SITE_CONFIG } from '@/lib/constants';
 
@@ -12,6 +12,8 @@ interface SocialShareProps {
   className?: string;
 }
 
+const emptySubscribe = () => () => {};
+
 export default function SocialShare({
   title = 'Age Calculator – Calculate Your Exact Age',
   description = 'Fast, accurate, and free online Age Calculator in years, months, and days.',
@@ -21,8 +23,16 @@ export default function SocialShare({
 }: SocialShareProps) {
   const [copied, setCopied] = useState(false);
 
-  const shareUrl = typeof window !== 'undefined'
-    ? url ? `${SITE_CONFIG.domain}${url}` : window.location.href
+  // Hydration-safe client detection via useSyncExternalStore (React 18 & 19 standard)
+  const isClient = useSyncExternalStore(
+    emptySubscribe,
+    () => true,
+    () => false
+  );
+
+  const canShare = isClient && typeof navigator !== 'undefined' && typeof navigator.share === 'function';
+  const shareUrl = isClient && !url && typeof window !== 'undefined'
+    ? window.location.href
     : `${SITE_CONFIG.domain}${url || '/'}`;
 
   const defaultText = resultText
@@ -75,8 +85,8 @@ export default function SocialShare({
           </div>
         </div>
 
-        {/* Native Web Share Button (Mobile-First) */}
-        {typeof navigator !== 'undefined' && typeof navigator.share === 'function' && (
+        {/* Native Web Share Button (Mobile-First) - Hydration Safe */}
+        {canShare && (
           <button
             type="button"
             onClick={handleNativeShare}
