@@ -5,6 +5,7 @@ export const SITE_CONFIG = {
   description: 'Fast, accurate, and free online Age Calculator. Calculate your exact age, next birthday, total days lived, age differences, and date intervals instantly in your browser.',
   author: 'Age Calculator Team',
   twitterHandle: '@agecalculators',
+  gaId: 'G-HT87NWEHNT',
   currentYear: 2026,
 };
 
