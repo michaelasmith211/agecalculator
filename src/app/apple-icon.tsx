@@ -18,62 +18,27 @@ export default function AppleIcon() {
           flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
-          background: 'linear-gradient(135deg, #2563eb 0%, #1d4ed8 50%, #1e40af 100%)',
-          borderRadius: '40px',
+          backgroundColor: '#2563eb',
+          borderRadius: '42px',
           padding: '24px'
         }}
       >
-        <div
-          style={{
-            width: '120px',
-            height: '120px',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
-            background: '#ffffff',
-            borderRadius: '24px',
-            boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.3)',
-            overflow: 'hidden',
-            position: 'relative'
-          }}
+        {/* Calendar Outline Icon */}
+        <svg
+          width="110"
+          height="110"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="#ffffff"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         >
-          {/* Top red header bar */}
-          <div
-            style={{
-              position: 'absolute',
-              top: 0,
-              left: 0,
-              right: 0,
-              height: '34px',
-              background: 'linear-gradient(90deg, #ef4444 0%, #f97316 100%)'
-            }}
-          />
-
-          {/* Central Blue Clock Dial */}
-          <div
-            style={{
-              width: '60px',
-              height: '60px',
-              borderRadius: '50%',
-              background: 'linear-gradient(135deg, #38bdf8 0%, #2563eb 100%)',
-              marginTop: '16px',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              boxShadow: '0 4px 10px rgba(37, 99, 235, 0.3)'
-            }}
-          >
-            <div
-              style={{
-                width: '10px',
-                height: '10px',
-                borderRadius: '50%',
-                background: '#ffffff'
-              }}
-            />
-          </div>
-        </div>
+          <rect x="3" y="4" width="18" height="18" rx="3" ry="3" />
+          <line x1="3" y1="10" x2="21" y2="10" />
+          <line x1="8" y1="2" x2="8" y2="6" />
+          <line x1="16" y1="2" x2="16" y2="6" />
+        </svg>
       </div>
     ),
     {
