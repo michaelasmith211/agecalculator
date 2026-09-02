@@ -514,9 +514,9 @@ export default function MainAgeCalculator({
                 <div className="text-[11px] text-slate-400">Total elapsed minutes</div>
               </div>
 
-              <div className="bg-white p-3 rounded-lg border border-slate-200/80">
+              <div className="bg-white p-3 rounded-lg border border-slate-200/80 min-w-0">
                 <div className="text-xs text-slate-500 font-medium">Total Seconds</div>
-                <div className="text-lg font-bold text-slate-900 mt-0.5 truncate font-mono">
+                <div className="text-[clamp(13px,3.5vw,1.125rem)] font-bold text-slate-900 mt-0.5 font-mono whitespace-nowrap overflow-x-auto scrollbar-none">
                   {result.totalSeconds.toLocaleString()}
                 </div>
                 <div className="text-[11px] text-slate-400">Total elapsed seconds</div>

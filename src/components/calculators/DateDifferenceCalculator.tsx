@@ -181,9 +181,9 @@ export default function DateDifferenceCalculator() {
               <div className="text-xs font-semibold text-slate-500 uppercase">Hours</div>
               <div className="text-xl font-bold text-slate-900 mt-1">{details.totalHours.toLocaleString()}</div>
             </div>
-            <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl">
+            <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl min-w-0">
               <div className="text-xs font-semibold text-slate-500 uppercase">Minutes</div>
-              <div className="text-xl font-bold text-slate-900 mt-1 truncate">{details.totalMinutes.toLocaleString()}</div>
+              <div className="text-[clamp(14px,3.5vw,1.25rem)] font-bold text-slate-900 mt-1 whitespace-nowrap overflow-x-auto scrollbar-none">{details.totalMinutes.toLocaleString()}</div>
             </div>
           </div>
         </div>
