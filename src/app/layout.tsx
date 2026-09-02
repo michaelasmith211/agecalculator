@@ -43,12 +43,15 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       { url: '/icon.svg', type: 'image/svg+xml' },
+      { url: '/favicon.svg', type: 'image/svg+xml' },
       { url: '/favicon.ico' }
     ],
     apple: [
-      { url: '/icon.svg', sizes: '180x180', type: 'image/svg+xml' }
+      { url: '/apple-icon', sizes: '180x180', type: 'image/png' },
+      { url: '/icon.svg', sizes: 'any', type: 'image/svg+xml' }
     ]
   },
+  manifest: '/manifest.webmanifest',
   openGraph: {
     title: 'Age Calculator – Calculate Your Exact Age',
     description: SITE_CONFIG.description,
