@@ -6,14 +6,29 @@ import AgeDifferenceCalculator from '@/components/calculators/AgeDifferenceCalcu
 import Breadcrumbs from '@/components/Breadcrumbs';
 import FAQAccordion from '@/components/ui/FAQAccordion';
 import AdSlot from '@/components/AdSlot';
+import SocialShare from '@/components/SocialShare';
 import { WebApplicationJsonLd, FaqJsonLd } from '@/components/JsonLd';
+import { SITE_CONFIG } from '@/lib/constants';
 
 export const metadata: Metadata = {
   title: 'Age Difference Calculator – Calculate the Exact Age Difference',
   description:
     'Calculate the exact age difference between two people in years, months, and days. Accurate calendar calculation for couples, siblings, and friends.',
   alternates: {
-    canonical: '/age-difference-calculator'
+    canonical: '/age-difference-calculator/'
+  },
+  openGraph: {
+    title: 'Age Difference Calculator – Exact Gap in Years, Months & Days',
+    description: 'Compare two birth dates to see who is older and calculate the exact difference in years, months, and days.',
+    url: `${SITE_CONFIG.domain}/age-difference-calculator/`,
+    type: 'website',
+    images: [`${SITE_CONFIG.domain}/og-image.svg`]
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Age Difference Calculator – Compare Two Ages',
+    description: 'Compare two birth dates to see who is older and calculate the exact difference in years, months, and days.',
+    images: [`${SITE_CONFIG.domain}/og-image.svg`]
   }
 };
 
@@ -41,7 +56,7 @@ export default function AgeDifferencePage() {
       <WebApplicationJsonLd
         name="Age Difference Calculator"
         description="Calculate the exact age difference between two people in years, months, and days."
-        url="/age-difference-calculator"
+        url="/age-difference-calculator/"
         applicationCategory="UtilityApplication"
       />
       <FaqJsonLd items={FAQS} />
@@ -50,7 +65,7 @@ export default function AgeDifferencePage() {
         <Breadcrumbs
           items={[
             { name: 'Age Calculators', href: '/' },
-            { name: 'Age Difference Calculator', href: '/age-difference-calculator' }
+            { name: 'Age Difference Calculator', href: '/age-difference-calculator/' }
           ]}
         />
 
@@ -89,7 +104,7 @@ export default function AgeDifferencePage() {
             <div className="pt-4 border-t border-slate-100 flex items-center justify-between text-sm">
               <span className="text-slate-600">Need to calculate date duration between non-birth dates?</span>
               <Link
-                href="/date-difference-calculator"
+                href="/date-difference-calculator/"
                 className="font-bold text-indigo-600 hover:text-indigo-700 inline-flex items-center gap-1"
               >
                 <span>Date Difference Calculator</span>
@@ -97,6 +112,12 @@ export default function AgeDifferencePage() {
               </Link>
             </div>
           </div>
+
+          <SocialShare
+            title="Age Difference Calculator"
+            url="/age-difference-calculator/"
+            className="mt-6"
+          />
 
           <FAQAccordion items={FAQS} />
         </div>

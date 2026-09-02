@@ -6,14 +6,29 @@ import BirthdayCalculator from '@/components/calculators/BirthdayCalculator';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import FAQAccordion from '@/components/ui/FAQAccordion';
 import AdSlot from '@/components/AdSlot';
+import SocialShare from '@/components/SocialShare';
 import { WebApplicationJsonLd, FaqJsonLd } from '@/components/JsonLd';
+import { SITE_CONFIG } from '@/lib/constants';
 
 export const metadata: Metadata = {
-  title: 'Birthday Calculator – Find Your Next Birthday',
+  title: 'Birthday Calculator – Find Your Next Birthday & Milestones',
   description:
     'Use our free Birthday Calculator to discover how many days remain until your next birthday, what day of the week you were born on, and key milestone ages.',
   alternates: {
-    canonical: '/birthday-calculator'
+    canonical: '/birthday-calculator/'
+  },
+  openGraph: {
+    title: 'Birthday Calculator – Find Your Next Birthday & Milestones',
+    description: 'Find days until your next birthday, your birth weekday, and a complete milestone calendar.',
+    url: `${SITE_CONFIG.domain}/birthday-calculator/`,
+    type: 'website',
+    images: [`${SITE_CONFIG.domain}/og-image.svg`]
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Birthday Calculator – Next Birthday Countdown & Milestones',
+    description: 'Find days until your next birthday, your birth weekday, and a complete milestone calendar.',
+    images: [`${SITE_CONFIG.domain}/og-image.svg`]
   }
 };
 
@@ -41,7 +56,7 @@ export default function BirthdayCalculatorPage() {
       <WebApplicationJsonLd
         name="Birthday Calculator"
         description="Find days until your next birthday and see your complete milestone birthday schedule."
-        url="/birthday-calculator"
+        url="/birthday-calculator/"
         applicationCategory="UtilityApplication"
       />
       <FaqJsonLd items={FAQS} />
@@ -50,7 +65,7 @@ export default function BirthdayCalculatorPage() {
         <Breadcrumbs
           items={[
             { name: 'Age Calculators', href: '/' },
-            { name: 'Birthday Calculator', href: '/birthday-calculator' }
+            { name: 'Birthday Calculator', href: '/birthday-calculator/' }
           ]}
         />
 
@@ -95,7 +110,7 @@ export default function BirthdayCalculatorPage() {
             <div className="pt-4 border-t border-slate-100 flex flex-wrap items-center justify-between gap-3 text-sm">
               <span className="font-medium text-slate-700">Looking for a live ticking timer?</span>
               <Link
-                href="/birthday-countdown"
+                href="/birthday-countdown/"
                 className="inline-flex items-center gap-1.5 font-bold text-pink-600 hover:text-pink-700"
               >
                 <span>Try Live Birthday Countdown</span>
@@ -103,6 +118,12 @@ export default function BirthdayCalculatorPage() {
               </Link>
             </div>
           </div>
+
+          <SocialShare
+            title="Birthday Calculator – Next Birthday & Milestones"
+            url="/birthday-calculator/"
+            className="mt-6"
+          />
 
           <FAQAccordion items={FAQS} />
         </div>

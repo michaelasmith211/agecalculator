@@ -5,14 +5,29 @@ import MainAgeCalculator from '@/components/calculators/MainAgeCalculator';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import FAQAccordion from '@/components/ui/FAQAccordion';
 import AdSlot from '@/components/AdSlot';
+import SocialShare from '@/components/SocialShare';
 import { WebApplicationJsonLd, FaqJsonLd } from '@/components/JsonLd';
+import { SITE_CONFIG } from '@/lib/constants';
 
 export const metadata: Metadata = {
   title: 'Age Calculator – Calculate Age in Years, Months & Days',
   description:
     'Calculate your exact age in years, months, and days from your date of birth. View detailed breakdown in weeks, days, hours, and minutes with custom target date options.',
   alternates: {
-    canonical: '/age-calculator'
+    canonical: '/age-calculator/'
+  },
+  openGraph: {
+    title: 'Age Calculator – Calculate Age in Years, Months & Days',
+    description: 'Calculate your exact age in years, months, and days with full calendar precision.',
+    url: `${SITE_CONFIG.domain}/age-calculator/`,
+    type: 'website',
+    images: [`${SITE_CONFIG.domain}/og-image.svg`]
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Age Calculator – Calculate Age in Years, Months & Days',
+    description: 'Calculate your exact age in years, months, and days with full calendar precision.',
+    images: [`${SITE_CONFIG.domain}/og-image.svg`]
   }
 };
 
@@ -40,7 +55,7 @@ export default function AgeCalculatorPage() {
       <WebApplicationJsonLd
         name="Age Calculator – Years, Months & Days"
         description="Calculate your exact age in years, months, and days with custom calculation dates."
-        url="/age-calculator"
+        url="/age-calculator/"
         applicationCategory="UtilityApplication"
       />
       <FaqJsonLd items={FAQS} />
@@ -49,7 +64,7 @@ export default function AgeCalculatorPage() {
         <Breadcrumbs
           items={[
             { name: 'Age Calculators', href: '/' },
-            { name: 'Age Calculator', href: '/age-calculator' }
+            { name: 'Age Calculator', href: '/age-calculator/' }
           ]}
         />
 
@@ -100,6 +115,12 @@ export default function AgeCalculatorPage() {
               </li>
             </ul>
           </div>
+
+          <SocialShare
+            title="Age Calculator – Exact Years, Months & Days"
+            url="/age-calculator/"
+            className="mt-6"
+          />
 
           <FAQAccordion items={FAQS} />
         </div>

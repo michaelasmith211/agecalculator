@@ -1,5 +1,6 @@
 import React from 'react';
 import { Metadata } from 'next';
+import Link from 'next/link';
 import { ShieldCheck } from 'lucide-react';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import { SITE_CONFIG } from '@/lib/constants';
@@ -9,7 +10,20 @@ export const metadata: Metadata = {
   description:
     'Our privacy policy explains how Age Calculator processes all dates 100% locally in your web browser with zero server data storage.',
   alternates: {
-    canonical: '/privacy-policy'
+    canonical: '/privacy-policy/'
+  },
+  openGraph: {
+    title: 'Privacy Policy – 100% Client-Side Privacy Commitment',
+    description: 'Learn how Age Calculator processes all dates 100% locally with zero server storage.',
+    url: `${SITE_CONFIG.domain}/privacy-policy/`,
+    type: 'website',
+    images: [`${SITE_CONFIG.domain}/og-image.svg`]
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Privacy Policy – Age Calculator',
+    description: 'Learn how Age Calculator processes all dates 100% locally with zero server storage.',
+    images: [`${SITE_CONFIG.domain}/og-image.svg`]
   }
 };
 
@@ -19,7 +33,7 @@ export default function PrivacyPolicyPage() {
       <Breadcrumbs
         items={[
           { name: 'Company', href: '/' },
-          { name: 'Privacy Policy', href: '/privacy-policy' }
+          { name: 'Privacy Policy', href: '/privacy-policy/' }
         ]}
       />
 
@@ -81,7 +95,7 @@ export default function PrivacyPolicyPage() {
             5. Contact Us
           </h2>
           <p>
-            If you have any questions regarding this Privacy Policy, please visit our <a href="/contact" className="text-blue-600 underline font-medium">Contact page</a>.
+            If you have any questions regarding this Privacy Policy, please visit our <Link href="/contact/" className="text-blue-600 underline font-medium">Contact page</Link>.
           </p>
         </section>
       </article>

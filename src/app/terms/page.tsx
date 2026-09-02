@@ -9,7 +9,20 @@ export const metadata: Metadata = {
   description:
     'Terms of service and usage conditions for Age Calculator (agecalculators.dev). Information regarding mathematical calculations and non-legal disclaimers.',
   alternates: {
-    canonical: '/terms'
+    canonical: '/terms/'
+  },
+  openGraph: {
+    title: 'Terms of Service – Age Calculator',
+    description: 'Usage terms and conditions for Age Calculator online tools.',
+    url: `${SITE_CONFIG.domain}/terms/`,
+    type: 'website',
+    images: [`${SITE_CONFIG.domain}/og-image.svg`]
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Terms of Service – Age Calculator',
+    description: 'Usage terms and conditions for Age Calculator online tools.',
+    images: [`${SITE_CONFIG.domain}/og-image.svg`]
   }
 };
 
@@ -19,7 +32,7 @@ export default function TermsPage() {
       <Breadcrumbs
         items={[
           { name: 'Company', href: '/' },
-          { name: 'Terms of Service', href: '/terms' }
+          { name: 'Terms of Service', href: '/terms/' }
         ]}
       />
 

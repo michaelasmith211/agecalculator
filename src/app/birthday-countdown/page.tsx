@@ -6,14 +6,29 @@ import BirthdayCountdown from '@/components/calculators/BirthdayCountdown';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import FAQAccordion from '@/components/ui/FAQAccordion';
 import AdSlot from '@/components/AdSlot';
+import SocialShare from '@/components/SocialShare';
 import { WebApplicationJsonLd, FaqJsonLd } from '@/components/JsonLd';
+import { SITE_CONFIG } from '@/lib/constants';
 
 export const metadata: Metadata = {
   title: 'Birthday Countdown – Live Real-Time Birthday Countdown Clock',
   description:
     'Real-time live ticking countdown clock to your next birthday. Track exact days, hours, minutes, and seconds remaining until your next milestone celebration.',
   alternates: {
-    canonical: '/birthday-countdown'
+    canonical: '/birthday-countdown/'
+  },
+  openGraph: {
+    title: 'Birthday Countdown Clock – Live Real-Time Timer',
+    description: 'Real-time live ticking countdown clock to your next birthday with second-by-second countdown.',
+    url: `${SITE_CONFIG.domain}/birthday-countdown/`,
+    type: 'website',
+    images: [`${SITE_CONFIG.domain}/og-image.svg`]
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Birthday Countdown – Live Ticking Clock',
+    description: 'Track exact days, hours, minutes, and seconds remaining until your next milestone birthday.',
+    images: [`${SITE_CONFIG.domain}/og-image.svg`]
   }
 };
 
@@ -41,7 +56,7 @@ export default function BirthdayCountdownPage() {
       <WebApplicationJsonLd
         name="Birthday Countdown Clock"
         description="Live real-time ticking countdown timer to next birthday."
-        url="/birthday-countdown"
+        url="/birthday-countdown/"
         applicationCategory="UtilityApplication"
       />
       <FaqJsonLd items={FAQS} />
@@ -50,7 +65,7 @@ export default function BirthdayCountdownPage() {
         <Breadcrumbs
           items={[
             { name: 'Age Calculators', href: '/' },
-            { name: 'Birthday Countdown', href: '/birthday-countdown' }
+            { name: 'Birthday Countdown', href: '/birthday-countdown/' }
           ]}
         />
 
@@ -80,7 +95,7 @@ export default function BirthdayCountdownPage() {
             <div className="pt-4 border-t border-slate-100 flex items-center justify-between text-sm">
               <span className="text-slate-600">Want to see a calendar table of all milestone birthdays?</span>
               <Link
-                href="/birthday-calculator"
+                href="/birthday-calculator/"
                 className="font-bold text-purple-700 hover:text-purple-800 inline-flex items-center gap-1"
               >
                 <span>Milestone Birthday Calculator</span>
@@ -88,6 +103,12 @@ export default function BirthdayCountdownPage() {
               </Link>
             </div>
           </div>
+
+          <SocialShare
+            title="Birthday Countdown – Live Ticking Clock"
+            url="/birthday-countdown/"
+            className="mt-6"
+          />
 
           <FAQAccordion items={FAQS} />
         </div>

@@ -6,16 +6,46 @@ import Breadcrumbs from '@/components/Breadcrumbs';
 import FAQAccordion from '@/components/ui/FAQAccordion';
 import AgeReferenceTable from '@/components/ui/AgeReferenceTable';
 import AdSlot from '@/components/AdSlot';
-import { FaqJsonLd } from '@/components/JsonLd';
+import SocialShare from '@/components/SocialShare';
+import { FaqJsonLd, ArticleJsonLd, HowToJsonLd } from '@/components/JsonLd';
+import { SITE_CONFIG } from '@/lib/constants';
 
 export const metadata: Metadata = {
   title: 'How to Calculate Age – Formulas, Leap Years & Math Guide',
   description:
     'Comprehensive guide on calculating age manually and digitally. Learn the exact mathematical formulas for year, month, and day subtraction with calendar borrow rules.',
   alternates: {
-    canonical: '/how-to-calculate-age'
+    canonical: '/how-to-calculate-age/'
+  },
+  openGraph: {
+    title: 'How to Calculate Age – Formulas, Step-by-Step Examples & Leap Years',
+    description: 'Learn the exact mathematical formulas for calculating chronological age with month borrowing and leap day adjustments.',
+    url: `${SITE_CONFIG.domain}/how-to-calculate-age/`,
+    type: 'article',
+    images: [`${SITE_CONFIG.domain}/og-image.svg`]
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'How to Calculate Age – Step-by-Step Mathematical Guide',
+    description: 'Master manual calendar subtraction, day borrowing, and leap year calculations.',
+    images: [`${SITE_CONFIG.domain}/og-image.svg`]
   }
 };
+
+const HOW_TO_STEPS = [
+  {
+    name: 'Subtract Days',
+    text: 'Subtract the birth day from the target day. If target day is smaller, borrow 1 month and add the exact day count of the preceding calendar month (28, 29, 30, or 31).'
+  },
+  {
+    name: 'Subtract Months',
+    text: 'Subtract the birth month from the adjusted target month. If target month is smaller, borrow 1 year (12 months) from the target year.'
+  },
+  {
+    name: 'Subtract Years',
+    text: 'Subtract the birth year from the adjusted target year to determine the total completed calendar years.'
+  }
+];
 
 const FAQS = [
   {
@@ -38,13 +68,23 @@ const FAQS = [
 export default function HowToCalculateAgePage() {
   return (
     <>
+      <ArticleJsonLd
+        headline="How to Calculate Age: Formulas, Step-by-Step Algorithm & Calendar Math"
+        description="Comprehensive mathematical guide to manual date subtraction, calendar borrowing, leap year calculations, and precision time units."
+        url="/how-to-calculate-age/"
+      />
+      <HowToJsonLd
+        name="How to Calculate Exact Age Manually"
+        description="Learn how to calculate exact chronological age in years, months, and days using standard calendar borrow subtraction."
+        steps={HOW_TO_STEPS}
+      />
       <FaqJsonLd items={FAQS} />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10">
         <Breadcrumbs
           items={[
             { name: 'Resources', href: '/' },
-            { name: 'How to Calculate Age', href: '/how-to-calculate-age' }
+            { name: 'How to Calculate Age', href: '/how-to-calculate-age/' }
           ]}
         />
 
@@ -91,7 +131,7 @@ export default function HowToCalculateAgePage() {
             </h2>
 
             <div className="space-y-6">
-              <div className="p-5 bg-slate-50 border border-slate-200 rounded-xl space-y-2">
+              <div id="step-1" className="p-5 bg-slate-50 border border-slate-200 rounded-xl space-y-2">
                 <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
                   <span className="w-6 h-6 rounded-full bg-blue-600 text-white text-xs flex items-center justify-center font-bold">1</span>
                   Step 1: Subtract Days
@@ -102,12 +142,12 @@ export default function HowToCalculateAgePage() {
                 <ul className="list-disc list-inside text-xs text-slate-600 pl-2 space-y-1">
                   <li>If <code>Target Day &gt;= Birth Day</code>, the day difference is positive.</li>
                   <li>
-                    If <code>Target Day &lt; Birth Day</code>, subtract 1 from the Target Month and add the exact number of days in the month <em>preceding</em> the target month.
+                    If <code>Target Day &lt; Birth Day</code>, subtract 1 from the Target Month and add the exact number of days in the month <em>preceding</em> the target month (e.g., 31 for August, 30 for April, 28/29 for February).
                   </li>
                 </ul>
               </div>
 
-              <div className="p-5 bg-slate-50 border border-slate-200 rounded-xl space-y-2">
+              <div id="step-2" className="p-5 bg-slate-50 border border-slate-200 rounded-xl space-y-2">
                 <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
                   <span className="w-6 h-6 rounded-full bg-blue-600 text-white text-xs flex items-center justify-center font-bold">2</span>
                   Step 2: Subtract Months
@@ -123,7 +163,7 @@ export default function HowToCalculateAgePage() {
                 </ul>
               </div>
 
-              <div className="p-5 bg-slate-50 border border-slate-200 rounded-xl space-y-2">
+              <div id="step-3" className="p-5 bg-slate-50 border border-slate-200 rounded-xl space-y-2">
                 <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
                   <span className="w-6 h-6 rounded-full bg-blue-600 text-white text-xs flex items-center justify-center font-bold">3</span>
                   Step 3: Subtract Years
@@ -198,7 +238,7 @@ export default function HowToCalculateAgePage() {
 
             <div className="pt-4 flex items-center gap-3">
               <Link
-                href="/age-calculator"
+                href="/age-calculator/"
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold bg-blue-600 text-white hover:bg-blue-700 shadow-sm transition-all text-sm"
               >
                 <span>Calculate Your Exact Age Now</span>
@@ -206,6 +246,13 @@ export default function HowToCalculateAgePage() {
               </Link>
             </div>
           </section>
+
+          {/* Social Share Box */}
+          <SocialShare
+            title="How to Calculate Age – Formulas, Leap Years & Math Guide"
+            url="/how-to-calculate-age/"
+            description="Learn exact calendar borrowing and date subtraction formulas for precision age calculation."
+          />
 
           <FAQAccordion items={FAQS} />
         </article>

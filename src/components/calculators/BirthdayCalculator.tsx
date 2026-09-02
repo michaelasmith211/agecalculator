@@ -11,6 +11,7 @@ import {
   CalendarDate
 } from '@/lib/date-utils';
 import { trackEvent } from '@/lib/analytics';
+import SocialShare from '@/components/SocialShare';
 
 interface MilestoneRow {
   age: number;
@@ -188,6 +189,14 @@ export default function BirthdayCalculator() {
               </table>
             </div>
           </div>
+
+          <SocialShare
+            title="Birthday Milestones & Countdown"
+            url="/birthday-calculator"
+            resultText={nextBdayInfo.daysUntil === 0
+              ? `Today is my Birthday! I am turning ${nextBdayInfo.turningAge}!`
+              : `Only ${nextBdayInfo.daysUntil} days left until my next birthday (${nextBdayInfo.formatted}) when I turn ${nextBdayInfo.turningAge}!`}
+          />
         </div>
       )}
     </div>

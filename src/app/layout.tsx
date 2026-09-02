@@ -24,7 +24,9 @@ export const metadata: Metadata = {
     'age difference calculator',
     'how old will I be',
     'days between dates',
-    'chronological age calculator'
+    'chronological age calculator',
+    'leap year age calculator',
+    'birthday countdown'
   ],
   authors: [{ name: SITE_CONFIG.author, url: SITE_CONFIG.domain }],
   creator: SITE_CONFIG.author,
@@ -37,23 +39,43 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/'
   },
+  icons: {
+    icon: [
+      { url: '/icon.svg', type: 'image/svg+xml' },
+      { url: '/favicon.ico' }
+    ],
+    apple: [
+      { url: '/icon.svg', sizes: '180x180', type: 'image/svg+xml' }
+    ]
+  },
   openGraph: {
     title: 'Age Calculator – Calculate Your Exact Age',
     description: SITE_CONFIG.description,
-    url: SITE_CONFIG.domain,
+    url: `${SITE_CONFIG.domain}/`,
     siteName: SITE_CONFIG.name,
     locale: 'en_US',
-    type: 'website'
+    type: 'website',
+    images: [
+      {
+        url: `${SITE_CONFIG.domain}/og-image.svg`,
+        width: 1200,
+        height: 630,
+        alt: 'Age Calculator – Fast, Accurate & Free Online Tool'
+      }
+    ]
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Age Calculator – Calculate Your Exact Age',
     description: SITE_CONFIG.description,
-    creator: SITE_CONFIG.twitterHandle
+    creator: SITE_CONFIG.twitterHandle,
+    site: SITE_CONFIG.twitterHandle,
+    images: [`${SITE_CONFIG.domain}/og-image.svg`]
   },
   robots: {
     index: true,
     follow: true,
+    nocache: false,
     googleBot: {
       index: true,
       follow: true,

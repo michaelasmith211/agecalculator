@@ -6,14 +6,29 @@ import ChronologicalAgeCalculator from '@/components/calculators/ChronologicalAg
 import Breadcrumbs from '@/components/Breadcrumbs';
 import FAQAccordion from '@/components/ui/FAQAccordion';
 import AdSlot from '@/components/AdSlot';
+import SocialShare from '@/components/SocialShare';
 import { WebApplicationJsonLd, FaqJsonLd } from '@/components/JsonLd';
+import { SITE_CONFIG } from '@/lib/constants';
 
 export const metadata: Metadata = {
   title: 'Chronological Age Calculator – Clinical & Academic Age',
   description:
     'Calculate exact chronological age in standardized assessment notation (Years;Months;Days) for psychological testing, speech therapy, and clinical evaluations with prematurity correction.',
   alternates: {
-    canonical: '/chronological-age-calculator'
+    canonical: '/chronological-age-calculator/'
+  },
+  openGraph: {
+    title: 'Chronological Age Calculator – Clinical Testing & Assessment',
+    description: 'Calculate clinical and academic age in standardized notation (YY;MM;DD) with gestational prematurity adjustments.',
+    url: `${SITE_CONFIG.domain}/chronological-age-calculator/`,
+    type: 'website',
+    images: [`${SITE_CONFIG.domain}/og-image.svg`]
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Chronological Age Calculator – Clinical Testing Notation',
+    description: 'Calculate clinical and academic age in standardized notation (YY;MM;DD).',
+    images: [`${SITE_CONFIG.domain}/og-image.svg`]
   }
 };
 
@@ -41,7 +56,7 @@ export default function ChronologicalAgePage() {
       <WebApplicationJsonLd
         name="Chronological Age Calculator"
         description="Standardized clinical and academic chronological age calculator with gestational prematurity adjustment."
-        url="/chronological-age-calculator"
+        url="/chronological-age-calculator/"
         applicationCategory="UtilityApplication"
       />
       <FaqJsonLd items={FAQS} />
@@ -50,7 +65,7 @@ export default function ChronologicalAgePage() {
         <Breadcrumbs
           items={[
             { name: 'Age Calculators', href: '/' },
-            { name: 'Chronological Age Calculator', href: '/chronological-age-calculator' }
+            { name: 'Chronological Age Calculator', href: '/chronological-age-calculator/' }
           ]}
         />
 
@@ -87,7 +102,7 @@ export default function ChronologicalAgePage() {
             <div className="pt-4 border-t border-slate-100 flex items-center justify-between text-sm">
               <span className="text-slate-600">Looking for general age and birthday tools?</span>
               <Link
-                href="/age-calculator"
+                href="/age-calculator/"
                 className="font-bold text-cyan-700 hover:text-cyan-800 inline-flex items-center gap-1"
               >
                 <span>General Age Calculator</span>
@@ -95,6 +110,12 @@ export default function ChronologicalAgePage() {
               </Link>
             </div>
           </div>
+
+          <SocialShare
+            title="Chronological Age Calculator – Clinical & Academic Testing"
+            url="/chronological-age-calculator/"
+            className="mt-6"
+          />
 
           <FAQAccordion items={FAQS} />
         </div>

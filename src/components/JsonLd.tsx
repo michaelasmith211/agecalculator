@@ -5,33 +5,49 @@ interface WebApplicationSchemaProps {
   name: string;
   description: string;
   url: string;
-  applicationCategory: string;
+  applicationCategory?: string;
+  features?: string[];
 }
 
 export function WebApplicationJsonLd({
   name,
   description,
   url,
-  applicationCategory = 'UtilityApplication'
+  applicationCategory = 'UtilityApplication',
+  features = [
+    'Exact calendar years, months, and days calculation',
+    'Total days, weeks, hours, minutes, and seconds breakdown',
+    'Next birthday countdown and birth weekday detection',
+    '100% private client-side processing without data storage'
+  ]
 }: WebApplicationSchemaProps) {
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
+    '@id': `${SITE_CONFIG.domain}${url}#webapp`,
     name,
     description,
     url: `${SITE_CONFIG.domain}${url}`,
     applicationCategory,
-    operatingSystem: 'All',
+    operatingSystem: 'All (Web Browser, iOS, Android, macOS, Windows, Linux)',
     browserRequirements: 'Requires JavaScript. Works on all modern web browsers.',
+    inLanguage: 'en-US',
+    isAccessibleForFree: true,
+    featureList: features,
     offers: {
       '@type': 'Offer',
       price: '0',
-      priceCurrency: 'USD'
+      priceCurrency: 'USD',
+      availability: 'https://schema.org/InStock'
     },
     publisher: {
       '@type': 'Organization',
       name: SITE_CONFIG.name,
-      url: SITE_CONFIG.domain
+      url: SITE_CONFIG.domain,
+      logo: {
+        '@type': 'ImageObject',
+        url: `${SITE_CONFIG.domain}/icon.svg`
+      }
     }
   };
 
@@ -76,16 +92,128 @@ export function FaqJsonLd({ items }: FaqJsonLdProps) {
   );
 }
 
+interface HowToStep {
+  name: string;
+  text: string;
+}
+
+interface HowToJsonLdProps {
+  name: string;
+  description: string;
+  steps: HowToStep[];
+  totalTime?: string;
+}
+
+export function HowToJsonLd({ name, description, steps, totalTime = 'PT1M' }: HowToJsonLdProps) {
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    name,
+    description,
+    totalTime,
+    tool: [
+      {
+        '@type': 'HowToTool',
+        name: 'Age Calculator Online'
+      }
+    ],
+    step: steps.map((step, idx) => ({
+      '@type': 'HowToStep',
+      position: idx + 1,
+      name: step.name,
+      text: step.text,
+      url: `${SITE_CONFIG.domain}/how-to-calculate-age/#step-${idx + 1}`
+    }))
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  );
+}
+
+interface ArticleJsonLdProps {
+  headline: string;
+  description: string;
+  url: string;
+  datePublished?: string;
+  dateModified?: string;
+}
+
+export function ArticleJsonLd({
+  headline,
+  description,
+  url,
+  datePublished = '2026-01-01T00:00:00Z',
+  dateModified = '2026-09-02T00:00:00Z'
+}: ArticleJsonLdProps) {
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline,
+    description,
+    url: `${SITE_CONFIG.domain}${url}`,
+    datePublished,
+    dateModified,
+    inLanguage: 'en-US',
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `${SITE_CONFIG.domain}${url}`
+    },
+    author: {
+      '@type': 'Organization',
+      name: `${SITE_CONFIG.name} Research Team`,
+      url: SITE_CONFIG.domain
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: SITE_CONFIG.name,
+      url: SITE_CONFIG.domain,
+      logo: {
+        '@type': 'ImageObject',
+        url: `${SITE_CONFIG.domain}/icon.svg`
+      }
+    }
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  );
+}
+
 export function GlobalWebSiteJsonLd() {
   const websiteSchema = {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
+    '@id': `${SITE_CONFIG.domain}/#website`,
     name: SITE_CONFIG.name,
-    url: SITE_CONFIG.domain,
+    alternateName: ['AgeCalculator', 'Age Calculators', 'Online Age Calculator'],
+    url: `${SITE_CONFIG.domain}/`,
     description: SITE_CONFIG.description,
+    inLanguage: 'en-US',
+    publisher: {
+      '@type': 'Organization',
+      '@id': `${SITE_CONFIG.domain}/#organization`,
+      name: SITE_CONFIG.name,
+      url: `${SITE_CONFIG.domain}/`,
+      logo: {
+        '@type': 'ImageObject',
+        url: `${SITE_CONFIG.domain}/icon.svg`,
+        width: '512',
+        height: '512'
+      }
+    },
     potentialAction: {
       '@type': 'SearchAction',
-      target: `${SITE_CONFIG.domain}/age-calculator?q={search_term_string}`,
+      target: {
+        '@type': 'EntryPoint',
+        urlTemplate: `${SITE_CONFIG.domain}/age-calculator/?q={search_term_string}`
+      },
       'query-input': 'required name=search_term_string'
     }
   };
@@ -93,9 +221,12 @@ export function GlobalWebSiteJsonLd() {
   const orgSchema = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
+    '@id': `${SITE_CONFIG.domain}/#organization`,
     name: SITE_CONFIG.name,
-    url: SITE_CONFIG.domain,
-    logo: `${SITE_CONFIG.domain}/favicon.ico`,
+    url: `${SITE_CONFIG.domain}/`,
+    logo: `${SITE_CONFIG.domain}/icon.svg`,
+    description: SITE_CONFIG.description,
+    foundingDate: '2026',
     sameAs: []
   };
 

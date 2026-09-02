@@ -6,14 +6,29 @@ import LeapYearCalculator from '@/components/calculators/LeapYearCalculator';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import FAQAccordion from '@/components/ui/FAQAccordion';
 import AdSlot from '@/components/AdSlot';
+import SocialShare from '@/components/SocialShare';
 import { WebApplicationJsonLd, FaqJsonLd } from '@/components/JsonLd';
+import { SITE_CONFIG } from '@/lib/constants';
 
 export const metadata: Metadata = {
   title: 'Leap Year Age Calculator – Calculate Feb 29 Birthday & Leap Age',
   description:
     'Calculate your quadrennial leap age (number of February 29ths lived) and discover all upcoming Leap Day birthday celebrations for leap year babies.',
   alternates: {
-    canonical: '/leap-year-age-calculator'
+    canonical: '/leap-year-age-calculator/'
+  },
+  openGraph: {
+    title: 'Leap Year Age Calculator – Feb 29 Birthday & Quadrennial Age',
+    description: 'Calculate leap year birthday milestones and quadrennial age for February 29 leaplings.',
+    url: `${SITE_CONFIG.domain}/leap-year-age-calculator/`,
+    type: 'website',
+    images: [`${SITE_CONFIG.domain}/og-image.svg`]
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Leap Year Age Calculator – February 29 Leaplings',
+    description: 'Calculate leap year birthday milestones and quadrennial age for February 29 leaplings.',
+    images: [`${SITE_CONFIG.domain}/og-image.svg`]
   }
 };
 
@@ -41,7 +56,7 @@ export default function LeapYearAgePage() {
       <WebApplicationJsonLd
         name="Leap Year Age Calculator"
         description="Calculate leap year birthday milestones and true quadrennial age."
-        url="/leap-year-age-calculator"
+        url="/leap-year-age-calculator/"
         applicationCategory="UtilityApplication"
       />
       <FaqJsonLd items={FAQS} />
@@ -50,7 +65,7 @@ export default function LeapYearAgePage() {
         <Breadcrumbs
           items={[
             { name: 'Age Calculators', href: '/' },
-            { name: 'Leap Year Age Calculator', href: '/leap-year-age-calculator' }
+            { name: 'Leap Year Age Calculator', href: '/leap-year-age-calculator/' }
           ]}
         />
 
@@ -80,7 +95,7 @@ export default function LeapYearAgePage() {
             <div className="pt-4 border-t border-slate-100 flex items-center justify-between text-sm">
               <span className="text-slate-600">Want to see all milestone birthdays?</span>
               <Link
-                href="/birthday-calculator"
+                href="/birthday-calculator/"
                 className="font-bold text-emerald-700 hover:text-emerald-800 inline-flex items-center gap-1"
               >
                 <span>Birthday Milestone Calculator</span>
@@ -88,6 +103,12 @@ export default function LeapYearAgePage() {
               </Link>
             </div>
           </div>
+
+          <SocialShare
+            title="Leap Year Age Calculator – February 29 Leap Day Baby"
+            url="/leap-year-age-calculator/"
+            className="mt-6"
+          />
 
           <FAQAccordion items={FAQS} />
         </div>

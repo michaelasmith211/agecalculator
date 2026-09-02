@@ -10,7 +10,20 @@ export const metadata: Metadata = {
   description:
     'Learn about Age Calculator (agecalculators.dev), our commitment to mathematical precision, 100% client-side privacy, and fast utility calculators.',
   alternates: {
-    canonical: '/about'
+    canonical: '/about/'
+  },
+  openGraph: {
+    title: 'About Age Calculator – Standards & Calculation Methodology',
+    description: 'Learn about our commitment to mathematical precision and client-side privacy.',
+    url: `${SITE_CONFIG.domain}/about/`,
+    type: 'website',
+    images: [`${SITE_CONFIG.domain}/og-image.svg`]
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'About Age Calculator',
+    description: 'Learn about our commitment to mathematical precision and client-side privacy.',
+    images: [`${SITE_CONFIG.domain}/og-image.svg`]
   }
 };
 
@@ -20,7 +33,7 @@ export default function AboutPage() {
       <Breadcrumbs
         items={[
           { name: 'Company', href: '/' },
-          { name: 'About Us', href: '/about' }
+          { name: 'About Us', href: '/about/' }
         ]}
       />
 
@@ -75,7 +88,7 @@ export default function AboutPage() {
         <section className="pt-6 border-t border-slate-100 flex items-center justify-between text-sm">
           <span className="text-slate-600">Have feedback or suggestions?</span>
           <Link
-            href="/contact"
+            href="/contact/"
             className="font-bold text-blue-600 hover:text-blue-700 inline-flex items-center gap-1"
           >
             <span>Contact Us</span>

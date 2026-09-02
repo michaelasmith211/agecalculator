@@ -6,14 +6,29 @@ import RetirementAgeCalculator from '@/components/calculators/RetirementAgeCalcu
 import Breadcrumbs from '@/components/Breadcrumbs';
 import FAQAccordion from '@/components/ui/FAQAccordion';
 import AdSlot from '@/components/AdSlot';
+import SocialShare from '@/components/SocialShare';
 import { WebApplicationJsonLd, FaqJsonLd } from '@/components/JsonLd';
+import { SITE_CONFIG } from '@/lib/constants';
 
 export const metadata: Metadata = {
   title: 'Retirement Age Calculator – Plan Your Retirement Timeline',
   description:
     'Estimate your projected retirement date and calculate the exact years, months, total days, and working days remaining until your target retirement age.',
   alternates: {
-    canonical: '/retirement-age-calculator'
+    canonical: '/retirement-age-calculator/'
+  },
+  openGraph: {
+    title: 'Retirement Age Calculator – Plan Your Timeline & Countdown',
+    description: 'Estimate your target retirement date and calculate remaining years, months, and working days.',
+    url: `${SITE_CONFIG.domain}/retirement-age-calculator/`,
+    type: 'website',
+    images: [`${SITE_CONFIG.domain}/og-image.svg`]
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Retirement Age Calculator – Retirement Timeline',
+    description: 'Estimate your target retirement date and calculate remaining years, months, and working days.',
+    images: [`${SITE_CONFIG.domain}/og-image.svg`]
   }
 };
 
@@ -41,7 +56,7 @@ export default function RetirementAgePage() {
       <WebApplicationJsonLd
         name="Retirement Age Calculator"
         description="Estimate retirement milestone date and count down remaining time."
-        url="/retirement-age-calculator"
+        url="/retirement-age-calculator/"
         applicationCategory="UtilityApplication"
       />
       <FaqJsonLd items={FAQS} />
@@ -50,7 +65,7 @@ export default function RetirementAgePage() {
         <Breadcrumbs
           items={[
             { name: 'Age Calculators', href: '/' },
-            { name: 'Retirement Age Calculator', href: '/retirement-age-calculator' }
+            { name: 'Retirement Age Calculator', href: '/retirement-age-calculator/' }
           ]}
         />
 
@@ -87,7 +102,7 @@ export default function RetirementAgePage() {
             <div className="pt-4 border-t border-slate-100 flex items-center justify-between text-sm">
               <span className="text-slate-600">Want to calculate your exact current age instead?</span>
               <Link
-                href="/age-calculator"
+                href="/age-calculator/"
                 className="font-bold text-orange-700 hover:text-orange-800 inline-flex items-center gap-1"
               >
                 <span>Main Age Calculator</span>
@@ -95,6 +110,12 @@ export default function RetirementAgePage() {
               </Link>
             </div>
           </div>
+
+          <SocialShare
+            title="Retirement Age Calculator – Retirement Timeline"
+            url="/retirement-age-calculator/"
+            className="mt-6"
+          />
 
           <FAQAccordion items={FAQS} />
         </div>

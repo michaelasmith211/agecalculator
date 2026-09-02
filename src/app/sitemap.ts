@@ -10,25 +10,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Root & Primary pages
   const routes: MetadataRoute.Sitemap = [
     {
-      url: baseUrl,
+      url: `${baseUrl}/`,
       lastModified: now,
       changeFrequency: 'daily',
       priority: 1.0
     },
     ...ALL_CALCULATORS.map((calc) => ({
-      url: `${baseUrl}${calc.href}`,
+      url: `${baseUrl}${calc.href}/`,
       lastModified: now,
       changeFrequency: 'weekly' as const,
       priority: calc.href === '/age-calculator' ? 0.95 : 0.85
     })),
     {
-      url: `${baseUrl}/how-to-calculate-age`,
+      url: `${baseUrl}/how-to-calculate-age/`,
       lastModified: now,
       changeFrequency: 'monthly' as const,
       priority: 0.8
     },
     ...COMPANY_LINKS.map((link) => ({
-      url: `${baseUrl}${link.href}`,
+      url: `${baseUrl}${link.href}/`,
       lastModified: now,
       changeFrequency: 'monthly' as const,
       priority: 0.5

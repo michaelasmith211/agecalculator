@@ -6,14 +6,29 @@ import DaysBetweenDates from '@/components/calculators/DaysBetweenDates';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import FAQAccordion from '@/components/ui/FAQAccordion';
 import AdSlot from '@/components/AdSlot';
+import SocialShare from '@/components/SocialShare';
 import { WebApplicationJsonLd, FaqJsonLd } from '@/components/JsonLd';
+import { SITE_CONFIG } from '@/lib/constants';
 
 export const metadata: Metadata = {
   title: 'Days Between Dates Calculator – Calculate Date Difference',
   description:
     'Calculate the exact number of days, weeks, business days, and weekends between any two dates. Free online date interval calculator with inclusive counting options.',
   alternates: {
-    canonical: '/days-between-dates'
+    canonical: '/days-between-dates/'
+  },
+  openGraph: {
+    title: 'Days Between Dates Calculator – Date Interval & Business Days',
+    description: 'Calculate total days, weeks, business days, and weekends between any two calendar dates.',
+    url: `${SITE_CONFIG.domain}/days-between-dates/`,
+    type: 'website',
+    images: [`${SITE_CONFIG.domain}/og-image.svg`]
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Days Between Dates Calculator – Workdays & Intervals',
+    description: 'Calculate total days, weeks, business days, and weekends between two dates.',
+    images: [`${SITE_CONFIG.domain}/og-image.svg`]
   }
 };
 
@@ -41,7 +56,7 @@ export default function DaysBetweenDatesPage() {
       <WebApplicationJsonLd
         name="Days Between Dates Calculator"
         description="Calculate total days, weeks, business days, and duration between two dates."
-        url="/days-between-dates"
+        url="/days-between-dates/"
         applicationCategory="UtilityApplication"
       />
       <FaqJsonLd items={FAQS} />
@@ -50,7 +65,7 @@ export default function DaysBetweenDatesPage() {
         <Breadcrumbs
           items={[
             { name: 'Age Calculators', href: '/' },
-            { name: 'Days Between Dates', href: '/days-between-dates' }
+            { name: 'Days Between Dates', href: '/days-between-dates/' }
           ]}
         />
 
@@ -102,7 +117,7 @@ export default function DaysBetweenDatesPage() {
             <div className="pt-4 border-t border-slate-100 flex items-center justify-between text-sm">
               <span className="text-slate-600">Need full time breakdowns including hours and minutes?</span>
               <Link
-                href="/date-difference-calculator"
+                href="/date-difference-calculator/"
                 className="font-bold text-teal-700 hover:text-teal-800 inline-flex items-center gap-1"
               >
                 <span>Date Difference Calculator</span>
@@ -110,6 +125,12 @@ export default function DaysBetweenDatesPage() {
               </Link>
             </div>
           </div>
+
+          <SocialShare
+            title="Days Between Dates Calculator – Exact Interval & Business Days"
+            url="/days-between-dates/"
+            className="mt-6"
+          />
 
           <FAQAccordion items={FAQS} />
         </div>

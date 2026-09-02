@@ -22,6 +22,7 @@ import {
   formatDisplayDate
 } from '@/lib/date-utils';
 import { trackEvent } from '@/lib/analytics';
+import SocialShare from '@/components/SocialShare';
 
 interface MainAgeCalculatorProps {
   initialBirthDate?: string;
@@ -416,6 +417,12 @@ export default function MainAgeCalculator({
               </div>
             </div>
           </div>
+
+          {/* Social Share Box */}
+          <SocialShare
+            title="Age Calculator Result"
+            resultText={`I am ${result.years} Years, ${result.months} Months, and ${result.days} Days old (${result.totalDays.toLocaleString()} total days lived)!`}
+          />
         </div>
       )}
     </div>

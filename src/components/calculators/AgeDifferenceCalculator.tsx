@@ -8,6 +8,7 @@ import {
   AgeDifferenceResult
 } from '@/lib/date-utils';
 import { trackEvent } from '@/lib/analytics';
+import SocialShare from '@/components/SocialShare';
 
 export default function AgeDifferenceCalculator() {
   const [dobAStr, setDobAStr] = useState('1990-01-01');
@@ -211,6 +212,12 @@ export default function AgeDifferenceCalculator() {
               </div>
             </div>
           </div>
+
+          <SocialShare
+            title="Age Difference Calculator"
+            url="/age-difference-calculator"
+            resultText={`Age Difference: ${result.differenceYears} Years, ${result.differenceMonths} Months, and ${result.differenceDays} Days (${result.totalDaysDifference.toLocaleString()} total days)!`}
+          />
         </div>
       )}
     </div>

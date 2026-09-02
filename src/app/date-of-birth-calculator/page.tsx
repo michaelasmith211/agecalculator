@@ -6,14 +6,29 @@ import DateOfBirthCalculator from '@/components/calculators/DateOfBirthCalculato
 import Breadcrumbs from '@/components/Breadcrumbs';
 import FAQAccordion from '@/components/ui/FAQAccordion';
 import AdSlot from '@/components/AdSlot';
+import SocialShare from '@/components/SocialShare';
 import { WebApplicationJsonLd, FaqJsonLd } from '@/components/JsonLd';
+import { SITE_CONFIG } from '@/lib/constants';
 
 export const metadata: Metadata = {
   title: 'Date of Birth Calculator – Find Your Birth Date',
   description:
     'Estimate your possible date of birth by entering your age in years, months, and days. Fast, accurate reverse birthday lookup tool.',
   alternates: {
-    canonical: '/date-of-birth-calculator'
+    canonical: '/date-of-birth-calculator/'
+  },
+  openGraph: {
+    title: 'Date of Birth Calculator – Reverse Birth Date Lookup',
+    description: 'Estimate date of birth from known age in years, months, and days with calendar borrow subtraction.',
+    url: `${SITE_CONFIG.domain}/date-of-birth-calculator/`,
+    type: 'website',
+    images: [`${SITE_CONFIG.domain}/og-image.svg`]
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Date of Birth Calculator – Reverse Age Lookup',
+    description: 'Estimate date of birth from known age in years, months, and days.',
+    images: [`${SITE_CONFIG.domain}/og-image.svg`]
   }
 };
 
@@ -41,7 +56,7 @@ export default function DateOfBirthPage() {
       <WebApplicationJsonLd
         name="Date of Birth Calculator"
         description="Estimate date of birth from current age in years, months, and days."
-        url="/date-of-birth-calculator"
+        url="/date-of-birth-calculator/"
         applicationCategory="UtilityApplication"
       />
       <FaqJsonLd items={FAQS} />
@@ -50,7 +65,7 @@ export default function DateOfBirthPage() {
         <Breadcrumbs
           items={[
             { name: 'Age Calculators', href: '/' },
-            { name: 'Date of Birth Calculator', href: '/date-of-birth-calculator' }
+            { name: 'Date of Birth Calculator', href: '/date-of-birth-calculator/' }
           ]}
         />
 
@@ -80,7 +95,7 @@ export default function DateOfBirthPage() {
             <div className="pt-4 border-t border-slate-100 flex items-center justify-between text-sm">
               <span className="text-slate-600">Want to calculate forward from date of birth instead?</span>
               <Link
-                href="/age-calculator"
+                href="/age-calculator/"
                 className="font-bold text-amber-700 hover:text-amber-800 inline-flex items-center gap-1"
               >
                 <span>Go to Age Calculator</span>
@@ -88,6 +103,12 @@ export default function DateOfBirthPage() {
               </Link>
             </div>
           </div>
+
+          <SocialShare
+            title="Date of Birth Calculator – Reverse Birth Date Lookup"
+            url="/date-of-birth-calculator/"
+            className="mt-6"
+          />
 
           <FAQAccordion items={FAQS} />
         </div>

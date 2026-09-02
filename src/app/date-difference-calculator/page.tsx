@@ -6,14 +6,29 @@ import DateDifferenceCalculator from '@/components/calculators/DateDifferenceCal
 import Breadcrumbs from '@/components/Breadcrumbs';
 import FAQAccordion from '@/components/ui/FAQAccordion';
 import AdSlot from '@/components/AdSlot';
+import SocialShare from '@/components/SocialShare';
 import { WebApplicationJsonLd, FaqJsonLd } from '@/components/JsonLd';
+import { SITE_CONFIG } from '@/lib/constants';
 
 export const metadata: Metadata = {
   title: 'Date Difference Calculator – Calculate Exact Time Between Two Dates',
   description:
     'Find the exact difference between any two dates in years, months, days, weeks, hours, and minutes. Free online calendar duration calculator.',
   alternates: {
-    canonical: '/date-difference-calculator'
+    canonical: '/date-difference-calculator/'
+  },
+  openGraph: {
+    title: 'Date Difference Calculator – Time Duration Between Two Dates',
+    description: 'Calculate duration between two dates across years, months, days, weeks, and hours.',
+    url: `${SITE_CONFIG.domain}/date-difference-calculator/`,
+    type: 'website',
+    images: [`${SITE_CONFIG.domain}/og-image.svg`]
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Date Difference Calculator – Multi-Unit Duration',
+    description: 'Calculate duration between two dates across years, months, days, weeks, and hours.',
+    images: [`${SITE_CONFIG.domain}/og-image.svg`]
   }
 };
 
@@ -41,7 +56,7 @@ export default function DateDifferencePage() {
       <WebApplicationJsonLd
         name="Date Difference Calculator"
         description="Compute exact time and duration between two dates across multiple units."
-        url="/date-difference-calculator"
+        url="/date-difference-calculator/"
         applicationCategory="UtilityApplication"
       />
       <FaqJsonLd items={FAQS} />
@@ -50,7 +65,7 @@ export default function DateDifferencePage() {
         <Breadcrumbs
           items={[
             { name: 'Age Calculators', href: '/' },
-            { name: 'Date Difference Calculator', href: '/date-difference-calculator' }
+            { name: 'Date Difference Calculator', href: '/date-difference-calculator/' }
           ]}
         />
 
@@ -80,7 +95,7 @@ export default function DateDifferencePage() {
             <div className="pt-4 border-t border-slate-100 flex items-center justify-between text-sm">
               <span className="text-slate-600">Want to measure age from birth date instead?</span>
               <Link
-                href="/age-calculator"
+                href="/age-calculator/"
                 className="font-bold text-violet-700 hover:text-violet-800 inline-flex items-center gap-1"
               >
                 <span>Try Main Age Calculator</span>
@@ -88,6 +103,12 @@ export default function DateDifferencePage() {
               </Link>
             </div>
           </div>
+
+          <SocialShare
+            title="Date Difference Calculator – Calculate Time Between Two Dates"
+            url="/date-difference-calculator/"
+            className="mt-6"
+          />
 
           <FAQAccordion items={FAQS} />
         </div>
