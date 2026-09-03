@@ -13,7 +13,13 @@ type EventName =
   | 'chronological_age_calculated'
   | 'retirement_calculated'
   | 'leap_year_calculated'
-  | 'reset_calculator';
+  | 'reset_calculator'
+  | 'age_card_downloaded'
+  | 'age_card_copied_image'
+  | 'age_card_web_shared_with_file'
+  | 'age_card_web_shared_text'
+  | 'age_card_theme_changed'
+  | 'age_card_social_click';
 
 export function trackEvent(eventName: EventName, params?: Record<string, string | number | boolean>) {
   if (typeof window === 'undefined') return;

@@ -35,6 +35,7 @@ import {
 import { trackEvent } from '@/lib/analytics';
 import SocialShare from '@/components/SocialShare';
 import LiveAgeTicker from '@/components/calculators/LiveAgeTicker';
+import ShareAgeCard from '@/components/ShareAgeCard';
 
 interface MainAgeCalculatorProps {
   initialBirthDate?: string;
@@ -624,6 +625,21 @@ export default function MainAgeCalculator({
               </div>
             </div>
           </div>
+
+          {/* Personalized Social Infographic Card */}
+          <ShareAgeCard
+            years={result.years}
+            months={result.months}
+            days={result.days}
+            totalDays={result.totalDays}
+            totalSeconds={result.totalSeconds}
+            birthDate={parsedBirthDate}
+            birthDateFormatted={result.birthDateFormatted}
+            dayOfWeekBorn={result.dayOfWeekBorn}
+            daysUntilNextBirthday={result.daysUntilNextBirthday}
+            ageTurningNext={result.ageTurningNext}
+            zodiacSign={result.zodiacSign}
+          />
 
           {/* Social Share Box */}
           <SocialShare
