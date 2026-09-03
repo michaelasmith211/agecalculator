@@ -280,7 +280,7 @@ export default function ShareAgeCard({
   const shareText = `🎉 ${displayName}: I am ${years} Years, ${months} Months, and ${days} Days old today (${totalDays.toLocaleString()} days & ${liveSeconds.toLocaleString()} seconds lived)! Calculate yours live on ${SITE_CONFIG.name}:`;
   const shareUrl = `${SITE_CONFIG.domain}/`;
 
-  // Draw high-resolution retina canvas image with crisp vector icons & live seconds
+  // Draw high-resolution canvas with dedicated layout tailored to the chosen aspect ratio
   const drawCardToCanvas = useCallback((): HTMLCanvasElement | null => {
     const canvas = document.createElement('canvas');
 
@@ -320,125 +320,23 @@ export default function ShareAgeCard({
     ctx.fillStyle = orb2;
     ctx.fillRect(0, 0, width, height);
 
-    // 3. Inner Card Border & Glow
+    // 3. Inner Card Border
     ctx.save();
     ctx.strokeStyle = 'rgba(255, 255, 255, 0.16)';
     ctx.lineWidth = 3;
     ctx.beginPath();
-    ctx.roundRect(40, 40, width - 80, height - 80, 36);
+    ctx.roundRect(36, 36, width - 72, height - 72, 32);
     ctx.stroke();
 
     ctx.fillStyle = 'rgba(255, 255, 255, 0.03)';
     ctx.fill();
     ctx.restore();
 
-    // 4. Header Badge (Brand)
-    ctx.save();
-    ctx.fillStyle = theme.pillColor;
-    ctx.beginPath();
-    ctx.roundRect(80, 80, 300, 54, 27);
-    ctx.fill();
-
-    ctx.fillStyle = '#ffffff';
-    ctx.font = 'bold 24px system-ui, -apple-system, sans-serif';
-    ctx.textAlign = 'center';
-    ctx.textBaseline = 'middle';
-    ctx.fillText('📅 agecalculators.dev', 230, 107);
-    ctx.restore();
-
-    // 5. Title / User Name
-    ctx.save();
-    ctx.fillStyle = '#ffffff';
-    ctx.font = '900 52px system-ui, -apple-system, sans-serif';
-    ctx.textAlign = 'left';
-    ctx.fillText(displayName, 80, 195);
-
-    ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
-    ctx.font = '22px system-ui, -apple-system, sans-serif';
-    ctx.fillText(`Born on ${dayOfWeekBorn}, ${birthDateFormatted} • Zodiac: ${zodiacSign}`, 80, 240);
-    ctx.restore();
-
-    // 6. Giant Age Display Blocks (Years, Months, Days)
-    const blockWidth = (width - 160 - 40) / 3;
-    const blockHeight = aspectRatio === 'story' ? 260 : 210;
-    const startY = 280;
-
-    const ageUnits = [
-      { num: String(years), label: 'YEARS' },
-      { num: String(months), label: 'MONTHS' },
-      { num: String(days), label: 'DAYS' }
-    ];
-
-    ageUnits.forEach((unit, idx) => {
-      const x = 80 + idx * (blockWidth + 20);
-
-      // Block background
-      ctx.save();
-      ctx.fillStyle = 'rgba(255, 255, 255, 0.08)';
-      ctx.strokeStyle = 'rgba(255, 255, 255, 0.2)';
-      ctx.lineWidth = 2;
-      ctx.beginPath();
-      ctx.roundRect(x, startY, blockWidth, blockHeight, 24);
-      ctx.fill();
-      ctx.stroke();
-
-      // Number
-      ctx.fillStyle = '#ffffff';
-      ctx.font = '900 96px system-ui, -apple-system, sans-serif';
-      ctx.textAlign = 'center';
-      ctx.textBaseline = 'middle';
-      ctx.fillText(unit.num, x + blockWidth / 2, startY + blockHeight * 0.45);
-
-      // Label
-      ctx.fillStyle = theme.accentColor;
-      ctx.font = 'bold 24px system-ui, -apple-system, sans-serif';
-      ctx.fillText(unit.label, x + blockWidth / 2, startY + blockHeight * 0.82);
-      ctx.restore();
-    });
-
-    // 7. Live Real-Time Seconds Ticker Banner
-    const bannerY = startY + blockHeight + 25;
-    const bannerW = width - 160;
-    const bannerH = 100;
-
-    ctx.save();
-    ctx.fillStyle = 'rgba(15, 23, 42, 0.85)';
-    ctx.strokeStyle = `${theme.accentColor}66`;
-    ctx.lineWidth = 2;
-    ctx.beginPath();
-    ctx.roundRect(80, bannerY, bannerW, bannerH, 20);
-    ctx.fill();
-    ctx.stroke();
-
-    // Lightning Icon Circle Badge
-    ctx.fillStyle = '#eab308';
-    ctx.beginPath();
-    ctx.arc(130, bannerY + bannerH / 2, 24, 0, Math.PI * 2);
-    ctx.fill();
-    drawZapIcon(ctx, 130, bannerY + bannerH / 2, 28, '#0f172a');
-
-    // Text info
-    ctx.fillStyle = '#38bdf8';
-    ctx.font = 'bold 16px system-ui, -apple-system, sans-serif';
-    ctx.textAlign = 'left';
-    ctx.textBaseline = 'top';
-    ctx.fillText('⚡ LIVE REAL-TIME SECONDS LIVED', 170, bannerY + 22);
-
-    ctx.fillStyle = '#ffffff';
-    ctx.font = '900 34px monospace, system-ui, sans-serif';
-    ctx.fillText(`${liveSeconds.toLocaleString()} seconds`, 170, bannerY + 48);
-    ctx.restore();
-
-    // 8. Key Milestone Infographic Cards (2x2 Grid)
-    const gridY = bannerY + bannerH + 25;
-    const cardW = (width - 160 - 25) / 2;
-    const cardH = aspectRatio === 'story' ? 220 : 160;
-
+    // Stats data array
     const stats = [
       {
         type: 'cake',
         badgeColor: '#ec4899',
-        iconColor: '#ffffff',
         title: 'NEXT BIRTHDAY',
         val: `${daysUntilNextBirthday} Days Left`,
         sub: `Turning ${ageTurningNext} years old`
@@ -446,7 +344,6 @@ export default function ShareAgeCard({
       {
         type: 'calendar',
         badgeColor: '#3b82f6',
-        iconColor: '#ffffff',
         title: 'TOTAL DAYS ON EARTH',
         val: `${totalDays.toLocaleString()} Days`,
         sub: `Exact elapsed calendar days`
@@ -454,7 +351,6 @@ export default function ShareAgeCard({
       {
         type: 'heart',
         badgeColor: '#f43f5e',
-        iconColor: '#ffffff',
         title: 'ESTIMATED HEARTBEATS',
         val: `~${(lifeStats.estimatedHeartbeats / 1_000_000).toFixed(1)}M`,
         sub: `Beating approx 80 times/min`
@@ -462,86 +358,480 @@ export default function ShareAgeCard({
       {
         type: 'sun',
         badgeColor: '#f59e0b',
-        iconColor: '#ffffff',
         title: 'SOLAR YEAR PROGRESS',
         val: `${lifeStats.sunOrbitProgressPercent}%`,
         sub: `Completed towards Age ${ageTurningNext}`
       }
     ];
 
-    const pos = [
-      { x: 80, y: gridY },
-      { x: 80 + cardW + 25, y: gridY },
-      { x: 80, y: gridY + cardH + 20 },
-      { x: 80 + cardW + 25, y: gridY + cardH + 20 }
-    ];
+    // ==========================================
+    // LAYOUT 1: WIDE (16:9 — 1200 x 675)
+    // ==========================================
+    if (aspectRatio === 'wide') {
+      const leftW = 540;
+      const leftX = 70;
 
-    stats.forEach((s, idx) => {
-      const p = pos[idx];
+      // Header Brand
       ctx.save();
-      // Card box
-      ctx.fillStyle = 'rgba(255, 255, 255, 0.06)';
-      ctx.strokeStyle = 'rgba(255, 255, 255, 0.15)';
+      ctx.fillStyle = theme.pillColor;
+      ctx.beginPath();
+      ctx.roundRect(leftX, 60, 260, 44, 22);
+      ctx.fill();
+      ctx.fillStyle = '#ffffff';
+      ctx.font = 'bold 20px system-ui, -apple-system, sans-serif';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText('📅 agecalculators.dev', leftX + 130, 82);
+      ctx.restore();
+
+      // Title & DOB
+      ctx.save();
+      ctx.fillStyle = '#ffffff';
+      ctx.font = '900 40px system-ui, -apple-system, sans-serif';
+      ctx.textAlign = 'left';
+      ctx.fillText(displayName, leftX, 150);
+
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
+      ctx.font = '18px system-ui, -apple-system, sans-serif';
+      ctx.fillText(`Born on ${dayOfWeekBorn}, ${birthDateFormatted} • ${zodiacSign}`, leftX, 185);
+      ctx.restore();
+
+      // 3 Age Blocks (Years, Months, Days)
+      const bWidth = (leftW - 30) / 3;
+      const bHeight = 150;
+      const bY = 215;
+      const ageUnits = [
+        { num: String(years), label: 'YEARS' },
+        { num: String(months), label: 'MONTHS' },
+        { num: String(days), label: 'DAYS' }
+      ];
+
+      ageUnits.forEach((unit, idx) => {
+        const bx = leftX + idx * (bWidth + 15);
+        ctx.save();
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.08)';
+        ctx.strokeStyle = 'rgba(255, 255, 255, 0.18)';
+        ctx.lineWidth = 1.5;
+        ctx.beginPath();
+        ctx.roundRect(bx, bY, bWidth, bHeight, 18);
+        ctx.fill();
+        ctx.stroke();
+
+        ctx.fillStyle = '#ffffff';
+        ctx.font = '900 68px system-ui, -apple-system, sans-serif';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText(unit.num, bx + bWidth / 2, bY + bHeight * 0.42);
+
+        ctx.fillStyle = theme.accentColor;
+        ctx.font = 'bold 18px system-ui, -apple-system, sans-serif';
+        ctx.fillText(unit.label, bx + bWidth / 2, bY + bHeight * 0.82);
+        ctx.restore();
+      });
+
+      // Left Column: Live Seconds Ticker Banner
+      const secY = 385;
+      const secH = 90;
+      ctx.save();
+      ctx.fillStyle = 'rgba(15, 23, 42, 0.85)';
+      ctx.strokeStyle = `${theme.accentColor}66`;
       ctx.lineWidth = 1.5;
       ctx.beginPath();
-      ctx.roundRect(p.x, p.y, cardW, cardH, 20);
+      ctx.roundRect(leftX, secY, leftW, secH, 18);
       ctx.fill();
       ctx.stroke();
 
-      // Colored Icon Badge Circle (100% OPAQUE & VIBRANT)
-      const badgeX = p.x + 36;
-      const badgeY = p.y + 36;
-      const badgeRadius = 22;
-
-      ctx.fillStyle = s.badgeColor;
+      ctx.fillStyle = '#eab308';
       ctx.beginPath();
-      ctx.arc(badgeX, badgeY, badgeRadius, 0, Math.PI * 2);
+      ctx.arc(leftX + 40, secY + secH / 2, 20, 0, Math.PI * 2);
       ctx.fill();
+      drawZapIcon(ctx, leftX + 40, secY + secH / 2, 24, '#0f172a');
 
-      // Draw Vector Icon Shape inside badge circle
-      if (s.type === 'cake') {
-        drawCakeIcon(ctx, badgeX, badgeY - 2, 26, '#ffffff');
-      } else if (s.type === 'calendar') {
-        drawCalendarIcon(ctx, badgeX, badgeY, 26, '#ffffff');
-      } else if (s.type === 'heart') {
-        drawHeartIcon(ctx, badgeX, badgeY, 26, '#ffffff');
-      } else if (s.type === 'sun') {
-        drawSunIcon(ctx, badgeX, badgeY, 28, '#ffffff');
-      }
-
-      // Title Text (Fully reset fillStyle & opacity)
-      ctx.fillStyle = theme.accentColor;
-      ctx.font = 'bold 17px system-ui, -apple-system, sans-serif';
+      ctx.fillStyle = '#38bdf8';
+      ctx.font = 'bold 14px system-ui, -apple-system, sans-serif';
       ctx.textAlign = 'left';
-      ctx.textBaseline = 'middle';
-      ctx.fillText(s.title, p.x + 72, badgeY);
-
-      // Value Text
-      ctx.fillStyle = '#ffffff';
-      ctx.font = 'bold 34px system-ui, -apple-system, sans-serif';
       ctx.textBaseline = 'top';
-      ctx.fillText(s.val, p.x + 22, p.y + 70);
+      ctx.fillText('⚡ LIVE TOTAL SECONDS LIVED', leftX + 75, secY + 18);
 
-      // Subtitle Text
-      ctx.fillStyle = 'rgba(255, 255, 255, 0.75)';
-      ctx.font = '19px system-ui, -apple-system, sans-serif';
-      ctx.fillText(s.sub, p.x + 22, p.y + 115);
+      ctx.fillStyle = '#ffffff';
+      ctx.font = '900 28px monospace, system-ui, sans-serif';
+      ctx.fillText(`${liveSeconds.toLocaleString()} seconds`, leftX + 75, secY + 42);
       ctx.restore();
-    });
 
-    // 9. Footer Brand & Call-To-Action
-    ctx.save();
-    const footerY = height - 90;
-    ctx.fillStyle = 'rgba(255, 255, 255, 0.95)';
-    ctx.font = 'bold 22px system-ui, -apple-system, sans-serif';
-    ctx.textAlign = 'center';
-    ctx.textBaseline = 'middle';
-    ctx.fillText('⚡ Calculate your exact age down to the second at agecalculators.dev', width / 2, footerY);
+      // Right Column: 2x2 Metric Cards (Right side: x = 650)
+      const rightX = 640;
+      const cardW = (width - rightX - 70 - 20) / 2;
+      const cardH = 190;
+      const posWide = [
+        { x: rightX, y: 80 },
+        { x: rightX + cardW + 20, y: 80 },
+        { x: rightX, y: 290 },
+        { x: rightX + cardW + 20, y: 290 }
+      ];
 
-    ctx.fillStyle = 'rgba(255, 255, 255, 0.5)';
-    ctx.font = '17px system-ui, -apple-system, sans-serif';
-    ctx.fillText('100% Free • Exact Calendar Precision • Live Seconds Odometer', width / 2, footerY + 30);
-    ctx.restore();
+      stats.forEach((s, idx) => {
+        const p = posWide[idx];
+        ctx.save();
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.06)';
+        ctx.strokeStyle = 'rgba(255, 255, 255, 0.15)';
+        ctx.lineWidth = 1.5;
+        ctx.beginPath();
+        ctx.roundRect(p.x, p.y, cardW, cardH, 18);
+        ctx.fill();
+        ctx.stroke();
+
+        const badgeX = p.x + 32;
+        const badgeY = p.y + 32;
+        ctx.fillStyle = s.badgeColor;
+        ctx.beginPath();
+        ctx.arc(badgeX, badgeY, 18, 0, Math.PI * 2);
+        ctx.fill();
+
+        if (s.type === 'cake') drawCakeIcon(ctx, badgeX, badgeY - 2, 22, '#ffffff');
+        else if (s.type === 'calendar') drawCalendarIcon(ctx, badgeX, badgeY, 22, '#ffffff');
+        else if (s.type === 'heart') drawHeartIcon(ctx, badgeX, badgeY, 22, '#ffffff');
+        else if (s.type === 'sun') drawSunIcon(ctx, badgeX, badgeY, 24, '#ffffff');
+
+        ctx.fillStyle = theme.accentColor;
+        ctx.font = 'bold 14px system-ui, -apple-system, sans-serif';
+        ctx.textAlign = 'left';
+        ctx.textBaseline = 'middle';
+        ctx.fillText(s.title, p.x + 60, badgeY);
+
+        ctx.fillStyle = '#ffffff';
+        ctx.font = 'bold 26px system-ui, -apple-system, sans-serif';
+        ctx.textBaseline = 'top';
+        ctx.fillText(s.val, p.x + 18, p.y + 70);
+
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.7)';
+        ctx.font = '16px system-ui, -apple-system, sans-serif';
+        ctx.fillText(s.sub, p.x + 18, p.y + 115);
+        ctx.restore();
+      });
+
+      // Footer
+      ctx.save();
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
+      ctx.font = 'bold 18px system-ui, -apple-system, sans-serif';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText('⚡ Calculate your exact age down to the second at agecalculators.dev', width / 2, 600);
+
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.5)';
+      ctx.font = '14px system-ui, -apple-system, sans-serif';
+      ctx.fillText('100% Free • Exact Calendar Precision • Live Seconds Odometer', width / 2, 628);
+      ctx.restore();
+    }
+    // ==========================================
+    // LAYOUT 2: STORY (9:16 — 1080 x 1920)
+    // ==========================================
+    else if (aspectRatio === 'story') {
+      // Header Brand
+      ctx.save();
+      ctx.fillStyle = theme.pillColor;
+      ctx.beginPath();
+      ctx.roundRect(80, 120, 320, 60, 30);
+      ctx.fill();
+      ctx.fillStyle = '#ffffff';
+      ctx.font = 'bold 26px system-ui, -apple-system, sans-serif';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText('📅 agecalculators.dev', 240, 150);
+      ctx.restore();
+
+      // Title & DOB
+      ctx.save();
+      ctx.fillStyle = '#ffffff';
+      ctx.font = '900 62px system-ui, -apple-system, sans-serif';
+      ctx.textAlign = 'left';
+      ctx.fillText(displayName, 80, 260);
+
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
+      ctx.font = '26px system-ui, -apple-system, sans-serif';
+      ctx.fillText(`Born on ${dayOfWeekBorn}, ${birthDateFormatted}`, 80, 315);
+      ctx.fillText(`Western Zodiac: ${zodiacSign}`, 80, 355);
+      ctx.restore();
+
+      // Big 3 Age Blocks
+      const blockWidth = (width - 160 - 30) / 3;
+      const blockHeight = 240;
+      const startY = 420;
+      const ageUnits = [
+        { num: String(years), label: 'YEARS' },
+        { num: String(months), label: 'MONTHS' },
+        { num: String(days), label: 'DAYS' }
+      ];
+
+      ageUnits.forEach((unit, idx) => {
+        const x = 80 + idx * (blockWidth + 15);
+        ctx.save();
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.08)';
+        ctx.strokeStyle = 'rgba(255, 255, 255, 0.2)';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.roundRect(x, startY, blockWidth, blockHeight, 24);
+        ctx.fill();
+        ctx.stroke();
+
+        ctx.fillStyle = '#ffffff';
+        ctx.font = '900 100px system-ui, -apple-system, sans-serif';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText(unit.num, x + blockWidth / 2, startY + blockHeight * 0.42);
+
+        ctx.fillStyle = theme.accentColor;
+        ctx.font = 'bold 24px system-ui, -apple-system, sans-serif';
+        ctx.fillText(unit.label, x + blockWidth / 2, startY + blockHeight * 0.82);
+        ctx.restore();
+      });
+
+      // Live Real-Time Seconds Hero Banner
+      const bannerY = startY + blockHeight + 35;
+      const bannerW = width - 160;
+      const bannerH = 140;
+
+      ctx.save();
+      ctx.fillStyle = 'rgba(15, 23, 42, 0.9)';
+      ctx.strokeStyle = `${theme.accentColor}88`;
+      ctx.lineWidth = 2.5;
+      ctx.beginPath();
+      ctx.roundRect(80, bannerY, bannerW, bannerH, 24);
+      ctx.fill();
+      ctx.stroke();
+
+      ctx.fillStyle = '#eab308';
+      ctx.beginPath();
+      ctx.arc(145, bannerY + bannerH / 2, 32, 0, Math.PI * 2);
+      ctx.fill();
+      drawZapIcon(ctx, 145, bannerY + bannerH / 2, 38, '#0f172a');
+
+      ctx.fillStyle = '#38bdf8';
+      ctx.font = 'bold 20px system-ui, -apple-system, sans-serif';
+      ctx.textAlign = 'left';
+      ctx.textBaseline = 'top';
+      ctx.fillText('⚡ LIVE REAL-TIME SECONDS LIVED', 195, bannerY + 30);
+
+      ctx.fillStyle = '#ffffff';
+      ctx.font = '900 42px monospace, system-ui, sans-serif';
+      ctx.fillText(`${liveSeconds.toLocaleString()} s`, 195, bannerY + 65);
+      ctx.restore();
+
+      // 4 Stacked Metric Cards spanning the vertical canvas
+      const stackY = bannerY + bannerH + 40;
+      const cardW = width - 160;
+      const cardH = 175;
+
+      stats.forEach((s, idx) => {
+        const cy = stackY + idx * (cardH + 20);
+        ctx.save();
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.06)';
+        ctx.strokeStyle = 'rgba(255, 255, 255, 0.15)';
+        ctx.lineWidth = 1.5;
+        ctx.beginPath();
+        ctx.roundRect(80, cy, cardW, cardH, 22);
+        ctx.fill();
+        ctx.stroke();
+
+        const badgeX = 80 + 45;
+        const badgeY = cy + cardH / 2;
+        ctx.fillStyle = s.badgeColor;
+        ctx.beginPath();
+        ctx.arc(badgeX, badgeY, 28, 0, Math.PI * 2);
+        ctx.fill();
+
+        if (s.type === 'cake') drawCakeIcon(ctx, badgeX, badgeY - 3, 34, '#ffffff');
+        else if (s.type === 'calendar') drawCalendarIcon(ctx, badgeX, badgeY, 34, '#ffffff');
+        else if (s.type === 'heart') drawHeartIcon(ctx, badgeX, badgeY, 34, '#ffffff');
+        else if (s.type === 'sun') drawSunIcon(ctx, badgeX, badgeY, 36, '#ffffff');
+
+        ctx.fillStyle = theme.accentColor;
+        ctx.font = 'bold 20px system-ui, -apple-system, sans-serif';
+        ctx.textAlign = 'left';
+        ctx.textBaseline = 'top';
+        ctx.fillText(s.title, 80 + 95, cy + 30);
+
+        ctx.fillStyle = '#ffffff';
+        ctx.font = '900 38px system-ui, -apple-system, sans-serif';
+        ctx.fillText(s.val, 80 + 95, cy + 62);
+
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.7)';
+        ctx.font = '22px system-ui, -apple-system, sans-serif';
+        ctx.fillText(s.sub, 80 + 95, cy + 115);
+        ctx.restore();
+      });
+
+      // Footer
+      ctx.save();
+      const footerY = height - 120;
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.95)';
+      ctx.font = 'bold 26px system-ui, -apple-system, sans-serif';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText('⚡ Calculate your exact age down to the second', width / 2, footerY);
+
+      ctx.fillStyle = theme.accentColor;
+      ctx.font = '900 28px system-ui, -apple-system, sans-serif';
+      ctx.fillText('agecalculators.dev', width / 2, footerY + 38);
+      ctx.restore();
+    }
+    // ==========================================
+    // LAYOUT 3: SQUARE (1:1 — 1200 x 1200)
+    // ==========================================
+    else {
+      // Header Brand
+      ctx.save();
+      ctx.fillStyle = theme.pillColor;
+      ctx.beginPath();
+      ctx.roundRect(80, 80, 300, 54, 27);
+      ctx.fill();
+      ctx.fillStyle = '#ffffff';
+      ctx.font = 'bold 24px system-ui, -apple-system, sans-serif';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText('📅 agecalculators.dev', 230, 107);
+      ctx.restore();
+
+      // Title & DOB
+      ctx.save();
+      ctx.fillStyle = '#ffffff';
+      ctx.font = '900 52px system-ui, -apple-system, sans-serif';
+      ctx.textAlign = 'left';
+      ctx.fillText(displayName, 80, 195);
+
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
+      ctx.font = '22px system-ui, -apple-system, sans-serif';
+      ctx.fillText(`Born on ${dayOfWeekBorn}, ${birthDateFormatted} • Zodiac: ${zodiacSign}`, 80, 240);
+      ctx.restore();
+
+      // 3 Age Blocks
+      const blockWidth = (width - 160 - 40) / 3;
+      const blockHeight = 210;
+      const startY = 280;
+      const ageUnits = [
+        { num: String(years), label: 'YEARS' },
+        { num: String(months), label: 'MONTHS' },
+        { num: String(days), label: 'DAYS' }
+      ];
+
+      ageUnits.forEach((unit, idx) => {
+        const x = 80 + idx * (blockWidth + 20);
+        ctx.save();
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.08)';
+        ctx.strokeStyle = 'rgba(255, 255, 255, 0.2)';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.roundRect(x, startY, blockWidth, blockHeight, 24);
+        ctx.fill();
+        ctx.stroke();
+
+        ctx.fillStyle = '#ffffff';
+        ctx.font = '900 96px system-ui, -apple-system, sans-serif';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText(unit.num, x + blockWidth / 2, startY + blockHeight * 0.45);
+
+        ctx.fillStyle = theme.accentColor;
+        ctx.font = 'bold 24px system-ui, -apple-system, sans-serif';
+        ctx.fillText(unit.label, x + blockWidth / 2, startY + blockHeight * 0.82);
+        ctx.restore();
+      });
+
+      // Live Seconds Banner
+      const bannerY = startY + blockHeight + 25;
+      const bannerW = width - 160;
+      const bannerH = 100;
+
+      ctx.save();
+      ctx.fillStyle = 'rgba(15, 23, 42, 0.85)';
+      ctx.strokeStyle = `${theme.accentColor}66`;
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.roundRect(80, bannerY, bannerW, bannerH, 20);
+      ctx.fill();
+      ctx.stroke();
+
+      ctx.fillStyle = '#eab308';
+      ctx.beginPath();
+      ctx.arc(130, bannerY + bannerH / 2, 24, 0, Math.PI * 2);
+      ctx.fill();
+      drawZapIcon(ctx, 130, bannerY + bannerH / 2, 28, '#0f172a');
+
+      ctx.fillStyle = '#38bdf8';
+      ctx.font = 'bold 16px system-ui, -apple-system, sans-serif';
+      ctx.textAlign = 'left';
+      ctx.textBaseline = 'top';
+      ctx.fillText('⚡ LIVE REAL-TIME SECONDS LIVED', 170, bannerY + 22);
+
+      ctx.fillStyle = '#ffffff';
+      ctx.font = '900 34px monospace, system-ui, sans-serif';
+      ctx.fillText(`${liveSeconds.toLocaleString()} seconds`, 170, bannerY + 48);
+      ctx.restore();
+
+      // 2x2 Metric Cards
+      const gridY = bannerY + bannerH + 25;
+      const cardW = (width - 160 - 25) / 2;
+      const cardH = 160;
+      const posSquare = [
+        { x: 80, y: gridY },
+        { x: 80 + cardW + 25, y: gridY },
+        { x: 80, y: gridY + cardH + 20 },
+        { x: 80 + cardW + 25, y: gridY + cardH + 20 }
+      ];
+
+      stats.forEach((s, idx) => {
+        const p = posSquare[idx];
+        ctx.save();
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.06)';
+        ctx.strokeStyle = 'rgba(255, 255, 255, 0.15)';
+        ctx.lineWidth = 1.5;
+        ctx.beginPath();
+        ctx.roundRect(p.x, p.y, cardW, cardH, 20);
+        ctx.fill();
+        ctx.stroke();
+
+        const badgeX = p.x + 36;
+        const badgeY = p.y + 36;
+        ctx.fillStyle = s.badgeColor;
+        ctx.beginPath();
+        ctx.arc(badgeX, badgeY, 22, 0, Math.PI * 2);
+        ctx.fill();
+
+        if (s.type === 'cake') drawCakeIcon(ctx, badgeX, badgeY - 2, 26, '#ffffff');
+        else if (s.type === 'calendar') drawCalendarIcon(ctx, badgeX, badgeY, 26, '#ffffff');
+        else if (s.type === 'heart') drawHeartIcon(ctx, badgeX, badgeY, 26, '#ffffff');
+        else if (s.type === 'sun') drawSunIcon(ctx, badgeX, badgeY, 28, '#ffffff');
+
+        ctx.fillStyle = theme.accentColor;
+        ctx.font = 'bold 17px system-ui, -apple-system, sans-serif';
+        ctx.textAlign = 'left';
+        ctx.textBaseline = 'middle';
+        ctx.fillText(s.title, p.x + 72, badgeY);
+
+        ctx.fillStyle = '#ffffff';
+        ctx.font = 'bold 34px system-ui, -apple-system, sans-serif';
+        ctx.textBaseline = 'top';
+        ctx.fillText(s.val, p.x + 22, p.y + 70);
+
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.75)';
+        ctx.font = '19px system-ui, -apple-system, sans-serif';
+        ctx.fillText(s.sub, p.x + 22, p.y + 115);
+        ctx.restore();
+      });
+
+      // Footer
+      ctx.save();
+      const footerY = height - 90;
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.95)';
+      ctx.font = 'bold 22px system-ui, -apple-system, sans-serif';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText('⚡ Calculate your exact age down to the second at agecalculators.dev', width / 2, footerY);
+
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.5)';
+      ctx.font = '17px system-ui, -apple-system, sans-serif';
+      ctx.fillText('100% Free • Exact Calendar Precision • Live Seconds Odometer', width / 2, footerY + 30);
+      ctx.restore();
+    }
 
     return canvas;
   }, [
@@ -580,7 +870,7 @@ export default function ShareAgeCard({
     }
   };
 
-  // Copy Image directly to clipboard (supported in modern browsers)
+  // Copy Image directly to clipboard
   const handleCopyImage = async () => {
     setIsGenerating(true);
     try {
@@ -597,7 +887,6 @@ export default function ShareAgeCard({
           setTimeout(() => setCopiedImage(false), 2500);
           trackEvent('age_card_copied_image');
         } catch {
-          // Fallback to text copy
           await navigator.clipboard.writeText(`${shareText} ${shareUrl}`);
           setCopiedLink(true);
           setTimeout(() => setCopiedLink(false), 2500);
@@ -615,7 +904,7 @@ export default function ShareAgeCard({
 
     canvas.toBlob(async (blob) => {
       if (!blob) return;
-      const file = new File([blob], 'my-age-card.png', { type: 'image/png' });
+      const file = new File([blob], `my-age-card-${aspectRatio}.png`, { type: 'image/png' });
 
       if (navigator.canShare && navigator.canShare({ files: [file] })) {
         try {
@@ -629,11 +918,10 @@ export default function ShareAgeCard({
           trackEvent('age_card_web_shared_with_file');
           return;
         } catch {
-          // Fall through if user canceled or failed
+          // Fall through
         }
       }
 
-      // Fallback to URL/text Web Share or Clipboard
       if (navigator.share) {
         try {
           await navigator.share({
@@ -643,7 +931,7 @@ export default function ShareAgeCard({
           });
           trackEvent('age_card_web_shared_text');
         } catch {
-          // Fallback to copy link
+          // Fall through
         }
       } else {
         await navigator.clipboard.writeText(`${shareText} ${shareUrl}`);
@@ -733,11 +1021,14 @@ export default function ShareAgeCard({
           <div className="grid grid-cols-3 gap-2">
             <button
               type="button"
-              onClick={() => setAspectRatio('square')}
+              onClick={() => {
+                setAspectRatio('square');
+                trackEvent('age_card_theme_changed', { ratio: 'square' });
+              }}
               className={`flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold border transition-all cursor-pointer ${
                 aspectRatio === 'square'
-                  ? 'bg-blue-50 border-blue-600 text-blue-700'
-                  : 'bg-slate-50 border-slate-200 text-slate-600 hover:bg-slate-100'
+                  ? 'bg-blue-600 text-white border-blue-600 shadow-xs'
+                  : 'bg-slate-50 border-slate-200 text-slate-700 hover:bg-slate-100'
               }`}
             >
               <Square className="w-3.5 h-3.5" />
@@ -746,11 +1037,14 @@ export default function ShareAgeCard({
 
             <button
               type="button"
-              onClick={() => setAspectRatio('story')}
+              onClick={() => {
+                setAspectRatio('story');
+                trackEvent('age_card_theme_changed', { ratio: 'story' });
+              }}
               className={`flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold border transition-all cursor-pointer ${
                 aspectRatio === 'story'
-                  ? 'bg-blue-50 border-blue-600 text-blue-700'
-                  : 'bg-slate-50 border-slate-200 text-slate-600 hover:bg-slate-100'
+                  ? 'bg-blue-600 text-white border-blue-600 shadow-xs'
+                  : 'bg-slate-50 border-slate-200 text-slate-700 hover:bg-slate-100'
               }`}
             >
               <Smartphone className="w-3.5 h-3.5" />
@@ -759,11 +1053,14 @@ export default function ShareAgeCard({
 
             <button
               type="button"
-              onClick={() => setAspectRatio('wide')}
+              onClick={() => {
+                setAspectRatio('wide');
+                trackEvent('age_card_theme_changed', { ratio: 'wide' });
+              }}
               className={`flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold border transition-all cursor-pointer ${
                 aspectRatio === 'wide'
-                  ? 'bg-blue-50 border-blue-600 text-blue-700'
-                  : 'bg-slate-50 border-slate-200 text-slate-600 hover:bg-slate-100'
+                  ? 'bg-blue-600 text-white border-blue-600 shadow-xs'
+                  : 'bg-slate-50 border-slate-200 text-slate-700 hover:bg-slate-100'
               }`}
             >
               <Maximize2 className="w-3.5 h-3.5" />
@@ -773,174 +1070,357 @@ export default function ShareAgeCard({
         </div>
       </div>
 
-      {/* Visual Live Preview Card (What Will Be Shared) */}
+      {/* Visual Live Preview Card (Adapts to Selected Aspect Ratio) */}
       <div className="mt-6">
         <div className="flex items-center justify-between text-xs font-bold text-slate-500 uppercase tracking-wider mb-2.5 px-1">
           <span className="flex items-center gap-1.5">
             <Eye className="w-3.5 h-3.5 text-blue-600" />
-            <span>Live Interactive Preview (Ticking Live Seconds)</span>
+            <span>
+              Live Interactive Preview ({aspectRatio === 'square' ? 'Square 1:1' : aspectRatio === 'story' ? 'Story 9:16' : 'Wide 16:9'})
+            </span>
           </span>
-          <span className="text-slate-400 font-normal">
-            {aspectRatio === 'square' ? '1200 × 1200' : aspectRatio === 'story' ? '1080 × 1920' : '1200 × 675'}
+          <span className="text-slate-400 font-mono text-[11px]">
+            {aspectRatio === 'square' ? '1200 × 1200 px' : aspectRatio === 'story' ? '1080 × 1920 px' : '1200 × 675 px'}
           </span>
         </div>
 
-        {/* Live CSS Card matching Canvas Output */}
-        <div
-          className={`w-full max-w-2xl mx-auto rounded-3xl p-6 sm:p-8 bg-gradient-to-br ${theme.gradientBg} text-white shadow-xl border border-white/10 relative overflow-hidden transition-all duration-300 ${
-            aspectRatio === 'story' ? 'aspect-9/14 sm:aspect-9/13' : ''
-          }`}
-        >
-          {/* Decorative Glow */}
+        {/* =========================================
+            LIVE PREVIEW: WIDE (16:9)
+        ========================================= */}
+        {aspectRatio === 'wide' && (
           <div
-            className="absolute top-0 right-0 w-64 h-64 rounded-full blur-3xl pointer-events-none opacity-30"
-            style={{ backgroundColor: theme.accentColor }}
-          />
-
-          {/* Card Header */}
-          <div className="relative z-10 flex items-center justify-between gap-3 border-b border-white/10 pb-4">
+            className={`w-full max-w-4xl mx-auto rounded-3xl p-5 sm:p-7 bg-gradient-to-br ${theme.gradientBg} text-white shadow-xl border border-white/10 relative overflow-hidden transition-all duration-300`}
+          >
+            {/* Ambient Glow */}
             <div
-              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-extrabold text-white shadow-xs"
-              style={{ backgroundColor: theme.pillColor }}
-            >
-              <Calendar className="w-3.5 h-3.5" />
-              <span>agecalculators.dev</span>
-            </div>
-            <div className="text-[11px] font-medium text-white/70">
-              Verified Age Card
-            </div>
-          </div>
+              className="absolute top-0 right-0 w-72 h-72 rounded-full blur-3xl pointer-events-none opacity-30"
+              style={{ backgroundColor: theme.accentColor }}
+            />
 
-          {/* User Name & Birth Info */}
-          <div className="relative z-10 mt-5">
-            <h4 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
-              {displayName}
-            </h4>
-            <p className="text-xs sm:text-sm text-white/80 mt-1">
-              Born on <strong className="text-white">{dayOfWeekBorn}, {birthDateFormatted}</strong> • Zodiac: <strong className="text-white">{zodiacSign}</strong>
-            </p>
-          </div>
-
-          {/* Big Highlight Age Numbers */}
-          <div className="relative z-10 grid grid-cols-3 gap-2.5 sm:gap-4 my-6">
-            <div className="p-3 sm:p-4 rounded-2xl bg-white/10 backdrop-blur-xs border border-white/15 text-center">
-              <div className="text-2xl sm:text-4xl lg:text-5xl font-black text-white font-mono tabular-nums leading-none">
-                {years}
-              </div>
-              <div className="text-[10px] sm:text-xs font-bold uppercase tracking-wider mt-1.5" style={{ color: theme.accentColor }}>
-                Years
-              </div>
-            </div>
-
-            <div className="p-3 sm:p-4 rounded-2xl bg-white/10 backdrop-blur-xs border border-white/15 text-center">
-              <div className="text-2xl sm:text-4xl lg:text-5xl font-black text-white font-mono tabular-nums leading-none">
-                {months}
-              </div>
-              <div className="text-[10px] sm:text-xs font-bold uppercase tracking-wider mt-1.5" style={{ color: theme.accentColor }}>
-                Months
-              </div>
-            </div>
-
-            <div className="p-3 sm:p-4 rounded-2xl bg-white/10 backdrop-blur-xs border border-white/15 text-center">
-              <div className="text-2xl sm:text-4xl lg:text-5xl font-black text-white font-mono tabular-nums leading-none">
-                {days}
-              </div>
-              <div className="text-[10px] sm:text-xs font-bold uppercase tracking-wider mt-1.5" style={{ color: theme.accentColor }}>
-                Days
-              </div>
-            </div>
-          </div>
-
-          {/* Live Running Total Seconds Banner */}
-          <div className="relative z-10 p-3.5 sm:p-4 rounded-2xl bg-slate-900/90 border border-white/15 mb-6 flex items-center justify-between gap-3 shadow-inner">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-amber-400 text-slate-950 flex items-center justify-center shrink-0 shadow-xs">
-                <Zap className="w-5 h-5 text-slate-950 fill-slate-950 animate-pulse" />
-              </div>
-              <div>
-                <div className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-sky-400">
-                  Live Total Seconds Lived
+            <div className="relative z-10 grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
+              {/* Left Column */}
+              <div className="md:col-span-6 space-y-4">
+                <div className="flex items-center justify-between gap-2 border-b border-white/10 pb-3">
+                  <div
+                    className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-extrabold text-white shadow-xs"
+                    style={{ backgroundColor: theme.pillColor }}
+                  >
+                    <Calendar className="w-3.5 h-3.5" />
+                    <span>agecalculators.dev</span>
+                  </div>
+                  <span className="text-[11px] text-white/70 font-medium">Verified Age Card</span>
                 </div>
-                <div className="text-base sm:text-xl font-black font-mono text-white tabular-nums">
-                  {liveSeconds.toLocaleString()} <span className="text-xs text-slate-400 font-normal">seconds</span>
+
+                <div>
+                  <h4 className="text-2xl font-extrabold text-white tracking-tight">{displayName}</h4>
+                  <p className="text-xs text-white/80 mt-0.5">
+                    Born on <strong className="text-white">{dayOfWeekBorn}, {birthDateFormatted}</strong> • Zodiac: <strong className="text-white">{zodiacSign}</strong>
+                  </p>
+                </div>
+
+                {/* 3 Age blocks */}
+                <div className="grid grid-cols-3 gap-2">
+                  <div className="p-3 rounded-2xl bg-white/10 backdrop-blur-xs border border-white/15 text-center">
+                    <div className="text-2xl sm:text-3xl font-black text-white font-mono leading-none">{years}</div>
+                    <div className="text-[10px] font-bold uppercase tracking-wider mt-1" style={{ color: theme.accentColor }}>Years</div>
+                  </div>
+                  <div className="p-3 rounded-2xl bg-white/10 backdrop-blur-xs border border-white/15 text-center">
+                    <div className="text-2xl sm:text-3xl font-black text-white font-mono leading-none">{months}</div>
+                    <div className="text-[10px] font-bold uppercase tracking-wider mt-1" style={{ color: theme.accentColor }}>Months</div>
+                  </div>
+                  <div className="p-3 rounded-2xl bg-white/10 backdrop-blur-xs border border-white/15 text-center">
+                    <div className="text-2xl sm:text-3xl font-black text-white font-mono leading-none">{days}</div>
+                    <div className="text-[10px] font-bold uppercase tracking-wider mt-1" style={{ color: theme.accentColor }}>Days</div>
+                  </div>
+                </div>
+
+                {/* Live Seconds ticker */}
+                <div className="p-3 rounded-xl bg-slate-900/90 border border-white/15 flex items-center justify-between gap-2 shadow-inner">
+                  <div className="flex items-center gap-2.5">
+                    <div className="w-8 h-8 rounded-lg bg-amber-400 text-slate-950 flex items-center justify-center shrink-0">
+                      <Zap className="w-4 h-4 text-slate-950 fill-slate-950 animate-pulse" />
+                    </div>
+                    <div>
+                      <div className="text-[10px] font-bold uppercase text-sky-400">Live Seconds Lived</div>
+                      <div className="text-sm sm:text-base font-black font-mono text-white tabular-nums">
+                        {liveSeconds.toLocaleString()} s
+                      </div>
+                    </div>
+                  </div>
+                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping mr-1" />
                 </div>
               </div>
-            </div>
-            <span className="inline-block w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping mr-2 shrink-0" />
-          </div>
 
-          {/* 2x2 Highlight Metric Badges with Colorful Vector Circles */}
-          <div className="relative z-10 grid grid-cols-2 gap-2.5 sm:gap-3 text-left">
-            {/* Next Birthday */}
-            <div className="p-3 rounded-2xl bg-white/5 border border-white/10 flex items-start gap-3">
-              <div className="w-9 h-9 rounded-full bg-pink-500 text-white flex items-center justify-center shrink-0 mt-0.5 shadow-xs">
-                <Cake className="w-4 h-4 text-white" />
-              </div>
-              <div>
-                <div className="text-[10px] sm:text-xs font-bold uppercase tracking-wider" style={{ color: theme.accentColor }}>
-                  Next Birthday
+              {/* Right Column: 2x2 Metric Cards */}
+              <div className="md:col-span-6 grid grid-cols-2 gap-2.5">
+                <div className="p-3 rounded-xl bg-white/5 border border-white/10">
+                  <div className="w-7 h-7 rounded-full bg-pink-500 text-white flex items-center justify-center mb-1.5">
+                    <Cake className="w-3.5 h-3.5" />
+                  </div>
+                  <div className="text-[10px] font-bold uppercase" style={{ color: theme.accentColor }}>Next Birthday</div>
+                  <div className="text-sm font-extrabold text-white mt-0.5">{daysUntilNextBirthday} Days Left</div>
+                  <div className="text-[10px] text-white/60">Turning {ageTurningNext}</div>
                 </div>
-                <div className="text-sm sm:text-base font-extrabold text-white mt-0.5">
-                  {daysUntilNextBirthday} Days Left
-                </div>
-                <div className="text-[10px] text-white/60">Turning {ageTurningNext} years old</div>
-              </div>
-            </div>
 
-            {/* Total Days */}
-            <div className="p-3 rounded-2xl bg-white/5 border border-white/10 flex items-start gap-3">
-              <div className="w-9 h-9 rounded-full bg-blue-500 text-white flex items-center justify-center shrink-0 mt-0.5 shadow-xs">
-                <Calendar className="w-4 h-4 text-white" />
-              </div>
-              <div>
-                <div className="text-[10px] sm:text-xs font-bold uppercase tracking-wider" style={{ color: theme.accentColor }}>
-                  Total Days
+                <div className="p-3 rounded-xl bg-white/5 border border-white/10">
+                  <div className="w-7 h-7 rounded-full bg-blue-500 text-white flex items-center justify-center mb-1.5">
+                    <Calendar className="w-3.5 h-3.5" />
+                  </div>
+                  <div className="text-[10px] font-bold uppercase" style={{ color: theme.accentColor }}>Total Days</div>
+                  <div className="text-sm font-extrabold text-white mt-0.5 font-mono">{totalDays.toLocaleString()} Days</div>
+                  <div className="text-[10px] text-white/60">On Earth</div>
                 </div>
-                <div className="text-sm sm:text-base font-extrabold text-white mt-0.5 font-mono">
-                  {totalDays.toLocaleString()} Days
+
+                <div className="p-3 rounded-xl bg-white/5 border border-white/10">
+                  <div className="w-7 h-7 rounded-full bg-rose-500 text-white flex items-center justify-center mb-1.5">
+                    <Heart className="w-3.5 h-3.5 fill-white" />
+                  </div>
+                  <div className="text-[10px] font-bold uppercase" style={{ color: theme.accentColor }}>Heartbeats</div>
+                  <div className="text-sm font-extrabold text-white mt-0.5 font-mono">~{(lifeStats.estimatedHeartbeats / 1_000_000).toFixed(1)}M</div>
+                  <div className="text-[10px] text-white/60">~80 bpm</div>
                 </div>
-                <div className="text-[10px] text-white/60">Lived on Earth</div>
+
+                <div className="p-3 rounded-xl bg-white/5 border border-white/10">
+                  <div className="w-7 h-7 rounded-full bg-amber-500 text-white flex items-center justify-center mb-1.5">
+                    <Clock className="w-3.5 h-3.5" />
+                  </div>
+                  <div className="text-[10px] font-bold uppercase" style={{ color: theme.accentColor }}>Solar Orbit</div>
+                  <div className="text-sm font-extrabold text-white mt-0.5">{lifeStats.sunOrbitProgressPercent}% Done</div>
+                  <div className="text-[10px] text-white/60">To Age {ageTurningNext}</div>
+                </div>
               </div>
             </div>
 
-            {/* Heartbeats */}
-            <div className="p-3 rounded-2xl bg-white/5 border border-white/10 flex items-start gap-3">
-              <div className="w-9 h-9 rounded-full bg-rose-500 text-white flex items-center justify-center shrink-0 mt-0.5 shadow-xs">
-                <Heart className="w-4 h-4 text-white fill-white" />
-              </div>
-              <div>
-                <div className="text-[10px] sm:text-xs font-bold uppercase tracking-wider" style={{ color: theme.accentColor }}>
-                  Heartbeats
-                </div>
-                <div className="text-sm sm:text-base font-extrabold text-white mt-0.5 font-mono">
-                  ~{(lifeStats.estimatedHeartbeats / 1_000_000).toFixed(1)} Million
-                </div>
-                <div className="text-[10px] text-white/60">~80 beats/min</div>
-              </div>
-            </div>
-
-            {/* Solar Orbit */}
-            <div className="p-3 rounded-2xl bg-white/5 border border-white/10 flex items-start gap-3">
-              <div className="w-9 h-9 rounded-full bg-amber-500 text-white flex items-center justify-center shrink-0 mt-0.5 shadow-xs">
-                <Clock className="w-4 h-4 text-white" />
-              </div>
-              <div>
-                <div className="text-[10px] sm:text-xs font-bold uppercase tracking-wider" style={{ color: theme.accentColor }}>
-                  Solar Orbit
-                </div>
-                <div className="text-sm sm:text-base font-extrabold text-white mt-0.5">
-                  {lifeStats.sunOrbitProgressPercent}% Done
-                </div>
-                <div className="text-[10px] text-white/60">Towards Age {ageTurningNext}</div>
-              </div>
+            <div className="relative z-10 mt-4 pt-3 border-t border-white/10 text-center text-[11px] text-white/70">
+              ⚡ Calculate your exact age down to the second at <strong>agecalculators.dev</strong>
             </div>
           </div>
+        )}
 
-          {/* Card Footer */}
-          <div className="relative z-10 mt-5 pt-3.5 border-t border-white/10 text-center text-[11px] text-white/70">
-            ⚡ Calculate your exact age down to the second at <strong>agecalculators.dev</strong>
+        {/* =========================================
+            LIVE PREVIEW: STORY (9:16)
+        ========================================= */}
+        {aspectRatio === 'story' && (
+          <div
+            className={`w-full max-w-sm mx-auto rounded-3xl p-6 bg-gradient-to-br ${theme.gradientBg} text-white shadow-xl border border-white/10 relative overflow-hidden transition-all duration-300 space-y-4`}
+          >
+            <div
+              className="absolute top-0 right-0 w-64 h-64 rounded-full blur-3xl pointer-events-none opacity-30"
+              style={{ backgroundColor: theme.accentColor }}
+            />
+
+            <div className="relative z-10 flex items-center justify-between gap-2 border-b border-white/10 pb-3">
+              <div
+                className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-extrabold text-white shadow-xs"
+                style={{ backgroundColor: theme.pillColor }}
+              >
+                <Calendar className="w-3.5 h-3.5" />
+                <span>agecalculators.dev</span>
+              </div>
+              <span className="text-[10px] text-white/70 font-medium">Verified Story</span>
+            </div>
+
+            <div className="relative z-10">
+              <h4 className="text-2xl font-black text-white tracking-tight">{displayName}</h4>
+              <p className="text-xs text-white/80 mt-0.5">
+                Born on <strong className="text-white">{dayOfWeekBorn}, {birthDateFormatted}</strong>
+              </p>
+              <p className="text-[11px] text-white/70">Zodiac: {zodiacSign}</p>
+            </div>
+
+            {/* Big 3 Age Blocks */}
+            <div className="relative z-10 grid grid-cols-3 gap-2">
+              <div className="p-3 rounded-2xl bg-white/10 backdrop-blur-xs border border-white/15 text-center">
+                <div className="text-2xl font-black text-white font-mono leading-none">{years}</div>
+                <div className="text-[10px] font-bold uppercase mt-1" style={{ color: theme.accentColor }}>Years</div>
+              </div>
+              <div className="p-3 rounded-2xl bg-white/10 backdrop-blur-xs border border-white/15 text-center">
+                <div className="text-2xl font-black text-white font-mono leading-none">{months}</div>
+                <div className="text-[10px] font-bold uppercase mt-1" style={{ color: theme.accentColor }}>Months</div>
+              </div>
+              <div className="p-3 rounded-2xl bg-white/10 backdrop-blur-xs border border-white/15 text-center">
+                <div className="text-2xl font-black text-white font-mono leading-none">{days}</div>
+                <div className="text-[10px] font-bold uppercase mt-1" style={{ color: theme.accentColor }}>Days</div>
+              </div>
+            </div>
+
+            {/* Live Seconds Banner */}
+            <div className="relative z-10 p-3.5 rounded-2xl bg-slate-900/95 border border-white/15 flex items-center justify-between shadow-inner">
+              <div className="flex items-center gap-2.5">
+                <div className="w-8 h-8 rounded-lg bg-amber-400 text-slate-950 flex items-center justify-center shrink-0">
+                  <Zap className="w-4 h-4 text-slate-950 fill-slate-950 animate-pulse" />
+                </div>
+                <div>
+                  <div className="text-[10px] font-bold uppercase text-sky-400">Live Seconds Lived</div>
+                  <div className="text-sm font-black font-mono text-white tabular-nums">{liveSeconds.toLocaleString()} s</div>
+                </div>
+              </div>
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping mr-1" />
+            </div>
+
+            {/* 4 Stacked Metric Cards */}
+            <div className="relative z-10 space-y-2">
+              <div className="p-2.5 rounded-xl bg-white/5 border border-white/10 flex items-center gap-3">
+                <div className="w-8 h-8 rounded-full bg-pink-500 text-white flex items-center justify-center shrink-0">
+                  <Cake className="w-4 h-4" />
+                </div>
+                <div className="min-w-0 flex-1">
+                  <div className="text-[10px] font-bold uppercase" style={{ color: theme.accentColor }}>Next Birthday</div>
+                  <div className="text-xs font-bold text-white">{daysUntilNextBirthday} Days Left (Turning {ageTurningNext})</div>
+                </div>
+              </div>
+
+              <div className="p-2.5 rounded-xl bg-white/5 border border-white/10 flex items-center gap-3">
+                <div className="w-8 h-8 rounded-full bg-blue-500 text-white flex items-center justify-center shrink-0">
+                  <Calendar className="w-4 h-4" />
+                </div>
+                <div className="min-w-0 flex-1">
+                  <div className="text-[10px] font-bold uppercase" style={{ color: theme.accentColor }}>Total Days</div>
+                  <div className="text-xs font-bold text-white font-mono">{totalDays.toLocaleString()} Days on Earth</div>
+                </div>
+              </div>
+
+              <div className="p-2.5 rounded-xl bg-white/5 border border-white/10 flex items-center gap-3">
+                <div className="w-8 h-8 rounded-full bg-rose-500 text-white flex items-center justify-center shrink-0">
+                  <Heart className="w-4 h-4 fill-white" />
+                </div>
+                <div className="min-w-0 flex-1">
+                  <div className="text-[10px] font-bold uppercase" style={{ color: theme.accentColor }}>Heartbeats</div>
+                  <div className="text-xs font-bold text-white font-mono">~{(lifeStats.estimatedHeartbeats / 1_000_000).toFixed(1)} Million</div>
+                </div>
+              </div>
+
+              <div className="p-2.5 rounded-xl bg-white/5 border border-white/10 flex items-center gap-3">
+                <div className="w-8 h-8 rounded-full bg-amber-500 text-white flex items-center justify-center shrink-0">
+                  <Clock className="w-4 h-4" />
+                </div>
+                <div className="min-w-0 flex-1">
+                  <div className="text-[10px] font-bold uppercase" style={{ color: theme.accentColor }}>Solar Orbit</div>
+                  <div className="text-xs font-bold text-white">{lifeStats.sunOrbitProgressPercent}% to Age {ageTurningNext}</div>
+                </div>
+              </div>
+            </div>
+
+            <div className="relative z-10 pt-2 border-t border-white/10 text-center text-[10px] text-white/70">
+              ⚡ Calculate yours at <strong>agecalculators.dev</strong>
+            </div>
           </div>
-        </div>
+        )}
+
+        {/* =========================================
+            LIVE PREVIEW: SQUARE (1:1)
+        ========================================= */}
+        {aspectRatio === 'square' && (
+          <div
+            className={`w-full max-w-2xl mx-auto rounded-3xl p-6 sm:p-8 bg-gradient-to-br ${theme.gradientBg} text-white shadow-xl border border-white/10 relative overflow-hidden transition-all duration-300`}
+          >
+            <div
+              className="absolute top-0 right-0 w-64 h-64 rounded-full blur-3xl pointer-events-none opacity-30"
+              style={{ backgroundColor: theme.accentColor }}
+            />
+
+            <div className="relative z-10 flex items-center justify-between gap-3 border-b border-white/10 pb-4">
+              <div
+                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-extrabold text-white shadow-xs"
+                style={{ backgroundColor: theme.pillColor }}
+              >
+                <Calendar className="w-3.5 h-3.5" />
+                <span>agecalculators.dev</span>
+              </div>
+              <div className="text-[11px] font-medium text-white/70">Verified Age Card</div>
+            </div>
+
+            <div className="relative z-10 mt-5">
+              <h4 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">{displayName}</h4>
+              <p className="text-xs sm:text-sm text-white/80 mt-1">
+                Born on <strong className="text-white">{dayOfWeekBorn}, {birthDateFormatted}</strong> • Zodiac: <strong className="text-white">{zodiacSign}</strong>
+              </p>
+            </div>
+
+            {/* Big Age Numbers */}
+            <div className="relative z-10 grid grid-cols-3 gap-2.5 sm:gap-4 my-6">
+              <div className="p-3 sm:p-4 rounded-2xl bg-white/10 backdrop-blur-xs border border-white/15 text-center">
+                <div className="text-2xl sm:text-4xl lg:text-5xl font-black text-white font-mono tabular-nums leading-none">{years}</div>
+                <div className="text-[10px] sm:text-xs font-bold uppercase tracking-wider mt-1.5" style={{ color: theme.accentColor }}>Years</div>
+              </div>
+              <div className="p-3 sm:p-4 rounded-2xl bg-white/10 backdrop-blur-xs border border-white/15 text-center">
+                <div className="text-2xl sm:text-4xl lg:text-5xl font-black text-white font-mono tabular-nums leading-none">{months}</div>
+                <div className="text-[10px] sm:text-xs font-bold uppercase tracking-wider mt-1.5" style={{ color: theme.accentColor }}>Months</div>
+              </div>
+              <div className="p-3 sm:p-4 rounded-2xl bg-white/10 backdrop-blur-xs border border-white/15 text-center">
+                <div className="text-2xl sm:text-4xl lg:text-5xl font-black text-white font-mono tabular-nums leading-none">{days}</div>
+                <div className="text-[10px] sm:text-xs font-bold uppercase tracking-wider mt-1.5" style={{ color: theme.accentColor }}>Days</div>
+              </div>
+            </div>
+
+            {/* Live Seconds Banner */}
+            <div className="relative z-10 p-3.5 sm:p-4 rounded-2xl bg-slate-900/90 border border-white/15 mb-6 flex items-center justify-between gap-3 shadow-inner">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-amber-400 text-slate-950 flex items-center justify-center shrink-0 shadow-xs">
+                  <Zap className="w-5 h-5 text-slate-950 fill-slate-950 animate-pulse" />
+                </div>
+                <div>
+                  <div className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-sky-400">Live Total Seconds Lived</div>
+                  <div className="text-base sm:text-xl font-black font-mono text-white tabular-nums">
+                    {liveSeconds.toLocaleString()} <span className="text-xs text-slate-400 font-normal">seconds</span>
+                  </div>
+                </div>
+              </div>
+              <span className="inline-block w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping mr-2 shrink-0" />
+            </div>
+
+            {/* 2x2 Metric Badges */}
+            <div className="relative z-10 grid grid-cols-2 gap-2.5 sm:gap-3 text-left">
+              <div className="p-3 rounded-2xl bg-white/5 border border-white/10 flex items-start gap-3">
+                <div className="w-9 h-9 rounded-full bg-pink-500 text-white flex items-center justify-center shrink-0 mt-0.5 shadow-xs">
+                  <Cake className="w-4 h-4 text-white" />
+                </div>
+                <div>
+                  <div className="text-[10px] sm:text-xs font-bold uppercase tracking-wider" style={{ color: theme.accentColor }}>Next Birthday</div>
+                  <div className="text-sm sm:text-base font-extrabold text-white mt-0.5">{daysUntilNextBirthday} Days Left</div>
+                  <div className="text-[10px] text-white/60">Turning {ageTurningNext}</div>
+                </div>
+              </div>
+
+              <div className="p-3 rounded-2xl bg-white/5 border border-white/10 flex items-start gap-3">
+                <div className="w-9 h-9 rounded-full bg-blue-500 text-white flex items-center justify-center shrink-0 mt-0.5 shadow-xs">
+                  <Calendar className="w-4 h-4 text-white" />
+                </div>
+                <div>
+                  <div className="text-[10px] sm:text-xs font-bold uppercase tracking-wider" style={{ color: theme.accentColor }}>Total Days</div>
+                  <div className="text-sm sm:text-base font-extrabold text-white mt-0.5 font-mono">{totalDays.toLocaleString()} Days</div>
+                  <div className="text-[10px] text-white/60">On Earth</div>
+                </div>
+              </div>
+
+              <div className="p-3 rounded-2xl bg-white/5 border border-white/10 flex items-start gap-3">
+                <div className="w-9 h-9 rounded-full bg-rose-500 text-white flex items-center justify-center shrink-0 mt-0.5 shadow-xs">
+                  <Heart className="w-4 h-4 text-white fill-white" />
+                </div>
+                <div>
+                  <div className="text-[10px] sm:text-xs font-bold uppercase tracking-wider" style={{ color: theme.accentColor }}>Heartbeats</div>
+                  <div className="text-sm sm:text-base font-extrabold text-white mt-0.5 font-mono">~{(lifeStats.estimatedHeartbeats / 1_000_000).toFixed(1)}M</div>
+                  <div className="text-[10px] text-white/60">~80 bpm</div>
+                </div>
+              </div>
+
+              <div className="p-3 rounded-2xl bg-white/5 border border-white/10 flex items-start gap-3">
+                <div className="w-9 h-9 rounded-full bg-amber-500 text-white flex items-center justify-center shrink-0 mt-0.5 shadow-xs">
+                  <Clock className="w-4 h-4 text-white" />
+                </div>
+                <div>
+                  <div className="text-[10px] sm:text-xs font-bold uppercase tracking-wider" style={{ color: theme.accentColor }}>Solar Orbit</div>
+                  <div className="text-sm sm:text-base font-extrabold text-white mt-0.5">{lifeStats.sunOrbitProgressPercent}% Done</div>
+                  <div className="text-[10px] text-white/60">To Age {ageTurningNext}</div>
+                </div>
+              </div>
+            </div>
+
+            <div className="relative z-10 mt-5 pt-3.5 border-t border-white/10 text-center text-[11px] text-white/70">
+              ⚡ Calculate your exact age down to the second at <strong>agecalculators.dev</strong>
+            </div>
+          </div>
+        )}
       </div>
 
       {/* Primary Actions: Download & Native Share Buttons */}
@@ -952,7 +1432,7 @@ export default function ShareAgeCard({
           className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-blue-600 hover:bg-blue-700 text-white rounded-2xl font-extrabold text-sm shadow-sm hover:shadow transition-all cursor-pointer"
         >
           <Download className="w-4 h-4" />
-          <span>{isGenerating ? 'Rendering High-Res Image...' : 'Download Image (PNG)'}</span>
+          <span>{isGenerating ? 'Rendering High-Res Image...' : `Download ${aspectRatio.toUpperCase()} Image (PNG)`}</span>
         </button>
 
         <button
