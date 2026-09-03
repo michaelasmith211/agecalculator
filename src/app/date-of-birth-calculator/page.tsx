@@ -1,9 +1,10 @@
 import React from 'react';
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Calendar, Search, BookOpen } from 'lucide-react';
 import DateOfBirthCalculator from '@/components/calculators/DateOfBirthCalculator';
 import Breadcrumbs from '@/components/Breadcrumbs';
+import RelatedCalculators from '@/components/RelatedCalculators';
 import FAQAccordion from '@/components/ui/FAQAccordion';
 import AdSlot from '@/components/AdSlot';
 import SocialShare from '@/components/SocialShare';
@@ -11,7 +12,7 @@ import { WebApplicationJsonLd, FaqJsonLd, BreadcrumbJsonLd } from '@/components/
 import { SITE_CONFIG } from '@/lib/constants';
 
 export const metadata: Metadata = {
-  title: 'Date of Birth Calculator – Find Your Birth Date',
+  title: 'Date of Birth Calculator – Find Your Birth Date From Age',
   description:
     'Estimate your possible date of birth by entering your age in years, months, and days. Fast, accurate reverse birthday lookup tool.',
   alternates: {
@@ -47,6 +48,11 @@ const FAQS = [
     question: 'Can I find a birth date for someone whose exact birthday was forgotten?',
     answer:
       'Yes. If you know their age from a specific date (for example on a past medical record, legal document, or census entry), you can enter that age and reference date to find their exact birth date.'
+  },
+  {
+    question: 'What is the reverse date calculation formula?',
+    answer:
+      'Birth Date = Reference Date - (Years, Months, Days). Subtraction starts with days (borrowing days from the previous month if necessary), then months (borrowing 12 months from the year if necessary), and finally years.'
   }
 ];
 
@@ -90,13 +96,45 @@ export default function DateOfBirthPage() {
           <AdSlot slotId="dob-mid" format="horizontal" />
 
           {/* Educational Section */}
-          <div className="mt-12 bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 space-y-4">
+          <div className="mt-12 bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 space-y-6">
             <h2 className="text-xl sm:text-2xl font-bold text-slate-900">
               When Is a Reverse DOB Calculator Useful?
             </h2>
             <p className="text-sm text-slate-600 leading-relaxed">
               A reverse date of birth calculator is invaluable in genealogy research, historical document analysis, medical intake forms, and legal record verification where only an age on a specific date is recorded rather than a complete date of birth.
             </p>
+
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-1">
+              <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-1">
+                <div className="font-bold text-slate-900 text-sm flex items-center gap-1.5">
+                  <Search className="w-4 h-4 text-amber-600" />
+                  <span>Genealogy & Ancestry</span>
+                </div>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  Deduce exact birth years from gravestones, census records, and obituaries stating age in years/months.
+                </p>
+              </div>
+
+              <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-1">
+                <div className="font-bold text-slate-900 text-sm flex items-center gap-1.5">
+                  <BookOpen className="w-4 h-4 text-blue-600" />
+                  <span>Historical Documents</span>
+                </div>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  Verify historical birth dates from old military enlistment papers or immigration manifests.
+                </p>
+              </div>
+
+              <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-1">
+                <div className="font-bold text-slate-900 text-sm flex items-center gap-1.5">
+                  <Calendar className="w-4 h-4 text-emerald-600" />
+                  <span>Medical Intake Forms</span>
+                </div>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  Cross-reference patient recorded ages against clinical registration dates for accuracy.
+                </p>
+              </div>
+            </div>
 
             <div className="pt-4 border-t border-slate-100 flex items-center justify-between text-sm">
               <span className="text-slate-600">Want to calculate forward from date of birth instead?</span>
@@ -117,6 +155,9 @@ export default function DateOfBirthPage() {
           />
 
           <FAQAccordion items={FAQS} />
+
+          {/* Related Tools Internal Linking Grid */}
+          <RelatedCalculators currentSlug="/date-of-birth-calculator" />
         </div>
       </div>
     </>

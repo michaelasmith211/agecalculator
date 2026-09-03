@@ -1,8 +1,9 @@
 import React from 'react';
 import { Metadata } from 'next';
-import { CheckCircle2 } from 'lucide-react';
+import { CheckCircle2, Clock, Calendar, Sparkles } from 'lucide-react';
 import MainAgeCalculator from '@/components/calculators/MainAgeCalculator';
 import Breadcrumbs from '@/components/Breadcrumbs';
+import RelatedCalculators from '@/components/RelatedCalculators';
 import FAQAccordion from '@/components/ui/FAQAccordion';
 import AdSlot from '@/components/AdSlot';
 import SocialShare from '@/components/SocialShare';
@@ -10,14 +11,14 @@ import { WebApplicationJsonLd, FaqJsonLd, BreadcrumbJsonLd } from '@/components/
 import { SITE_CONFIG } from '@/lib/constants';
 
 export const metadata: Metadata = {
-  title: 'Age Calculator – Calculate Age in Years, Months & Days',
+  title: 'Age Calculator – Calculate Exact Age in Years, Months & Days',
   description:
     'Calculate your exact age in years, months, and days from your date of birth. View detailed breakdown in weeks, days, hours, and minutes with custom target date options.',
   alternates: {
     canonical: '/age-calculator/'
   },
   openGraph: {
-    title: 'Age Calculator – Calculate Age in Years, Months & Days',
+    title: 'Age Calculator – Calculate Exact Age in Years, Months & Days',
     description: 'Calculate your exact age in years, months, and days with full calendar precision.',
     url: `${SITE_CONFIG.domain}/age-calculator/`,
     type: 'website',
@@ -46,6 +47,11 @@ const FAQS = [
     question: 'Why do some age calculators show different day counts?',
     answer:
       'Many basic calculators divide total elapsed days by 365.25 or 30.41, which creates fractional errors. Our calculator performs true calendar-date subtraction, guaranteeing 100% calendar accuracy.'
+  },
+  {
+    question: 'How accurate is the real-time milliseconds and seconds odometer?',
+    answer:
+      'The live odometer synchronizes directly with your device’s internal hardware clock at 60 frames per second, calculating elapsed milliseconds from your exact birth timestamp to the current millisecond.'
   }
 ];
 
@@ -91,32 +97,58 @@ export default function AgeCalculatorPage() {
           {/* Educational Content */}
           <div className="mt-12 bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 space-y-6">
             <h2 className="text-xl sm:text-2xl font-bold text-slate-900">
-              Understanding Accurate Age Calculation
+              Understanding Accurate Chronological Age
             </h2>
             <p className="text-sm text-slate-600 leading-relaxed">
-              When answering the question &quot;How old am I?&quot;, most people state only their completed years. However, in legal, medical, educational, and international contexts (such as visa applications, school admissions, and clinical trials), exact age in years, months, and days is required.
+              When answering the question &quot;How old am I?&quot;, most people state only their completed years. However, in legal, medical, educational, and international contexts (such as visa applications, school admissions, clinical trials, and retirement eligibility), exact age in years, months, and days is required.
             </p>
 
             <h3 className="text-base font-bold text-slate-800">
               Key Factors in Precision Date Math
             </h3>
-            <ul className="space-y-3 text-sm text-slate-600">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-1">
+              <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-1.5">
+                <div className="font-bold text-slate-900 text-sm flex items-center gap-1.5">
+                  <Calendar className="w-4 h-4 text-blue-600" />
+                  <span>Month Lengths</span>
+                </div>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  Months vary from 28 to 31 days. Subtraction requires borrowing from the exact preceding calendar month.
+                </p>
+              </div>
+
+              <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-1.5">
+                <div className="font-bold text-slate-900 text-sm flex items-center gap-1.5">
+                  <Sparkles className="w-4 h-4 text-emerald-600" />
+                  <span>Leap Years</span>
+                </div>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  Leap years add a 366th day every 4 years (unless non-400 century), adjusting total days lived accurately.
+                </p>
+              </div>
+
+              <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-1.5">
+                <div className="font-bold text-slate-900 text-sm flex items-center gap-1.5">
+                  <Clock className="w-4 h-4 text-purple-600" />
+                  <span>Time Precision</span>
+                </div>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  Optional time-of-birth input allows down-to-the-minute and live 60fps running seconds calculations.
+                </p>
+              </div>
+            </div>
+
+            <ul className="space-y-3 text-sm text-slate-600 pt-2 border-t border-slate-100">
               <li className="flex items-start gap-2">
                 <CheckCircle2 className="w-4 h-4 text-blue-600 shrink-0 mt-0.5" />
                 <span>
-                  <strong>Varying Month Lengths:</strong> Months have 28, 29, 30, or 31 days. Subtraction requires borrowing from the exact preceding month.
+                  <strong>Client-Side Processing:</strong> No personal birth dates or queries are sent to a server.
                 </span>
               </li>
               <li className="flex items-start gap-2">
                 <CheckCircle2 className="w-4 h-4 text-blue-600 shrink-0 mt-0.5" />
                 <span>
-                  <strong>Leap Years:</strong> A Gregorian leap year contains 366 days instead of 365, occurring every 4 years (unless the century year is not divisible by 400).
-                </span>
-              </li>
-              <li className="flex items-start gap-2">
-                <CheckCircle2 className="w-4 h-4 text-blue-600 shrink-0 mt-0.5" />
-                <span>
-                  <strong>Timezone Independence:</strong> Calculations are date-only calendar values to avoid daylight savings shifts.
+                  <strong>Cookie Auto-Restore:</strong> Automatically loads your last entered birthday for returning visits without requiring clicks.
                 </span>
               </li>
             </ul>
@@ -129,6 +161,9 @@ export default function AgeCalculatorPage() {
           />
 
           <FAQAccordion items={FAQS} />
+
+          {/* Related Tools Internal Linking Grid */}
+          <RelatedCalculators currentSlug="/age-calculator" />
         </div>
       </div>
     </>

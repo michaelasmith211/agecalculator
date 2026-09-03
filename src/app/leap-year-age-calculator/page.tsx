@@ -1,9 +1,10 @@
 import React from 'react';
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Compass, Calendar, Award } from 'lucide-react';
 import LeapYearCalculator from '@/components/calculators/LeapYearCalculator';
 import Breadcrumbs from '@/components/Breadcrumbs';
+import RelatedCalculators from '@/components/RelatedCalculators';
 import FAQAccordion from '@/components/ui/FAQAccordion';
 import AdSlot from '@/components/AdSlot';
 import SocialShare from '@/components/SocialShare';
@@ -47,6 +48,11 @@ const FAQS = [
     question: 'How do you calculate Leap Year Age?',
     answer:
       'Leap Year Age is calculated by counting only the actual February 29ths that have elapsed since your birth year. For example, someone turning 28 in 2028 has experienced 7 actual Leap Day birthdays.'
+  },
+  {
+    question: 'What is the Gregorian 400-Year Leap Rule?',
+    answer:
+      'A year is a leap year if divisible by 4, except for end-of-century years (ending in 00), which are only leap years if evenly divisible by 400 (e.g. 2000 was a leap year, but 1900 was not, and 2100 will not be).'
   }
 ];
 
@@ -90,13 +96,45 @@ export default function LeapYearAgePage() {
           <AdSlot slotId="leap-mid" format="horizontal" />
 
           {/* Educational Content */}
-          <div className="mt-12 bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 space-y-4">
+          <div className="mt-12 bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 space-y-6">
             <h2 className="text-xl sm:text-2xl font-bold text-slate-900">
               The Science of Leap Years and Feb 29
             </h2>
             <p className="text-sm text-slate-600 leading-relaxed">
-              The Earth takes approximately 365.2422 days to complete an orbit around the Sun. To keep our calendar aligned with astronomical seasons, an extra leap day (February 29) is added to the calendar in years divisible by 4 (with the exception of century years not divisible by 400).
+              The Earth takes approximately 365.2422 days to complete an orbit around the Sun. To keep our calendar synchronized with the astronomical seasons, an extra intercalary leap day (February 29) is added to the calendar in years divisible by 4 (with the exception of century years not divisible by 400).
             </p>
+
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-1">
+              <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-1">
+                <div className="font-bold text-slate-900 text-sm flex items-center gap-1.5">
+                  <Compass className="w-4 h-4 text-emerald-600" />
+                  <span>Astronomical Drift</span>
+                </div>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  Without leap years, our calendar would drift by approximately 24 days every century.
+                </p>
+              </div>
+
+              <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-1">
+                <div className="font-bold text-slate-900 text-sm flex items-center gap-1.5">
+                  <Award className="w-4 h-4 text-amber-600" />
+                  <span>1 in 1,461 Odds</span>
+                </div>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  The mathematical probability of being born on February 29 is roughly 1 in 1,461.
+                </p>
+              </div>
+
+              <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-1">
+                <div className="font-bold text-slate-900 text-sm flex items-center gap-1.5">
+                  <Calendar className="w-4 h-4 text-blue-600" />
+                  <span>Quadrennial Milestone</span>
+                </div>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  Every 4 solar years corresponds to exactly one genuine February 29 celebration.
+                </p>
+              </div>
+            </div>
 
             <div className="pt-4 border-t border-slate-100 flex items-center justify-between text-sm">
               <span className="text-slate-600">Want to see all milestone birthdays?</span>
@@ -117,6 +155,9 @@ export default function LeapYearAgePage() {
           />
 
           <FAQAccordion items={FAQS} />
+
+          {/* Related Tools Internal Linking Grid */}
+          <RelatedCalculators currentSlug="/leap-year-age-calculator" />
         </div>
       </div>
     </>

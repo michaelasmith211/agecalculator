@@ -1,9 +1,10 @@
 import React from 'react';
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Clock, Sparkles, PartyPopper } from 'lucide-react';
 import BirthdayCountdown from '@/components/calculators/BirthdayCountdown';
 import Breadcrumbs from '@/components/Breadcrumbs';
+import RelatedCalculators from '@/components/RelatedCalculators';
 import FAQAccordion from '@/components/ui/FAQAccordion';
 import AdSlot from '@/components/AdSlot';
 import SocialShare from '@/components/SocialShare';
@@ -36,7 +37,7 @@ const FAQS = [
   {
     question: 'How does the Live Birthday Countdown work?',
     answer:
-      'The countdown measures the exact real-time duration in milliseconds between the current browser second and midnight (00:00:00) on your next birthday date, updating every second.'
+      'The countdown measures the exact real-time duration in milliseconds between the current browser second and midnight (00:00:00) on your next birthday date, updating continuously at 60 frames per second.'
   },
   {
     question: 'Does the countdown adjust for time zones?',
@@ -47,6 +48,11 @@ const FAQS = [
     question: 'What happens on my birthday?',
     answer:
       'When your birthday arrives, the countdown triggers a celebration greeting wishing you a Happy Birthday and confirming the new age milestone you are celebrating!'
+  },
+  {
+    question: 'Can I share my birthday countdown with friends and family?',
+    answer:
+      'Yes! Use the Social Share buttons below the countdown to share your personalized countdown milestone with friends across WhatsApp, X (Twitter), Facebook, or via direct link.'
   }
 ];
 
@@ -90,13 +96,45 @@ export default function BirthdayCountdownPage() {
           <AdSlot slotId="bcount-mid" format="horizontal" />
 
           {/* Educational Content */}
-          <div className="mt-12 bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 space-y-4">
+          <div className="mt-12 bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 space-y-6">
             <h2 className="text-xl sm:text-2xl font-bold text-slate-900">
               Anticipating Birthday Celebrations
             </h2>
             <p className="text-sm text-slate-600 leading-relaxed">
               Counting down to a birthday builds excitement for milestone celebrations, allows friends and families to plan surprise parties well in advance, and provides an instant visual metric of life’s precious moments.
             </p>
+
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-1">
+              <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-1">
+                <div className="font-bold text-slate-900 text-sm flex items-center gap-1.5">
+                  <Clock className="w-4 h-4 text-purple-600" />
+                  <span>Real-Time Ticking</span>
+                </div>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  Smooth 1-second interval refresh powered by your device’s hardware clock.
+                </p>
+              </div>
+
+              <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-1">
+                <div className="font-bold text-slate-900 text-sm flex items-center gap-1.5">
+                  <PartyPopper className="w-4 h-4 text-pink-600" />
+                  <span>Party Planning</span>
+                </div>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  Track exact weeks and days remaining to coordinate party invitations and bookings.
+                </p>
+              </div>
+
+              <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-1">
+                <div className="font-bold text-slate-900 text-sm flex items-center gap-1.5">
+                  <Sparkles className="w-4 h-4 text-amber-600" />
+                  <span>Birthday Greeting</span>
+                </div>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  Celebration fireworks and birthday confirmation banner activate on the big day.
+                </p>
+              </div>
+            </div>
 
             <div className="pt-4 border-t border-slate-100 flex items-center justify-between text-sm">
               <span className="text-slate-600">Want to see a calendar table of all milestone birthdays?</span>
@@ -117,6 +155,9 @@ export default function BirthdayCountdownPage() {
           />
 
           <FAQAccordion items={FAQS} />
+
+          {/* Related Tools Internal Linking Grid */}
+          <RelatedCalculators currentSlug="/birthday-countdown" />
         </div>
       </div>
     </>

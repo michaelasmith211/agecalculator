@@ -14,20 +14,38 @@ import {
   ShieldCheck,
   Zap,
   Smartphone,
-  Calculator
+  Calculator,
+  Globe2,
+  Scale
 } from 'lucide-react';
 import MainAgeCalculator from '@/components/calculators/MainAgeCalculator';
 import AgeReferenceTable from '@/components/ui/AgeReferenceTable';
 import FAQAccordion from '@/components/ui/FAQAccordion';
 import AdSlot from '@/components/AdSlot';
 import { WebApplicationJsonLd, FaqJsonLd, BreadcrumbJsonLd } from '@/components/JsonLd';
+import { SITE_CONFIG } from '@/lib/constants';
 
 export const metadata: Metadata = {
-  title: 'Age Calculator – Calculate Your Exact Age',
+  title: 'Age Calculator – Calculate Exact Age in Years, Months & Days',
   description:
-    'Use our free Age Calculator to calculate your exact age in years, months, and days. Find your next birthday, age in days, total weeks, and more.',
+    'Free online Age Calculator. Calculate your exact age in years, months, days, and live running seconds. Features birthday countdown, total days lived, and stats.',
   alternates: {
     canonical: '/'
+  },
+  openGraph: {
+    title: 'Age Calculator – Calculate Exact Age in Years, Months & Days',
+    description:
+      'Free online Age Calculator. Calculate your exact age in years, months, days, and live running seconds with full calendar precision.',
+    url: `${SITE_CONFIG.domain}/`,
+    type: 'website',
+    images: [`${SITE_CONFIG.domain}/og-image.svg`]
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Age Calculator – Calculate Exact Age Online',
+    description:
+      'Free online Age Calculator. Calculate your exact age in years, months, days, and live running seconds.',
+    images: [`${SITE_CONFIG.domain}/og-image.svg`]
   }
 };
 
@@ -35,27 +53,27 @@ const HOMEPAGE_FAQS = [
   {
     question: 'What is an online Age Calculator?',
     answer:
-      'An online Age Calculator is a digital tool that computes the exact time elapsed from a person’s date of birth to the present moment or a custom target date. It provides exact duration broken down into years, months, days, total weeks, hours, and minutes using true calendar rules.'
+      'An online Age Calculator is a digital precision tool that computes the exact duration of time elapsed between a person’s date of birth and a reference date (such as today). It breaks down your life into completed calendar years, months, days, total weeks, hours, minutes, and live running seconds using true Gregorian calendar rules.'
   },
   {
     question: 'How do I calculate my exact age in years, months, and days?',
     answer:
-      'To calculate your exact age, subtract your birth year, birth month, and birth day from today’s calendar date. If the current day or month is smaller than your birth day or month, you borrow the exact number of days from the preceding month and 12 months from the preceding year. Our calculator automates this precision math instantly.'
+      'To calculate your exact age, subtract your birth year, birth month, and birth day from today’s calendar date. If the current day or month is smaller than your birth day or month, you borrow the exact number of days from the preceding month (28, 29, 30, or 31) and 12 months from the preceding year. Our calculator automates this precision math instantly.'
   },
   {
     question: 'Can I calculate my age on a specific future or past date?',
     answer:
-      'Yes! By clicking "Change Date" next to the "Age As Of Date" field in our calculator, you can choose any historical date to see how old you were or select any future date to find out how old you will be.'
+      'Yes! By clicking "Change Date" next to the "Age As Of Date" field in our calculator, you can select any historical date to see how old you were on a past milestone or choose any future date to find out how old you will be.'
   },
   {
     question: 'How many total days old am I?',
     answer:
-      'Your total age in days is calculated by measuring the exact number of calendar days between your birth date and the reference date, accounting for all intervening leap years (366 days) and common years (365 days). You can see this value in the "Total Days Lived" card.'
+      'Your total age in days is calculated by measuring the exact number of calendar days between your birth date and the target date, taking into account all intervening leap years (366 days) and common years (365 days). You can see this value in the "Total Days Lived" card.'
   },
   {
     question: 'How does this calculator handle leap years and February 29 birthdays?',
     answer:
-      'Our engine strictly respects Gregorian calendar leap rules (years divisible by 4, except century years unless divisible by 400). If you were born on February 29, our calculator accurately tracks your calendar age each year and identifies your quadrennial leap birthdays.'
+      'Our calculation engine strictly follows Gregorian calendar leap rules (years divisible by 4, except century years unless divisible by 400). If you were born on February 29, our tool tracks your calendar age each year and identifies your quadrennial leap birthdays.'
   },
   {
     question: 'How do I calculate the age difference between two people?',
@@ -65,7 +83,12 @@ const HOMEPAGE_FAQS = [
   {
     question: 'Are my date inputs stored or sent to a server?',
     answer:
-      'No. All calculations run 100% locally in your web browser. No personal data, birth dates, or queries are stored in any database or transmitted to any external server.'
+      'No. All calculations execute 100% locally in your web browser. No personal dates or queries are ever sent to an external server or database.'
+  },
+  {
+    question: 'What is the difference between Western Age and Traditional East Asian Age?',
+    answer:
+      'In the Western (international) system, a newborn is 0 years old and turns 1 year old on their first birthday. In traditional East Asian age reckoning (such as the former Korean age system), a baby was considered 1 year old at birth and gained a year on New Year’s Day. Our calculator uses the international standard.'
   }
 ];
 
@@ -75,7 +98,7 @@ export default function HomePage() {
       {/* Structured Data */}
       <WebApplicationJsonLd
         name="Age Calculator"
-        description="Calculate your exact age in years, months, and days with calendar precision."
+        description="Calculate your exact age in years, months, and days with calendar precision and live running seconds."
         url="/"
         applicationCategory="UtilityApplication"
       />
@@ -93,7 +116,7 @@ export default function HomePage() {
             Age Calculator
           </h1>
           <p className="mt-3 text-base sm:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
-            Calculate your exact age in years, months, and days. Find your next birthday, total days lived, and explore detailed time breakdowns.
+            Calculate your exact age in years, months, and days. Find your next birthday, total days lived, and explore detailed live running seconds.
           </p>
         </section>
 
@@ -119,7 +142,7 @@ export default function HomePage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {/* Card 1: Birthday Calculator */}
             <Link
-              href="/birthday-calculator"
+              href="/birthday-calculator/"
               className="group p-6 bg-white border border-slate-200 rounded-2xl shadow-2xs hover:shadow-md hover:border-pink-300 transition-all flex flex-col justify-between"
             >
               <div>
@@ -141,7 +164,7 @@ export default function HomePage() {
 
             {/* Card 2: Age Difference */}
             <Link
-              href="/age-difference-calculator"
+              href="/age-difference-calculator/"
               className="group p-6 bg-white border border-slate-200 rounded-2xl shadow-2xs hover:shadow-md hover:border-indigo-300 transition-all flex flex-col justify-between"
             >
               <div>
@@ -163,7 +186,7 @@ export default function HomePage() {
 
             {/* Card 3: Date of Birth Calculator */}
             <Link
-              href="/date-of-birth-calculator"
+              href="/date-of-birth-calculator/"
               className="group p-6 bg-white border border-slate-200 rounded-2xl shadow-2xs hover:shadow-md hover:border-amber-300 transition-all flex flex-col justify-between"
             >
               <div>
@@ -185,7 +208,7 @@ export default function HomePage() {
 
             {/* Card 4: Days Between Dates */}
             <Link
-              href="/days-between-dates"
+              href="/days-between-dates/"
               className="group p-6 bg-white border border-slate-200 rounded-2xl shadow-2xs hover:shadow-md hover:border-teal-300 transition-all flex flex-col justify-between"
             >
               <div>
@@ -207,7 +230,7 @@ export default function HomePage() {
 
             {/* Card 5: Date Difference */}
             <Link
-              href="/date-difference-calculator"
+              href="/date-difference-calculator/"
               className="group p-6 bg-white border border-slate-200 rounded-2xl shadow-2xs hover:shadow-md hover:border-violet-300 transition-all flex flex-col justify-between"
             >
               <div>
@@ -229,7 +252,7 @@ export default function HomePage() {
 
             {/* Card 6: Chronological Age */}
             <Link
-              href="/chronological-age-calculator"
+              href="/chronological-age-calculator/"
               className="group p-6 bg-white border border-slate-200 rounded-2xl shadow-2xs hover:shadow-md hover:border-cyan-300 transition-all flex flex-col justify-between"
             >
               <div>
@@ -259,7 +282,7 @@ export default function HomePage() {
               <span>Mathematical Methodology</span>
             </div>
             <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
-              How Age Is Calculated
+              How Age Is Calculated Accurately
             </h2>
             <p className="mt-3 text-base text-slate-600 leading-relaxed">
               Chronological age represents the precise measurement of time that has elapsed between a person’s date of birth and a specific target calculation date. While commonly simplified as subtracting the birth year from the current year, accurate calendar calculation requires taking into account the exact day, month, leap years, and month-borrowing adjustments.
@@ -312,6 +335,29 @@ export default function HomePage() {
               <div className="mt-3 pt-3 border-t border-blue-200 font-semibold text-blue-950">
                 Result: Exactly 26 Years, 7 Months, and 18 Days (9,727 total days).
               </div>
+            </div>
+          </div>
+
+          {/* Cultural & International Age Systems */}
+          <div className="mt-8 pt-8 border-t border-slate-200 grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="p-5 bg-slate-50 border border-slate-200 rounded-xl space-y-2">
+              <div className="flex items-center gap-2 font-bold text-slate-900 text-base">
+                <Globe2 className="w-4 h-4 text-blue-600" />
+                <span>Western / International Age System</span>
+              </div>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                Used in almost all countries. A person is considered 0 years old at birth and increments their age by 1 on each subsequent birthday milestone.
+              </p>
+            </div>
+
+            <div className="p-5 bg-slate-50 border border-slate-200 rounded-xl space-y-2">
+              <div className="flex items-center gap-2 font-bold text-slate-900 text-base">
+                <Scale className="w-4 h-4 text-indigo-600" />
+                <span>Legal & Official Age Thresholds</span>
+              </div>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                In statutory law, exact chronological age determines milestone eligibility: voting (18), driving (16), full adult rights (21), and pension retirement (65–67).
+              </p>
             </div>
           </div>
         </section>
@@ -377,7 +423,7 @@ export default function HomePage() {
               </div>
               <h3 className="font-bold text-slate-900 text-base">Mobile-First Design</h3>
               <p className="text-sm text-slate-600 leading-relaxed">
-                Carefully optimized for smartphones, tablets, and desktop computers with large responsive inputs and no horizontal scrolling.
+                Carefully optimized for smartphones, tablets, and desktop computers with large responsive inputs and zero horizontal scrolling.
               </p>
             </div>
 

@@ -1,9 +1,10 @@
 import React from 'react';
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Stethoscope, GraduationCap } from 'lucide-react';
 import ChronologicalAgeCalculator from '@/components/calculators/ChronologicalAgeCalculator';
 import Breadcrumbs from '@/components/Breadcrumbs';
+import RelatedCalculators from '@/components/RelatedCalculators';
 import FAQAccordion from '@/components/ui/FAQAccordion';
 import AdSlot from '@/components/AdSlot';
 import SocialShare from '@/components/SocialShare';
@@ -11,7 +12,7 @@ import { WebApplicationJsonLd, FaqJsonLd, BreadcrumbJsonLd } from '@/components/
 import { SITE_CONFIG } from '@/lib/constants';
 
 export const metadata: Metadata = {
-  title: 'Chronological Age Calculator – Clinical & Academic Age',
+  title: 'Chronological Age Calculator – Clinical & Academic Testing',
   description:
     'Calculate exact chronological age in standardized assessment notation (Years;Months;Days) for psychological testing, speech therapy, and clinical evaluations with prematurity correction.',
   alternates: {
@@ -47,6 +48,11 @@ const FAQS = [
     question: 'How is clinical chronological age calculated manually?',
     answer:
       'Write the Testing Date on top (Year, Month, Day) and the Date of Birth below. Subtract days first (borrowing 30 days or preceding month days if needed), then subtract months (borrowing 12 months if needed), then subtract years.'
+  },
+  {
+    question: 'Which standardized tests require chronological age notation?',
+    answer:
+      'Psychometric and developmental assessments like WISC-V, WAIS-IV, WPPSI-IV, Woodcock-Johnson IV, Vineland-3, and Peabody Picture Vocabulary Test require exact chronological age at the time of testing.'
   }
 ];
 
@@ -98,6 +104,28 @@ export default function ChronologicalAgePage() {
               Standardized assessment protocols (including Wechsler Intelligence Scales, Woodcock-Johnson Tests of Cognitive Abilities, Peabody Picture Vocabulary Test, and Vineland Adaptive Behavior Scales) require precise chronological age calculation to reference normed percentile ranks and standard scores.
             </p>
 
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
+              <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-1">
+                <div className="font-bold text-slate-900 text-sm flex items-center gap-1.5">
+                  <Stethoscope className="w-4 h-4 text-cyan-600" />
+                  <span>Pediatric & Clinical Intake</span>
+                </div>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  Evaluate infant development against corrected gestational maturity milestones.
+                </p>
+              </div>
+
+              <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-1">
+                <div className="font-bold text-slate-900 text-sm flex items-center gap-1.5">
+                  <GraduationCap className="w-4 h-4 text-blue-600" />
+                  <span>Psychological & School Testing</span>
+                </div>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  Accurately index standardized normative tables by exact years and months on test day.
+                </p>
+              </div>
+            </div>
+
             <div className="p-4 bg-cyan-50/50 border border-cyan-100 rounded-xl space-y-2 text-sm text-slate-700">
               <div className="font-bold text-cyan-900">Notation Convention:</div>
               <p className="text-xs leading-relaxed">
@@ -124,6 +152,9 @@ export default function ChronologicalAgePage() {
           />
 
           <FAQAccordion items={FAQS} />
+
+          {/* Related Tools Internal Linking Grid */}
+          <RelatedCalculators currentSlug="/chronological-age-calculator" />
         </div>
       </div>
     </>

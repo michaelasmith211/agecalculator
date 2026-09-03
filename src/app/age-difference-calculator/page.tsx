@@ -1,9 +1,10 @@
 import React from 'react';
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Users, Heart, Scale } from 'lucide-react';
 import AgeDifferenceCalculator from '@/components/calculators/AgeDifferenceCalculator';
 import Breadcrumbs from '@/components/Breadcrumbs';
+import RelatedCalculators from '@/components/RelatedCalculators';
 import FAQAccordion from '@/components/ui/FAQAccordion';
 import AdSlot from '@/components/AdSlot';
 import SocialShare from '@/components/SocialShare';
@@ -47,6 +48,11 @@ const FAQS = [
     question: 'Does age difference change over time?',
     answer:
       'No. The absolute age difference in calendar days, months, and years remains constant throughout life because birth dates never change.'
+  },
+  {
+    question: 'Why is simple birth year subtraction inaccurate for age gap?',
+    answer:
+      'Subtracting birth years alone (e.g., 1995 - 1990 = 5 years) ignores months and days. Two people born in 1990 and 1995 could have an age difference ranging from 4 years and 1 day to 5 years and 364 days depending on their birth months.'
   }
 ];
 
@@ -98,6 +104,38 @@ export default function AgeDifferencePage() {
               When comparing two people’s ages, estimating by birth year alone can lead to an error of up to 11 months. For example, two people born in 1990 (one in January, one in December) have almost an entire year of age difference, even though simple year subtraction yields zero.
             </p>
 
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-1">
+              <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-1">
+                <div className="font-bold text-slate-900 text-sm flex items-center gap-1.5">
+                  <Heart className="w-4 h-4 text-pink-600" />
+                  <span>Couples & Relationships</span>
+                </div>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  Calculate precise age gap and find halfway milestone dates for partners.
+                </p>
+              </div>
+
+              <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-1">
+                <div className="font-bold text-slate-900 text-sm flex items-center gap-1.5">
+                  <Users className="w-4 h-4 text-indigo-600" />
+                  <span>Siblings & Family</span>
+                </div>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  Compare exact age gaps between siblings, twins (with birth time), and generations.
+                </p>
+              </div>
+
+              <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-1">
+                <div className="font-bold text-slate-900 text-sm flex items-center gap-1.5">
+                  <Scale className="w-4 h-4 text-amber-600" />
+                  <span>Legal & Demographics</span>
+                </div>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  Verify age criteria for joint benefits, sports age brackets, and eligibility.
+                </p>
+              </div>
+            </div>
+
             <div className="p-4 bg-indigo-50/50 border border-indigo-100 rounded-xl space-y-2">
               <div className="font-bold text-indigo-900 text-sm">Example Calculation:</div>
               <p className="text-xs text-slate-700 leading-relaxed">
@@ -126,6 +164,9 @@ export default function AgeDifferencePage() {
           />
 
           <FAQAccordion items={FAQS} />
+
+          {/* Related Tools Internal Linking Grid */}
+          <RelatedCalculators currentSlug="/age-difference-calculator" />
         </div>
       </div>
     </>

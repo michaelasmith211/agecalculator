@@ -1,9 +1,10 @@
 import React from 'react';
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { ArrowRight, ShieldAlert } from 'lucide-react';
+import { ArrowRight, ShieldAlert, Briefcase, Calendar, TrendingUp } from 'lucide-react';
 import RetirementAgeCalculator from '@/components/calculators/RetirementAgeCalculator';
 import Breadcrumbs from '@/components/Breadcrumbs';
+import RelatedCalculators from '@/components/RelatedCalculators';
 import FAQAccordion from '@/components/ui/FAQAccordion';
 import AdSlot from '@/components/AdSlot';
 import SocialShare from '@/components/SocialShare';
@@ -47,6 +48,11 @@ const FAQS = [
     question: 'Does this calculator guarantee pension or government benefit eligibility?',
     answer:
       'No. Government pension eligibility rules (such as US Social Security Full Retirement Age, UK State Pension Age, or Australian Age Pension) vary by birth year, legislative changes, and work credit history. This tool provides a personal timeline planning estimation.'
+  },
+  {
+    question: 'What is Full Retirement Age (FRA)?',
+    answer:
+      'Full Retirement Age is the age at which a person becomes entitled to full, unreduced retirement benefits under statutory social security or state pension systems (typically between 66 and 67 for individuals born after 1960).'
   }
 ];
 
@@ -90,13 +96,45 @@ export default function RetirementAgePage() {
           <AdSlot slotId="retire-mid" format="horizontal" />
 
           {/* Educational Content & Disclaimer */}
-          <div className="mt-12 bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 space-y-4">
+          <div className="mt-12 bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 space-y-6">
             <h2 className="text-xl sm:text-2xl font-bold text-slate-900">
               Planning Your Retirement Milestone Timeline
             </h2>
             <p className="text-sm text-slate-600 leading-relaxed">
               Tracking your exact timeline to retirement enables strategic milestone planning, personal savings pacing, career transition roadmaps, and work-life balance adjustments as you approach your target retirement years.
             </p>
+
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-1">
+              <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-1">
+                <div className="font-bold text-slate-900 text-sm flex items-center gap-1.5">
+                  <Briefcase className="w-4 h-4 text-orange-600" />
+                  <span>Working Days Remaining</span>
+                </div>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  Track actual Monday–Friday working shifts left before transitioning into retirement.
+                </p>
+              </div>
+
+              <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-1">
+                <div className="font-bold text-slate-900 text-sm flex items-center gap-1.5">
+                  <Calendar className="w-4 h-4 text-blue-600" />
+                  <span>Exact Milestone Date</span>
+                </div>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  Identify the exact calendar day of the week your retirement age birthday lands on.
+                </p>
+              </div>
+
+              <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-1">
+                <div className="font-bold text-slate-900 text-sm flex items-center gap-1.5">
+                  <TrendingUp className="w-4 h-4 text-emerald-600" />
+                  <span>Savings Pacing</span>
+                </div>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  Align 401(k), IRA, and superannuation contribution schedules with exact time horizons.
+                </p>
+              </div>
+            </div>
 
             <div className="p-4 bg-orange-50 border border-orange-200 rounded-xl flex items-start gap-2.5 text-xs text-slate-700">
               <ShieldAlert className="w-5 h-5 text-orange-600 shrink-0 mt-0.5" />
@@ -124,6 +162,9 @@ export default function RetirementAgePage() {
           />
 
           <FAQAccordion items={FAQS} />
+
+          {/* Related Tools Internal Linking Grid */}
+          <RelatedCalculators currentSlug="/retirement-age-calculator" />
         </div>
       </div>
     </>

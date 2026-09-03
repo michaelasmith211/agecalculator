@@ -1,9 +1,10 @@
 import React from 'react';
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { ArrowRight, Briefcase, Sun } from 'lucide-react';
+import { ArrowRight, Briefcase, Sun, CalendarRange } from 'lucide-react';
 import DaysBetweenDates from '@/components/calculators/DaysBetweenDates';
 import Breadcrumbs from '@/components/Breadcrumbs';
+import RelatedCalculators from '@/components/RelatedCalculators';
 import FAQAccordion from '@/components/ui/FAQAccordion';
 import AdSlot from '@/components/AdSlot';
 import SocialShare from '@/components/SocialShare';
@@ -11,7 +12,7 @@ import { WebApplicationJsonLd, FaqJsonLd, BreadcrumbJsonLd } from '@/components/
 import { SITE_CONFIG } from '@/lib/constants';
 
 export const metadata: Metadata = {
-  title: 'Days Between Dates Calculator – Calculate Date Difference',
+  title: 'Days Between Dates Calculator – Count Days & Business Days',
   description:
     'Calculate the exact number of days, weeks, business days, and weekends between any two dates. Free online date interval calculator with inclusive counting options.',
   alternates: {
@@ -47,6 +48,11 @@ const FAQS = [
     question: 'How many days are in a year with leap days?',
     answer:
       'A standard calendar year contains 365 days (52 weeks and 1 day), while a leap year contains 366 days (52 weeks and 2 days).'
+  },
+  {
+    question: 'How do leap years affect the total day count between dates?',
+    answer:
+      'If the interval between your start and end dates spans February 29 of a leap year, an extra day is automatically added to the total calendar days.'
   }
 ];
 
@@ -98,13 +104,13 @@ export default function DaysBetweenDatesPage() {
               Measuring the exact number of days between two dates is essential for project management sprint planning, legal statutory filing deadlines, interest rate calculations, rent prorations, and personal event countdowns.
             </p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl">
                 <div className="font-bold text-slate-900 text-sm flex items-center gap-2">
                   <Briefcase className="w-4 h-4 text-emerald-600" />
                   <span>Work & Project Deadlines</span>
                 </div>
-                <p className="text-xs text-slate-600 mt-1">
+                <p className="text-xs text-slate-600 mt-1 leading-relaxed">
                   Exclude Saturdays and Sundays to measure actionable business working days for deliverables.
                 </p>
               </div>
@@ -114,8 +120,18 @@ export default function DaysBetweenDatesPage() {
                   <Sun className="w-4 h-4 text-amber-600" />
                   <span>Vacation & Event Duration</span>
                 </div>
-                <p className="text-xs text-slate-600 mt-1">
+                <p className="text-xs text-slate-600 mt-1 leading-relaxed">
                   Use the inclusive counting toggle to include both departure and return dates for complete trip days.
+                </p>
+              </div>
+
+              <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl">
+                <div className="font-bold text-slate-900 text-sm flex items-center gap-2">
+                  <CalendarRange className="w-4 h-4 text-teal-600" />
+                  <span>Contracts & Invoicing</span>
+                </div>
+                <p className="text-xs text-slate-600 mt-1 leading-relaxed">
+                  Determine exact payment net-30, net-60, or prorated billing periods with complete calendar precision.
                 </p>
               </div>
             </div>
@@ -139,6 +155,9 @@ export default function DaysBetweenDatesPage() {
           />
 
           <FAQAccordion items={FAQS} />
+
+          {/* Related Tools Internal Linking Grid */}
+          <RelatedCalculators currentSlug="/days-between-dates" />
         </div>
       </div>
     </>
