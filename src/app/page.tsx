@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Metadata } from 'next';
 import {
   Calendar,
@@ -38,14 +39,14 @@ export const metadata: Metadata = {
       'Free online Age Calculator. Calculate your exact age in years, months, days, and live running seconds with full calendar precision.',
     url: `${SITE_CONFIG.domain}/`,
     type: 'website',
-    images: [`${SITE_CONFIG.domain}/og-image.svg`]
+    images: [`${SITE_CONFIG.domain}/images/age-calculator-how-it-works.jpg`]
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Age Calculator – Calculate Exact Age Online',
     description:
       'Free online Age Calculator. Calculate your exact age in years, months, days, and live running seconds.',
-    images: [`${SITE_CONFIG.domain}/og-image.svg`]
+    images: [`${SITE_CONFIG.domain}/images/age-calculator-how-it-works.jpg`]
   }
 };
 
@@ -100,6 +101,7 @@ export default function HomePage() {
         name="Age Calculator"
         description="Calculate your exact age in years, months, and days with calendar precision and live running seconds."
         url="/"
+        image={`${SITE_CONFIG.domain}/images/age-calculator-how-it-works.jpg`}
         applicationCategory="UtilityApplication"
       />
       <BreadcrumbJsonLd items={[{ name: 'Home', item: '/' }]} />
@@ -127,6 +129,101 @@ export default function HomePage() {
 
         {/* Ad Placeholder (CLS Safe) */}
         <AdSlot slotId="home-top-banner" format="horizontal" />
+
+        {/* HOW THE AGE CALCULATOR WORKS - VISUAL INFOGRAPHIC GUIDE */}
+        <section className="my-16 bg-white border border-slate-200 rounded-3xl p-6 sm:p-10 shadow-xs">
+          <div className="text-center max-w-3xl mx-auto mb-8">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-100 mb-3 shadow-2xs">
+              <Sparkles className="w-3.5 h-3.5 text-blue-600" />
+              <span>Visual Step-by-Step Guide</span>
+            </div>
+            <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
+              How the Age Calculator Works
+            </h2>
+            <p className="mt-2 text-sm sm:text-base text-slate-600 leading-relaxed">
+              Calculate your exact chronological age down to the second in 6 simple steps with our free online Age Calculator.
+            </p>
+          </div>
+
+          <figure className="max-w-4xl mx-auto overflow-hidden rounded-2xl border border-slate-200 shadow-sm bg-slate-50">
+            <Image
+              src="/images/age-calculator-how-it-works.jpg"
+              alt="Age Calculator – How to calculate your exact age in years, months, days and seconds on agecalculators.dev"
+              title="Age Calculator Guide – Step-by-step how to calculate exact age and live running seconds"
+              width={1024}
+              height={682}
+              className="w-full h-auto object-cover rounded-2xl"
+              sizes="(max-width: 1024px) 100vw, 1024px"
+              loading="lazy"
+            />
+            <figcaption className="p-4 text-center text-xs sm:text-sm text-slate-600 bg-slate-50 border-t border-slate-100">
+              <strong>Figure 1:</strong> Complete workflow of the <em>Age Calculator</em> at <span className="font-semibold text-blue-600">agecalculators.dev</span> showing birth date selection, optional birth time input, instant multi-unit age computation, and live real-time ticking seconds odometer.
+            </figcaption>
+          </figure>
+
+          {/* 6 Step Walkthrough Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-8">
+            <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-1">
+              <div className="font-bold text-slate-900 text-sm flex items-center gap-2">
+                <span className="w-6 h-6 rounded-full bg-blue-600 text-white text-xs flex items-center justify-center font-extrabold shrink-0">1</span>
+                <span>Enter Your Date of Birth</span>
+              </div>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                Select your birth day, month, and year (DD/MM/YYYY) in the interactive date picker.
+              </p>
+            </div>
+
+            <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-1">
+              <div className="font-bold text-slate-900 text-sm flex items-center gap-2">
+                <span className="w-6 h-6 rounded-full bg-blue-600 text-white text-xs flex items-center justify-center font-extrabold shrink-0">2</span>
+                <span>Choose Calculation Date</span>
+              </div>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                Default is today&apos;s date, or toggle &quot;Change Date&quot; to calculate age on any custom date.
+              </p>
+            </div>
+
+            <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-1">
+              <div className="font-bold text-slate-900 text-sm flex items-center gap-2">
+                <span className="w-6 h-6 rounded-full bg-blue-600 text-white text-xs flex items-center justify-center font-extrabold shrink-0">3</span>
+                <span>Include Birth Time (Optional)</span>
+              </div>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                Add your exact hour and minute of birth for down-to-the-second precision.
+              </p>
+            </div>
+
+            <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-1">
+              <div className="font-bold text-slate-900 text-sm flex items-center gap-2">
+                <span className="w-6 h-6 rounded-full bg-blue-600 text-white text-xs flex items-center justify-center font-extrabold shrink-0">4</span>
+                <span>Click Calculate Age</span>
+              </div>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                Hit Calculate and our engine performs calendar borrow subtraction in under 1 millisecond.
+              </p>
+            </div>
+
+            <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-1">
+              <div className="font-bold text-slate-900 text-sm flex items-center gap-2">
+                <span className="w-6 h-6 rounded-full bg-blue-600 text-white text-xs flex items-center justify-center font-extrabold shrink-0">5</span>
+                <span>View Your Exact Age</span>
+              </div>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                See your completed years, months, and days with zero fractional rounding error.
+              </p>
+            </div>
+
+            <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-1">
+              <div className="font-bold text-slate-900 text-sm flex items-center gap-2">
+                <span className="w-6 h-6 rounded-full bg-blue-600 text-white text-xs flex items-center justify-center font-extrabold shrink-0">6</span>
+                <span>Explore Live Running Stats</span>
+              </div>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                Track live running seconds, solar year progress, biological heartbeats, and planetary ages.
+              </p>
+            </div>
+          </div>
+        </section>
 
         {/* POPULAR AGE CALCULATORS GRID */}
         <section className="my-16">

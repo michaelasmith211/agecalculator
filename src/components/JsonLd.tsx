@@ -7,6 +7,7 @@ interface WebApplicationSchemaProps {
   url: string;
   applicationCategory?: string;
   features?: string[];
+  image?: string;
 }
 
 export function WebApplicationJsonLd({
@@ -14,6 +15,7 @@ export function WebApplicationJsonLd({
   description,
   url,
   applicationCategory = 'UtilityApplication',
+  image = `${SITE_CONFIG.domain}/images/age-calculator-how-it-works.jpg`,
   features = [
     'Exact calendar years, months, and days calculation',
     'Total days, weeks, hours, minutes, and seconds breakdown',
@@ -37,8 +39,8 @@ export function WebApplicationJsonLd({
     inLanguage: 'en-US',
     isAccessibleForFree: true,
     featureList: features,
-    image: `${SITE_CONFIG.domain}/og-image.svg`,
-    screenshot: `${SITE_CONFIG.domain}/og-image.svg`,
+    image,
+    screenshot: image,
     aggregateRating: {
       '@type': 'AggregateRating',
       ratingValue: '4.9',
