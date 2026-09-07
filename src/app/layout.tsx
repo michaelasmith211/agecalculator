@@ -43,13 +43,21 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: '/icon.svg', type: 'image/svg+xml' },
       { url: '/favicon.svg', type: 'image/svg+xml' },
-      { url: '/favicon.ico' }
+      { url: '/favicon.ico', sizes: '48x48' },
+      { url: '/favicon-48x48.png', sizes: '48x48', type: 'image/png' },
+      { url: '/favicon-96x96.png', sizes: '96x96', type: 'image/png' },
+      { url: '/favicon-192x192.png', sizes: '192x192', type: 'image/png' },
+      { url: '/favicon-512x512.png', sizes: '512x512', type: 'image/png' }
     ],
     apple: [
-      { url: '/apple-icon', sizes: '180x180', type: 'image/png' },
-      { url: '/icon.svg', sizes: 'any', type: 'image/svg+xml' }
+      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }
+    ],
+    other: [
+      {
+        rel: 'apple-touch-icon-precomposed',
+        url: '/apple-touch-icon-precomposed.png'
+      }
     ]
   },
   manifest: '/manifest.webmanifest',
@@ -62,10 +70,10 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: `${SITE_CONFIG.domain}/og-image.svg`,
-        width: 1200,
-        height: 630,
-        alt: 'Age Calculator – Fast, Accurate & Free Online Tool'
+        url: `${SITE_CONFIG.domain}/images/age-calculator-how-it-works.jpg`,
+        width: 1024,
+        height: 682,
+        alt: 'Age Calculator – How to calculate your exact age in years, months, days and seconds on agecalculators.dev'
       }
     ]
   },
@@ -75,7 +83,7 @@ export const metadata: Metadata = {
     description: SITE_CONFIG.description,
     creator: SITE_CONFIG.twitterHandle,
     site: SITE_CONFIG.twitterHandle,
-    images: [`${SITE_CONFIG.domain}/og-image.svg`]
+    images: [`${SITE_CONFIG.domain}/images/age-calculator-how-it-works.jpg`]
   },
   robots: {
     index: true,
@@ -95,7 +103,7 @@ export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
   maximumScale: 5,
-  themeColor: '#ffffff'
+  themeColor: '#2563eb'
 };
 
 export default function RootLayout({
@@ -108,8 +116,12 @@ export default function RootLayout({
       <head>
         <GoogleAnalytics />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-        <link rel="icon" href="/icon" sizes="32x32" type="image/png" />
-        <link rel="apple-touch-icon" href="/apple-icon" />
+        <link rel="icon" href="/favicon.ico" sizes="48x48" />
+        <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
+        <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+        <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="manifest" href="/manifest.webmanifest" />
         <GlobalWebSiteJsonLd />
       </head>
       <body className="min-h-screen flex flex-col bg-slate-50 text-slate-900 font-sans antialiased selection:bg-blue-100 selection:text-blue-900">
