@@ -1,6 +1,7 @@
 'use client';
 
 import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
+import { useRouter } from 'next/navigation';
 import { Language, LANGUAGES, DEFAULT_LANGUAGE, getLanguageByCode } from './languages';
 import { TranslationKey, getTranslation } from './dictionaries';
 
@@ -20,30 +21,49 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 const COOKIE_NAME = 'NEXT_LOCALE';
 const STORAGE_KEY = 'app_language';
 
+function getLangFromPathname(pathname: string): Language | null {
+  if (!pathname) return null;
+  const segments = pathname.split('/').filter(Boolean);
+  if (segments.length > 0) {
+    const first = segments[0].toLowerCase();
+    const found = LANGUAGES.find((l) => l.code === first);
+    if (found) {
+      return found;
+    }
+  }
+  return null;
+}
+
 function getInitialLanguage(): Language {
   if (typeof window === 'undefined') return DEFAULT_LANGUAGE;
 
   try {
-    // 1. Check URL query param ?lang=
+    // 1. Check URL path (e.g. /de/ or /es/age-calculator/) - HIGHEST PRIORITY for SEO URLs
+    const pathLang = getLangFromPathname(window.location.pathname);
+    if (pathLang) {
+      return pathLang;
+    }
+
+    // 2. Check URL query param ?lang=
     const params = new URLSearchParams(window.location.search);
     const langParam = params.get('lang');
     if (langParam) {
       return getLanguageByCode(langParam);
     }
 
-    // 2. Check localStorage
+    // 3. Check localStorage
     const saved = localStorage.getItem(STORAGE_KEY);
     if (saved) {
       return getLanguageByCode(saved);
     }
 
-    // 3. Check cookie
+    // 4. Check cookie
     const match = document.cookie.match(new RegExp(`(^| )${COOKIE_NAME}=([^;]+)`));
     if (match && match[2]) {
       return getLanguageByCode(match[2]);
     }
 
-    // 4. Check browser navigator.language
+    // 5. Check browser navigator.language
     if (navigator.language) {
       return getLanguageByCode(navigator.language);
     }
@@ -91,6 +111,7 @@ function applyGoogleTranslate(targetCode: string) {
 }
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
+  const router = useRouter();
   const [currentLanguage, setCurrentLanguageState] = useState<Language>(() => {
     if (typeof window !== 'undefined') {
       return getInitialLanguage();
@@ -116,20 +137,38 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
       document.documentElement.lang = lang.code;
       document.documentElement.dir = lang.dir;
 
-      // Update URL query param smoothly if present
-      const url = new URL(window.location.href);
-      if (lang.code === 'en') {
-        url.searchParams.delete('lang');
-      } else {
-        url.searchParams.set('lang', lang.code);
-      }
-      window.history.replaceState({}, '', url.toString());
-
       applyGoogleTranslate(lang.code);
+
+      if (typeof window !== 'undefined') {
+        const currentPath = window.location.pathname;
+        const segments = currentPath.split('/').filter(Boolean);
+        let subPath = '';
+
+        // If current URL already has a language code in the first segment, remove it
+        if (segments.length > 0 && LANGUAGES.some((l) => l.code === segments[0].toLowerCase())) {
+          subPath = '/' + segments.slice(1).join('/');
+        } else {
+          subPath = currentPath;
+        }
+
+        if (!subPath.startsWith('/')) subPath = '/' + subPath;
+        if (subPath !== '/' && !subPath.endsWith('/')) subPath = subPath + '/';
+
+        let targetUrl = '';
+        if (lang.code === 'en') {
+          targetUrl = subPath === '//' ? '/' : subPath;
+        } else {
+          targetUrl = `/${lang.code}${subPath === '/' ? '/' : subPath}`;
+        }
+
+        if (window.location.pathname !== targetUrl) {
+          router.push(targetUrl);
+        }
+      }
     } catch {
       // Ignore storage errors
     }
-  }, []);
+  }, [router]);
 
   const t = useCallback(
     (key: TranslationKey, fallback?: string): string => {
