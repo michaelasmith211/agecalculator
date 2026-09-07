@@ -9,14 +9,14 @@ import { useLanguage } from '@/lib/i18n/LanguageContext';
 import { TranslationKey } from '@/lib/i18n/dictionaries';
 
 const NAV_TITLE_MAP: Record<string, TranslationKey> = {
-  '/': 'appName',
-  '/age-calculator': 'appName',
-  '/birthday-calculator': 'bdayTitle',
+  '/': 'navAge',
+  '/age-calculator': 'navAge',
+  '/birthday-calculator': 'navBirthday',
   '/birthday-countdown': 'bdayCountdownTitle',
   '/chronological-age-calculator': 'chronologicalTitle',
-  '/age-difference-calculator': 'ageDiffTitle',
-  '/date-difference-calculator': 'dateDiffTitle',
-  '/date-of-birth-calculator': 'dobCalcTitle',
+  '/age-difference-calculator': 'navAgeDiff',
+  '/date-difference-calculator': 'navDateDiff',
+  '/date-of-birth-calculator': 'navDob',
   '/days-between-dates': 'daysBetweenTitle',
   '/leap-year-age-calculator': 'leapYearTitle',
   '/retirement-age-calculator': 'retirementTitle',
@@ -37,24 +37,24 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-16 gap-2">
           {/* Brand Logo */}
-          <Link href={getLocalizedPath('/')} className="flex items-center gap-2.5 group">
-            <div className="w-10 h-10 rounded-xl bg-blue-600 text-white flex items-center justify-center shadow-sm group-hover:bg-blue-700 transition-colors">
+          <Link href={getLocalizedPath('/')} className="flex items-center gap-2.5 shrink-0 group">
+            <div className="w-10 h-10 rounded-xl bg-blue-600 text-white flex items-center justify-center shadow-sm group-hover:bg-blue-700 transition-colors shrink-0">
               <Calendar className="w-5 h-5" />
             </div>
             <div className="flex flex-col">
-              <span className="font-bold text-lg leading-tight text-slate-900 tracking-tight flex items-center gap-1.5">
+              <span className="font-bold text-base sm:text-lg leading-tight text-slate-900 tracking-tight whitespace-nowrap">
                 {t('appName', 'Age Calculator')}
               </span>
-              <span className="text-[11px] font-medium text-slate-500 leading-none">
+              <span className="text-[10px] sm:text-[11px] font-medium text-slate-500 leading-none">
                 agecalculators.dev
               </span>
             </div>
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-1">
+          <nav className="hidden lg:flex items-center gap-1 xl:gap-1.5 shrink-0">
             {MAIN_NAV_ITEMS.map((item) => {
               const localizedHref = getLocalizedPath(item.href);
               const isActive = pathname === item.href || pathname === localizedHref;
@@ -62,7 +62,7 @@ export default function Header() {
                 <Link
                   key={item.href}
                   href={localizedHref}
-                  className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
+                  className={`px-2.5 xl:px-3 py-1.5 xl:py-2 rounded-lg text-xs xl:text-sm font-medium whitespace-nowrap transition-colors ${
                     isActive
                       ? 'bg-blue-50 text-blue-700 font-semibold'
                       : 'text-slate-700 hover:text-slate-900 hover:bg-slate-100'
@@ -79,10 +79,10 @@ export default function Header() {
                 type="button"
                 onClick={() => setToolsDropdownOpen(!toolsDropdownOpen)}
                 onBlur={() => setTimeout(() => setToolsDropdownOpen(false), 200)}
-                className="px-3 py-2 rounded-lg text-sm font-medium text-slate-700 hover:text-slate-900 hover:bg-slate-100 transition-colors flex items-center gap-1 cursor-pointer"
+                className="px-2.5 xl:px-3 py-1.5 xl:py-2 rounded-lg text-xs xl:text-sm font-medium text-slate-700 hover:text-slate-900 hover:bg-slate-100 transition-colors flex items-center gap-1 cursor-pointer whitespace-nowrap"
                 aria-expanded={toolsDropdownOpen}
               >
-                {t('moreTools', 'More Tools')}
+                <span>{t('navMore', 'More Tools')}</span>
                 <ChevronRight className={`w-3.5 h-3.5 transition-transform ${toolsDropdownOpen ? 'rotate-90' : ''}`} />
               </button>
 
@@ -107,39 +107,39 @@ export default function Header() {
           </nav>
 
           {/* Action CTA & Language Selector Button */}
-          <div className="hidden md:flex items-center gap-2.5">
+          <div className="hidden lg:flex items-center gap-2 xl:gap-2.5 shrink-0">
             {/* Language Selector Button */}
             <button
               type="button"
               onClick={openModal}
-              className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold text-slate-700 hover:text-blue-700 hover:bg-blue-50/80 border border-slate-200 hover:border-blue-200 transition-all cursor-pointer shadow-2xs notranslate"
+              className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold text-slate-700 hover:text-blue-700 hover:bg-blue-50/80 border border-slate-200 hover:border-blue-200 transition-all cursor-pointer shadow-2xs whitespace-nowrap notranslate"
               translate="no"
               title="Change Language (39 languages supported)"
             >
-              <Globe className="w-4 h-4 text-blue-600" />
-              <span className="notranslate" translate="no" suppressHydrationWarning>{currentLanguage.nativeName}</span>
+              <Globe className="w-4 h-4 text-blue-600 shrink-0" />
+              <span className="notranslate font-semibold" translate="no" suppressHydrationWarning>{currentLanguage.nativeName}</span>
             </button>
 
             <Link
               href={getLocalizedPath('/#calculator')}
-              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-semibold bg-blue-600 text-white hover:bg-blue-700 shadow-sm transition-all focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2"
+              className="inline-flex items-center gap-1.5 px-3.5 xl:px-4 py-2 rounded-lg text-xs xl:text-sm font-semibold bg-blue-600 text-white hover:bg-blue-700 shadow-sm transition-all focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 whitespace-nowrap"
             >
-              <Clock className="w-4 h-4" />
-              {t('calculateBtn', 'Calculate Age')}
+              <Clock className="w-4 h-4 shrink-0" />
+              <span>{t('calculateBtn', 'Calculate Age')}</span>
             </Link>
           </div>
 
-          {/* Mobile Navigation Header */}
-          <div className="flex md:hidden items-center gap-2">
+          {/* Mobile & Tablet Navigation Header */}
+          <div className="flex lg:hidden items-center gap-2">
             <button
               type="button"
               onClick={openModal}
-              className="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-bold text-slate-700 bg-slate-100 hover:bg-slate-200 border border-slate-200 transition-colors cursor-pointer notranslate"
+              className="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-bold text-slate-700 bg-slate-100 hover:bg-slate-200 border border-slate-200 transition-colors cursor-pointer whitespace-nowrap notranslate"
               translate="no"
               title="Change Language"
             >
-              <Globe className="w-3.5 h-3.5 text-blue-600" />
-              <span className="notranslate" translate="no" suppressHydrationWarning>{currentLanguage.code.toUpperCase()}</span>
+              <Globe className="w-3.5 h-3.5 text-blue-600 shrink-0" />
+              <span className="notranslate" translate="no" suppressHydrationWarning>{currentLanguage.nativeName}</span>
             </button>
 
             <button
@@ -154,10 +154,10 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Mobile Drawer */}
+      {/* Mobile & Tablet Drawer */}
       {mobileMenuOpen && (
-        <div className="md:hidden border-t border-slate-200 bg-white px-4 pt-3 pb-6 space-y-2 shadow-lg">
-          <div className="text-xs font-semibold text-slate-400 uppercase px-3 py-1">{t('moreTools', 'Main Tools')}</div>
+        <div className="lg:hidden border-t border-slate-200 bg-white px-4 pt-3 pb-6 space-y-2 shadow-lg max-h-[85vh] overflow-y-auto">
+          <div className="text-xs font-semibold text-slate-400 uppercase px-3 py-1">{t('navMore', 'Main Tools')}</div>
           {MAIN_NAV_ITEMS.map((item) => (
             <Link
               key={item.href}
@@ -188,7 +188,7 @@ export default function Header() {
               className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg text-base font-semibold bg-blue-600 text-white hover:bg-blue-700 shadow-sm"
             >
               <Sparkles className="w-4 h-4" />
-              {t('calculateBtn', 'Calculate Age')}
+              <span>{t('calculateBtn', 'Calculate Age')}</span>
             </Link>
           </div>
         </div>
