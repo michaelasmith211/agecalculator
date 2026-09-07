@@ -1,10 +1,12 @@
-import { LOCALES, SUPPORTED_LOCALES, DEFAULT_LOCALE, isValidLocale } from './config';
+import { LOCALES, SUPPORTED_LOCALES, NON_DEFAULT_LOCALES, DEFAULT_LOCALE, isValidLocale } from './config';
 import { SITE_CONFIG } from '../lib/constants';
 
 /**
  * Detect the locale prefix from a pathname.
  * e.g. "/fr/birthday-calculator" -> "fr"
  * "/birthday-calculator" -> "en"
+ * "/es/" -> "es"
+ * "/" -> "en"
  */
 export function detectLocale(pathname: string): string {
   if (!pathname) return DEFAULT_LOCALE;
@@ -19,8 +21,9 @@ export function detectLocale(pathname: string): string {
 /**
  * Strip the locale prefix from a pathname, returning the relative subpath.
  * e.g. "/es/age-calculator/" -> "age-calculator"
+ * "/age-calculator/" -> "age-calculator"
  * "/es/" -> ""
- * "/en" -> ""
+ * "/" -> ""
  */
 export function stripLocale(pathname: string): string {
   if (!pathname) return '';
@@ -34,7 +37,11 @@ export function stripLocale(pathname: string): string {
 
 /**
  * Switch the locale while strictly preserving the current page/path and query parameters.
- * e.g. target="de", current="/es/birthday-calculator?unit=days" -> "/de/birthday-calculator/?unit=days"
+ * English does not use an /en prefix; it lives at root / and /[slug]/.
+ * e.g. target="en", current="/es/birthday-calculator" -> "/birthday-calculator/"
+ * e.g. target="es", current="/birthday-calculator" -> "/es/birthday-calculator/"
+ * e.g. target="en", current="/es/" -> "/"
+ * e.g. target="fr", current="/" -> "/fr/"
  */
 export function getLocalizedPath(
   targetLocale: string,
@@ -44,36 +51,51 @@ export function getLocalizedPath(
   const [pathnameOnly, inlineSearch] = (currentPathname || '').split('?');
   const subpath = stripLocale(pathnameOnly);
   const locale = isValidLocale(targetLocale) ? targetLocale : DEFAULT_LOCALE;
-  const base = subpath ? `/${locale}/${subpath}/` : `/${locale}/`;
+
+  let base: string;
+  if (locale === DEFAULT_LOCALE) {
+    base = subpath ? `/${subpath}/` : '/';
+  } else {
+    base = subpath ? `/${locale}/${subpath}/` : `/${locale}/`;
+  }
+
   const finalSearch = search || (inlineSearch ? `?${inlineSearch}` : '');
   return finalSearch ? `${base}${finalSearch.startsWith('?') ? finalSearch : `?${finalSearch}`}` : base;
 }
 
 /**
  * Get canonical URL for a specific locale and slug.
+ * English uses clean root paths without /en.
  */
 export function getCanonicalUrl(locale: string, slug?: string): string {
   const cleanLocale = isValidLocale(locale) ? locale : DEFAULT_LOCALE;
-  if (!slug) {
-    return `${SITE_CONFIG.domain}/${cleanLocale}/`;
+  const cleanSlug = slug ? slug.replace(/^\/+|\/+$/g, '') : '';
+
+  if (cleanLocale === DEFAULT_LOCALE) {
+    return cleanSlug ? `${SITE_CONFIG.domain}/${cleanSlug}/` : `${SITE_CONFIG.domain}/`;
   }
-  const cleanSlug = slug.replace(/^\/+|\/+$/g, '');
-  return `${SITE_CONFIG.domain}/${cleanLocale}/${cleanSlug}/`;
+
+  return cleanSlug
+    ? `${SITE_CONFIG.domain}/${cleanLocale}/${cleanSlug}/`
+    : `${SITE_CONFIG.domain}/${cleanLocale}/`;
 }
 
 /**
  * Generate full hreflang dictionary for metadata.alternates.languages.
- * Includes all 27 locales + "x-default" pointing to English.
+ * Includes all 27 locales + "x-default" pointing to English root / or /[slug]/.
  */
 export function getHreflangAlternates(slug?: string): Record<string, string> {
   const cleanSlug = slug ? slug.replace(/^\/+|\/+$/g, '') : '';
+  const enUrl = cleanSlug
+    ? `${SITE_CONFIG.domain}/${cleanSlug}/`
+    : `${SITE_CONFIG.domain}/`;
+
   const alternates: Record<string, string> = {
-    'x-default': cleanSlug
-      ? `${SITE_CONFIG.domain}/${DEFAULT_LOCALE}/${cleanSlug}/`
-      : `${SITE_CONFIG.domain}/${DEFAULT_LOCALE}/`
+    'x-default': enUrl,
+    'en': enUrl
   };
 
-  for (const code of SUPPORTED_LOCALES) {
+  for (const code of NON_DEFAULT_LOCALES) {
     alternates[code] = cleanSlug
       ? `${SITE_CONFIG.domain}/${code}/${cleanSlug}/`
       : `${SITE_CONFIG.domain}/${code}/`;
@@ -84,6 +106,7 @@ export function getHreflangAlternates(slug?: string): Record<string, string> {
 
 /**
  * Get all localized URLs for language selector links.
+ * English links to clean root / or /[subpath]/.
  */
 export function getAllLanguageLinks(currentPathname: string): Array<{
   code: string;
@@ -94,9 +117,16 @@ export function getAllLanguageLinks(currentPathname: string): Array<{
 }> {
   const [pathnameOnly, search] = (currentPathname || '').split('?');
   const subpath = stripLocale(pathnameOnly);
+
   return SUPPORTED_LOCALES.map((code) => {
     const config = LOCALES[code];
-    const base = subpath ? `/${code}/${subpath}/` : `/${code}/`;
+    let base: string;
+    if (code === DEFAULT_LOCALE) {
+      base = subpath ? `/${subpath}/` : '/';
+    } else {
+      base = subpath ? `/${code}/${subpath}/` : `/${code}/`;
+    }
+
     return {
       code,
       nativeName: config.nativeName,

@@ -2,7 +2,7 @@ import React from 'react';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { SITE_CONFIG } from '@/lib/constants';
-import { SUPPORTED_LOCALES, isValidLocale, getLocaleConfig } from '@/i18n/config';
+import { NON_DEFAULT_LOCALES, isValidLocale, getLocaleConfig, DEFAULT_LOCALE } from '@/i18n/config';
 import { getTranslations } from '@/i18n/getTranslations';
 import { getCanonicalUrl, getHreflangAlternates } from '@/i18n/locale-utils';
 import { WebApplicationJsonLd, BreadcrumbJsonLd } from '@/components/JsonLd';
@@ -42,7 +42,7 @@ interface PageProps {
 
 export function generateStaticParams() {
   const params: Array<{ locale: string; slug: string }> = [];
-  for (const locale of SUPPORTED_LOCALES) {
+  for (const locale of NON_DEFAULT_LOCALES) {
     for (const slug of VALID_SLUGS) {
       params.push({
         locale,
@@ -55,7 +55,7 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale, slug } = await params;
-  if (!isValidLocale(locale) || !VALID_SLUGS.includes(slug as ValidSlug)) {
+  if (!isValidLocale(locale) || locale === DEFAULT_LOCALE || !VALID_SLUGS.includes(slug as ValidSlug)) {
     return {};
   }
 
@@ -107,7 +107,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function LocalizedToolPage({ params }: PageProps) {
   const { locale, slug } = await params;
-  if (!isValidLocale(locale) || !VALID_SLUGS.includes(slug as ValidSlug)) {
+  if (!isValidLocale(locale) || locale === DEFAULT_LOCALE || !VALID_SLUGS.includes(slug as ValidSlug)) {
     notFound();
   }
 

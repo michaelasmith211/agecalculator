@@ -1,3 +1,4 @@
+import { getHreflangAlternates } from '@/i18n/locale-utils';
 import React from 'react';
 import { Metadata } from 'next';
 import Link from 'next/link';
@@ -16,7 +17,8 @@ export const metadata: Metadata = {
   description:
     'Calculate your quadrennial leap age (number of February 29ths lived) and discover all upcoming Leap Day birthday celebrations for leap year babies.',
   alternates: {
-    canonical: '/leap-year-age-calculator/'
+    canonical: '/leap-year-age-calculator/',
+    languages: getHreflangAlternates('leap-year-age-calculator')
   },
   openGraph: {
     title: 'Leap Year Age Calculator – Feb 29 Birthday & Quadrennial Age',

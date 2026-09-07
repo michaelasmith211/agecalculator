@@ -10,7 +10,7 @@ import {
   HelpCircle
 } from 'lucide-react';
 import { SITE_CONFIG } from '@/lib/constants';
-import { SUPPORTED_LOCALES, isValidLocale, getLocaleConfig } from '@/i18n/config';
+import { NON_DEFAULT_LOCALES, isValidLocale, getLocaleConfig, DEFAULT_LOCALE } from '@/i18n/config';
 import { getTranslations } from '@/i18n/getTranslations';
 import { getCanonicalUrl, getHreflangAlternates } from '@/i18n/locale-utils';
 import MainAgeCalculator from '@/components/calculators/MainAgeCalculator';
@@ -22,14 +22,14 @@ interface PageProps {
 }
 
 export function generateStaticParams() {
-  return SUPPORTED_LOCALES.map((locale) => ({
+  return NON_DEFAULT_LOCALES.map((locale) => ({
     locale
   }));
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale } = await params;
-  if (!isValidLocale(locale)) return {};
+  if (!isValidLocale(locale) || locale === DEFAULT_LOCALE) return {};
 
   const config = getLocaleConfig(locale);
   const { t } = getTranslations(locale);
@@ -79,7 +79,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function LocalizedHomePage({ params }: PageProps) {
   const { locale } = await params;
-  if (!isValidLocale(locale)) {
+  if (!isValidLocale(locale) || locale === DEFAULT_LOCALE) {
     notFound();
   }
 

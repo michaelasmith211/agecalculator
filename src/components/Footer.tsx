@@ -15,9 +15,11 @@ export default function Footer() {
   const { t } = getTranslations(locale);
 
   const getLocalizedLink = (href: string) => {
-    if (href === '/') return `/${locale}/`;
     const clean = href.replace(/^\/+|\/+$/g, '');
-    return `/${locale}/${clean}/`;
+    if (locale === 'en') {
+      return clean ? `/${clean}/` : '/';
+    }
+    return clean ? `/${locale}/${clean}/` : `/${locale}/`;
   };
 
   return (
@@ -126,7 +128,7 @@ export default function Footer() {
               return (
                 <Link
                   key={code}
-                  href={`/${code}/`}
+                  href={code === 'en' ? '/' : `/${code}/`}
                   dir={langConfig.direction}
                   className={`transition-colors ${
                     isCurrent

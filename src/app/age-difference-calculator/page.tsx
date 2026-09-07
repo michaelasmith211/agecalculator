@@ -1,3 +1,4 @@
+import { getHreflangAlternates } from '@/i18n/locale-utils';
 import React from 'react';
 import { Metadata } from 'next';
 import Link from 'next/link';
@@ -16,7 +17,8 @@ export const metadata: Metadata = {
   description:
     'Calculate the exact age difference between two people in years, months, and days. Accurate calendar calculation for couples, siblings, and friends.',
   alternates: {
-    canonical: '/age-difference-calculator/'
+    canonical: '/age-difference-calculator/',
+    languages: getHreflangAlternates('age-difference-calculator')
   },
   openGraph: {
     title: 'Age Difference Calculator – Exact Gap in Years, Months & Days',

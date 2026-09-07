@@ -79,7 +79,7 @@ export default function RelatedCalculators({
           const toolData = raw.tools?.[slug as keyof typeof raw.tools];
           const toolTitle = toolData?.title || calc.title;
           const toolDesc = toolData?.desc || calc.description;
-          const targetHref = `/${locale}${calc.href}/`;
+          const targetHref = locale === 'en' ? `${calc.href}/` : `/${locale}${calc.href}/`;
 
           return (
             <Link

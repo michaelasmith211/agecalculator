@@ -1,3 +1,4 @@
+import { getHreflangAlternates } from '@/i18n/locale-utils';
 import React from 'react';
 import { Metadata } from 'next';
 import Link from 'next/link';
@@ -16,7 +17,8 @@ export const metadata: Metadata = {
   description:
     'Find the exact difference between any two dates in years, months, days, weeks, hours, and minutes. Free online calendar duration calculator.',
   alternates: {
-    canonical: '/date-difference-calculator/'
+    canonical: '/date-difference-calculator/',
+    languages: getHreflangAlternates('date-difference-calculator')
   },
   openGraph: {
     title: 'Date Difference Calculator – Time Duration Between Two Dates',

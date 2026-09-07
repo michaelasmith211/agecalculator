@@ -1,3 +1,4 @@
+import { getHreflangAlternates } from '@/i18n/locale-utils';
 import React from 'react';
 import { Metadata } from 'next';
 import { CheckCircle2, Clock, Calendar, Sparkles } from 'lucide-react';
@@ -15,7 +16,8 @@ export const metadata: Metadata = {
   description:
     'Calculate your exact age in years, months, and days from your date of birth. View detailed breakdown in weeks, days, hours, and minutes with custom target date options.',
   alternates: {
-    canonical: '/age-calculator/'
+    canonical: '/age-calculator/',
+    languages: getHreflangAlternates('age-calculator')
   },
   openGraph: {
     title: 'Age Calculator – Calculate Exact Age in Years, Months & Days',

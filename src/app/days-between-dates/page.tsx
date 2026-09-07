@@ -1,3 +1,4 @@
+import { getHreflangAlternates } from '@/i18n/locale-utils';
 import React from 'react';
 import { Metadata } from 'next';
 import Link from 'next/link';
@@ -16,7 +17,8 @@ export const metadata: Metadata = {
   description:
     'Calculate the exact number of days, weeks, business days, and weekends between any two dates. Free online date interval calculator with inclusive counting options.',
   alternates: {
-    canonical: '/days-between-dates/'
+    canonical: '/days-between-dates/',
+    languages: getHreflangAlternates('days-between-dates')
   },
   openGraph: {
     title: 'Days Between Dates Calculator – Date Interval & Business Days',

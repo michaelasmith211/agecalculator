@@ -1,8 +1,8 @@
 import React from 'react';
-import { SUPPORTED_LOCALES, isRTL, isValidLocale, DEFAULT_LOCALE } from '@/i18n/config';
+import { NON_DEFAULT_LOCALES, isRTL, isValidLocale, DEFAULT_LOCALE } from '@/i18n/config';
 
 export function generateStaticParams() {
-  return SUPPORTED_LOCALES.map((locale) => ({
+  return NON_DEFAULT_LOCALES.map((locale) => ({
     locale
   }));
 }
@@ -15,7 +15,11 @@ export default async function LocalizedLayout({
   params: Promise<{ locale: string }>;
 }) {
   const { locale: rawLocale } = await params;
-  const locale = isValidLocale(rawLocale) ? rawLocale : DEFAULT_LOCALE;
+  if (!isValidLocale(rawLocale) || rawLocale === DEFAULT_LOCALE) {
+    // English is served at the root URL (/) without /en prefix
+    return <>{children}</>;
+  }
+  const locale = rawLocale;
   const dir = isRTL(locale) ? 'rtl' : 'ltr';
 
   return (

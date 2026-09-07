@@ -1,12 +1,13 @@
 import { describe, it, expect } from 'vitest';
-import { LOCALES, SUPPORTED_LOCALES, RTL_LOCALES, isRTL, getLocaleConfig } from '../i18n/config';
+import { LOCALES, SUPPORTED_LOCALES, NON_DEFAULT_LOCALES, RTL_LOCALES, isRTL, getLocaleConfig } from '../i18n/config';
 import { getTranslations, DICTIONARIES } from '../i18n/getTranslations';
 import { getLocalizedPath, getCanonicalUrl, getHreflangAlternates, stripLocale, detectLocale } from '../i18n/locale-utils';
 import { formatNumber, formatDate, formatWeekday } from '../lib/format-utils';
 
-describe('Multilingual System (27 Locales)', () => {
-  it('should support exactly 27 locales', () => {
+describe('Multilingual System (27 Locales with Clean Root English)', () => {
+  it('should support exactly 27 locales with 26 non-default locales', () => {
     expect(SUPPORTED_LOCALES.length).toBe(27);
+    expect(NON_DEFAULT_LOCALES.length).toBe(26);
     expect(Object.keys(LOCALES).length).toBe(27);
     expect(Object.keys(DICTIONARIES).length).toBe(27);
   });
@@ -46,26 +47,38 @@ describe('Multilingual System (27 Locales)', () => {
     }
   });
 
-  it('should preserve page paths and query parameters when switching languages', () => {
-    expect(getLocalizedPath('fr', '/en/birthday-calculator/')).toBe('/fr/birthday-calculator/');
+  it('should preserve page paths and query parameters when switching languages (English without /en)', () => {
+    // Switching to English should route to clean root / or /[subpath]/
+    expect(getLocalizedPath('en', '/es/birthday-calculator/')).toBe('/birthday-calculator/');
+    expect(getLocalizedPath('en', '/fr/')).toBe('/');
+    expect(getLocalizedPath('en', '/')).toBe('/');
+
+    // Switching from clean English to other locales
+    expect(getLocalizedPath('fr', '/birthday-calculator/')).toBe('/fr/birthday-calculator/');
     expect(getLocalizedPath('de', '/es/age-difference-calculator/')).toBe('/de/age-difference-calculator/');
-    expect(getLocalizedPath('ar', '/en/')).toBe('/ar/');
+    expect(getLocalizedPath('ar', '/')).toBe('/ar/');
     expect(getLocalizedPath('hi', '/fr/days-between-dates/?start=2020')).toBe('/hi/days-between-dates/?start=2020');
   });
 
-  it('should generate canonical URLs correctly per language', () => {
-    expect(getCanonicalUrl('en')).toBe('https://agecalculators.dev/en/');
+  it('should generate canonical URLs correctly (clean root for English, prefixed for others)', () => {
+    expect(getCanonicalUrl('en')).toBe('https://agecalculators.dev/');
+    expect(getCanonicalUrl('en', 'birthday-calculator')).toBe('https://agecalculators.dev/birthday-calculator/');
     expect(getCanonicalUrl('es', 'birthday-calculator')).toBe('https://agecalculators.dev/es/birthday-calculator/');
     expect(getCanonicalUrl('ar', 'age-difference-calculator')).toBe('https://agecalculators.dev/ar/age-difference-calculator/');
   });
 
-  it('should generate complete hreflang alternates (27 languages + x-default = 28)', () => {
+  it('should generate complete hreflang alternates pointing to clean English for en & x-default', () => {
     const alternates = getHreflangAlternates('birthday-calculator');
     expect(Object.keys(alternates).length).toBe(28);
-    expect(alternates['x-default']).toBe('https://agecalculators.dev/en/birthday-calculator/');
-    expect(alternates['en']).toBe('https://agecalculators.dev/en/birthday-calculator/');
+    expect(alternates['x-default']).toBe('https://agecalculators.dev/birthday-calculator/');
+    expect(alternates['en']).toBe('https://agecalculators.dev/birthday-calculator/');
     expect(alternates['es']).toBe('https://agecalculators.dev/es/birthday-calculator/');
     expect(alternates['ar']).toBe('https://agecalculators.dev/ar/birthday-calculator/');
+
+    const homeAlternates = getHreflangAlternates();
+    expect(homeAlternates['x-default']).toBe('https://agecalculators.dev/');
+    expect(homeAlternates['en']).toBe('https://agecalculators.dev/');
+    expect(homeAlternates['fr']).toBe('https://agecalculators.dev/fr/');
   });
 
   it('should correctly format numbers and dates using native Intl APIs', () => {
@@ -80,8 +93,11 @@ describe('Multilingual System (27 Locales)', () => {
   it('should detect and strip locale correctly from paths', () => {
     expect(detectLocale('/es/age-calculator/')).toBe('es');
     expect(detectLocale('/ar/')).toBe('ar');
+    expect(detectLocale('/birthday-calculator/')).toBe('en');
+    expect(detectLocale('/')).toBe('en');
     expect(detectLocale('/invalid/page')).toBe('en');
     expect(stripLocale('/es/birthday-calculator/')).toBe('birthday-calculator');
-    expect(stripLocale('/en/')).toBe('');
+    expect(stripLocale('/birthday-calculator/')).toBe('birthday-calculator');
+    expect(stripLocale('/')).toBe('');
   });
 });

@@ -1,3 +1,4 @@
+import { getHreflangAlternates } from '@/i18n/locale-utils';
 import React from 'react';
 import { Metadata } from 'next';
 import Link from 'next/link';
@@ -16,7 +17,8 @@ export const metadata: Metadata = {
   description:
     'Calculate exact chronological age in standardized assessment notation (Years;Months;Days) for psychological testing, speech therapy, and clinical evaluations with prematurity correction.',
   alternates: {
-    canonical: '/chronological-age-calculator/'
+    canonical: '/chronological-age-calculator/',
+    languages: getHreflangAlternates('chronological-age-calculator')
   },
   openGraph: {
     title: 'Chronological Age Calculator – Clinical Testing & Assessment',

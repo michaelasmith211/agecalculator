@@ -22,9 +22,14 @@ export default function Header() {
 
   // Helper to build localized internal links
   const getLocalizedLink = (href: string) => {
-    if (href === '/') return `/${locale}/`;
+    if (href.startsWith('/#') || href.startsWith('#')) {
+      return locale === 'en' ? (href.startsWith('/') ? href : `/${href}`) : `/${locale}${href.startsWith('/') ? href : `/${href}`}`;
+    }
     const clean = href.replace(/^\/+|\/+$/g, '');
-    return `/${locale}/${clean}/`;
+    if (locale === 'en') {
+      return clean ? `/${clean}/` : '/';
+    }
+    return clean ? `/${locale}/${clean}/` : `/${locale}/`;
   };
 
   return (

@@ -1,3 +1,4 @@
+import { getHreflangAlternates } from '@/i18n/locale-utils';
 import React from 'react';
 import { Metadata } from 'next';
 import Link from 'next/link';
@@ -20,7 +21,8 @@ export const metadata: Metadata = {
   description:
     'Comprehensive guide on calculating age manually and digitally. Learn the exact mathematical formulas for year, month, and day subtraction with calendar borrow rules.',
   alternates: {
-    canonical: '/how-to-calculate-age/'
+    canonical: '/how-to-calculate-age/',
+    languages: getHreflangAlternates('how-to-calculate-age')
   },
   openGraph: {
     title: 'How to Calculate Age – Formulas, Step-by-Step Examples & Leap Years',

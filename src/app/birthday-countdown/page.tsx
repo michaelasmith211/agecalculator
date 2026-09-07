@@ -1,3 +1,4 @@
+import { getHreflangAlternates } from '@/i18n/locale-utils';
 import React from 'react';
 import { Metadata } from 'next';
 import Link from 'next/link';
@@ -16,7 +17,8 @@ export const metadata: Metadata = {
   description:
     'Real-time live ticking countdown clock to your next birthday. Track exact days, hours, minutes, and seconds remaining until your next milestone celebration.',
   alternates: {
-    canonical: '/birthday-countdown/'
+    canonical: '/birthday-countdown/',
+    languages: getHreflangAlternates('birthday-countdown')
   },
   openGraph: {
     title: 'Birthday Countdown Clock – Live Real-Time Timer',

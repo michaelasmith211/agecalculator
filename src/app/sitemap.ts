@@ -1,6 +1,6 @@
 import { MetadataRoute } from 'next';
 import { SITE_CONFIG, ALL_CALCULATORS, COMPANY_LINKS } from '@/lib/constants';
-import { SUPPORTED_LOCALES } from '@/i18n/config';
+import { NON_DEFAULT_LOCALES } from '@/i18n/config';
 import { getHreflangAlternates } from '@/i18n/locale-utils';
 
 export const dynamic = 'force-static';
@@ -10,28 +10,53 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
   const routes: MetadataRoute.Sitemap = [];
 
-  // Homepages across all 27 locales
-  for (const locale of SUPPORTED_LOCALES) {
+  // English Root Homepage
+  routes.push({
+    url: `${baseUrl}/`,
+    lastModified: now,
+    changeFrequency: 'daily',
+    priority: 1.0,
+    alternates: {
+      languages: getHreflangAlternates()
+    }
+  });
+
+  // Non-English Homepages (26 languages)
+  for (const locale of NON_DEFAULT_LOCALES) {
     routes.push({
       url: `${baseUrl}/${locale}/`,
       lastModified: now,
       changeFrequency: 'daily',
-      priority: locale === 'en' ? 1.0 : 0.9,
+      priority: 0.9,
       alternates: {
         languages: getHreflangAlternates()
       }
     });
   }
 
-  // Calculator pages across all 27 locales
+  // English Calculator Pages
   for (const calc of ALL_CALCULATORS) {
     const slug = calc.href.replace(/^\//, '');
-    for (const locale of SUPPORTED_LOCALES) {
+    routes.push({
+      url: `${baseUrl}/${slug}/`,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: slug === 'age-calculator' ? 0.95 : 0.85,
+      alternates: {
+        languages: getHreflangAlternates(slug)
+      }
+    });
+  }
+
+  // Non-English Calculator Pages (26 languages × 11 calculators)
+  for (const calc of ALL_CALCULATORS) {
+    const slug = calc.href.replace(/^\//, '');
+    for (const locale of NON_DEFAULT_LOCALES) {
       routes.push({
         url: `${baseUrl}/${locale}/${slug}/`,
         lastModified: now,
         changeFrequency: 'weekly',
-        priority: slug === 'age-calculator' ? 0.95 : 0.85,
+        priority: 0.8,
         alternates: {
           languages: getHreflangAlternates(slug)
         }
@@ -39,13 +64,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
   }
 
-  // How to calculate age guide across all 27 locales
-  for (const locale of SUPPORTED_LOCALES) {
+  // English How to calculate age guide
+  routes.push({
+    url: `${baseUrl}/how-to-calculate-age/`,
+    lastModified: now,
+    changeFrequency: 'monthly',
+    priority: 0.8,
+    alternates: {
+      languages: getHreflangAlternates('how-to-calculate-age')
+    }
+  });
+
+  // Non-English How to calculate age guide
+  for (const locale of NON_DEFAULT_LOCALES) {
     routes.push({
       url: `${baseUrl}/${locale}/how-to-calculate-age/`,
       lastModified: now,
       changeFrequency: 'monthly',
-      priority: 0.8,
+      priority: 0.75,
       alternates: {
         languages: getHreflangAlternates('how-to-calculate-age')
       }

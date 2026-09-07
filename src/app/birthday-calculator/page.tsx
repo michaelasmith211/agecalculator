@@ -1,3 +1,4 @@
+import { getHreflangAlternates } from '@/i18n/locale-utils';
 import React from 'react';
 import { Metadata } from 'next';
 import Link from 'next/link';
@@ -16,7 +17,8 @@ export const metadata: Metadata = {
   description:
     'Use our free Birthday Calculator to discover how many days remain until your next birthday, what day of the week you were born on, and key milestone ages.',
   alternates: {
-    canonical: '/birthday-calculator/'
+    canonical: '/birthday-calculator/',
+    languages: getHreflangAlternates('birthday-calculator')
   },
   openGraph: {
     title: 'Birthday Calculator – Find Your Next Birthday & Milestones',

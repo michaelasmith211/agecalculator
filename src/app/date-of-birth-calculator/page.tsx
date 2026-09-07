@@ -1,3 +1,4 @@
+import { getHreflangAlternates } from '@/i18n/locale-utils';
 import React from 'react';
 import { Metadata } from 'next';
 import Link from 'next/link';
@@ -16,7 +17,8 @@ export const metadata: Metadata = {
   description:
     'Estimate your possible date of birth by entering your age in years, months, and days. Fast, accurate reverse birthday lookup tool.',
   alternates: {
-    canonical: '/date-of-birth-calculator/'
+    canonical: '/date-of-birth-calculator/',
+    languages: getHreflangAlternates('date-of-birth-calculator')
   },
   openGraph: {
     title: 'Date of Birth Calculator – Reverse Birth Date Lookup',

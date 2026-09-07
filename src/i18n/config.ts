@@ -261,6 +261,7 @@ export const LOCALES: Record<string, LocaleConfig> = {
 };
 
 export const SUPPORTED_LOCALES = Object.keys(LOCALES);
+export const NON_DEFAULT_LOCALES = SUPPORTED_LOCALES.filter((code) => code !== DEFAULT_LOCALE);
 
 export const RTL_LOCALES = ['ar', 'he', 'fa', 'ur'];
 
