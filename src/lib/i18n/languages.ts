@@ -1,63 +1,77 @@
-export interface LanguageInfo {
+export interface LanguageConfig {
   code: string;
   name: string;
   nativeName: string;
+  flag: string;
   dir: 'ltr' | 'rtl';
-  flag?: string;
   targetKeyword: string;
 }
 
-export const SUPPORTED_LANGUAGES: LanguageInfo[] = [
-  { code: 'en', name: 'English', nativeName: 'English', dir: 'ltr', targetKeyword: 'Age Calculator' },
-  { code: 'es', name: 'Spanish', nativeName: 'Español', dir: 'ltr', targetKeyword: 'Calculadora de Edad' },
-  { code: 'fr', name: 'French', nativeName: 'Français', dir: 'ltr', targetKeyword: "Calculateur d'Âge" },
-  { code: 'de', name: 'German', nativeName: 'Deutsch', dir: 'ltr', targetKeyword: 'Altersrechner' },
-  { code: 'pt', name: 'Portuguese', nativeName: 'Português', dir: 'ltr', targetKeyword: 'Calculadora de Idade' },
-  { code: 'it', name: 'Italian', nativeName: 'Italiano', dir: 'ltr', targetKeyword: 'Calcolatore di Età' },
-  { code: 'nl', name: 'Dutch', nativeName: 'Nederlands', dir: 'ltr', targetKeyword: 'Leeftijdscalculator' },
-  { code: 'pl', name: 'Polish', nativeName: 'Polski', dir: 'ltr', targetKeyword: 'Kalkulator Wieku' },
-  { code: 'ru', name: 'Russian', nativeName: 'Русский', dir: 'ltr', targetKeyword: 'Калькулятор возраста' },
-  { code: 'ja', name: 'Japanese', nativeName: '日本語', dir: 'ltr', targetKeyword: '年齢計算機' },
-  { code: 'ko', name: 'Korean', nativeName: '한국어', dir: 'ltr', targetKeyword: '나이 계산기' },
-  { code: 'zh', name: 'Chinese', nativeName: '中文', dir: 'ltr', targetKeyword: '年龄计算器' },
-  { code: 'hi', name: 'Hindi', nativeName: 'हिन्दी', dir: 'ltr', targetKeyword: 'आयु कैलकुलेटर' },
-  { code: 'ar', name: 'Arabic', nativeName: 'العربية', dir: 'rtl', targetKeyword: 'حاسبة العمر' },
-  { code: 'he', name: 'Hebrew', nativeName: 'עברית', dir: 'rtl', targetKeyword: 'מחשבון גיל' },
-  { code: 'tr', name: 'Turkish', nativeName: 'Türkçe', dir: 'ltr', targetKeyword: 'Yaş Hesaplayıcı' },
-  { code: 'id', name: 'Indonesian', nativeName: 'Bahasa Indonesia', dir: 'ltr', targetKeyword: 'Kalkulator Usia' },
-  { code: 'vi', name: 'Vietnamese', nativeName: 'Tiếng Việt', dir: 'ltr', targetKeyword: 'Máy tính tuổi' },
-  { code: 'th', name: 'Thai', nativeName: 'ไทย', dir: 'ltr', targetKeyword: 'เครื่องคำนวณอายุ' },
-  { code: 'sv', name: 'Swedish', nativeName: 'Svenska', dir: 'ltr', targetKeyword: 'Åldersräknare' },
-  { code: 'da', name: 'Danish', nativeName: 'Dansk', dir: 'ltr', targetKeyword: 'Aldersberegner' },
-  { code: 'no', name: 'Norwegian', nativeName: 'Norsk bokmål', dir: 'ltr', targetKeyword: 'Alderskalkulator' },
-  { code: 'fi', name: 'Finnish', nativeName: 'Suomi', dir: 'ltr', targetKeyword: 'Ikälaskuri' },
-  { code: 'cs', name: 'Czech', nativeName: 'Čeština', dir: 'ltr', targetKeyword: 'Věková kalkulačka' },
-  { code: 'ro', name: 'Romanian', nativeName: 'Română', dir: 'ltr', targetKeyword: 'Calculator de Vârstă' },
-  { code: 'hu', name: 'Hungarian', nativeName: 'Magyar', dir: 'ltr', targetKeyword: 'Életkorkalkulátor' },
-  { code: 'el', name: 'Greek', nativeName: 'Ελληνικά', dir: 'ltr', targetKeyword: 'Υπολογιστής Ηλικίας' },
-  { code: 'bn', name: 'Bengali', nativeName: 'বাংলা', dir: 'ltr', targetKeyword: 'বয়স ক্যালকুলেটর' },
-  { code: 'ur', name: 'Urdu', nativeName: 'اردو', dir: 'rtl', targetKeyword: 'عمر کا کیلکولیٹر' },
-  { code: 'fa', name: 'Persian', nativeName: 'فارسی', dir: 'rtl', targetKeyword: 'ماشین حساب سن' },
-  { code: 'tl', name: 'Tagalog', nativeName: 'Tagalog', dir: 'ltr', targetKeyword: 'Calculator ng Edad' },
-  { code: 'ms', name: 'Malay', nativeName: 'Bahasa Melayu', dir: 'ltr', targetKeyword: 'Kalkulator Umur' },
-  { code: 'uk', name: 'Ukrainian', nativeName: 'Українська', dir: 'ltr', targetKeyword: 'Калькулятор віку' },
-  { code: 'bg', name: 'Bulgarian', nativeName: 'Български', dir: 'ltr', targetKeyword: 'Калкулатор за възраст' },
-  { code: 'hr', name: 'Croatian', nativeName: 'Hrvatski', dir: 'ltr', targetKeyword: 'Kalkulator Dobi' },
-  { code: 'sk', name: 'Slovak', nativeName: 'Slovenčina', dir: 'ltr', targetKeyword: 'Kalkulačka Veku' },
-  { code: 'sr', name: 'Serbian', nativeName: 'Српски', dir: 'ltr', targetKeyword: 'Калкулатор година' },
-  { code: 'az', name: 'Azerbaijani', nativeName: 'Azərbaycanca', dir: 'ltr', targetKeyword: 'Yaş Kalkulyatoru' },
-  { code: 'kk', name: 'Kazakh', nativeName: 'Қазақша', dir: 'ltr', targetKeyword: 'Жас калькуляторы' },
-  { code: 'uz', name: 'Uzbek', nativeName: "O'zbekcha", dir: 'ltr', targetKeyword: 'Yosh Kalkulyatori' }
+export const SUPPORTED_LANGUAGES: LanguageConfig[] = [
+  { code: 'en', name: 'English', nativeName: 'English', flag: '🇺🇸', dir: 'ltr', targetKeyword: 'Age Calculator' },
+  { code: 'hi', name: 'Hindi', nativeName: 'हिन्दी', flag: '🇮🇳', dir: 'ltr', targetKeyword: 'आयु कैलकुलेटर' },
+  { code: 'es', name: 'Spanish', nativeName: 'Español', flag: '🇪🇸', dir: 'ltr', targetKeyword: 'Calculadora de Edad' },
+  { code: 'fr', name: 'French', nativeName: 'Français', flag: '🇫🇷', dir: 'ltr', targetKeyword: 'Calculateur d\'Âge' },
+  { code: 'de', name: 'German', nativeName: 'Deutsch', flag: '🇩🇪', dir: 'ltr', targetKeyword: 'Altersrechner' },
+  { code: 'pt', name: 'Portuguese', nativeName: 'Português', flag: '🇧🇷', dir: 'ltr', targetKeyword: 'Calculadora de Idade' },
+  { code: 'ar', name: 'Arabic', nativeName: 'العربية', flag: '🇸🇦', dir: 'rtl', targetKeyword: 'حاسبة العمر' },
+  { code: 'he', name: 'Hebrew', nativeName: 'עברית', flag: '🇮🇱', dir: 'rtl', targetKeyword: 'מחשבון גיל' },
+  { code: 'ur', name: 'Urdu', nativeName: 'اردو', flag: '🇵🇰', dir: 'rtl', targetKeyword: 'عمر کیلکولیٹر' },
+  { code: 'fa', name: 'Persian', nativeName: 'فارسی', flag: '🇮🇷', dir: 'rtl', targetKeyword: 'محاسبه سن' },
+  { code: 'id', name: 'Indonesian', nativeName: 'Bahasa Indonesia', flag: '🇮🇩', dir: 'ltr', targetKeyword: 'Kalkulator Usia' },
+  { code: 'zh', name: 'Chinese', nativeName: '简体中文', flag: '🇨🇳', dir: 'ltr', targetKeyword: '年龄计算器' },
+  { code: 'ru', name: 'Russian', nativeName: 'Русский', flag: '🇷🇺', dir: 'ltr', targetKeyword: 'Калькулятор Возраста' },
+  { code: 'ja', name: 'Japanese', nativeName: '日本語', flag: '🇯🇵', dir: 'ltr', targetKeyword: '年齢計算機' },
+  { code: 'bn', name: 'Bengali', nativeName: 'বাংলা', flag: '🇧🇩', dir: 'ltr', targetKeyword: 'বয়স ক্যালকুলেটর' },
+  { code: 'te', name: 'Telugu', nativeName: 'తెలుగు', flag: '🇮🇳', dir: 'ltr', targetKeyword: 'వయస్సు కాలిక్యులేటర్' },
+  { code: 'ta', name: 'Tamil', nativeName: 'தமிழ்', flag: '🇮🇳', dir: 'ltr', targetKeyword: 'வயது கால்குலேட்டர்' },
+  { code: 'mr', name: 'Marathi', nativeName: 'मराठी', flag: '🇮🇳', dir: 'ltr', targetKeyword: 'वय कॅल्क्युलेटर' },
+  { code: 'it', name: 'Italian', nativeName: 'Italiano', flag: '🇮🇹', dir: 'ltr', targetKeyword: 'Calcolo Età' },
+  { code: 'tr', name: 'Turkish', nativeName: 'Türkçe', flag: '🇹🇷', dir: 'ltr', targetKeyword: 'Yaş Hesaplama' },
+  { code: 'ko', name: 'Korean', nativeName: '한국어', flag: '🇰🇷', dir: 'ltr', targetKeyword: '나이 계산기' },
+  { code: 'vi', name: 'Vietnamese', nativeName: 'Tiếng Việt', flag: '🇻🇳', dir: 'ltr', targetKeyword: 'Tính Tuổi' },
+  { code: 'th', name: 'Thai', nativeName: 'ไทย', flag: '🇹🇭', dir: 'ltr', targetKeyword: 'คำนวณอายุ' },
+  { code: 'pl', name: 'Polish', nativeName: 'Polski', flag: '🇵🇱', dir: 'ltr', targetKeyword: 'Kalkulator Wieku' },
+  { code: 'nl', name: 'Dutch', nativeName: 'Nederlands', flag: '🇳🇱', dir: 'ltr', targetKeyword: 'Leeftijd Berekenen' },
+  { code: 'uk', name: 'Ukrainian', nativeName: 'Українська', flag: '🇺🇦', dir: 'ltr', targetKeyword: 'Калькулятор Віку' },
+  { code: 'ms', name: 'Malay', nativeName: 'Bahasa Melayu', flag: '🇲🇾', dir: 'ltr', targetKeyword: 'Kira Umur' },
+  { code: 'ro', name: 'Romanian', nativeName: 'Română', flag: '🇷🇴', dir: 'ltr', targetKeyword: 'Calculator Vârstă' },
+  { code: 'el', name: 'Greek', nativeName: 'Ελληνικά', flag: '🇬🇷', dir: 'ltr', targetKeyword: 'Υπολογισμός Ηλικίας' },
+  { code: 'cs', name: 'Czech', nativeName: 'Čeština', flag: '🇨🇿', dir: 'ltr', targetKeyword: 'Kalkulačka Věku' },
+  { code: 'sv', name: 'Swedish', nativeName: 'Svenska', flag: '🇸🇪', dir: 'ltr', targetKeyword: 'Räkna Ut Ålder' },
+  { code: 'hu', name: 'Hungarian', nativeName: 'Magyar', flag: '🇭🇺', dir: 'ltr', targetKeyword: 'Életkor Számítás' },
+  { code: 'pa', name: 'Punjabi', nativeName: 'ਪੰਜਾਬੀ', flag: '🇮🇳', dir: 'ltr', targetKeyword: 'ਉਮਰ ਕੈਲਕੁਲੇਟਰ' },
+  { code: 'gu', name: 'Gujarati', nativeName: 'ગુજરાતી', flag: '🇮🇳', dir: 'ltr', targetKeyword: 'ઉંમર કેલ્ક્યુલેટર' },
+  { code: 'kn', name: 'Kannada', nativeName: 'ಕನ್ನಡ', flag: '🇮🇳', dir: 'ltr', targetKeyword: 'ವಯಸ್ಸಿನ ಕ್ಯಾಲ್ಕುಲೇಟರ್' },
+  { code: 'ml', name: 'Malayalam', nativeName: 'മലയാളം', flag: '🇮🇳', dir: 'ltr', targetKeyword: 'പ്രായ കാൽക്കുലേറ്റർ' },
+  { code: 'fil', name: 'Filipino', nativeName: 'Filipino', flag: '🇵🇭', dir: 'ltr', targetKeyword: 'Kalkulator ng Edad' },
+  { code: 'da', name: 'Danish', nativeName: 'Dansk', flag: '🇩🇰', dir: 'ltr', targetKeyword: 'Beregn Alder' },
+  { code: 'fi', name: 'Finnish', nativeName: 'Suomi', flag: '🇫🇮', dir: 'ltr', targetKeyword: 'Ikälaskuri' },
+  { code: 'no', name: 'Norwegian', nativeName: 'Norsk', flag: '🇳🇴', dir: 'ltr', targetKeyword: 'Beregne Alder' }
 ];
 
-export const LANGUAGE_MAP = new Map<string, LanguageInfo>(
-  SUPPORTED_LANGUAGES.map((lang) => [lang.code, lang])
-);
-
-export function getLanguage(code: string): LanguageInfo {
-  return LANGUAGE_MAP.get(code) || SUPPORTED_LANGUAGES[0];
-}
+export const DEFAULT_LANGUAGE: LanguageConfig = SUPPORTED_LANGUAGES[0];
 
 export function isValidLocale(code: string): boolean {
-  return LANGUAGE_MAP.has(code);
+  return SUPPORTED_LANGUAGES.some((lang) => lang.code === code);
+}
+
+export function getLanguage(code: string): LanguageConfig {
+  return SUPPORTED_LANGUAGES.find((lang) => lang.code === code) || DEFAULT_LANGUAGE;
+}
+
+export function getHrefForLocale(targetLocale: string, currentPathname: string): string {
+  const parts = currentPathname.split('/').filter(Boolean);
+
+  if (parts.length > 0 && isValidLocale(parts[0])) {
+    parts.shift();
+  }
+
+  const subpath = parts.join('/');
+
+  if (targetLocale === 'en') {
+    return subpath ? `/${subpath}/` : '/';
+  }
+
+  return subpath ? `/${targetLocale}/${subpath}/` : `/${targetLocale}/`;
 }

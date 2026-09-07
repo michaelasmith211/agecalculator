@@ -103,7 +103,7 @@ export default async function LocalizedHomePage({ params }: PageProps) {
       <WebApplicationJsonLd
         name={`${lang.targetKeyword} – ${SITE_CONFIG.name}`}
         description={t.metaDescription}
-        url={`${SITE_CONFIG.domain}/${locale}/`}
+        url={`/${locale}/`}
       />
       <FaqJsonLd items={faqSchemaData} />
 
