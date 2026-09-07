@@ -1,11 +1,11 @@
 'use client';
 
 import React, { useState, useEffect, useSyncExternalStore } from 'react';
+import { usePathname } from 'next/navigation';
 import {
   Calendar,
   Clock,
   RotateCcw,
-  Sparkles,
   Cake,
   CalendarDays,
   Copy,
@@ -23,8 +23,7 @@ import {
   parseDateString,
   parseTimeString,
   toDateString,
-  formatDisplayDate,
-  CalendarTime
+  formatDisplayDate
 } from '@/lib/date-utils';
 import {
   saveUserBirthday,
@@ -36,18 +35,27 @@ import { trackEvent } from '@/lib/analytics';
 import SocialShare from '@/components/SocialShare';
 import LiveAgeTicker from '@/components/calculators/LiveAgeTicker';
 import ShareAgeCard from '@/components/ShareAgeCard';
+import { detectLocale } from '@/i18n/locale-utils';
+import { getTranslations } from '@/i18n/getTranslations';
+import { formatNumber } from '@/lib/format-utils';
 
 interface MainAgeCalculatorProps {
   initialBirthDate?: string;
   initialTargetDate?: string;
+  locale?: string;
 }
 
 const emptySubscribe = () => () => {};
 
 export default function MainAgeCalculator({
   initialBirthDate = '2000-01-15',
-  initialTargetDate
+  initialTargetDate,
+  locale: propLocale
 }: MainAgeCalculatorProps) {
+  const pathname = usePathname() || '/';
+  const locale = propLocale || detectLocale(pathname);
+  const { t } = getTranslations(locale);
+
   const today = getTodayCalendarDate();
   const todayStr = toDateString(today);
 
@@ -78,10 +86,10 @@ export default function MainAgeCalculator({
   // Synchronous calculation initialization
   const [result, setResult] = useState<AgeResult | null>(() => {
     const b = parseDateString(initialBirthDate);
-    const t = parseDateString(initialTargetDate || todayStr);
-    if (b && t) {
+    const tDate = parseDateString(initialTargetDate || todayStr);
+    if (b && tDate) {
       try {
-        return calculateAge(b, t);
+        return calculateAge(b, tDate);
       } catch {
         return null;
       }
@@ -131,53 +139,41 @@ export default function MainAgeCalculator({
   ) => {
     setError(null);
     if (!bStr) {
-      setError('Please select or enter your Date of Birth.');
+      setError(t('errors.requiredDate', 'Please select or enter your Date of Birth.'));
       setResult(null);
       return;
     }
 
     const bDate = parseDateString(bStr);
     if (!bDate) {
-      setError('Invalid Date of Birth. Please enter a valid calendar date.');
+      setError(t('errors.invalidDate', 'Invalid Date of Birth. Please enter a valid calendar date.'));
       setResult(null);
       return;
     }
 
     const tDate = parseDateString(tStr);
     if (!tDate) {
-      setError('Invalid Target Date.');
+      setError(t('errors.invalidDate', 'Invalid Target Date.'));
       setResult(null);
       return;
     }
 
-    let bTime: CalendarTime | undefined = undefined;
-    let tTime: CalendarTime | undefined = undefined;
-
-    if (useTime) {
-      bTime = parseTimeString(bTimeStr) || { hours: 0, minutes: 0, seconds: 0 };
-      if (!isCustomTarget) {
-        tTime = getCurrentSystemTime();
-      } else {
-        tTime = parseTimeString(tTimeStr) || { hours: 12, minutes: 0, seconds: 0 };
-      }
-    }
+    const bTime = useTime && bTimeStr ? parseTimeString(bTimeStr) || undefined : undefined;
+    const tTime = useTime && tTimeStr ? parseTimeString(tTimeStr) || undefined : undefined;
 
     try {
-      const res = calculateAge(bDate, tDate, bTime, tTime);
-      setResult(res);
-
-      // Auto-save entered birthday and time to browser cookie for next visits
+      const calculated = calculateAge(bDate, tDate, bTime, tTime);
+      setResult(calculated);
       saveUserBirthday(bStr, useTime ? bTimeStr : undefined, useTime);
-      setIsAutoLoaded(true);
 
       trackEvent('age_calculator_used', {
         birth_year: bDate.year,
-        calculated_age_years: res.years,
+        calculated_age_years: calculated.years,
         used_time: useTime
       });
     } catch (err: unknown) {
-      const message = err instanceof Error ? err.message : 'An error occurred during calculation.';
-      setError(message);
+      const msg = err instanceof Error ? err.message : '';
+      setError(msg || t('errors.futureDate', 'Birth date cannot be in the future of target date.'));
       setResult(null);
     }
   };
@@ -188,114 +184,72 @@ export default function MainAgeCalculator({
     setIsCustomTarget(false);
     setIncludeTime(false);
     setBirthTimeStr('08:30');
-    setTargetTimeStr('12:00');
     setResult(null);
     setError(null);
-    clearSavedUserBirthday();
-    setIsAutoLoaded(false);
-    trackEvent('reset_calculator');
-  };
-
-  const handleClearSavedCookie = () => {
-    clearSavedUserBirthday();
     setIsAutoLoaded(false);
   };
 
-  const handleCopyResult = () => {
+  const handleClearSaved = () => {
+    clearSavedUserBirthday();
+    setIsAutoLoaded(false);
+  };
+
+  const handleCopySummary = async () => {
     if (!result) return;
-    const timeSuffix = result.birthTimeFormatted ? ` (born at ${result.birthTimeFormatted})` : '';
-    const text = `Age: ${result.years} Years, ${result.months} Months, ${result.days} Days${timeSuffix} (${result.totalDays.toLocaleString()} total days lived). Calculated on agecalculators.dev`;
-    navigator.clipboard.writeText(text);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  };
-
-  const handlePrint = () => {
-    if (typeof window !== 'undefined') {
-      window.print();
+    const summary = `${t('calculator.yourExactAge', 'Your Exact Age')}: ${result.years} ${t('calculator.years', 'Years')}, ${result.months} ${t('calculator.months', 'Months')}, ${result.days} ${t('calculator.days', 'Days')}. (${formatNumber(result.totalDays, locale)} ${t('calculator.totalDaysLived', 'Total Days Lived')})`;
+    try {
+      await navigator.clipboard.writeText(summary);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch {
+      // Fallback
     }
   };
 
+  const handlePrint = () => {
+    window.print();
+  };
+
   const parsedBirthDate = parseDateString(birthDateStr);
-  const parsedBirthTime = includeTime ? parseTimeString(birthTimeStr) || undefined : undefined;
   const parsedTargetDate = parseDateString(targetDateStr) || today;
-  const isTodayTarget = !isCustomTarget || targetDateStr === todayStr;
+  const isTodayTarget = targetDateStr === todayStr;
+  const parsedBirthTime = includeTime ? parseTimeString(birthTimeStr) || undefined : undefined;
 
   return (
-    <div id="calculator" className="calculator-card p-4 sm:p-6 md:p-8 bg-white border border-slate-200 rounded-2xl shadow-sm">
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-5 border-b border-slate-100">
-        <div>
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-100 mb-1.5">
-            <Sparkles className="w-3.5 h-3.5 text-blue-600" />
-            <span>Instant Calendar & Time Precision Calculation</span>
-          </div>
-          <h2 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">
-            Online Age Calculator
-          </h2>
-          <p className="text-sm text-slate-600 mt-0.5">
-            Enter your date of birth (and optional birth time) to calculate your exact age in years, months, days, and live running seconds.
-          </p>
-        </div>
-
-        {result && (
+    <div id="calculator" className="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-sm">
+      {/* Cookie Auto-Saved Notification */}
+      {isAutoLoaded && savedData && (
+        <div className="mb-6 p-3.5 bg-blue-50/70 border border-blue-200/80 rounded-2xl flex items-center justify-between gap-3 text-xs text-blue-900">
           <div className="flex items-center gap-2">
-            <button
-              type="button"
-              onClick={handleCopyResult}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium text-slate-700 bg-slate-100 hover:bg-slate-200 transition-colors cursor-pointer"
-              title="Copy result summary"
-            >
-              {copied ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5 text-slate-500" />}
-              <span>{copied ? 'Copied!' : 'Copy'}</span>
-            </button>
-            <button
-              type="button"
-              onClick={handlePrint}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium text-slate-700 bg-slate-100 hover:bg-slate-200 transition-colors cursor-pointer"
-              title="Print result"
-            >
-              <Printer className="w-3.5 h-3.5 text-slate-500" />
-              <span>Print</span>
-            </button>
-          </div>
-        )}
-      </div>
-
-      {/* Auto-Loaded Saved Birthday Notice */}
-      {isAutoLoaded && savedData && savedData.dob && (
-        <div className="mt-4 p-2.5 px-3.5 bg-emerald-50/90 border border-emerald-200 rounded-xl flex items-center justify-between text-xs text-emerald-900 animate-in fade-in duration-150">
-          <div className="flex items-center gap-2">
-            <BookmarkCheck className="w-4 h-4 text-emerald-600 shrink-0" />
+            <BookmarkCheck className="w-4 h-4 text-blue-600 shrink-0" />
             <span>
-              <strong>Auto-Loaded:</strong> Showing your saved birthday (<strong>{savedData.dob}</strong>{savedData.tob ? ` at ${savedData.tob}` : ''}).
+              Restored your saved birth date: <strong>{savedData.dob}</strong>
             </span>
           </div>
-
           <button
             type="button"
-            onClick={handleClearSavedCookie}
-            className="text-emerald-700 hover:text-emerald-900 font-semibold underline flex items-center gap-1 px-1.5 py-0.5 cursor-pointer shrink-0"
-            title="Forget saved birthday on this browser"
+            onClick={handleClearSaved}
+            className="text-blue-700 hover:text-blue-900 font-semibold underline flex items-center gap-1 cursor-pointer shrink-0"
           >
             <Trash2 className="w-3.5 h-3.5" />
-            <span>Clear</span>
+            <span>{t('calculator.clear', 'Clear')}</span>
           </button>
         </div>
       )}
 
-      {/* Input Form */}
+      {/* Form Inputs */}
       <form
         onSubmit={(e) => {
           e.preventDefault();
           performCalculation(birthDateStr, targetDateStr);
         }}
-        className="mt-6 space-y-6"
+        className="space-y-6"
       >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Date of Birth Input */}
           <div className="space-y-2">
             <label htmlFor="dob-input" className="block text-sm font-bold text-slate-800">
-              Date of Birth <span className="text-rose-500">*</span>
+              {t('calculator.dobLabel', 'Date of Birth')} <span className="text-rose-500">*</span>
             </label>
             <div className="relative">
               <input
@@ -315,7 +269,7 @@ export default function MainAgeCalculator({
               />
             </div>
             <p id="dob-helper" className="text-xs text-slate-500">
-              Select your birth day, month, and year (DD / MM / YYYY). Automatically saved in your browser cookies.
+              {t('calculator.dobHelper', 'Select your birth day, month, and year (DD / MM / YYYY).')}
             </p>
           </div>
 
@@ -323,7 +277,7 @@ export default function MainAgeCalculator({
           <div className="space-y-2">
             <div className="flex items-center justify-between">
               <label htmlFor="target-input" className="block text-sm font-bold text-slate-800">
-                Age As Of Date
+                {t('calculator.targetDateLabel', 'Age As Of Date')}
               </label>
               <button
                 type="button"
@@ -337,7 +291,7 @@ export default function MainAgeCalculator({
                 }}
                 className="text-xs text-blue-600 hover:text-blue-800 font-semibold underline cursor-pointer"
               >
-                {isCustomTarget ? 'Use Today' : 'Change Date'}
+                {isCustomTarget ? t('calculator.useToday', 'Use Today') : t('calculator.changeDate', 'Change Date')}
               </button>
             </div>
             <div className="relative">
@@ -383,17 +337,19 @@ export default function MainAgeCalculator({
               />
               <span className="text-xs font-bold text-slate-800 flex items-center gap-1.5">
                 <Clock className="w-3.5 h-3.5 text-blue-600" />
-                <span>Include Exact Birth Time (Optional)</span>
+                <span>{t('calculator.includeTime', 'Include Exact Birth Time (Optional)')}</span>
               </span>
             </label>
-            <span className="text-[11px] text-slate-500">For down-to-the-minute precision</span>
+            <span className="text-[11px] text-slate-500">
+              {t('calculator.includeTimeHelper', 'For down-to-the-minute precision')}
+            </span>
           </div>
 
           {includeTime && (
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2 border-t border-slate-200/80 animate-in fade-in duration-150">
               <div>
                 <label htmlFor="birth-time" className="block text-xs font-semibold text-slate-700 mb-1">
-                  Time of Birth (Local Time)
+                  {t('calculator.birthTimeLabel', 'Time of Birth (Local Time)')}
                 </label>
                 <input
                   id="birth-time"
@@ -435,7 +391,7 @@ export default function MainAgeCalculator({
             className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl text-base font-bold bg-blue-600 text-white hover:bg-blue-700 shadow-sm hover:shadow transition-all focus:ring-4 focus:ring-blue-100 cursor-pointer"
           >
             <Calendar className="w-5 h-5" />
-            <span>Calculate Age</span>
+            <span>{t('calculator.calculate', 'Calculate Age')}</span>
           </button>
 
           <button
@@ -444,7 +400,7 @@ export default function MainAgeCalculator({
             className="inline-flex items-center justify-center gap-1.5 px-4 py-3 rounded-xl text-sm font-semibold text-slate-600 bg-slate-100 hover:bg-slate-200 hover:text-slate-800 transition-colors cursor-pointer"
           >
             <RotateCcw className="w-4 h-4" />
-            <span>Reset</span>
+            <span>{t('calculator.reset', 'Reset')}</span>
           </button>
         </div>
       </form>
@@ -462,27 +418,54 @@ export default function MainAgeCalculator({
         <div className="mt-8 space-y-6 animate-in fade-in duration-200">
           {/* Primary Result Banner */}
           <div className="p-4 sm:p-6 bg-gradient-to-br from-blue-50 to-indigo-50/50 border border-blue-200 rounded-2xl overflow-hidden">
-            <div className="text-xs font-semibold text-blue-700 uppercase tracking-wider mb-1">
-              Your Exact Age
+            <div className="flex items-center justify-between flex-wrap gap-2">
+              <div className="text-xs font-semibold text-blue-700 uppercase tracking-wider">
+                {t('calculator.yourExactAge', 'Your Exact Age')}
+              </div>
+              <div className="flex items-center gap-2">
+                <button
+                  type="button"
+                  onClick={handleCopySummary}
+                  className="inline-flex items-center gap-1 text-xs font-semibold px-2.5 py-1 rounded-lg bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 cursor-pointer"
+                >
+                  {copied ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
+                  <span>{copied ? t('calculator.copied', 'Copied!') : t('calculator.copy', 'Copy')}</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={handlePrint}
+                  className="inline-flex items-center gap-1 text-xs font-semibold px-2.5 py-1 rounded-lg bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 cursor-pointer"
+                >
+                  <Printer className="w-3.5 h-3.5" />
+                  <span>{t('calculator.print', 'Print')}</span>
+                </button>
+              </div>
             </div>
+
             <div className="flex flex-wrap items-baseline gap-2 sm:gap-4 mt-2">
               <div className="flex items-baseline gap-1">
                 <span className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-blue-900 tracking-tight font-mono">
-                  {result.years}
+                  {formatNumber(result.years, locale)}
                 </span>
-                <span className="text-sm sm:text-base font-bold text-blue-700">Years</span>
+                <span className="text-sm sm:text-base font-bold text-blue-700">
+                  {t('calculator.years', 'Years')}
+                </span>
               </div>
               <div className="flex items-baseline gap-1">
                 <span className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-blue-900 tracking-tight font-mono">
-                  {result.months}
+                  {formatNumber(result.months, locale)}
                 </span>
-                <span className="text-sm sm:text-base font-bold text-blue-700">Months</span>
+                <span className="text-sm sm:text-base font-bold text-blue-700">
+                  {t('calculator.months', 'Months')}
+                </span>
               </div>
               <div className="flex items-baseline gap-1">
                 <span className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-blue-900 tracking-tight font-mono">
-                  {result.days}
+                  {formatNumber(result.days, locale)}
                 </span>
-                <span className="text-sm sm:text-base font-bold text-blue-700">Days</span>
+                <span className="text-sm sm:text-base font-bold text-blue-700">
+                  {t('calculator.days', 'Days')}
+                </span>
               </div>
             </div>
 
@@ -518,13 +501,15 @@ export default function MainAgeCalculator({
             {/* Next Birthday Card */}
             <div className="p-4 bg-white border border-slate-200 rounded-xl shadow-2xs">
               <div className="flex items-center justify-between text-slate-500 mb-1">
-                <span className="text-xs font-semibold uppercase tracking-wider">Next Birthday</span>
+                <span className="text-xs font-semibold uppercase tracking-wider">
+                  {t('calculator.nextBirthday', 'Next Birthday')}
+                </span>
                 <Cake className="w-4 h-4 text-pink-500" />
               </div>
               <div className="text-lg font-bold text-slate-900">
                 {result.isBirthdayToday ? (
                   <span className="text-pink-600 font-extrabold flex items-center gap-1">
-                    🎉 Happy Birthday Today!
+                    {t('calculator.happyBirthday', '🎉 Happy Birthday Today!')}
                   </span>
                 ) : (
                   formatDisplayDate(result.nextBirthdayDate)
@@ -535,7 +520,7 @@ export default function MainAgeCalculator({
                   <span>Turning {result.years} years old today!</span>
                 ) : (
                   <span>
-                    <strong>{result.daysUntilNextBirthday} days</strong> remaining (Turning {result.ageTurningNext} on {result.nextBirthdayDayOfWeek})
+                    <strong>{formatNumber(result.daysUntilNextBirthday, locale)} {t('calculator.daysRemaining', 'days remaining')}</strong> ({t('calculator.turning', 'Turning')} {result.ageTurningNext})
                   </span>
                 )}
               </div>
@@ -544,11 +529,13 @@ export default function MainAgeCalculator({
             {/* Total Days Card */}
             <div className="p-4 bg-white border border-slate-200 rounded-xl shadow-2xs">
               <div className="flex items-center justify-between text-slate-500 mb-1">
-                <span className="text-xs font-semibold uppercase tracking-wider">Total Days Lived</span>
+                <span className="text-xs font-semibold uppercase tracking-wider">
+                  {t('calculator.totalDaysLived', 'Total Days Lived')}
+                </span>
                 <CalendarDays className="w-4 h-4 text-blue-500" />
               </div>
               <div className="text-xl font-extrabold text-slate-900 font-mono">
-                {result.totalDays.toLocaleString()} Days
+                {formatNumber(result.totalDays, locale)} {t('calculator.days', 'Days')}
               </div>
               <div className="text-xs text-slate-600 mt-1">
                 Exact calendar days lived
@@ -558,14 +545,16 @@ export default function MainAgeCalculator({
             {/* Total Weeks Card */}
             <div className="p-4 bg-white border border-slate-200 rounded-xl shadow-2xs">
               <div className="flex items-center justify-between text-slate-500 mb-1">
-                <span className="text-xs font-semibold uppercase tracking-wider">Total Weeks</span>
+                <span className="text-xs font-semibold uppercase tracking-wider">
+                  {t('calculator.totalWeeks', 'Total Weeks')}
+                </span>
                 <Clock className="w-4 h-4 text-emerald-500" />
               </div>
               <div className="text-xl font-extrabold text-slate-900 font-mono">
-                {result.totalWeeks.toLocaleString()} Weeks
+                {formatNumber(result.totalWeeks, locale)} Weeks
               </div>
               <div className="text-xs text-slate-600 mt-1">
-                Plus {result.remainingDaysInWeek} day{result.remainingDaysInWeek === 1 ? '' : 's'}
+                Plus {result.remainingDaysInWeek} days
               </div>
             </div>
           </div>
@@ -573,13 +562,13 @@ export default function MainAgeCalculator({
           {/* Time Breakdown Details Table */}
           <div className="bg-slate-50 border border-slate-200 rounded-xl p-5">
             <h3 className="text-sm font-bold text-slate-900 uppercase tracking-wider mb-3">
-              Comprehensive Time Breakdown
+              {t('calculator.timeBreakdown', 'Comprehensive Time Breakdown')}
             </h3>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-sm">
               <div className="bg-white p-3 rounded-lg border border-slate-200/80">
                 <div className="text-xs text-slate-500 font-medium">Total Months</div>
                 <div className="text-lg font-bold text-slate-900 mt-0.5">
-                  {result.years * 12 + result.months}
+                  {formatNumber(result.years * 12 + result.months, locale)}
                   <span className="text-xs text-slate-500 font-normal ml-1">
                     (+{result.days}d)
                   </span>
@@ -590,7 +579,7 @@ export default function MainAgeCalculator({
               <div className="bg-white p-3 rounded-lg border border-slate-200/80">
                 <div className="text-xs text-slate-500 font-medium">Total Hours</div>
                 <div className="text-lg font-bold text-slate-900 mt-0.5 font-mono">
-                  {result.totalHours.toLocaleString()}
+                  {formatNumber(result.totalHours, locale)}
                 </div>
                 <div className="text-[11px] text-slate-400">Total elapsed hours</div>
               </div>
@@ -598,15 +587,17 @@ export default function MainAgeCalculator({
               <div className="bg-white p-3 rounded-lg border border-slate-200/80">
                 <div className="text-xs text-slate-500 font-medium">Total Minutes</div>
                 <div className="text-lg font-bold text-slate-900 mt-0.5 font-mono">
-                  {result.totalMinutes.toLocaleString()}
+                  {formatNumber(result.totalMinutes, locale)}
                 </div>
                 <div className="text-[11px] text-slate-400">Total elapsed minutes</div>
               </div>
 
               <div className="bg-white p-3 rounded-lg border border-slate-200/80 min-w-0">
-                <div className="text-xs text-slate-500 font-medium">Total Seconds</div>
+                <div className="text-xs text-slate-500 font-medium">
+                  {t('calculator.seconds', 'Total Seconds')}
+                </div>
                 <div className="text-[clamp(13px,3.5vw,1.125rem)] font-bold text-slate-900 mt-0.5 font-mono whitespace-nowrap overflow-x-auto scrollbar-none">
-                  {result.totalSeconds.toLocaleString()}
+                  {formatNumber(result.totalSeconds, locale)}
                 </div>
                 <div className="text-[11px] text-slate-400">Total elapsed seconds</div>
               </div>
@@ -615,13 +606,13 @@ export default function MainAgeCalculator({
             {/* Astrology / Fun facts */}
             <div className="mt-4 pt-4 border-t border-slate-200/80 flex flex-wrap items-center justify-between gap-3 text-xs text-slate-600">
               <div>
-                Western Zodiac: <strong className="text-slate-800 font-semibold">{result.zodiacSign}</strong>
+                {t('calculator.zodiacSign', 'Western Zodiac')}: <strong className="text-slate-800 font-semibold">{result.zodiacSign}</strong>
               </div>
               <div>
-                Chinese Zodiac: <strong className="text-slate-800 font-semibold">{result.chineseZodiac}</strong>
+                {t('calculator.chineseZodiac', 'Chinese Zodiac')}: <strong className="text-slate-800 font-semibold">{result.chineseZodiac}</strong>
               </div>
               <div>
-                Day of Birth: <strong className="text-slate-800 font-semibold">{result.dayOfWeekBorn}</strong>
+                {t('calculator.dayBorn', 'Day of Birth')}: <strong className="text-slate-800 font-semibold">{result.dayOfWeekBorn}</strong>
               </div>
             </div>
           </div>
@@ -644,7 +635,7 @@ export default function MainAgeCalculator({
           {/* Social Share Box */}
           <SocialShare
             title="Age Calculator Result"
-            resultText={`I am ${result.years} Years, ${result.months} Months, and ${result.days} Days old (${result.totalDays.toLocaleString()} total days lived)!`}
+            resultText={`I am ${result.years} Years, ${result.months} Months, and ${result.days} Days old (${formatNumber(result.totalDays, locale)} total days lived)!`}
           />
         </div>
       )}

@@ -1,0 +1,176 @@
+{
+  "meta": {
+    "homeTitle": "वय कॅल्क्युलेटर – तुमचे अचूक वय वर्षे, महिने आणि दिवसांमध्ये जाणा",
+    "homeDescription": "मोफत ऑनलाइन वय कॅल्क्युलेटर. तुमचे अचूक वय वर्षे, महिने, दिवस आणि थेट सेकंदांमध्ये मोजा. वाढदिवस काउंटडाउन आणि जीवन आकडेवारी.",
+    "homeH1": "ऑनलाइन वय कॅल्क्युलेटर",
+    "homeSubtitle": "ग्रेगोरियन कॅलेंडरच्या पूर्ण अचूकतेसह तुमचे अचूक वय वर्षे, महिने, दिवस, तास आणि सेकंदांमध्ये मोजा."
+  },
+  "navigation": {
+    "home": "Home",
+    "ageCalculator": "वय कॅल्क्युलेटर",
+    "birthday": "Birthday",
+    "ageDifference": "Age Difference",
+    "dateDifference": "Date Difference",
+    "dateOfBirth": "Date of Birth",
+    "moreTools": "More Tools",
+    "allAgeTools": "All Age & Date Tools",
+    "calculateAge": "वय मोजा",
+    "calculateMyAgeNow": "वय मोजा",
+    "mainTools": "Main Tools",
+    "moreCalculators": "More Calculators"
+  },
+  "calculator": {
+    "badge": "Instant Calendar & Time Precision Calculation",
+    "dobLabel": "Date of Birth",
+    "dobPlaceholder": "Select your birth date",
+    "dobHelper": "Select your birth day, month, and year (DD / MM / YYYY). Auto-saved locally in cookies.",
+    "targetDateLabel": "Age As Of Date",
+    "useToday": "Use Today",
+    "changeDate": "Change Date",
+    "includeTime": "Include Exact Birth Time (Optional)",
+    "includeTimeHelper": "For down-to-the-minute precision",
+    "birthTimeLabel": "Time of Birth (Local Time)",
+    "calculate": "वय मोजा",
+    "reset": "Reset",
+    "clear": "Clear",
+    "copied": "Copied!",
+    "copy": "Copy",
+    "print": "Print",
+    "yourExactAge": "Your Exact Age",
+    "years": "वर्षे",
+    "months": "महिने",
+    "days": "दिवस",
+    "hours": "Hours",
+    "minutes": "Minutes",
+    "seconds": "सेकंद",
+    "nextBirthday": "Next Birthday",
+    "daysRemaining": "days remaining",
+    "turning": "Turning",
+    "happyBirthday": "🎉 Happy Birthday Today!",
+    "totalDaysLived": "Total Days Lived",
+    "totalWeeks": "Total Weeks",
+    "heartbeats": "Estimated Heartbeats",
+    "solarOrbit": "Solar Year Progress",
+    "liveSeconds": "Running Total Seconds Lived",
+    "timeBreakdown": "Comprehensive Time Breakdown",
+    "zodiacSign": "Western Zodiac",
+    "chineseZodiac": "Chinese Zodiac",
+    "dayBorn": "Day of Birth"
+  },
+  "features": {
+    "gregorianPrecisionTitle": "Gregorian Precision",
+    "gregorianPrecisionDesc": "Accounts for leap years, 30/31-day months, and February leap days down to the second.",
+    "liveSecondsTitle": "Live Running Seconds",
+    "liveSecondsDesc": "Real-time live age odometer synchronized with your device clock.",
+    "privateAndFreeTitle": "100% Private & Free",
+    "privateAndFreeDesc": "No registration or server uploads. All calculations run strictly in your browser."
+  },
+  "howItWorks": {
+    "title": "How the Age Calculator Works",
+    "subtitle": "A transparent breakdown of how our algorithm calculates calendar days, handles month borrowing, and tracks live seconds."
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "items": [
+      {
+        "question": "How does the Age Calculator calculate my exact age?",
+        "answer": "The calculator compares your Date of Birth with your target date using the Gregorian calendar algorithm. It computes complete elapsed years, calculates remaining full months, and calculates the remaining days by borrowing the exact days of the previous month."
+      },
+      {
+        "question": "Does this calculator account for leap years?",
+        "answer": "Yes. The algorithm handles February 29 correctly. If your birthday is on a leap day, the calculator checks leap cycle rules and measures exact calendar intervals."
+      },
+      {
+        "question": "How accurate is the live running seconds counter?",
+        "answer": "The live counter updates every second in real time, synchronized with your system clock, computing exact elapsed seconds from your birth timestamp."
+      },
+      {
+        "question": "Is my personal data safe and private?",
+        "answer": "Yes, 100%. All calculations happen entirely on your device inside your web browser. No personal information or birth dates are transmitted to any external server."
+      },
+      {
+        "question": "Can I calculate the age difference between two people?",
+        "answer": "Yes. Use our Age Difference Calculator to compare two birth dates and find the exact duration in years, months, and days."
+      }
+    ]
+  },
+  "breadcrumbs": {
+    "home": "Home"
+  },
+  "related": {
+    "title": "Explore Related Age & Date Calculators",
+    "description": "Quickly switch to specialized calculators for birthdays, milestone ages, date durations, and interval counting.",
+    "openCalculator": "Open Calculator"
+  },
+  "languageSelector": {
+    "title": "Select Language",
+    "subtitle": "Choose your preferred language for the entire website",
+    "searchPlaceholder": "Search language...",
+    "close": "Close"
+  },
+  "footer": {
+    "brandDescription": "Free, accurate, and privacy-first online age calculator. Compute your exact age in years, months, and days, find your next birthday countdown, and calculate time differences with calendar precision.",
+    "coreCalculators": "Age Calculators",
+    "specialtyTools": "Specialty Tools",
+    "guide": "Calculation Guide",
+    "company": "Company & Legal",
+    "aboutUs": "About Us",
+    "contact": "Contact",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "languages": "Supported Languages & International Versions",
+    "clientSideBadge": "100% Client-Side • Zero Data Stored",
+    "allRightsReserved": "All rights reserved."
+  },
+  "errors": {
+    "invalidDate": "Please enter a valid date.",
+    "futureDate": "Birth date cannot be in the future.",
+    "requiredDate": "Please select your date of birth."
+  },
+  "tools": {
+    "age-calculator": {
+      "title": "वय कॅल्क्युलेटर",
+      "desc": "मोफत ऑनलाइन वय कॅल्क्युलेटर. तुमचे अचूक वय वर्षे, महिने, दिवस आणि थेट सेकंदांमध्ये मोजा. वाढदिवस काउंटडाउन आणि जीवन आकडेवारी."
+    },
+    "birthday-calculator": {
+      "title": "Birthday Calculator",
+      "desc": "Discover your next birthday, day of week, days countdown, and milestone ages."
+    },
+    "age-difference-calculator": {
+      "title": "Age Difference Calculator",
+      "desc": "Compare two dates of birth to find the precise difference in years, months, and days."
+    },
+    "birthday-countdown": {
+      "title": "Birthday Countdown",
+      "desc": "Live real-time ticking countdown clock for upcoming birthdays and milestone celebrations."
+    },
+    "date-difference-calculator": {
+      "title": "Date Difference Calculator",
+      "desc": "Find the exact duration and interval between any two dates in years, months, and days."
+    },
+    "date-of-birth-calculator": {
+      "title": "Date of Birth Calculator",
+      "desc": "Reverse calculator: determine your exact or approximate birth date from given age."
+    },
+    "days-between-dates": {
+      "title": "Days Between Dates",
+      "desc": "Calculate total calendar days and business days between any two dates."
+    },
+    "chronological-age-calculator": {
+      "title": "Chronological Age Calculator",
+      "desc": "Standard clinical and academic chronological age calculator (YY;MM;DD)."
+    },
+    "retirement-age-calculator": {
+      "title": "Retirement Age Calculator",
+      "desc": "Estimate your retirement milestone date and calculate remaining years and working days."
+    },
+    "leap-year-age-calculator": {
+      "title": "Leap Year Age Calculator",
+      "desc": "Special calculator for February 29 leap day babies to track birthdays vs calendar years."
+    },
+    "how-to-calculate-age": {
+      "title": "How to Calculate Age",
+      "desc": "Step-by-step mathematical guide to manual age calculation and calendar borrowing rules."
+    }
+  }
+}
