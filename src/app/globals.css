@@ -81,3 +81,36 @@ button, input, select, a {
     box-shadow: none !important;
   }
 }
+
+/* Seamless Multi-Language Translation Styling */
+.goog-te-banner-frame.skiptranslate,
+.goog-te-banner-frame,
+#goog-gt-tt,
+.goog-te-balloon-frame {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+body {
+  top: 0px !important;
+  position: static !important;
+}
+
+.goog-te-gadget {
+  display: none !important;
+}
+
+.goog-tooltip,
+.goog-tooltip:hover {
+  display: none !important;
+}
+
+.goog-text-highlight {
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+iframe.skiptranslate {
+  display: none !important;
+  visibility: hidden !important;
+}

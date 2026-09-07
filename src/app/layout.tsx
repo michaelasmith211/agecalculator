@@ -8,6 +8,7 @@ import { GlobalWebSiteJsonLd } from '@/components/JsonLd';
 import { SITE_CONFIG } from '@/lib/constants';
 import { LanguageProvider } from '@/lib/i18n/LanguageContext';
 import LanguageSelectorModal from '@/components/LanguageSelectorModal';
+import GoogleTranslateScript from '@/components/GoogleTranslateScript';
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_CONFIG.domain),
@@ -159,6 +160,7 @@ export default function RootLayout({
           </main>
           <Footer />
           <LanguageSelectorModal />
+          <GoogleTranslateScript />
           <CookieBanner />
         </LanguageProvider>
       </body>
