@@ -96,7 +96,7 @@ export default function Header() {
               title="Change Language (39 languages supported)"
             >
               <Globe className="w-4 h-4 text-blue-600" />
-              <span className="notranslate" translate="no">{currentLanguage.nativeName}</span>
+              <span className="notranslate" translate="no" suppressHydrationWarning>{currentLanguage.nativeName}</span>
             </button>
 
             <Link
@@ -113,12 +113,12 @@ export default function Header() {
             <button
               type="button"
               onClick={openModal}
-              className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs font-bold text-slate-700 bg-slate-100 hover:bg-slate-200 border border-slate-200 transition-colors cursor-pointer notranslate"
+              className="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-bold text-slate-700 bg-slate-100 hover:bg-slate-200 border border-slate-200 transition-colors cursor-pointer notranslate"
               translate="no"
               title="Change Language"
             >
               <Globe className="w-3.5 h-3.5 text-blue-600" />
-              <span className="notranslate" translate="no">{currentLanguage.code.toUpperCase()}</span>
+              <span className="notranslate" translate="no" suppressHydrationWarning>{currentLanguage.code.toUpperCase()}</span>
             </button>
 
             <button

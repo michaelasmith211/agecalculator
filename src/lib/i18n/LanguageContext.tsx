@@ -1,6 +1,6 @@
 'use client';
 
-import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
+import React, { createContext, useContext, useState, useEffect, useCallback, useMemo, useSyncExternalStore } from 'react';
 import { useRouter } from 'next/navigation';
 import { Language, LANGUAGES, DEFAULT_LANGUAGE, getLanguageByCode } from './languages';
 import { TranslationKey, getTranslation } from './dictionaries';
@@ -75,6 +75,16 @@ function getInitialLanguage(): Language {
   return DEFAULT_LANGUAGE;
 }
 
+function subscribeLanguage(callback: () => void) {
+  if (typeof window === 'undefined') return () => {};
+  window.addEventListener('popstate', callback);
+  window.addEventListener('storage', callback);
+  return () => {
+    window.removeEventListener('popstate', callback);
+    window.removeEventListener('storage', callback);
+  };
+}
+
 export function LanguageProvider({
   children,
   initialLang
@@ -83,16 +93,20 @@ export function LanguageProvider({
   initialLang?: string;
 }) {
   const router = useRouter();
-  const [currentLanguage, setCurrentLanguageState] = useState<Language>(() => {
-    if (initialLang) {
-      return getLanguageByCode(initialLang);
-    }
-    if (typeof window !== 'undefined') {
-      return getInitialLanguage();
-    }
-    return DEFAULT_LANGUAGE;
-  });
+  const [explicitLang, setExplicitLang] = useState<string | null>(initialLang || null);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+
+  const syncedCode = useSyncExternalStore(
+    subscribeLanguage,
+    () => {
+      if (explicitLang) return explicitLang;
+      return getInitialLanguage().code;
+    },
+    () => initialLang || DEFAULT_LANGUAGE.code
+  );
+
+  const activeCode = explicitLang || syncedCode;
+  const currentLanguage = useMemo(() => getLanguageByCode(activeCode), [activeCode]);
 
   useEffect(() => {
     // Synchronize document attributes on language change
@@ -102,7 +116,7 @@ export function LanguageProvider({
 
   const setLanguage = useCallback((code: string) => {
     const lang = getLanguageByCode(code);
-    setCurrentLanguageState(lang);
+    setExplicitLang(lang.code);
 
     try {
       localStorage.setItem(STORAGE_KEY, lang.code);

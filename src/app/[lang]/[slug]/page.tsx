@@ -101,8 +101,6 @@ export async function generateMetadata({ params }: LocalizedSlugPageProps): Prom
   };
 }
 
-import { LanguageProvider } from '@/lib/i18n/LanguageContext';
-
 export default async function LocalizedSlugPage({ params }: LocalizedSlugPageProps) {
   const { lang, slug } = await params;
   const language = LANGUAGES.find((l) => l.code === lang);
@@ -113,9 +111,5 @@ export default async function LocalizedSlugPage({ params }: LocalizedSlugPagePro
   }
 
   const PageComponent = target.component;
-  return (
-    <LanguageProvider initialLang={lang}>
-      <PageComponent />
-    </LanguageProvider>
-  );
+  return <PageComponent />;
 }

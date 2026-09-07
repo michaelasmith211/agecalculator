@@ -137,6 +137,7 @@ export default function Footer() {
                     isActive ? 'text-blue-400 font-bold underline' : 'hover:text-white'
                   }`}
                   translate="no"
+                  suppressHydrationWarning
                 >
                   {fl.name}
                 </button>
