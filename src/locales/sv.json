@@ -1,176 +1,318 @@
 {
   "meta": {
-    "homeTitle": "Räkna Ut Ålder – Beräkna Exakt Ålder i År, Månader och Dagar",
-    "homeDescription": "Gratis åldersräknare online. Beräkna din exakta ålder i år, månader, dagar och levande sekunder med födelsedagsnedräkning.",
-    "homeH1": "Åldersräknare Online",
-    "homeSubtitle": "Beräkna din exakta kronologiska ålder i år, månader, dagar, timmar och sekunder med full gregoriansk kalenderprecision."
+    "homeTitle": "Åldersräknare – Beräkna Din Exakta Ålder i År, Månader och Dagar",
+    "homeDescription": "Gratis online åldersräknare. Räkna ut din exakta ålder i år, månader, dagar och sekunder i realtid med födelsedagsnedräkning.",
+    "homeH1": "Online Åldersräknare",
+    "homeSubtitle": "Beräkna din exakta kronologiska ålder i år, månader, dagar, timmar och sekunder med gregoriansk kalenderprecision."
   },
   "navigation": {
-    "home": "Home",
-    "ageCalculator": "Räkna Ut Ålder",
-    "birthday": "Birthday",
-    "ageDifference": "Age Difference",
-    "dateDifference": "Date Difference",
-    "dateOfBirth": "Date of Birth",
-    "moreTools": "More Tools",
-    "allAgeTools": "All Age & Date Tools",
-    "calculateAge": "Räkna Ut Ålder",
-    "calculateMyAgeNow": "Räkna Ut Ålder",
-    "mainTools": "Main Tools",
-    "moreCalculators": "More Calculators"
+    "home": "Hem",
+    "ageCalculator": "Åldersräknare",
+    "birthday": "Födelsedagsräknare",
+    "ageDifference": "Åldersskillnad",
+    "dateDifference": "Datumskillnad",
+    "dateOfBirth": "Födelsedatumräknare",
+    "moreTools": "Fler Verktyg",
+    "allAgeTools": "Alla Ålders- & Datumverktyg",
+    "calculateAge": "Beräkna Ålder",
+    "calculateMyAgeNow": "Beräkna Min Ålder",
+    "mainTools": "Huvudverktyg",
+    "moreCalculators": "Fler Räknare"
   },
   "calculator": {
-    "badge": "Instant Calendar & Time Precision Calculation",
-    "dobLabel": "Date of Birth",
-    "dobPlaceholder": "Select your birth date",
-    "dobHelper": "Select your birth day, month, and year (DD / MM / YYYY). Auto-saved locally in cookies.",
-    "targetDateLabel": "Age As Of Date",
-    "useToday": "Use Today",
-    "changeDate": "Change Date",
-    "includeTime": "Include Exact Birth Time (Optional)",
-    "includeTimeHelper": "For down-to-the-minute precision",
-    "birthTimeLabel": "Time of Birth (Local Time)",
-    "calculate": "Räkna Ut Ålder",
-    "reset": "Reset",
-    "clear": "Clear",
-    "copied": "Copied!",
-    "copy": "Copy",
-    "print": "Print",
-    "yourExactAge": "Your Exact Age",
+    "badge": "Exakt Kalender- och Tidsberäkning i Realtid",
+    "dobLabel": "Födelsedatum",
+    "dobPlaceholder": "Välj födelsedatum",
+    "dobHelper": "Välj födelsedag, månad och år (ÅÅÅÅ-MM-DD). Sparas lokalt i cookies.",
+    "targetDateLabel": "Ålder per Datum",
+    "useToday": "Använd Idag",
+    "changeDate": "Ändra Datum",
+    "includeTime": "Inkludera Exakt Födelsetid (Valfritt)",
+    "includeTimeHelper": "För precision på minutnivå",
+    "birthTimeLabel": "Födelsetid (Lokal Tid)",
+    "calculate": "Beräkna Ålder",
+    "reset": "Återställ",
+    "clear": "Rensa",
+    "copied": "Kopierat!",
+    "copy": "Kopiera",
+    "print": "Skriv ut",
+    "yourExactAge": "Din Exakta Ålder",
     "years": "År",
     "months": "Månader",
     "days": "Dagar",
-    "hours": "Hours",
-    "minutes": "Minutes",
+    "hours": "Timmar",
+    "minutes": "Minuter",
     "seconds": "Sekunder",
-    "nextBirthday": "Next Birthday",
-    "daysRemaining": "days remaining",
-    "turning": "Turning",
-    "happyBirthday": "🎉 Happy Birthday Today!",
-    "totalDaysLived": "Total Days Lived",
-    "totalWeeks": "Total Weeks",
-    "heartbeats": "Estimated Heartbeats",
-    "solarOrbit": "Solar Year Progress",
-    "liveSeconds": "Running Total Seconds Lived",
-    "timeBreakdown": "Comprehensive Time Breakdown",
-    "zodiacSign": "Western Zodiac",
-    "chineseZodiac": "Chinese Zodiac",
-    "dayBorn": "Day of Birth"
+    "nextBirthday": "Nästa Födelsedag",
+    "daysRemaining": "dagar kvar",
+    "turning": "Fyller",
+    "happyBirthday": "🎉 Grattis på Födelsedagen Idag!",
+    "totalDaysLived": "Totalt Levda Dagar",
+    "totalWeeks": "Totalt Levda Veckor",
+    "heartbeats": "Uppskattade Hjärtslag",
+    "solarOrbit": "Solårets Förlopp",
+    "liveSeconds": "Totalt Levda Sekunder i Realtid",
+    "timeBreakdown": "Detaljerad Tidsuppdelning",
+    "zodiacSign": "Stjärntecken",
+    "chineseZodiac": "Kinesiskt Tecken",
+    "dayBorn": "Födelsedag i Veckan"
   },
   "features": {
-    "gregorianPrecisionTitle": "Gregorian Precision",
-    "gregorianPrecisionDesc": "Accounts for leap years, 30/31-day months, and February leap days down to the second.",
-    "liveSecondsTitle": "Live Running Seconds",
-    "liveSecondsDesc": "Real-time live age odometer synchronized with your device clock.",
-    "privateAndFreeTitle": "100% Private & Free",
-    "privateAndFreeDesc": "No registration or server uploads. All calculations run strictly in your browser."
+    "gregorianPrecisionTitle": "Gregoriansk Precision",
+    "gregorianPrecisionDesc": "Tar hänsyn till skottår, 30/31-dagars månader och 29 februari med sekundprecision.",
+    "liveSecondsTitle": "Realtids Sekundräknare",
+    "liveSecondsDesc": "Åldersmätare i realtid synkroniserad med klockan på din enhet.",
+    "privateAndFreeTitle": "100% Privat & Gratis",
+    "privateAndFreeDesc": "Ingen registrering och ingen data skickas till servrar. Allt körs i din webbläsare."
   },
   "howItWorks": {
-    "title": "How the Age Calculator Works",
-    "subtitle": "A transparent breakdown of how our algorithm calculates calendar days, handles month borrowing, and tracks live seconds."
+    "title": "Hur Åldersräknaren Fungerar",
+    "subtitle": "En tydlig genomgång av hur vår algoritm beräknar kalenderdagar, månadslån och sekunder."
   },
   "faq": {
-    "title": "Frequently Asked Questions",
+    "title": "Vanliga Frågor (FAQ)",
     "items": [
       {
-        "question": "How does the Age Calculator calculate my exact age?",
-        "answer": "The calculator compares your Date of Birth with your target date using the Gregorian calendar algorithm. It computes complete elapsed years, calculates remaining full months, and calculates the remaining days by borrowing the exact days of the previous month."
+        "question": "Hur beräknar räknaren min exakta ålder?",
+        "answer": "Den jämför födelsedatumet med måldatumet enligt gregorianska kalendern och räknar ut fulla år, månader och kvarvarande dagar."
       },
       {
-        "question": "Does this calculator account for leap years?",
-        "answer": "Yes. The algorithm handles February 29 correctly. If your birthday is on a leap day, the calculator checks leap cycle rules and measures exact calendar intervals."
+        "question": "Tas det hänsyn till skottår?",
+        "answer": "Ja. Personer födda den 29 februari hanteras korrekt enligt officiella 4-åriga skottårscykler."
       },
       {
-        "question": "How accurate is the live running seconds counter?",
-        "answer": "The live counter updates every second in real time, synchronized with your system clock, computing exact elapsed seconds from your birth timestamp."
+        "question": "Hur exakt är den levande sekundräknaren?",
+        "answer": "Den uppdateras varje sekund i realtid synkroniserad med enhetens interna klocka."
       },
       {
-        "question": "Is my personal data safe and private?",
-        "answer": "Yes, 100%. All calculations happen entirely on your device inside your web browser. No personal information or birth dates are transmitted to any external server."
+        "question": "Är mina personuppgifter säkra?",
+        "answer": "Ja, till 100%. Allt beräknas lokalt i din webbläsare och inga uppgifter lagras på servrar."
       },
       {
-        "question": "Can I calculate the age difference between two people?",
-        "answer": "Yes. Use our Age Difference Calculator to compare two birth dates and find the exact duration in years, months, and days."
+        "question": "Kan jag räkna ut åldersskillnad mellan två personer?",
+        "answer": "Ja, använd vår 'Åldersskillnadsräknare' för att jämföra två datum i år, månader och dagar."
       }
     ]
   },
   "breadcrumbs": {
-    "home": "Home"
+    "home": "Hem"
   },
   "related": {
-    "title": "Explore Related Age & Date Calculators",
-    "description": "Quickly switch to specialized calculators for birthdays, milestone ages, date durations, and interval counting.",
-    "openCalculator": "Open Calculator"
+    "title": "Fler Ålders- och Datumräknare",
+    "description": "Växla snabbt till verktyg för födelsedagar, milstolpar och arbetsdagar.",
+    "openCalculator": "Öppna Räknaren"
   },
   "languageSelector": {
-    "title": "Select Language",
-    "subtitle": "Choose your preferred language for the entire website",
-    "searchPlaceholder": "Search language...",
-    "close": "Close"
+    "title": "Välj Språk",
+    "subtitle": "Välj ditt föredragna språk för hela webbplatsen",
+    "searchPlaceholder": "Sök språk...",
+    "close": "Stäng"
   },
   "footer": {
-    "brandDescription": "Free, accurate, and privacy-first online age calculator. Compute your exact age in years, months, and days, find your next birthday countdown, and calculate time differences with calendar precision.",
-    "coreCalculators": "Age Calculators",
-    "specialtyTools": "Specialty Tools",
-    "guide": "Calculation Guide",
-    "company": "Company & Legal",
-    "aboutUs": "About Us",
-    "contact": "Contact",
-    "privacy": "Privacy Policy",
-    "terms": "Terms of Service",
-    "languages": "Supported Languages & International Versions",
-    "clientSideBadge": "100% Client-Side • Zero Data Stored",
-    "allRightsReserved": "All rights reserved."
+    "brandDescription": "Gratis, noggrann och integritetsvänlig online åldersräknare. Beräkna din ålder, födelsedagar och tidsintervall med kalenderprecision.",
+    "coreCalculators": "Åldersräknare",
+    "specialtyTools": "Specialverktyg",
+    "guide": "Beräkningsguide",
+    "company": "Företag & Juridiskt",
+    "aboutUs": "Om Oss",
+    "contact": "Kontakt",
+    "privacy": "Integritetspolicy",
+    "terms": "Användarvillkor",
+    "languages": "Tillgängliga Språk & Internationella Versioner",
+    "clientSideBadge": "100% På Klienten • Ingen Data Sparas",
+    "allRightsReserved": "Alla rättigheter förbehållna."
   },
   "errors": {
-    "invalidDate": "Please enter a valid date.",
-    "futureDate": "Birth date cannot be in the future.",
-    "requiredDate": "Please select your date of birth."
+    "invalidDate": "Vänligen ange ett giltigt datum.",
+    "futureDate": "Födelsedatumet kan inte vara i framtiden.",
+    "requiredDate": "Vänligen välj ditt födelsedatum."
   },
   "tools": {
     "age-calculator": {
-      "title": "Räkna Ut Ålder",
-      "desc": "Gratis åldersräknare online. Beräkna din exakta ålder i år, månader, dagar och levande sekunder med födelsedagsnedräkning."
+      "title": "Åldersräknare",
+      "desc": "Beräkna din exakta ålder i år, månader, dagar och sekunder i realtid."
     },
     "birthday-calculator": {
-      "title": "Birthday Calculator",
-      "desc": "Discover your next birthday, day of week, days countdown, and milestone ages."
+      "title": "Födelsedagsräknare",
+      "desc": "Ta reda på veckodagen för din nästa födelsedag, nedräkning och milstolpar."
     },
     "age-difference-calculator": {
-      "title": "Age Difference Calculator",
-      "desc": "Compare two dates of birth to find the precise difference in years, months, and days."
+      "title": "Åldersskillnad Räknare",
+      "desc": "Jämför två födelsedatum och hitta den exakta skillnaden i år, månader och dagar."
     },
     "birthday-countdown": {
-      "title": "Birthday Countdown",
-      "desc": "Live real-time ticking countdown clock for upcoming birthdays and milestone celebrations."
+      "title": "Födelsedagsnedräkning",
+      "desc": "Nedräkningsklocka i realtid för kommande födelsedagar och högtider."
     },
     "date-difference-calculator": {
-      "title": "Date Difference Calculator",
-      "desc": "Find the exact duration and interval between any two dates in years, months, and days."
+      "title": "Datumskillnad Räknare",
+      "desc": "Beräkna den exakta tidsrymden mellan två datum i år, månader och dagar."
     },
     "date-of-birth-calculator": {
-      "title": "Date of Birth Calculator",
-      "desc": "Reverse calculator: determine your exact or approximate birth date from given age."
+      "title": "Födelsedatumräknare",
+      "desc": "Omvänd räknare: bestäm ditt ungefärliga födelsedatum utifrån känd ålder."
     },
     "days-between-dates": {
-      "title": "Days Between Dates",
-      "desc": "Calculate total calendar days and business days between any two dates."
+      "title": "Dagar Mellan Datum",
+      "desc": "Räkna totala kalenderdagar, arbetsdagar och helger mellan två datum."
     },
     "chronological-age-calculator": {
-      "title": "Chronological Age Calculator",
-      "desc": "Standard clinical and academic chronological age calculator (YY;MM;DD)."
+      "title": "Kronologisk Åldersräknare",
+      "desc": "Klinisk och akademisk standard för kronologisk ålder (ÅÅ;MM;DD)."
     },
     "retirement-age-calculator": {
-      "title": "Retirement Age Calculator",
-      "desc": "Estimate your retirement milestone date and calculate remaining years and working days."
+      "title": "Pensionsåldersräknare",
+      "desc": "Uppskatta pensionsdatum, återstående år och beräknade arbetsdagar."
     },
     "leap-year-age-calculator": {
-      "title": "Leap Year Age Calculator",
-      "desc": "Special calculator for February 29 leap day babies to track birthdays vs calendar years."
+      "title": "Skottårsräknare",
+      "desc": "Särskilt verktyg för personer födda den 29 februari för att följa faktiska födelsedagar."
     },
     "how-to-calculate-age": {
-      "title": "How to Calculate Age",
-      "desc": "Step-by-step mathematical guide to manual age calculation and calendar borrowing rules."
+      "title": "Hur Man Beräknar Ålder",
+      "desc": "Steg-för-steg matematisk guide till manuell åldersberäkning."
+    }
+  },
+  "calculators": {
+    "birthday": {
+      "title": "Födelsedags- & Milstolperäknare",
+      "desc": "Se när din nästa födelsedag är, hur många dagar som återstår och veckodagar för dina jämna år.",
+      "dobLabel": "Ditt Födelsedatum",
+      "btnCalculate": "Visa Födelsedagsinfo",
+      "nextCountdown": "Nedräkning till Nästa Födelsedag",
+      "daysUntil": "Dagar",
+      "turning": "tills du fyller",
+      "onDate": "Nästa födelsedag infaller på",
+      "todayBday": "Grattis på Födelsedagen Idag!",
+      "milestoneTitle": "Viktiga Jubileumsår",
+      "age": "Ålder",
+      "year": "År",
+      "date": "Datum",
+      "dayOfWeek": "Veckodag",
+      "status": "Status",
+      "passed": "Passerat",
+      "upcoming": "Kommande"
+    },
+    "ageDifference": {
+      "title": "Åldersskillnad Räknare",
+      "desc": "Jämför två födelsedatum för att beräkna den exakta åldersskillnaden i år, månader och dagar.",
+      "personA": "Person A",
+      "personB": "Person B",
+      "dobLabel": "Födelsedatum",
+      "btnCalculate": "Beräkna Åldersskillnad",
+      "resultTitle": "Åldersskillnad Sammanställning",
+      "olderThan": "är äldre än",
+      "by": "med",
+      "totalDaysDiff": "Total Skillnad i Dagar",
+      "totalWeeksDiff": "Total Skillnad i Veckor",
+      "copySummary": "Kopiera Sammanfattning",
+      "copied": "Kopierat till urklipp!",
+      "sameAge": "Båda personerna föddes på exakt samma dag."
+    },
+    "dateDifference": {
+      "title": "Beräkna Datumskillnad",
+      "desc": "Beräkna den exakta tidslängden mellan två datum i år, månader och dagar.",
+      "startDate": "Startdatum",
+      "endDate": "Slutdatum",
+      "btnCalculate": "Beräkna Tidsrymd",
+      "resultTitle": "Tidsrymd Mellan Datumen",
+      "diffYMD": "Skillnad",
+      "totalDays": "Totalt Dagar",
+      "totalWeeks": "Totalt Veckor",
+      "totalHours": "Totalt Timmar",
+      "totalMinutes": "Totalt Minuter",
+      "errorInvalid": "Vänligen välj giltiga start- och slutdatum."
+    },
+    "dateOfBirth": {
+      "title": "Hitta Födelsedatum",
+      "desc": "Fastställ födelsedatum genom att ange ålder i år, månader och dagar.",
+      "ageYears": "År",
+      "ageMonths": "Månader",
+      "ageDays": "Dagar",
+      "asOfDate": "Ålder per Datum",
+      "btnCalculate": "Beräkna Födelsedatum",
+      "resultTitle": "Beräknat Födelsedatum",
+      "estimatedDob": "Uppskattat Födelsedatum",
+      "dayBorn": "Födelseveckodag"
+    },
+    "birthdayCountdown": {
+      "title": "Födelsedagsnedräkning Klocka",
+      "desc": "Levande klocka som räknar ned till kommande födelsedagar och firanden.",
+      "dobLabel": "Födelsedatum",
+      "days": "Dagar",
+      "hours": "Timmar",
+      "minutes": "Minuter",
+      "seconds": "Sekunder",
+      "turningAge": "Fyller",
+      "nextBdayOn": "Nästa födelsedag den",
+      "happyBday": "🎉 Grattis på Födelsedagen Idag!"
+    },
+    "daysBetween": {
+      "title": "Räkna Dagar Mellan Datum",
+      "desc": "Räkna kalenderdagar, arbetsdagar och helgdagar mellan två datum.",
+      "startDate": "Startdatum",
+      "endDate": "Slutdatum",
+      "includeEndDay": "Inkludera slutdagen (+1 dag)",
+      "btnCalculate": "Räkna Dagar",
+      "totalDays": "Totalt Kalenderdagar",
+      "businessDays": "Vardagar (Mån-Fre)",
+      "weekendDays": "Helgdagar",
+      "totalWeeks": "Totalt Veckor"
+    },
+    "chronological": {
+      "title": "Kronologisk Åldersräknare",
+      "desc": "Standardiserad klinisk åldersberäkning (År;Månader;Dagar) för medicinska utvärderingar.",
+      "birthDate": "Födelsedatum",
+      "testDate": "Test- / Undersökningsdatum",
+      "weeksPremature": "För tidigt född i veckor (Korrigerad ålder)",
+      "btnCalculate": "Beräkna Kronologisk Ålder",
+      "chronologicalAge": "Kronologisk Ålder",
+      "notation": "Klinisk Notation (Å;M;D)",
+      "exactInterval": "Exakt Förfluten Tid",
+      "adjustedAge": "Korrigerad Ålder"
+    },
+    "retirement": {
+      "title": "Pensionsåldersräknare",
+      "desc": "Uppskatta ditt pensionsdatum och återstående tid till önskad pensionsålder.",
+      "birthDate": "Födelsedatum",
+      "currentAge": "Nuvarande Ålder",
+      "targetAge": "Önskad Pensionsålder",
+      "asOfDate": "Beräkningsdatum",
+      "btnCalculate": "Beräkna Pension",
+      "yearsRemaining": "Återstående År",
+      "targetYear": "Förväntat Pensionsår",
+      "workingDaysLeft": "Uppskattade Återstående Arbetsdagar",
+      "alreadyReached": "Målet för pensionsåldern har uppnåtts."
+    },
+    "leapYear": {
+      "title": "Skottårs- och 29 Februari Räknare",
+      "desc": "Ta reda på hur många 29 februari du faktiskt upplevt och se kommande skottårsfödelsedagar.",
+      "dobLabel": "Födelsedatum",
+      "btnCalculate": "Kontrollera Skottårsdata",
+      "leapYearsLived": "Upplevda 29 Februari",
+      "actualBirthdays": "Officiella Skottårsfödelsedagar",
+      "nextLeapBirthday": "Nästa 29 Februari Födelsedag",
+      "leapBabyBadge": "Född på Skottdagen (29 Feb)"
+    },
+    "liveTicker": {
+      "title": "Realtids Åldersmätare",
+      "syncedLocal": "Synkroniserad med din enhets klocka",
+      "clock": "Klocka",
+      "runningTotalSeconds": "Totalt Levda Sekunder",
+      "seconds": "sekunder",
+      "solarOrbit": "Solårets Förlopp",
+      "completed": "Slutfört",
+      "turnedAge": "Fyllde vid förra födelsedagen",
+      "turningAgeIn": "Fyller nästa ålder om",
+      "bioMilestones": "Biologiska Milstolpar",
+      "spaceTravel": "Rymd- och Planetresa",
+      "heartbeats": "Uppskattade Hjärtslag",
+      "breaths": "Tagna Andetag",
+      "blinks": "Ögonblinkningar",
+      "hoursSlept": "Sovda Timmar",
+      "earthRotation": "Jordens Ytrotation",
+      "sunOrbit": "Tillryggalagd Sträcka Kring Solen",
+      "asOfTarget": "Beräknad per måldatum"
     }
   }
 }

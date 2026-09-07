@@ -1,176 +1,318 @@
 {
   "meta": {
-    "homeTitle": "Υπολογισμός Ηλικίας – Βρείτε την Ακριβή Ηλικία σε Έτη, Μήνες & Ημέρες",
-    "homeDescription": "Δωρεάν online υπολογιστής ηλικίας. Υπολογίστε την ακριβή ηλικία σας σε έτη, μήνες, ημέρες και ζωντανά δευτερόλεπτα με αντίστροφη μέτρηση γενεθλίων.",
-    "homeH1": "Online Υπολογισμός Ηλικίας",
+    "homeTitle": "Υπολογιστής Ηλικίας – Υπολογίστε την Ακριβή Ηλικία σας σε Έτη, Μήνες & Ημέρες",
+    "homeDescription": "Δωρεάν online υπολογιστής ηλικίας. Βρείτε την ακριβή ηλικία σας σε έτη, μήνες, ημέρες και δευτερόλεπτα με αντίστροφη μέτρηση γενεθλίων.",
+    "homeH1": "Online Υπολογιστής Ηλικίας",
     "homeSubtitle": "Υπολογίστε την ακριβή χρονολογική ηλικία σας σε έτη, μήνες, ημέρες, ώρες και δευτερόλεπτα με ακρίβεια γρηγοριανού ημερολογίου."
   },
   "navigation": {
-    "home": "Home",
-    "ageCalculator": "Υπολογισμός Ηλικίας",
-    "birthday": "Birthday",
-    "ageDifference": "Age Difference",
-    "dateDifference": "Date Difference",
-    "dateOfBirth": "Date of Birth",
-    "moreTools": "More Tools",
-    "allAgeTools": "All Age & Date Tools",
+    "home": "Αρχική",
+    "ageCalculator": "Υπολογιστής Ηλικίας",
+    "birthday": "Υπολογιστής Γενεθλίων",
+    "ageDifference": "Διαφορά Ηλικίας",
+    "dateDifference": "Διαφορά Ημερομηνιών",
+    "dateOfBirth": "Εύρεση Ημερομηνίας Γέννησης",
+    "moreTools": "Περισσότερα Εργαλεία",
+    "allAgeTools": "Όλα τα Εργαλεία Ηλικίας & Ημερομηνιών",
     "calculateAge": "Υπολογισμός Ηλικίας",
-    "calculateMyAgeNow": "Υπολογισμός Ηλικίας",
-    "mainTools": "Main Tools",
-    "moreCalculators": "More Calculators"
+    "calculateMyAgeNow": "Υπολόγισε την Ηλικία μου",
+    "mainTools": "Κύρια Εργαλεία",
+    "moreCalculators": "Περισσότεροι Υπολογιστές"
   },
   "calculator": {
-    "badge": "Instant Calendar & Time Precision Calculation",
-    "dobLabel": "Date of Birth",
-    "dobPlaceholder": "Select your birth date",
-    "dobHelper": "Select your birth day, month, and year (DD / MM / YYYY). Auto-saved locally in cookies.",
-    "targetDateLabel": "Age As Of Date",
-    "useToday": "Use Today",
-    "changeDate": "Change Date",
-    "includeTime": "Include Exact Birth Time (Optional)",
-    "includeTimeHelper": "For down-to-the-minute precision",
-    "birthTimeLabel": "Time of Birth (Local Time)",
-    "calculate": "Υπολογισμός Ηλικίας",
-    "reset": "Reset",
-    "clear": "Clear",
-    "copied": "Copied!",
-    "copy": "Copy",
-    "print": "Print",
-    "yourExactAge": "Your Exact Age",
+    "badge": "Άμεσος Υπολογισμός Ημερολογίου & Χρόνου σε Πραγματικό Χρόνο",
+    "dobLabel": "Ημερομηνία Γέννησης",
+    "dobPlaceholder": "Επιλέξτε ημερομηνία γέννησης",
+    "dobHelper": "Επιλέξτε ημέρα, μήνα και έτος γέννησης (ΗΗ/ΜΜ/ΕΕΕΕ). Αποθηκεύεται τοπικά.",
+    "targetDateLabel": "Ηλικία την Ημερομηνία",
+    "useToday": "Σήμερα",
+    "changeDate": "Αλλαγή Ημερομηνίας",
+    "includeTime": "Συμπερίληψη Ώρας Γέννησης (Προαιρετικά)",
+    "includeTimeHelper": "Για ακρίβεια λεπτού",
+    "birthTimeLabel": "Ώρα Γέννησης (Τοπική Ώρα)",
+    "calculate": "Υπολογισμός",
+    "reset": "Επαναφορά",
+    "clear": "Καθαρισμός",
+    "copied": "Αντιγράφηκε!",
+    "copy": "Αντιγραφή",
+    "print": "Εκτύπωση",
+    "yourExactAge": "Η Ακριβής Ηλικία σας",
     "years": "Έτη",
     "months": "Μήνες",
     "days": "Ημέρες",
-    "hours": "Hours",
-    "minutes": "Minutes",
+    "hours": "Ώρες",
+    "minutes": "Λεπτά",
     "seconds": "Δευτερόλεπτα",
-    "nextBirthday": "Next Birthday",
-    "daysRemaining": "days remaining",
-    "turning": "Turning",
-    "happyBirthday": "🎉 Happy Birthday Today!",
-    "totalDaysLived": "Total Days Lived",
-    "totalWeeks": "Total Weeks",
-    "heartbeats": "Estimated Heartbeats",
-    "solarOrbit": "Solar Year Progress",
-    "liveSeconds": "Running Total Seconds Lived",
-    "timeBreakdown": "Comprehensive Time Breakdown",
-    "zodiacSign": "Western Zodiac",
-    "chineseZodiac": "Chinese Zodiac",
-    "dayBorn": "Day of Birth"
+    "nextBirthday": "Επόμενα Γενέθλια",
+    "daysRemaining": "ημέρες απομένουν",
+    "turning": "Θα γίνετε",
+    "happyBirthday": "🎉 Χρόνια Πολλά για τα Σημερινά σας Γενέθλια!",
+    "totalDaysLived": "Συνολικές Ημέρες Ζωής",
+    "totalWeeks": "Συνολικές Εβδομάδες",
+    "heartbeats": "Εκτιμώμενοι Χτύποι Καρδιάς",
+    "solarOrbit": "Πρόοδος Ηλιακού Έτους",
+    "liveSeconds": "Συνολικά Δευτερόλεπτα Ζωής σε Πραγματικό Χρόνο",
+    "timeBreakdown": "Αναλυτική Κατανομή Χρόνου",
+    "zodiacSign": "Ζώδιο",
+    "chineseZodiac": "Κινεζικό Ζώδιο",
+    "dayBorn": "Ημέρα Γέννησης"
   },
   "features": {
-    "gregorianPrecisionTitle": "Gregorian Precision",
-    "gregorianPrecisionDesc": "Accounts for leap years, 30/31-day months, and February leap days down to the second.",
-    "liveSecondsTitle": "Live Running Seconds",
-    "liveSecondsDesc": "Real-time live age odometer synchronized with your device clock.",
-    "privateAndFreeTitle": "100% Private & Free",
-    "privateAndFreeDesc": "No registration or server uploads. All calculations run strictly in your browser."
+    "gregorianPrecisionTitle": "Γρηγοριανή Ακρίβεια",
+    "gregorianPrecisionDesc": "Υπολογίζει δίσεκτα έτη, μήνες 30/31 ημερών και 29 Φεβρουαρίου με ακρίβεια δευτερολέπτου.",
+    "liveSecondsTitle": "Ζωντανός Μετρητής Δευτερολέπτων",
+    "liveSecondsDesc": "Μετρητής σε πραγματικό χρόνο συγχρονισμένος με το ρολόι της συσκευής σας.",
+    "privateAndFreeTitle": "100% Ιδιωτικό & Δωρεάν",
+    "privateAndFreeDesc": "Χωρίς εγγραφή και χωρίς αποστολή δεδομένων σε διακομιστές. Όλοι οι υπολογισμοί γίνονται τοπικά."
   },
   "howItWorks": {
-    "title": "How the Age Calculator Works",
-    "subtitle": "A transparent breakdown of how our algorithm calculates calendar days, handles month borrowing, and tracks live seconds."
+    "title": "Πώς Λειτουργεί ο Υπολογιστής Ηλικίας",
+    "subtitle": "Μια κατανοητή εξήγηση για το πώς ο αλγόριθμος υπολογίζει τις ημέρες, τους μήνες και τα δευτερόλεπτα."
   },
   "faq": {
-    "title": "Frequently Asked Questions",
+    "title": "Συχνές Ερωτήσεις (FAQ)",
     "items": [
       {
-        "question": "How does the Age Calculator calculate my exact age?",
-        "answer": "The calculator compares your Date of Birth with your target date using the Gregorian calendar algorithm. It computes complete elapsed years, calculates remaining full months, and calculates the remaining days by borrowing the exact days of the previous month."
+        "question": "Πώς υπολογίζεται η ακριβής ηλικία μου;",
+        "answer": "Συγκρίνει την ημερομηνία γέννησης με την επιθυμητή ημερομηνία βάσει του γρηγοριανού ημερολογίου, υπολογίζοντας ακριβή έτη, μήνες και ημέρες."
       },
       {
-        "question": "Does this calculator account for leap years?",
-        "answer": "Yes. The algorithm handles February 29 correctly. If your birthday is on a leap day, the calculator checks leap cycle rules and measures exact calendar intervals."
+        "question": "Λαμβάνονται υπόψη τα δίσεκτα έτη;",
+        "answer": "Ναι, πλήρως. Οι γεννημένοι στις 29 Φεβρουαρίου υπολογίζονται βάσει των επίσημων 4ετών κύκλων."
       },
       {
-        "question": "How accurate is the live running seconds counter?",
-        "answer": "The live counter updates every second in real time, synchronized with your system clock, computing exact elapsed seconds from your birth timestamp."
+        "question": "Πόσο ακριβής είναι ο ζωντανός μετρητής δευτερολέπτων;",
+        "answer": "Συγχρονίζεται κάθε δευτερόλεπτο με το ρολόι του συστήματός σας μετρώντας τον χρόνο που πέρασε."
       },
       {
-        "question": "Is my personal data safe and private?",
-        "answer": "Yes, 100%. All calculations happen entirely on your device inside your web browser. No personal information or birth dates are transmitted to any external server."
+        "question": "Είναι τα προσωπικά μου δεδομένα ασφαλή;",
+        "answer": "Ναι, 100%. Όλοι οι υπολογισμοί εκτελούνται αποκλειστικά στον περιηγητή σας."
       },
       {
-        "question": "Can I calculate the age difference between two people?",
-        "answer": "Yes. Use our Age Difference Calculator to compare two birth dates and find the exact duration in years, months, and days."
+        "question": "Μπορώ να υπολογίσω τη διαφορά ηλικίας δύο ατόμων;",
+        "answer": "Ναι, χρησιμοποιήστε τον 'Υπολογιστή Διαφοράς Ηλικίας' για να συγκρίνετε δύο ημερομηνίες."
       }
     ]
   },
   "breadcrumbs": {
-    "home": "Home"
+    "home": "Αρχική"
   },
   "related": {
-    "title": "Explore Related Age & Date Calculators",
-    "description": "Quickly switch to specialized calculators for birthdays, milestone ages, date durations, and interval counting.",
-    "openCalculator": "Open Calculator"
+    "title": "Άλλα Εργαλεία Ηλικίας και Ημερομηνιών",
+    "description": "Δοκιμάστε εργαλεία για γενέθλια, επετείους, εργάσιμες ημέρες και χρονικά διαστήματα.",
+    "openCalculator": "Άνοιγμα Εργαλείου"
   },
   "languageSelector": {
-    "title": "Select Language",
-    "subtitle": "Choose your preferred language for the entire website",
-    "searchPlaceholder": "Search language...",
-    "close": "Close"
+    "title": "Επιλογή Γλώσσας",
+    "subtitle": "Επιλέξτε τη γλώσσα σας για ολόκληρο τον ιστότοπο",
+    "searchPlaceholder": "Αναζήτηση γλώσσας...",
+    "close": "Κλείσιμο"
   },
   "footer": {
-    "brandDescription": "Free, accurate, and privacy-first online age calculator. Compute your exact age in years, months, and days, find your next birthday countdown, and calculate time differences with calendar precision.",
-    "coreCalculators": "Age Calculators",
-    "specialtyTools": "Specialty Tools",
-    "guide": "Calculation Guide",
-    "company": "Company & Legal",
-    "aboutUs": "About Us",
-    "contact": "Contact",
-    "privacy": "Privacy Policy",
-    "terms": "Terms of Service",
-    "languages": "Supported Languages & International Versions",
-    "clientSideBadge": "100% Client-Side • Zero Data Stored",
-    "allRightsReserved": "All rights reserved."
+    "brandDescription": "Δωρεάν, αξιόπιστος και ασφαλής online υπολογιστής ηλικίας. Υπολογίστε ηλικία, γενέθλια και χρονικά διαστήματα με ημερολογιακή ακρίβεια.",
+    "coreCalculators": "Υπολογιστές Ηλικίας",
+    "specialtyTools": "Ειδικά Εργαλεία",
+    "guide": "Οδηγός Υπολογισμού",
+    "company": "Εταιρεία & Νομικά",
+    "aboutUs": "Σχετικά με Εμάς",
+    "contact": "Επικοινωνία",
+    "privacy": "Πολιτική Απορρήτου",
+    "terms": "Όροι Χρήσης",
+    "languages": "Διαθέσιμες Γλώσσες & Διεθνείς Εκδόσεις",
+    "clientSideBadge": "100% Τοπική Εκτέλεση • Χωρίς Αποθήκευση Δεδομένων",
+    "allRightsReserved": "Με επιφύλαξη παντός δικαιώματος."
   },
   "errors": {
-    "invalidDate": "Please enter a valid date.",
-    "futureDate": "Birth date cannot be in the future.",
-    "requiredDate": "Please select your date of birth."
+    "invalidDate": "Παρακαλώ εισάγετε έγκυρη ημερομηνία.",
+    "futureDate": "Η ημερομηνία γέννησης δεν μπορεί να είναι στο μέλλον.",
+    "requiredDate": "Παρακαλώ επιλέξτε ημερομηνία γέννησης."
   },
   "tools": {
     "age-calculator": {
-      "title": "Υπολογισμός Ηλικίας",
-      "desc": "Δωρεάν online υπολογιστής ηλικίας. Υπολογίστε την ακριβή ηλικία σας σε έτη, μήνες, ημέρες και ζωντανά δευτερόλεπτα με αντίστροφη μέτρηση γενεθλίων."
+      "title": "Υπολογιστής Ηλικίας",
+      "desc": "Υπολογίστε την ακριβή ηλικία σας σε έτη, μήνες, ημέρες και δευτερόλεπτα."
     },
     "birthday-calculator": {
-      "title": "Birthday Calculator",
-      "desc": "Discover your next birthday, day of week, days countdown, and milestone ages."
+      "title": "Υπολογιστής Γενεθλίων",
+      "desc": "Μάθετε την ημέρα των επόμενων γενεθλίων σας και αντίστροφη μέτρηση."
     },
     "age-difference-calculator": {
-      "title": "Age Difference Calculator",
-      "desc": "Compare two dates of birth to find the precise difference in years, months, and days."
+      "title": "Υπολογιστής Διαφοράς Ηλικίας",
+      "desc": "Συγκρίνετε δύο ημερομηνίες γέννησης για να βρείτε την ακριβή διαφορά."
     },
     "birthday-countdown": {
-      "title": "Birthday Countdown",
-      "desc": "Live real-time ticking countdown clock for upcoming birthdays and milestone celebrations."
+      "title": "Αντίστροφη Μέτρηση Γενεθλίων",
+      "desc": "Ζωντανό ρολόι αντίστροφης μέτρησης για επερχόμενα γενέθλια και γιορτές."
     },
     "date-difference-calculator": {
-      "title": "Date Difference Calculator",
-      "desc": "Find the exact duration and interval between any two dates in years, months, and days."
+      "title": "Διαφορά Ημερομηνιών",
+      "desc": "Βρείτε το ακριβές διάστημα μεταξύ δύο ημερομηνιών σε έτη, μήνες και ημέρες."
     },
     "date-of-birth-calculator": {
-      "title": "Date of Birth Calculator",
-      "desc": "Reverse calculator: determine your exact or approximate birth date from given age."
+      "title": "Εύρεση Ημερομηνίας Γέννησης",
+      "desc": "Αντίστροφος υπολογιστής: βρείτε την ημερομηνία γέννησης από τη γνωστή ηλικία."
     },
     "days-between-dates": {
-      "title": "Days Between Dates",
-      "desc": "Calculate total calendar days and business days between any two dates."
+      "title": "Ημέρες Μεταξύ Ημερομηνιών",
+      "desc": "Υπολογίστε συνολικές ημέρες, εργάσιμες ημέρες και σαββατοκύριακα."
     },
     "chronological-age-calculator": {
-      "title": "Chronological Age Calculator",
-      "desc": "Standard clinical and academic chronological age calculator (YY;MM;DD)."
+      "title": "Χρονολογική Ηλικία",
+      "desc": "Πρότυπος ιατρικός και εκπαιδευτικός υπολογισμός ηλικίας (ΕΕ;ΜΜ;ΗΗ)."
     },
     "retirement-age-calculator": {
-      "title": "Retirement Age Calculator",
-      "desc": "Estimate your retirement milestone date and calculate remaining years and working days."
+      "title": "Υπολογιστής Ηλικίας Συνταξιοδότησης",
+      "desc": "Εκτιμήστε την ημερομηνία συνταξιοδότησης και τις εναπομείνασες εργάσιμες ημέρες."
     },
     "leap-year-age-calculator": {
-      "title": "Leap Year Age Calculator",
-      "desc": "Special calculator for February 29 leap day babies to track birthdays vs calendar years."
+      "title": "Υπολογιστής Δίσεκτου Έτους",
+      "desc": "Ειδικό εργαλείο για όσους γεννήθηκαν 29 Φεβρουαρίου για τα πραγματικά γενέθλια."
     },
     "how-to-calculate-age": {
-      "title": "How to Calculate Age",
-      "desc": "Step-by-step mathematical guide to manual age calculation and calendar borrowing rules."
+      "title": "Πώς να Υπολογίσετε την Ηλικία",
+      "desc": "Οδηγός βήμα προς βήμα για τον χειροκίνητο υπολογισμό της ηλικίας."
+    }
+  },
+  "calculators": {
+    "birthday": {
+      "title": "Υπολογιστής Γενεθλίων & Οροσήμων",
+      "desc": "Μάθετε πότε πέφτουν τα επόμενα γενέθλιά σας, πόσες ημέρες μένουν και τις ημέρες σημαντικών οροσήμων.",
+      "dobLabel": "Ημερομηνία Γέννησης",
+      "btnCalculate": "Προβολή Στοιχείων Γενεθλίων",
+      "nextCountdown": "Αντίστροφη Μέτρηση Επόμενων Γενεθλίων",
+      "daysUntil": "Ημέρες",
+      "turning": "μέχρι να γίνετε",
+      "onDate": "Τα επόμενα γενέθλια πέφτουν",
+      "todayBday": "Χρόνια Πολλά για τα Σημερινά σας Γενέθλια!",
+      "milestoneTitle": "Σημαντικά Γενέθλια Ορόσημα",
+      "age": "Ηλικία",
+      "year": "Έτος",
+      "date": "Ημερομηνία",
+      "dayOfWeek": "Ημέρα",
+      "status": "Κατάσταση",
+      "passed": "Πέρασε",
+      "upcoming": "Επερχόμενο"
+    },
+    "ageDifference": {
+      "title": "Υπολογιστής Διαφοράς Ηλικίας",
+      "desc": "Συγκρίνετε δύο ημερομηνίες γέννησης για να βρείτε την ακριβή διαφορά σε έτη, μήνες και ημέρες.",
+      "personA": "Άτομο Α",
+      "personB": "Άτομο Β",
+      "dobLabel": "Ημερομηνία Γέννησης",
+      "btnCalculate": "Υπολογισμός Διαφοράς",
+      "resultTitle": "Ανάλυση Διαφοράς Ηλικίας",
+      "olderThan": "είναι μεγαλύτερος/η από",
+      "by": "κατά",
+      "totalDaysDiff": "Συνολική Διαφορά σε Ημέρες",
+      "totalWeeksDiff": "Συνολική Διαφορά σε Εβδομάδες",
+      "copySummary": "Αντιγραφή Σύνοψης",
+      "copied": "Αντιγράφηκε στο πρόχειρο!",
+      "sameAge": "Και τα δύο άτομα γεννήθηκαν ακριβώς την ίδια ημέρα."
+    },
+    "dateDifference": {
+      "title": "Διάστημα Μεταξύ Ημερομηνιών",
+      "desc": "Υπολογίστε την ακριβή διάρκεια μεταξύ δύο ημερομηνιών σε έτη, μήνες και ημέρες.",
+      "startDate": "Ημερομηνία Έναρξης",
+      "endDate": "Ημερομηνία Λήξης",
+      "btnCalculate": "Υπολογισμός Διάρκειας",
+      "resultTitle": "Διάρκεια Μεταξύ των Ημερομηνιών",
+      "diffYMD": "Διαφορά",
+      "totalDays": "Συνολικές Ημέρες",
+      "totalWeeks": "Συνολικές Εβδομάδες",
+      "totalHours": "Συνολικές Ώρες",
+      "totalMinutes": "Συνολικά Λεπτά",
+      "errorInvalid": "Παρακαλώ επιλέξτε έγκυρες ημερομηνίες έναρξης και λήξης."
+    },
+    "dateOfBirth": {
+      "title": "Υπολογισμός Ημερομηνίας Γέννησης",
+      "desc": "Βρείτε την ημερομηνία γέννησης εισάγοντας τη γνωστή ηλικία σας σε έτη, μήνες και ημέρες.",
+      "ageYears": "Έτη",
+      "ageMonths": "Μήνες",
+      "ageDays": "Ημέρες",
+      "asOfDate": "Ηλικία την Ημερομηνία",
+      "btnCalculate": "Υπολογισμός Ημερομηνίας",
+      "resultTitle": "Υπολογισμένη Ημερομηνία Γέννησης",
+      "estimatedDob": "Εκτιμώμενη Ημερομηνία Γέννησης",
+      "dayBorn": "Ημέρα Γέννησης"
+    },
+    "birthdayCountdown": {
+      "title": "Ρολόι Αντίστροφης Μέτρησης Γενεθλίων",
+      "desc": "Ζωντανή αντίστροφη μέτρηση για τα επόμενα γενέθλια σε πραγματικό χρόνο.",
+      "dobLabel": "Ημερομηνία Γέννησης",
+      "days": "Ημέρες",
+      "hours": "Ώρες",
+      "minutes": "Λεπτά",
+      "seconds": "Δευτερόλεπτα",
+      "turningAge": "Θα γίνετε",
+      "nextBdayOn": "Επόμενα γενέθλια στις",
+      "happyBday": "🎉 Χρόνια Πολλά για τα Σημερινά σας Γενέθλια!"
+    },
+    "daysBetween": {
+      "title": "Υπολογιστής Ημερών Μεταξύ Ημερομηνιών",
+      "desc": "Μετρήστε ημερολογιακές ημέρες, εργάσιμες ημέρες και σαββατοκύριακα.",
+      "startDate": "Ημερομηνία Έναρξης",
+      "endDate": "Ημερομηνία Λήξης",
+      "includeEndDay": "Συμπερίληψη τελευταίας ημέρας (+1 ημέρα)",
+      "btnCalculate": "Μέτρηση Ημερών",
+      "totalDays": "Συνολικές Ημερολογιακές Ημέρες",
+      "businessDays": "Εργάσιμες Ημέρες (Δευ-Παρ)",
+      "weekendDays": "Ημέρες Σαββατοκύριακου",
+      "totalWeeks": "Συνολικές Εβδομάδες"
+    },
+    "chronological": {
+      "title": "Χρονολογική Ηλικία (Κλινική)",
+      "desc": "Πρότυπος υπολογισμός κλινικής ηλικίας (Έτη;Μήνες;Ημέρες) για ιατρικές αξιολογήσεις.",
+      "birthDate": "Ημερομηνία Γέννησης",
+      "testDate": "Ημερομηνία Εξέτασης",
+      "weeksPremature": "Εβδομάδες Προωρότητας (Διορθωμένη Ηλικία)",
+      "btnCalculate": "Υπολογισμός Ηλικίας",
+      "chronologicalAge": "Χρονολογική Ηλικία",
+      "notation": "Κλινική Μορφή (Ε;Μ;Η)",
+      "exactInterval": "Πραγματικός Χρόνος που Πέρασε",
+      "adjustedAge": "Διορθωμένη Ηλικία"
+    },
+    "retirement": {
+      "title": "Υπολογιστής Ηλικίας Συνταξιοδότησης",
+      "desc": "Εκτιμήστε την ημερομηνία συνταξιοδότησης και τον χρόνο που απομένει.",
+      "birthDate": "Ημερομηνία Γέννησης",
+      "currentAge": "Τρέχουσα Ηλικία",
+      "targetAge": "Επιθυμητή Ηλικία Συνταξιοδότησης",
+      "asOfDate": "Ημερομηνία Υπολογισμού",
+      "btnCalculate": "Υπολογισμός Σύνταξης",
+      "yearsRemaining": "Χρόνια που Απομένουν",
+      "targetYear": "Αναμενόμενο Έτος Συνταξιοδότησης",
+      "workingDaysLeft": "Εκτιμώμενες Εργάσιμες Ημέρες",
+      "alreadyReached": "Το ορόσημο ηλικίας συνταξιοδότησης επιτεύχθηκε."
+    },
+    "leapYear": {
+      "title": "Υπολογιστής Δίσεκτου Έτους (29 Φεβρουαρίου)",
+      "desc": "Μάθετε πόσες φορές ζήσατε πραγματικά την 29η Φεβρουαρίου και πότε είναι τα επόμενα δίσεκτα γενέθλια.",
+      "dobLabel": "Ημερομηνία Γέννησης",
+      "btnCalculate": "Έλεγχος Δίσεκτου Έτους",
+      "leapYearsLived": "29ες Φεβρουαρίου που Ζήσατε",
+      "actualBirthdays": "Επίσημα Δίσεκτα Γενέθλια",
+      "nextLeapBirthday": "Επόμενη 29η Φεβρουαρίου",
+      "leapBabyBadge": "Γεννημένος σε Δίσεκτο Έτος (29 Φεβ)"
+    },
+    "liveTicker": {
+      "title": "Ζωντανός Μετρητής Ηλικίας",
+      "syncedLocal": "Συγχρονισμένος με το ρολόι της συσκευής σας",
+      "clock": "Ώρα",
+      "runningTotalSeconds": "Συνολικά Δευτερόλεπτα Ζωής",
+      "seconds": "δευτερόλεπτα",
+      "solarOrbit": "Πρόοδος Ηλιακής Τροχιάς",
+      "completed": "Ολοκληρώθηκε",
+      "turnedAge": "Ηλικία στα τελευταία γενέθλια",
+      "turningAgeIn": "Επόμενη ηλικία σε",
+      "bioMilestones": "Βιολογικά Ορόσημα",
+      "spaceTravel": "Διαστημικό Ταξίδι & Τροχιά",
+      "heartbeats": "Εκτιμώμενοι Χτύποι Καρδιάς",
+      "breaths": "Αναπνοές που Έχουν Ληφθεί",
+      "blinks": "Ανοιγοκλείσματα Ματιών",
+      "hoursSlept": "Ώρες Ύπνου",
+      "earthRotation": "Περιστροφή Γης",
+      "sunOrbit": "Απόσταση που Διανύθηκε Γύρω από τον Ήλιο",
+      "asOfTarget": "Υπολογίστηκε με βάση την ημερομηνία-στόχο"
     }
   }
 }

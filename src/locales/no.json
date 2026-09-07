@@ -1,176 +1,318 @@
 {
   "meta": {
-    "homeTitle": "Beregne Alder – Finn Din Nøyaktige Alder i År, Måneder og Dager",
-    "homeDescription": "Gratis online alderskalkulator. Beregn nøyaktig alder i år, måneder, dager og levende sekunder med bursdagsnedtelling.",
+    "homeTitle": "Alderskalkulator – Beregn Din Nøyaktige Alder i År, Måneder og Dager",
+    "homeDescription": "Gratis online alderskalkulator. Finn din nøyaktige alder i år, måneder, dager og sekunder i sanntid med bursdagsnedtelling.",
     "homeH1": "Online Alderskalkulator",
     "homeSubtitle": "Beregn din nøyaktige kronologiske alder i år, måneder, dager, timer og sekunder med gregoriansk kalenderpresisjon."
   },
   "navigation": {
-    "home": "Home",
-    "ageCalculator": "Beregne Alder",
-    "birthday": "Birthday",
-    "ageDifference": "Age Difference",
-    "dateDifference": "Date Difference",
-    "dateOfBirth": "Date of Birth",
-    "moreTools": "More Tools",
-    "allAgeTools": "All Age & Date Tools",
+    "home": "Hjem",
+    "ageCalculator": "Alderskalkulator",
+    "birthday": "Bursdagskalkulator",
+    "ageDifference": "Aldersforskjell",
+    "dateDifference": "Datoforskjell",
+    "dateOfBirth": "Fødselsdatokalkulator",
+    "moreTools": "Flere Verktøy",
+    "allAgeTools": "Alle Alders- og Datoverktøy",
     "calculateAge": "Beregn Alder",
-    "calculateMyAgeNow": "Beregn Alder",
-    "mainTools": "Main Tools",
-    "moreCalculators": "More Calculators"
+    "calculateMyAgeNow": "Beregn Min Alder",
+    "mainTools": "Hovedverktøy",
+    "moreCalculators": "Flere Kalkulatorer"
   },
   "calculator": {
-    "badge": "Instant Calendar & Time Precision Calculation",
-    "dobLabel": "Date of Birth",
-    "dobPlaceholder": "Select your birth date",
-    "dobHelper": "Select your birth day, month, and year (DD / MM / YYYY). Auto-saved locally in cookies.",
-    "targetDateLabel": "Age As Of Date",
-    "useToday": "Use Today",
-    "changeDate": "Change Date",
-    "includeTime": "Include Exact Birth Time (Optional)",
-    "includeTimeHelper": "For down-to-the-minute precision",
-    "birthTimeLabel": "Time of Birth (Local Time)",
+    "badge": "Sanntids Kalender- og Tidspresisjon",
+    "dobLabel": "Fødselsdato",
+    "dobPlaceholder": "Velg fødselsdato",
+    "dobHelper": "Velg fødselsdag, måned og år (DD.MM.ÅÅÅÅ). Lagres lokalt i informasjonskapsler.",
+    "targetDateLabel": "Alder per Dato",
+    "useToday": "Bruk I Dag",
+    "changeDate": "Endre Dato",
+    "includeTime": "Inkluder Nøyaktig Fødselstidspunkt (Valgfritt)",
+    "includeTimeHelper": "For nøyaktighet på minuttet",
+    "birthTimeLabel": "Fødselstidspunkt (Lokal Tid)",
     "calculate": "Beregn Alder",
-    "reset": "Reset",
-    "clear": "Clear",
-    "copied": "Copied!",
-    "copy": "Copy",
-    "print": "Print",
-    "yourExactAge": "Your Exact Age",
+    "reset": "Tilbakestill",
+    "clear": "Tøm",
+    "copied": "Kopiert!",
+    "copy": "Kopier",
+    "print": "Skriv ut",
+    "yourExactAge": "Din Nøyaktige Alder",
     "years": "År",
     "months": "Måneder",
     "days": "Dager",
-    "hours": "Hours",
-    "minutes": "Minutes",
+    "hours": "Timer",
+    "minutes": "Minutter",
     "seconds": "Sekunder",
-    "nextBirthday": "Next Birthday",
-    "daysRemaining": "days remaining",
-    "turning": "Turning",
-    "happyBirthday": "🎉 Happy Birthday Today!",
-    "totalDaysLived": "Total Days Lived",
-    "totalWeeks": "Total Weeks",
-    "heartbeats": "Estimated Heartbeats",
-    "solarOrbit": "Solar Year Progress",
-    "liveSeconds": "Running Total Seconds Lived",
-    "timeBreakdown": "Comprehensive Time Breakdown",
-    "zodiacSign": "Western Zodiac",
-    "chineseZodiac": "Chinese Zodiac",
-    "dayBorn": "Day of Birth"
+    "nextBirthday": "Neste Bursdag",
+    "daysRemaining": "dager igjen",
+    "turning": "Fyller",
+    "happyBirthday": "🎉 Gratulerer med Dagen I Dag!",
+    "totalDaysLived": "Totalt Levde Dager",
+    "totalWeeks": "Totalt Levde Uker",
+    "heartbeats": "Estimerte Hjerteslag",
+    "solarOrbit": "Solårets Fremdrift",
+    "liveSeconds": "Totalt Levde Sekunder i Sanntid",
+    "timeBreakdown": "Detaljert Tidsoppdeling",
+    "zodiacSign": "Stjernetegn",
+    "chineseZodiac": "Kinesisk Stjernetegn",
+    "dayBorn": "Fødselsukedag"
   },
   "features": {
-    "gregorianPrecisionTitle": "Gregorian Precision",
-    "gregorianPrecisionDesc": "Accounts for leap years, 30/31-day months, and February leap days down to the second.",
-    "liveSecondsTitle": "Live Running Seconds",
-    "liveSecondsDesc": "Real-time live age odometer synchronized with your device clock.",
-    "privateAndFreeTitle": "100% Private & Free",
-    "privateAndFreeDesc": "No registration or server uploads. All calculations run strictly in your browser."
+    "gregorianPrecisionTitle": "Gregoriansk Presisjon",
+    "gregorianPrecisionDesc": "Tar hensyn til skuddår, 30/31-dagers måneder og 29. februar på sekundet.",
+    "liveSecondsTitle": "Sanntids Sekundteller",
+    "liveSecondsDesc": "Aldersmåler i sanntid synkronisert med klokken på enheten din.",
+    "privateAndFreeTitle": "100% Privat & Gratis",
+    "privateAndFreeDesc": "Ingen registrering og ingen opplasting til servere. Alt foregår i nettleseren din."
   },
   "howItWorks": {
-    "title": "How the Age Calculator Works",
-    "subtitle": "A transparent breakdown of how our algorithm calculates calendar days, handles month borrowing, and tracks live seconds."
+    "title": "Hvordan Alderskalkulatoren Fungerer",
+    "subtitle": "En tydelig forklaring på hvordan algoritmen beregner kalenderdager, månedslån og sekunder."
   },
   "faq": {
-    "title": "Frequently Asked Questions",
+    "title": "Ofte Stilte Spørsmål (FAQ)",
     "items": [
       {
-        "question": "How does the Age Calculator calculate my exact age?",
-        "answer": "The calculator compares your Date of Birth with your target date using the Gregorian calendar algorithm. It computes complete elapsed years, calculates remaining full months, and calculates the remaining days by borrowing the exact days of the previous month."
+        "question": "Hvordan beregner kalkulatoren min nøyaktige alder?",
+        "answer": "Den sammenligner fødselsdatoen med måldatoen etter den gregorianske kalenderen og beregner hele år, måneder og dager."
       },
       {
-        "question": "Does this calculator account for leap years?",
-        "answer": "Yes. The algorithm handles February 29 correctly. If your birthday is on a leap day, the calculator checks leap cycle rules and measures exact calendar intervals."
+        "question": "Tas det hensyn til skuddår?",
+        "answer": "Ja. Personer født 29. februar håndteres nøyaktig etter offisielle 4-årige skuddårssykluser."
       },
       {
-        "question": "How accurate is the live running seconds counter?",
-        "answer": "The live counter updates every second in real time, synchronized with your system clock, computing exact elapsed seconds from your birth timestamp."
+        "question": "Hvor nøyaktig er den levende sekundtelleren?",
+        "answer": "Den oppdateres hvert sekund i sanntid synkronisert med enhetens systemklokke."
       },
       {
-        "question": "Is my personal data safe and private?",
-        "answer": "Yes, 100%. All calculations happen entirely on your device inside your web browser. No personal information or birth dates are transmitted to any external server."
+        "question": "Er mine personlige data trygge?",
+        "answer": "Ja, 100%. Alt beregnes lokalt i nettleseren din uten at data sendes til servere."
       },
       {
-        "question": "Can I calculate the age difference between two people?",
-        "answer": "Yes. Use our Age Difference Calculator to compare two birth dates and find the exact duration in years, months, and days."
+        "question": "Kan jeg beregne aldersforskjell mellom to personer?",
+        "answer": "Ja, bruk vår 'Aldersforskjellskalkulator' for å sammenligne to datoer i år, måneder og dager."
       }
     ]
   },
   "breadcrumbs": {
-    "home": "Home"
+    "home": "Hjem"
   },
   "related": {
-    "title": "Explore Related Age & Date Calculators",
-    "description": "Quickly switch to specialized calculators for birthdays, milestone ages, date durations, and interval counting.",
-    "openCalculator": "Open Calculator"
+    "title": "Flere Alders- og Datoverktøy",
+    "description": "Gå raskt til spesialverktøy for bursdager, milepæler og arbeidsdager.",
+    "openCalculator": "Åpne Kalkulator"
   },
   "languageSelector": {
-    "title": "Select Language",
-    "subtitle": "Choose your preferred language for the entire website",
-    "searchPlaceholder": "Search language...",
-    "close": "Close"
+    "title": "Velg Språk",
+    "subtitle": "Velg ditt foretrukne språk for hele nettstedet",
+    "searchPlaceholder": "Søk språk...",
+    "close": "Lukk"
   },
   "footer": {
-    "brandDescription": "Free, accurate, and privacy-first online age calculator. Compute your exact age in years, months, and days, find your next birthday countdown, and calculate time differences with calendar precision.",
-    "coreCalculators": "Age Calculators",
-    "specialtyTools": "Specialty Tools",
-    "guide": "Calculation Guide",
-    "company": "Company & Legal",
-    "aboutUs": "About Us",
-    "contact": "Contact",
-    "privacy": "Privacy Policy",
-    "terms": "Terms of Service",
-    "languages": "Supported Languages & International Versions",
-    "clientSideBadge": "100% Client-Side • Zero Data Stored",
-    "allRightsReserved": "All rights reserved."
+    "brandDescription": "Gratis, nøyaktig og personvernvennlig online alderskalkulator. Beregn alder, bursdager og tidsintervaller med kalenderpresisjon.",
+    "coreCalculators": "Alderskalkulatorer",
+    "specialtyTools": "Spesialverktøy",
+    "guide": "Beregningsveiledning",
+    "company": "Selskap & Juridisk",
+    "aboutUs": "Om Oss",
+    "contact": "Kontakt",
+    "privacy": "Personvernerklæring",
+    "terms": "Vilkår for Bruk",
+    "languages": "Tilgjengelige Språk & Internasjonale Versjoner",
+    "clientSideBadge": "100% På Klienten • Ingen Data Lagres",
+    "allRightsReserved": "Alle rettigheter forbeholdt."
   },
   "errors": {
-    "invalidDate": "Please enter a valid date.",
-    "futureDate": "Birth date cannot be in the future.",
-    "requiredDate": "Please select your date of birth."
+    "invalidDate": "Vennligst oppgi en gyldig dato.",
+    "futureDate": "Fødselsdato kan ikke være i fremtiden.",
+    "requiredDate": "Vennligst velg din fødselsdato."
   },
   "tools": {
     "age-calculator": {
-      "title": "Beregne Alder",
-      "desc": "Gratis online alderskalkulator. Beregn nøyaktig alder i år, måneder, dager og levende sekunder med bursdagsnedtelling."
+      "title": "Alderskalkulator",
+      "desc": "Beregn din nøyaktige alder i år, måneder, dager og sekunder i sanntid."
     },
     "birthday-calculator": {
-      "title": "Birthday Calculator",
-      "desc": "Discover your next birthday, day of week, days countdown, and milestone ages."
+      "title": "Bursdagskalkulator",
+      "desc": "Finn ukedagen for din neste bursdag, nedtelling og milepæler."
     },
     "age-difference-calculator": {
-      "title": "Age Difference Calculator",
-      "desc": "Compare two dates of birth to find the precise difference in years, months, and days."
+      "title": "Aldersforskjell Kalkulator",
+      "desc": "Sammenlign to fødselsdatoer og finn nøyaktig forskjell i år, måneder og dager."
     },
     "birthday-countdown": {
-      "title": "Birthday Countdown",
-      "desc": "Live real-time ticking countdown clock for upcoming birthdays and milestone celebrations."
+      "title": "Bursdagsnedtelling",
+      "desc": "Live nedtellingsklokke for kommende bursdager og feiringer."
     },
     "date-difference-calculator": {
-      "title": "Date Difference Calculator",
-      "desc": "Find the exact duration and interval between any two dates in years, months, and days."
+      "title": "Datoforskjell Kalkulator",
+      "desc": "Finn nøyaktig tidsrom mellom to datoer i år, måneder og dager."
     },
     "date-of-birth-calculator": {
-      "title": "Date of Birth Calculator",
-      "desc": "Reverse calculator: determine your exact or approximate birth date from given age."
+      "title": "Fødselsdatokalkulator",
+      "desc": "Omvendt kalkulator: bestem omtrentlig fødselsdato ut fra oppgitt alder."
     },
     "days-between-dates": {
-      "title": "Days Between Dates",
-      "desc": "Calculate total calendar days and business days between any two dates."
+      "title": "Dager Mellom Datoer",
+      "desc": "Tell kalenderdager, arbeidsdager og helgedager mellom to datoer."
     },
     "chronological-age-calculator": {
-      "title": "Chronological Age Calculator",
-      "desc": "Standard clinical and academic chronological age calculator (YY;MM;DD)."
+      "title": "Kronologisk Alderskalkulator",
+      "desc": "Klinisk og akademisk standard for kronologisk alder (ÅÅ;MM;DD)."
     },
     "retirement-age-calculator": {
-      "title": "Retirement Age Calculator",
-      "desc": "Estimate your retirement milestone date and calculate remaining years and working days."
+      "title": "Pensjonsalderskalkulator",
+      "desc": "Beregn pensjonsdato, gjenværende år og anslåtte arbeidsdager."
     },
     "leap-year-age-calculator": {
-      "title": "Leap Year Age Calculator",
-      "desc": "Special calculator for February 29 leap day babies to track birthdays vs calendar years."
+      "title": "Skuddårskalkulator",
+      "desc": "Spesialverktøy for de født 29. februar til å spore faktiske bursdager."
     },
     "how-to-calculate-age": {
-      "title": "How to Calculate Age",
-      "desc": "Step-by-step mathematical guide to manual age calculation and calendar borrowing rules."
+      "title": "Hvordan Beregne Alder",
+      "desc": "Trinnvis matematisk veiledning til manuell aldersberegning."
+    }
+  },
+  "calculators": {
+    "birthday": {
+      "title": "Bursdags- og Milepælskalkulator",
+      "desc": "Se når neste bursdag faller, hvor mange dager som gjenstår og ukedagene for dine runde dager.",
+      "dobLabel": "Din Fødselsdato",
+      "btnCalculate": "Se Bursdagsinfo",
+      "nextCountdown": "Nedtelling til Neste Bursdag",
+      "daysUntil": "Dager",
+      "turning": "før du fyller",
+      "onDate": "Neste bursdag faller på",
+      "todayBday": "Gratulerer med Dagen I Dag!",
+      "milestoneTitle": "Viktige Milepælsbursdager",
+      "age": "Alder",
+      "year": "År",
+      "date": "Dato",
+      "dayOfWeek": "Ukedag",
+      "status": "Status",
+      "passed": "Passert",
+      "upcoming": "Kommende"
+    },
+    "ageDifference": {
+      "title": "Aldersforskjell Kalkulator",
+      "desc": "Sammenlign to fødselsdatoer for å beregne aldersforskjellen i år, måneder og dager.",
+      "personA": "Person A",
+      "personB": "Person B",
+      "dobLabel": "Fødselsdato",
+      "btnCalculate": "Beregn Aldersforskjell",
+      "resultTitle": "Aldersforskjell Detaljer",
+      "olderThan": "er eldre enn",
+      "by": "med",
+      "totalDaysDiff": "Samlet Forskjell i Dager",
+      "totalWeeksDiff": "Samlet Forskjell i Uker",
+      "copySummary": "Kopier Sammendrag",
+      "copied": "Kopiert til utklippstavlen!",
+      "sameAge": "Begge personer ble født på nøyaktig samme dato."
+    },
+    "dateDifference": {
+      "title": "Beregn Datoforløp",
+      "desc": "Beregn den nøyaktige varigheten mellom to datoer i år, måneder og dager.",
+      "startDate": "Startdato",
+      "endDate": "Sluttdato",
+      "btnCalculate": "Beregn Varighet",
+      "resultTitle": "Varighet Mellom Datoene",
+      "diffYMD": "Forskjell",
+      "totalDays": "Totalt Dager",
+      "totalWeeks": "Totalt Uker",
+      "totalHours": "Totalt Timer",
+      "totalMinutes": "Totalt Minutter",
+      "errorInvalid": "Vennligst velg gyldige start- og sluttdatoer."
+    },
+    "dateOfBirth": {
+      "title": "Finn Fødselsdato Fra Alder",
+      "desc": "Bestem din fødselsdato ved å oppgi alder i år, måneder og dager.",
+      "ageYears": "År",
+      "ageMonths": "Måneder",
+      "ageDays": "Dager",
+      "asOfDate": "Alder per Dato",
+      "btnCalculate": "Beregn Fødselsdato",
+      "resultTitle": "Beregnet Fødselsdato",
+      "estimatedDob": "Anslått Fødselsdato",
+      "dayBorn": "Fødselsukedag"
+    },
+    "birthdayCountdown": {
+      "title": "Bursdagsnedtelling Klokke",
+      "desc": "Levende nedtelling i sanntid til kommende bursdager.",
+      "dobLabel": "Fødselsdato",
+      "days": "Dager",
+      "hours": "Timer",
+      "minutes": "Minutter",
+      "seconds": "Sekunder",
+      "turningAge": "Fyller",
+      "nextBdayOn": "Neste bursdag den",
+      "happyBday": "🎉 Gratulerer med Dagen I Dag!"
+    },
+    "daysBetween": {
+      "title": "Dager Mellom Datoer Kalkulator",
+      "desc": "Tell kalenderdager, arbeidsdager og helgedager mellom to datoer.",
+      "startDate": "Startdato",
+      "endDate": "Sluttdato",
+      "includeEndDay": "Inkluder sluttdagen (+1 dag)",
+      "btnCalculate": "Tell Dager",
+      "totalDays": "Samlede Kalenderdager",
+      "businessDays": "Arbeidsdager (Man-Fre)",
+      "weekendDays": "Helgedager",
+      "totalWeeks": "Samlede Uker"
+    },
+    "chronological": {
+      "title": "Kronologisk Alderskalkulator",
+      "desc": "Standardisert klinisk aldersberegning (År;Måneder;Dager) for utredninger.",
+      "birthDate": "Fødselsdato",
+      "testDate": "Dato for Undersøkelse / Test",
+      "weeksPremature": "Uker For Tidlig Født (Korrigert Alder)",
+      "btnCalculate": "Beregn Kronologisk Alder",
+      "chronologicalAge": "Kronologisk Alder",
+      "notation": "Klinisk Format (Å;M;D)",
+      "exactInterval": "Nøyaktig Forløpt Tid",
+      "adjustedAge": "Korrigert Alder"
+    },
+    "retirement": {
+      "title": "Pensjonsalderskalkulator",
+      "desc": "Beregn din pensjonsdato og gjenværende tid til ønsket pensjonsalder.",
+      "birthDate": "Fødselsdato",
+      "currentAge": "Nåværende Alder",
+      "targetAge": "Ønsket Pensjonsalder",
+      "asOfDate": "Beregningsdato",
+      "btnCalculate": "Beregn Pensjon",
+      "yearsRemaining": "Gjenværende År",
+      "targetYear": "Forventet Pensjonsår",
+      "workingDaysLeft": "Anslåtte Gjenværende Arbeidsdager",
+      "alreadyReached": "Målet for pensjonsalder er nådd."
+    },
+    "leapYear": {
+      "title": "Skuddårs- og 29. Februar Kalkulator",
+      "desc": "Finn ut hvor mange 29. februar du faktisk har opplevd og se neste skuddårsbursdag.",
+      "dobLabel": "Fødselsdato",
+      "btnCalculate": "Sjekk Skuddårsdata",
+      "leapYearsLived": "Opplevde 29. Februar Dager",
+      "actualBirthdays": "Offisielle Skuddårsbursdager",
+      "nextLeapBirthday": "Neste 29. Februar Bursdag",
+      "leapBabyBadge": "Født på Skuddårsdagen (29. Feb)"
+    },
+    "liveTicker": {
+      "title": "Sanntids Aldersmåler",
+      "syncedLocal": "Synkronisert med din enhets klokke",
+      "clock": "Klokke",
+      "runningTotalSeconds": "Totalt Levde Sekunder",
+      "seconds": "sekunder",
+      "solarOrbit": "Solårets Fremdrift",
+      "completed": "Fullført",
+      "turnedAge": "Fylte ved forrige bursdag",
+      "turningAgeIn": "Fyller neste alder om",
+      "bioMilestones": "Biologiske Milepæler",
+      "spaceTravel": "Romreise & Jordens Bane",
+      "heartbeats": "Estimerte Hjerteslag",
+      "breaths": "Innpust Tatt",
+      "blinks": "Øyeblikk / Blunk",
+      "hoursSlept": "Sovende Timer",
+      "earthRotation": "Jordoverflatens Rotasjon",
+      "sunOrbit": "Tilbakelagt Avstand Rundt Solen",
+      "asOfTarget": "Beregnet per måldato"
     }
   }
 }

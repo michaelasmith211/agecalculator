@@ -18,7 +18,29 @@ export default function Header() {
 
   const locale = detectLocale(pathname);
   const config = getLocaleConfig(locale);
-  const { t } = getTranslations(locale);
+  const { t, raw } = getTranslations(locale);
+
+  // Helper to resolve localized tool titles & descriptions
+  const getToolTitle = (href: string, fallback: string) => {
+    const slug = href.replace(/^\/+|\/+$/g, '');
+    const tool = raw.tools?.[slug as keyof typeof raw.tools];
+    return tool?.title || fallback;
+  };
+
+  const getToolDesc = (href: string, fallback: string) => {
+    const slug = href.replace(/^\/+|\/+$/g, '');
+    const tool = raw.tools?.[slug as keyof typeof raw.tools];
+    return tool?.desc || fallback;
+  };
+
+  const getNavItemTitle = (item: { title: string; href: string }) => {
+    const slug = item.href.replace(/^\/+|\/+$/g, '');
+    if (slug === 'age-calculator') return t('navigation.ageCalculator', item.title);
+    if (slug === 'birthday-calculator') return t('navigation.birthday', item.title);
+    if (slug === 'age-difference-calculator') return t('navigation.ageDifference', item.title);
+    if (slug === 'birthday-countdown') return getToolTitle(item.href, item.title);
+    return getToolTitle(item.href, item.title);
+  };
 
   // Helper to build localized internal links
   const getLocalizedLink = (href: string) => {
@@ -44,7 +66,7 @@ export default function Header() {
               </div>
               <div className="flex flex-col">
                 <span className="font-bold text-lg leading-tight text-slate-900 tracking-tight flex items-center gap-1.5">
-                  Age Calculator
+                  {t('navigation.ageCalculator', 'Age Calculator')}
                 </span>
                 <span className="text-[11px] font-medium text-slate-500 leading-none">
                   agecalculators.dev
@@ -67,7 +89,7 @@ export default function Header() {
                         : 'text-slate-700 hover:text-slate-900 hover:bg-slate-100'
                     }`}
                   >
-                    {item.title}
+                    {getNavItemTitle(item)}
                   </Link>
                 );
               })}
@@ -96,8 +118,8 @@ export default function Header() {
                         href={getLocalizedLink(calc.href)}
                         className="block px-3 py-2 text-sm text-slate-700 hover:bg-blue-50 hover:text-blue-700 transition-colors"
                       >
-                        <div className="font-medium text-slate-900">{calc.title}</div>
-                        <div className="text-xs text-slate-500 truncate">{calc.description}</div>
+                        <div className="font-medium text-slate-900">{getToolTitle(calc.href, calc.title)}</div>
+                        <div className="text-xs text-slate-500 truncate">{getToolDesc(calc.href, calc.description)}</div>
                       </Link>
                     ))}
                   </div>
@@ -165,7 +187,7 @@ export default function Header() {
                 onClick={() => setMobileMenuOpen(false)}
                 className="block px-3 py-2.5 rounded-lg text-base font-medium text-slate-800 hover:bg-blue-50 hover:text-blue-700"
               >
-                {item.title}
+                {getNavItemTitle(item)}
               </Link>
             ))}
             <div className="border-t border-slate-100 my-2 pt-2">
@@ -179,7 +201,7 @@ export default function Header() {
                   onClick={() => setMobileMenuOpen(false)}
                   className="block px-3 py-2 rounded-lg text-sm text-slate-700 hover:bg-blue-50 hover:text-blue-700"
                 >
-                  {calc.title}
+                  {getToolTitle(calc.href, calc.title)}
                 </Link>
               ))}
             </div>

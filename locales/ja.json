@@ -1,176 +1,318 @@
 {
   "meta": {
-    "homeTitle": "年齢計算機 – 生年月日から現在の正確な年齢を計算",
-    "homeDescription": "無料のオンライン年齢計算ツール。生年月日から満年齢、月数、日数、リアルタイムの経過秒数を瞬時に精密計算します。",
+    "homeTitle": "年齢計算機 – 年・月・日数であなたの正確な年齢を計算",
+    "homeDescription": "無料のオンライン年齢計算機。満年齢、月数、日数、そしてリアルタイムの秒数まで正確に計算します。誕生日カウントダウンや人生統計機能付き。",
     "homeH1": "オンライン年齢計算機",
-    "homeSubtitle": "グレゴリオ暦の正確なアルゴリズムに基づき、満年齢・月数・日数・経過秒数をリアルタイムで計算します。"
+    "homeSubtitle": "グレゴリオ暦の高精度アルゴリズムにより、満年齢、月数、日数、時間、秒数をリアルタイムに精密計算します。"
   },
   "navigation": {
-    "home": "Home",
+    "home": "ホーム",
     "ageCalculator": "年齢計算機",
-    "birthday": "Birthday",
-    "ageDifference": "Age Difference",
-    "dateDifference": "Date Difference",
-    "dateOfBirth": "Date of Birth",
-    "moreTools": "More Tools",
-    "allAgeTools": "All Age & Date Tools",
-    "calculateAge": "年齢を計算する",
-    "calculateMyAgeNow": "年齢を計算する",
-    "mainTools": "Main Tools",
-    "moreCalculators": "More Calculators"
+    "birthday": "誕生日計算機",
+    "ageDifference": "年齢差計算",
+    "dateDifference": "日付差計算",
+    "dateOfBirth": "生年月日計算機",
+    "moreTools": "その他のツール",
+    "allAgeTools": "すべての年齢・日付ツール",
+    "calculateAge": "年齢を計算",
+    "calculateMyAgeNow": "私の年齢を計算",
+    "mainTools": "メインツール",
+    "moreCalculators": "その他の計算ツール"
   },
   "calculator": {
-    "badge": "Instant Calendar & Time Precision Calculation",
-    "dobLabel": "Date of Birth",
-    "dobPlaceholder": "Select your birth date",
-    "dobHelper": "Select your birth day, month, and year (DD / MM / YYYY). Auto-saved locally in cookies.",
-    "targetDateLabel": "Age As Of Date",
-    "useToday": "Use Today",
-    "changeDate": "Change Date",
-    "includeTime": "Include Exact Birth Time (Optional)",
-    "includeTimeHelper": "For down-to-the-minute precision",
-    "birthTimeLabel": "Time of Birth (Local Time)",
+    "badge": "リアルタイム高精度カレンダー・時間計算",
+    "dobLabel": "生年月日",
+    "dobPlaceholder": "生年月日を選択してください",
+    "dobHelper": "生年月日の年・月・日を選択。ブラウザのクッキーに安全に保存されます。",
+    "targetDateLabel": "計算基準日",
+    "useToday": "今日を基準にする",
+    "changeDate": "日付を変更",
+    "includeTime": "出生時刻を含める（任意）",
+    "includeTimeHelper": "分単位の精度で計算",
+    "birthTimeLabel": "出生時刻（現地時間）",
     "calculate": "年齢を計算する",
-    "reset": "Reset",
-    "clear": "Clear",
-    "copied": "Copied!",
-    "copy": "Copy",
-    "print": "Print",
-    "yourExactAge": "Your Exact Age",
-    "years": "年",
+    "reset": "リセット",
+    "clear": "クリア",
+    "copied": "コピーしました！",
+    "copy": "コピー",
+    "print": "印刷",
+    "yourExactAge": "あなたの正確な年齢",
+    "years": "歳",
     "months": "ヶ月",
     "days": "日",
-    "hours": "Hours",
-    "minutes": "Minutes",
+    "hours": "時間",
+    "minutes": "分",
     "seconds": "秒",
-    "nextBirthday": "Next Birthday",
-    "daysRemaining": "days remaining",
-    "turning": "Turning",
-    "happyBirthday": "🎉 Happy Birthday Today!",
-    "totalDaysLived": "Total Days Lived",
-    "totalWeeks": "Total Weeks",
-    "heartbeats": "Estimated Heartbeats",
-    "solarOrbit": "Solar Year Progress",
-    "liveSeconds": "Running Total Seconds Lived",
-    "timeBreakdown": "Comprehensive Time Breakdown",
-    "zodiacSign": "Western Zodiac",
-    "chineseZodiac": "Chinese Zodiac",
-    "dayBorn": "Day of Birth"
+    "nextBirthday": "次の誕生日",
+    "daysRemaining": "日後",
+    "turning": "迎える年齢",
+    "happyBirthday": "🎉 お誕生日おめでとうございます！",
+    "totalDaysLived": "生きてきた日数",
+    "totalWeeks": "生きてきた週数",
+    "heartbeats": "推定心拍数",
+    "solarOrbit": "太陽公転サイクルの進捗",
+    "liveSeconds": "生まれてからの経過秒数（リアルタイム）",
+    "timeBreakdown": "時間の詳細内訳",
+    "zodiacSign": "星座",
+    "chineseZodiac": "干支（十二支）",
+    "dayBorn": "生まれた曜日"
   },
   "features": {
-    "gregorianPrecisionTitle": "Gregorian Precision",
-    "gregorianPrecisionDesc": "Accounts for leap years, 30/31-day months, and February leap days down to the second.",
-    "liveSecondsTitle": "Live Running Seconds",
-    "liveSecondsDesc": "Real-time live age odometer synchronized with your device clock.",
-    "privateAndFreeTitle": "100% Private & Free",
-    "privateAndFreeDesc": "No registration or server uploads. All calculations run strictly in your browser."
+    "gregorianPrecisionTitle": "グレゴリオ暦の高精度計算",
+    "gregorianPrecisionDesc": "うるう年、30日/31日の月、2月29日を秒単位まで正確に処理します。",
+    "liveSecondsTitle": "リアルタイム秒数カウンター",
+    "liveSecondsDesc": "お使いの端末の時計と連動し、1秒ごとに経過時間を刻みます。",
+    "privateAndFreeTitle": "100% 完全無料・プライバシー保護",
+    "privateAndFreeDesc": "会員登録不要、サーバーへのデータ送信なし。すべての計算はブラウザ内で完結します。"
   },
   "howItWorks": {
-    "title": "How the Age Calculator Works",
-    "subtitle": "A transparent breakdown of how our algorithm calculates calendar days, handles month borrowing, and tracks live seconds."
+    "title": "年齢計算機の仕組み",
+    "subtitle": "日数の繰り越し処理やリアルタイムの秒数計測など、アルゴリズムの仕組みをわかりやすく解説します。"
   },
   "faq": {
-    "title": "Frequently Asked Questions",
+    "title": "よくある質問 (FAQ)",
     "items": [
       {
-        "question": "How does the Age Calculator calculate my exact age?",
-        "answer": "The calculator compares your Date of Birth with your target date using the Gregorian calendar algorithm. It computes complete elapsed years, calculates remaining full months, and calculates the remaining days by borrowing the exact days of the previous month."
+        "question": "年齢計算機はどのようにして満年齢を計算しますか？",
+        "answer": "生年月日と基準日をグレゴリオ暦に沿って比較し、経過年数、月数、前月の日数を正確に繰り越して日数を算出します。"
       },
       {
-        "question": "Does this calculator account for leap years?",
-        "answer": "Yes. The algorithm handles February 29 correctly. If your birthday is on a leap day, the calculator checks leap cycle rules and measures exact calendar intervals."
+        "question": "うるう年（2月29日生まれ）の計算には対応していますか？",
+        "answer": "はい、対応しています。うるう年の2月29日生まれの方も、4年ごとの周期に合わせた正確な満年齢が計算されます。"
       },
       {
-        "question": "How accurate is the live running seconds counter?",
-        "answer": "The live counter updates every second in real time, synchronized with your system clock, computing exact elapsed seconds from your birth timestamp."
+        "question": "リアルタイムの秒数カウンターの精度はどのくらいですか？",
+        "answer": "端末の内部時計とリアルタイムに同期しており、1秒単位の精度で生まれてからの時間をカウントします。"
       },
       {
-        "question": "Is my personal data safe and private?",
-        "answer": "Yes, 100%. All calculations happen entirely on your device inside your web browser. No personal information or birth dates are transmitted to any external server."
+        "question": "個人情報や生年月日は安全ですか？",
+        "answer": "はい、100%安全です。すべての計算はブラウザ内だけで処理され、外部サーバーに保存されることはありません。"
       },
       {
-        "question": "Can I calculate the age difference between two people?",
-        "answer": "Yes. Use our Age Difference Calculator to compare two birth dates and find the exact duration in years, months, and days."
+        "question": "2人の年齢差を調べることはできますか？",
+        "answer": "はい、「年齢差計算機」を使って、2つの生年月日から年月日の差を正確に計算できます。"
       }
     ]
   },
   "breadcrumbs": {
-    "home": "Home"
+    "home": "ホーム"
   },
   "related": {
-    "title": "Explore Related Age & Date Calculators",
-    "description": "Quickly switch to specialized calculators for birthdays, milestone ages, date durations, and interval counting.",
-    "openCalculator": "Open Calculator"
+    "title": "関連する年齢・日付ツール",
+    "description": "誕生日カウントダウン、節目のお祝い、日付間の日数計算など各種専門ツールをご利用ください。",
+    "openCalculator": "計算機を開く"
   },
   "languageSelector": {
-    "title": "Select Language",
-    "subtitle": "Choose your preferred language for the entire website",
-    "searchPlaceholder": "Search language...",
-    "close": "Close"
+    "title": "言語を選択",
+    "subtitle": "ウェブサイト全体の表示言語を選択してください",
+    "searchPlaceholder": "言語を検索...",
+    "close": "閉じる"
   },
   "footer": {
-    "brandDescription": "Free, accurate, and privacy-first online age calculator. Compute your exact age in years, months, and days, find your next birthday countdown, and calculate time differences with calendar precision.",
-    "coreCalculators": "Age Calculators",
-    "specialtyTools": "Specialty Tools",
-    "guide": "Calculation Guide",
-    "company": "Company & Legal",
-    "aboutUs": "About Us",
-    "contact": "Contact",
-    "privacy": "Privacy Policy",
-    "terms": "Terms of Service",
-    "languages": "Supported Languages & International Versions",
-    "clientSideBadge": "100% Client-Side • Zero Data Stored",
+    "brandDescription": "高精度でプライバシー重視の無料オンライン年齢計算機。満年齢、誕生日カウントダウン、日数差をカレンダー基準で精密計算します。",
+    "coreCalculators": "年齢計算ツール",
+    "specialtyTools": "専門ツール",
+    "guide": "計算ガイド",
+    "company": "運営・規約",
+    "aboutUs": "私たちについて",
+    "contact": "お問い合わせ",
+    "privacy": "プライバシーポリシー",
+    "terms": "利用規約",
+    "languages": "対応言語と国際版",
+    "clientSideBadge": "100% ブラウザ内完結 • データ保存なし",
     "allRightsReserved": "All rights reserved."
   },
   "errors": {
-    "invalidDate": "Please enter a valid date.",
-    "futureDate": "Birth date cannot be in the future.",
-    "requiredDate": "Please select your date of birth."
+    "invalidDate": "有効な日付を入力してください。",
+    "futureDate": "生年月日に未来の日付を指定することはできません。",
+    "requiredDate": "生年月日を選択してください。"
   },
   "tools": {
     "age-calculator": {
       "title": "年齢計算機",
-      "desc": "無料のオンライン年齢計算ツール。生年月日から満年齢、月数、日数、リアルタイムの経過秒数を瞬時に精密計算します。"
+      "desc": "満年齢、月数、日数、そしてリアルタイムの秒数まで正確に計算します。"
     },
     "birthday-calculator": {
-      "title": "Birthday Calculator",
-      "desc": "Discover your next birthday, day of week, days countdown, and milestone ages."
+      "title": "誕生日計算機",
+      "desc": "次の誕生日の曜日、残り日数、人生の節目の年齢を調べます。"
     },
     "age-difference-calculator": {
-      "title": "Age Difference Calculator",
-      "desc": "Compare two dates of birth to find the precise difference in years, months, and days."
+      "title": "年齢差計算機",
+      "desc": "2人の生年月日を比較し、正確な年齢の差（年・月・日）を割り出します。"
     },
     "birthday-countdown": {
-      "title": "Birthday Countdown",
-      "desc": "Live real-time ticking countdown clock for upcoming birthdays and milestone celebrations."
+      "title": "誕生日カウントダウン",
+      "desc": "次の誕生日や記念日までの残り時間をリアルタイムにカウントダウンします。"
     },
     "date-difference-calculator": {
-      "title": "Date Difference Calculator",
-      "desc": "Find the exact duration and interval between any two dates in years, months, and days."
+      "title": "日付差計算機",
+      "desc": "2つの日付の間隔（年・月・日・時間）を正確に計算します。"
     },
     "date-of-birth-calculator": {
-      "title": "Date of Birth Calculator",
-      "desc": "Reverse calculator: determine your exact or approximate birth date from given age."
+      "title": "生年月日逆算ツール",
+      "desc": "現在の満年齢から、生まれた年・月・日を逆算して推定します。"
     },
     "days-between-dates": {
-      "title": "Days Between Dates",
-      "desc": "Calculate total calendar days and business days between any two dates."
+      "title": "日期間の日数計算",
+      "desc": "2つの日付の間の総日数、稼働日（平日）、週末日数を計算します。"
     },
     "chronological-age-calculator": {
-      "title": "Chronological Age Calculator",
-      "desc": "Standard clinical and academic chronological age calculator (YY;MM;DD)."
+      "title": "生活年齢（実年齢）計算機",
+      "desc": "医学・心理発達検査で用いられる標準的な実年齢（YY;MM;DD）を算出します。"
     },
     "retirement-age-calculator": {
-      "title": "Retirement Age Calculator",
-      "desc": "Estimate your retirement milestone date and calculate remaining years and working days."
+      "title": "定年・退職年齢計算機",
+      "desc": "定年退職予定日までの残り年数や残り勤務日数をシミュレーションします。"
     },
     "leap-year-age-calculator": {
-      "title": "Leap Year Age Calculator",
-      "desc": "Special calculator for February 29 leap day babies to track birthdays vs calendar years."
+      "title": "うるう年（2月29日）計算機",
+      "desc": "2月29日生まれの方専用。実際に迎えたうるう年の誕生日回数を計算します。"
     },
     "how-to-calculate-age": {
-      "title": "How to Calculate Age",
-      "desc": "Step-by-step mathematical guide to manual age calculation and calendar borrowing rules."
+      "title": "年齢の計算方法",
+      "desc": "カレンダーの繰り越しルールを用いた手動での年齢計算方法を解説します。"
+    }
+  },
+  "calculators": {
+    "birthday": {
+      "title": "誕生日＆節目のお祝い計算機",
+      "desc": "次の誕生日までの日数や曜日、還暦や成人などの節目の年齢が何曜日になるかを一覧で確認できます。",
+      "dobLabel": "生年月日",
+      "btnCalculate": "誕生日情報を調べる",
+      "nextCountdown": "次の誕生日までのカウントダウン",
+      "daysUntil": "日",
+      "turning": "迎える年齢：",
+      "onDate": "次の誕生日は",
+      "todayBday": "本日がお誕生日です！おめでとうございます！",
+      "milestoneTitle": "人生の主な節目・記念誕生日",
+      "age": "年齢",
+      "year": "年",
+      "date": "日付",
+      "dayOfWeek": "曜日",
+      "status": "状態",
+      "passed": "到達済み",
+      "upcoming": "これから"
+    },
+    "ageDifference": {
+      "title": "2人の年齢差計算機",
+      "desc": "2つの生年月日を比較し、年・月・日単位で正確な年齢差を計算します。",
+      "personA": "対象者 A",
+      "personB": "対象者 B",
+      "dobLabel": "生年月日",
+      "btnCalculate": "年齢差を計算する",
+      "resultTitle": "年齢差の計算結果",
+      "olderThan": "の方が",
+      "by": "年上です（差：",
+      "totalDaysDiff": "総日数差",
+      "totalWeeksDiff": "総週数差",
+      "copySummary": "結果をコピー",
+      "copied": "クリップボードにコピーしました！",
+      "sameAge": "2人は全く同じ日に生まれました。"
+    },
+    "dateDifference": {
+      "title": "日付の間隔・期間計算機",
+      "desc": "2つの日付の間の年・月・日数を正確に計算します。",
+      "startDate": "開始日",
+      "endDate": "終了日",
+      "btnCalculate": "期間を計算する",
+      "resultTitle": "日付間の期間",
+      "diffYMD": "期間の差",
+      "totalDays": "総日数",
+      "totalWeeks": "総週数",
+      "totalHours": "総時間数",
+      "totalMinutes": "総分数",
+      "errorInvalid": "正しい開始日と終了日を選択してください。"
+    },
+    "dateOfBirth": {
+      "title": "生年月日の逆算ツール",
+      "desc": "現在の年齢（年・月・日）から生年月日を逆算します。",
+      "ageYears": "歳",
+      "ageMonths": "ヶ月",
+      "ageDays": "日",
+      "asOfDate": "基準日",
+      "btnCalculate": "生年月日を逆算する",
+      "resultTitle": "計算された生年月日",
+      "estimatedDob": "推定される生年月日",
+      "dayBorn": "生まれた曜日"
+    },
+    "birthdayCountdown": {
+      "title": "誕生日リアルタイムカウントダウン",
+      "desc": "次の誕生日まであとどれくらいかを秒単位でリアルタイム表示します。",
+      "dobLabel": "生年月日",
+      "days": "日",
+      "hours": "時間",
+      "minutes": "分",
+      "seconds": "秒",
+      "turningAge": "迎える年齢：",
+      "nextBdayOn": "次の誕生日は",
+      "happyBday": "🎉 お誕生日おめでとうございます！"
+    },
+    "daysBetween": {
+      "title": "日付間の日数計算機",
+      "desc": "2つの日付の間のカレンダー日数、平日（営業日）、週末日数を算出します。",
+      "startDate": "開始日",
+      "endDate": "終了日",
+      "includeEndDay": "最終日を含める（+1日）",
+      "btnCalculate": "日数を計算する",
+      "totalDays": "カレンダー総日数",
+      "businessDays": "営業日（月〜金）",
+      "weekendDays": "週末（土日）",
+      "totalWeeks": "総週数"
+    },
+    "chronological": {
+      "title": "生活年齢（実年齢）計算機",
+      "desc": "医学検査や発達検査で使われる正確な生活年齢（YY;MM;DD）の算出ツールです。",
+      "birthDate": "生年月日",
+      "testDate": "検査・評価実施日",
+      "weeksPremature": "早産週数（修正月齢補正）",
+      "btnCalculate": "生活年齢を計算する",
+      "chronologicalAge": "実年齢（生活年齢）",
+      "notation": "臨床表記 (Y;M;D)",
+      "exactInterval": "正確な経過時間",
+      "adjustedAge": "修正年齢（早産補正後）"
+    },
+    "retirement": {
+      "title": "定年退職年齢計算機",
+      "desc": "目標とする定年年齢までの残り年数や推定残り勤務日数を調べます。",
+      "birthDate": "生年月日",
+      "currentAge": "現在の年齢",
+      "targetAge": "目標定年年齢",
+      "asOfDate": "計算基準日",
+      "btnCalculate": "退職までの時間を計算",
+      "yearsRemaining": "残り年数",
+      "targetYear": "定年予定年",
+      "workingDaysLeft": "推定残り勤務日数",
+      "alreadyReached": "目標の退職年齢に達しました。"
+    },
+    "leapYear": {
+      "title": "うるう年・2月29日生まれ計算機",
+      "desc": "2月29日生まれの方がこれまでに実際に迎えた2月29日の回数を調べます。",
+      "dobLabel": "生年月日",
+      "btnCalculate": "うるう年情報を確認",
+      "leapYearsLived": "経験した2月29日の回数",
+      "actualBirthdays": "公的なうるう年誕生日",
+      "nextLeapBirthday": "次の2月29日誕生日",
+      "leapBabyBadge": "うるう年生まれ（2月29日）"
+    },
+    "liveTicker": {
+      "title": "リアルタイム年齢メーター",
+      "syncedLocal": "端末時計と同期中",
+      "clock": "現在時刻",
+      "runningTotalSeconds": "生まれてからの総秒数",
+      "seconds": "秒",
+      "solarOrbit": "太陽公転サイクルの進捗",
+      "completed": "完了",
+      "turnedAge": "直近の誕生日に達した年齢",
+      "turningAgeIn": "次回の年齢到達まであと",
+      "bioMilestones": "生物学的マイルストーン",
+      "spaceTravel": "宇宙・惑星旅行の距離",
+      "heartbeats": "推定総心拍数",
+      "breaths": "呼吸回数",
+      "blinks": "まばたきの回数",
+      "hoursSlept": "睡眠時間",
+      "earthRotation": "地球自転による移動距離",
+      "sunOrbit": "太陽の周りを移動した距離",
+      "asOfTarget": "目標日時点で計算"
     }
   }
 }

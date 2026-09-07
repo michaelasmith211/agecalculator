@@ -1,176 +1,318 @@
 {
   "meta": {
-    "homeTitle": "حاسبة العمر – احسب عمرك الدقيق بالسنوات والأشهر والأيام",
-    "homeDescription": "حاسبة العمر الدقيقة مجاناً عبر الإنترنت. احسب عمرك بالسنوات والأشهر والأيام والثواني الحية مع العد التنازلي لعيد ميلادك.",
-    "homeH1": "حاسبة العمر الدقيقة عبر الإنترنت",
-    "homeSubtitle": "احسب عمرك الزمني الدقيق بالسنوات والأشهر والأيام والساعات والثواني الحية بدقة التقويم الميلادي الكاملة."
+    "homeTitle": "حاسبة العمر – احسب عمرك بدقة بالسنوات والأشهر والأيام",
+    "homeDescription": "حاسبة عمر مجانية عبر الإنترنت. احسب عمرك بدقة بالسنوات والأشهر والأيام والثواني الحية. تشمل عداد تنازلي لأعياد الميلاد وإحصائيات الحياة.",
+    "homeH1": "حاسبة العمر عبر الإنترنت",
+    "homeSubtitle": "احسب عمرك الزمني بدقة متناهية بالسنوات والأشهر والأيام والساعات والثواني الحية وفقاً للتقويم الغريغوري الدقيق."
   },
   "navigation": {
-    "home": "Home",
+    "home": "الرئيسية",
     "ageCalculator": "حاسبة العمر",
-    "birthday": "Birthday",
-    "ageDifference": "Age Difference",
-    "dateDifference": "Date Difference",
-    "dateOfBirth": "Date of Birth",
-    "moreTools": "More Tools",
-    "allAgeTools": "All Age & Date Tools",
+    "birthday": "حاسبة عيد الميلاد",
+    "ageDifference": "فرق العمر",
+    "dateDifference": "فرق التاريخين",
+    "dateOfBirth": "حاسبة تاريخ الميلاد",
+    "moreTools": "أدوات إضافية",
+    "allAgeTools": "جميع أدوات العمر والتواريخ",
     "calculateAge": "احسب العمر",
-    "calculateMyAgeNow": "احسب العمر",
-    "mainTools": "Main Tools",
-    "moreCalculators": "More Calculators"
+    "calculateMyAgeNow": "احسب عمري الآن",
+    "mainTools": "الأدوات الرئيسية",
+    "moreCalculators": "المزيد من الحاسبات"
   },
   "calculator": {
-    "badge": "Instant Calendar & Time Precision Calculation",
-    "dobLabel": "Date of Birth",
-    "dobPlaceholder": "Select your birth date",
-    "dobHelper": "Select your birth day, month, and year (DD / MM / YYYY). Auto-saved locally in cookies.",
-    "targetDateLabel": "Age As Of Date",
-    "useToday": "Use Today",
-    "changeDate": "Change Date",
-    "includeTime": "Include Exact Birth Time (Optional)",
-    "includeTimeHelper": "For down-to-the-minute precision",
-    "birthTimeLabel": "Time of Birth (Local Time)",
+    "badge": "حساب فوري دقيق للتقويم والوقت الفعلي",
+    "dobLabel": "تاريخ الميلاد",
+    "dobPlaceholder": "اختر تاريخ ميلادك",
+    "dobHelper": "حدد يوم وشهر وسنة الميلاد (يوم / شهر / سنة). يتم حفظها محلياً في المتصفح.",
+    "targetDateLabel": "العمر حتى تاريخ",
+    "useToday": "استخدم اليوم",
+    "changeDate": "تغيير التاريخ",
+    "includeTime": "تضمين وقت الميلاد الدقيق (اختياري)",
+    "includeTimeHelper": "للحصول على دقة بالدقائق",
+    "birthTimeLabel": "وقت الميلاد (التوقيت المحلي)",
     "calculate": "احسب العمر",
-    "reset": "Reset",
-    "clear": "Clear",
-    "copied": "Copied!",
-    "copy": "Copy",
-    "print": "Print",
-    "yourExactAge": "Your Exact Age",
-    "years": "سنة",
+    "reset": "إعادة ضبط",
+    "clear": "مسح",
+    "copied": "تم النسخ!",
+    "copy": "نسخ",
+    "print": "طباعة",
+    "yourExactAge": "عمرك الدقيق",
+    "years": "سنوات",
     "months": "أشهر",
     "days": "أيام",
-    "hours": "Hours",
-    "minutes": "Minutes",
-    "seconds": "ثواني",
-    "nextBirthday": "Next Birthday",
-    "daysRemaining": "days remaining",
-    "turning": "Turning",
-    "happyBirthday": "🎉 Happy Birthday Today!",
-    "totalDaysLived": "Total Days Lived",
-    "totalWeeks": "Total Weeks",
-    "heartbeats": "Estimated Heartbeats",
-    "solarOrbit": "Solar Year Progress",
-    "liveSeconds": "Running Total Seconds Lived",
-    "timeBreakdown": "Comprehensive Time Breakdown",
-    "zodiacSign": "Western Zodiac",
-    "chineseZodiac": "Chinese Zodiac",
-    "dayBorn": "Day of Birth"
+    "hours": "ساعات",
+    "minutes": "دقائق",
+    "seconds": "ثوانٍ",
+    "nextBirthday": "عيد ميلادك القادم",
+    "daysRemaining": "أيام متبقية",
+    "turning": "ستبلغ",
+    "happyBirthday": "🎉 عيد ميلاد سعيد اليوم!",
+    "totalDaysLived": "إجمالي الأيام المعاشة",
+    "totalWeeks": "إجمالي الأسابيع",
+    "heartbeats": "نبضات القلب التقديرية",
+    "solarOrbit": "التقدم في مدار السنة الشمسية",
+    "liveSeconds": "إجمالي الثواني المعاشة مباشرة",
+    "timeBreakdown": "تفصيل زمني شامل",
+    "zodiacSign": "البرج الغربي",
+    "chineseZodiac": "البرج الصيني",
+    "dayBorn": "يوم الأسبوع عند الولادة"
   },
   "features": {
-    "gregorianPrecisionTitle": "Gregorian Precision",
-    "gregorianPrecisionDesc": "Accounts for leap years, 30/31-day months, and February leap days down to the second.",
-    "liveSecondsTitle": "Live Running Seconds",
-    "liveSecondsDesc": "Real-time live age odometer synchronized with your device clock.",
-    "privateAndFreeTitle": "100% Private & Free",
-    "privateAndFreeDesc": "No registration or server uploads. All calculations run strictly in your browser."
+    "gregorianPrecisionTitle": "دقة التقويم الغريغوري",
+    "gregorianPrecisionDesc": "يراعي السنوات الكبيسة وأشهر 30/31 يوماً ويوم 29 فبراير بدقة متناهية بالثواني.",
+    "liveSecondsTitle": "عداد الثواني المباشر",
+    "liveSecondsDesc": "عداد عمر رقمي في الوقت الفعلي متزامن مع ساعة جهازك.",
+    "privateAndFreeTitle": "100% خاص ومجاني",
+    "privateAndFreeDesc": "بدون تسجيل أو رفع بيانات على خوادم. جميع العمليات الحسابية تتم محلياً في متصفحك."
   },
   "howItWorks": {
-    "title": "How the Age Calculator Works",
-    "subtitle": "A transparent breakdown of how our algorithm calculates calendar days, handles month borrowing, and tracks live seconds."
+    "title": "كيف تعمل حاسبة العمر",
+    "subtitle": "شرح واضح لكيفية حساب الخوارزمية للأيام والشهور واستلاف الأيام والثواني الحية."
   },
   "faq": {
-    "title": "Frequently Asked Questions",
+    "title": "الأسئلة الشائعة (FAQ)",
     "items": [
       {
-        "question": "How does the Age Calculator calculate my exact age?",
-        "answer": "The calculator compares your Date of Birth with your target date using the Gregorian calendar algorithm. It computes complete elapsed years, calculates remaining full months, and calculates the remaining days by borrowing the exact days of the previous month."
+        "question": "كيف تحسب حاسبة العمر عمري الدقيق؟",
+        "answer": "تقوم الحاسبة بمقارنة تاريخ ميلادك مع التاريخ المستهدف وفق خوارزمية التقويم الغريغوري بدقة بالغة بالسنوات والشهور والأيام."
       },
       {
-        "question": "Does this calculator account for leap years?",
-        "answer": "Yes. The algorithm handles February 29 correctly. If your birthday is on a leap day, the calculator checks leap cycle rules and measures exact calendar intervals."
+        "question": "هل تراعي الحاسبة السنوات الكبيسة؟",
+        "answer": "نعم بالتأكيد. يتعامل النظام مع مواليد 29 فبراير طبقاً لدورات السنوات الكبيسة الرسمية."
       },
       {
-        "question": "How accurate is the live running seconds counter?",
-        "answer": "The live counter updates every second in real time, synchronized with your system clock, computing exact elapsed seconds from your birth timestamp."
+        "question": "ما مدى دقة عداد الثواني الحي؟",
+        "answer": "يتحدث العداد كل ثانية في الوقت الفعلي متزامناً مع ساعة جهازك لقياس الثواني المنقضية منذ الولادة."
       },
       {
-        "question": "Is my personal data safe and private?",
-        "answer": "Yes, 100%. All calculations happen entirely on your device inside your web browser. No personal information or birth dates are transmitted to any external server."
+        "question": "هل بياناتي وتواريخ ميلادي آمنة؟",
+        "answer": "نعم بنسبة 100%. كل العمليات تجري داخل متصفحك ولا يتم إرسال أي بيانات لخوادم خارجية."
       },
       {
-        "question": "Can I calculate the age difference between two people?",
-        "answer": "Yes. Use our Age Difference Calculator to compare two birth dates and find the exact duration in years, months, and days."
+        "question": "هل يمكنني حساب فرق السن بين شخصين؟",
+        "answer": "نعم، يمكنك استخدام 'حاسبة فرق العمر' لمقارنة تاريخين والحصول على الفرق بالسنوات والشهور والأيام."
       }
     ]
   },
   "breadcrumbs": {
-    "home": "Home"
+    "home": "الرئيسية"
   },
   "related": {
-    "title": "Explore Related Age & Date Calculators",
-    "description": "Quickly switch to specialized calculators for birthdays, milestone ages, date durations, and interval counting.",
-    "openCalculator": "Open Calculator"
+    "title": "استكشف حاسبات العمر والتواريخ ذات الصلة",
+    "description": "انتقل بسهولة إلى حاسبات متخصصة لأعياد الميلاد والفوارق الزمنية وعد الأيام.",
+    "openCalculator": "فتح الحاسبة"
   },
   "languageSelector": {
-    "title": "Select Language",
-    "subtitle": "Choose your preferred language for the entire website",
-    "searchPlaceholder": "Search language...",
-    "close": "Close"
+    "title": "اختر اللغة",
+    "subtitle": "حدد لغتك المفضلة للموقع بالكامل",
+    "searchPlaceholder": "البحث عن لغة...",
+    "close": "إغلاق"
   },
   "footer": {
-    "brandDescription": "Free, accurate, and privacy-first online age calculator. Compute your exact age in years, months, and days, find your next birthday countdown, and calculate time differences with calendar precision.",
-    "coreCalculators": "Age Calculators",
-    "specialtyTools": "Specialty Tools",
-    "guide": "Calculation Guide",
-    "company": "Company & Legal",
-    "aboutUs": "About Us",
-    "contact": "Contact",
-    "privacy": "Privacy Policy",
-    "terms": "Terms of Service",
-    "languages": "Supported Languages & International Versions",
-    "clientSideBadge": "100% Client-Side • Zero Data Stored",
-    "allRightsReserved": "All rights reserved."
+    "brandDescription": "حاسبة عمر مجانية ودقيقة وآمنة تماماً. احسب عمرك بالسنوات والأشهر والأيام والعد التنازلي لأعياد الميلاد بدقة التقويم.",
+    "coreCalculators": "حاسبات العمر",
+    "specialtyTools": "أدوات تخصصية",
+    "guide": "دليل الحساب",
+    "company": "الشركة والقانونية",
+    "aboutUs": "من نحن",
+    "contact": "اتصل بنا",
+    "privacy": "سياسة الخصوصية",
+    "terms": "شروط الاستخدام",
+    "languages": "اللغات المتاحة والنسخ الدولية",
+    "clientSideBadge": "100% في المتصفح • لا تخزين للبيانات",
+    "allRightsReserved": "جميع الحقوق محفوظة."
   },
   "errors": {
-    "invalidDate": "Please enter a valid date.",
-    "futureDate": "Birth date cannot be in the future.",
-    "requiredDate": "Please select your date of birth."
+    "invalidDate": "يرجى إدخال تاريخ صحيح.",
+    "futureDate": "لا يمكن أن يكون تاريخ الميلاد في المستقبل.",
+    "requiredDate": "يرجى تحديد تاريخ ميلادك."
   },
   "tools": {
     "age-calculator": {
       "title": "حاسبة العمر",
-      "desc": "حاسبة العمر الدقيقة مجاناً عبر الإنترنت. احسب عمرك بالسنوات والأشهر والأيام والثواني الحية مع العد التنازلي لعيد ميلادك."
+      "desc": "احسب عمرك بدقة بالسنوات والأشهر والأيام والثواني مع عداد تنازلي لعيد الميلاد."
     },
     "birthday-calculator": {
-      "title": "Birthday Calculator",
-      "desc": "Discover your next birthday, day of week, days countdown, and milestone ages."
+      "title": "حاسبة عيد الميلاد",
+      "desc": "اكتشف موعد عيد ميلادك القادم، ويوم الأسبوع، والأيام المتبقية والمراحل العمرية المهمة."
     },
     "age-difference-calculator": {
-      "title": "Age Difference Calculator",
-      "desc": "Compare two dates of birth to find the precise difference in years, months, and days."
+      "title": "حاسبة فرق العمر",
+      "desc": "قارن بين تاريخين لمعرفة الفارق العمري الدقيق بالسنوات والأشهر والأيام."
     },
     "birthday-countdown": {
-      "title": "Birthday Countdown",
-      "desc": "Live real-time ticking countdown clock for upcoming birthdays and milestone celebrations."
+      "title": "العد التنازلي لعيد الميلاد",
+      "desc": "ساعة عد تنازلي حية لأعياد الميلاد القادمة والاحتفالات الخاصة."
     },
     "date-difference-calculator": {
-      "title": "Date Difference Calculator",
-      "desc": "Find the exact duration and interval between any two dates in years, months, and days."
+      "title": "حاسبة فرق التاريخين",
+      "desc": "احسب المدة الدقيقة بين أي تاريخين بالسنوات والشهور والأيام والساعات."
     },
     "date-of-birth-calculator": {
-      "title": "Date of Birth Calculator",
-      "desc": "Reverse calculator: determine your exact or approximate birth date from given age."
+      "title": "حاسبة تاريخ الميلاد",
+      "desc": "حاسبة عكسية: حدد تاريخ ميلادك التقريبي أو المؤكد من خلال إدخال عمرك المعروف."
     },
     "days-between-dates": {
-      "title": "Days Between Dates",
-      "desc": "Calculate total calendar days and business days between any two dates."
+      "title": "الأيام بين تاريخين",
+      "desc": "احسب إجمالي الأيام العادية وأيام العمل ونهايات الأسبوع بين أي تاريخين."
     },
     "chronological-age-calculator": {
-      "title": "Chronological Age Calculator",
-      "desc": "Standard clinical and academic chronological age calculator (YY;MM;DD)."
+      "title": "حاسبة العمر الزمني",
+      "desc": "المعيار الطبي والأكاديمي لحساب العمر الزمني (سنوات;أشهر;أيام)."
     },
     "retirement-age-calculator": {
-      "title": "Retirement Age Calculator",
-      "desc": "Estimate your retirement milestone date and calculate remaining years and working days."
+      "title": "حاسبة سن التقاعد",
+      "desc": "قدّر تاريخ تقاعدك المتوقع والسنوات وأيام العمل المتبقية."
     },
     "leap-year-age-calculator": {
-      "title": "Leap Year Age Calculator",
-      "desc": "Special calculator for February 29 leap day babies to track birthdays vs calendar years."
+      "title": "حاسبة السنوات الكبيسة",
+      "desc": "حاسبة لمواليد 29 فبراير لتتبع أعياد ميلادهم الحقيقية والسنوات الكبيسة."
     },
     "how-to-calculate-age": {
-      "title": "How to Calculate Age",
-      "desc": "Step-by-step mathematical guide to manual age calculation and calendar borrowing rules."
+      "title": "كيفية حساب العمر",
+      "desc": "دليل رياضي مفصل لحساب العمر يدوياً وقواعد استلاف الأيام في التقويم."
+    }
+  },
+  "calculators": {
+    "birthday": {
+      "title": "حاسبة أعياد الميلاد والمراحل الهامة",
+      "desc": "اكتشف موعد عيد ميلادك القادم والأيام المتبقية وأيام الأسبوع لأهم محطات حياتك.",
+      "dobLabel": "تاريخ ميلادك",
+      "btnCalculate": "عرض بيانات عيد الميلاد",
+      "nextCountdown": "العد التنازلي لعيد الميلاد القادم",
+      "daysUntil": "أيام",
+      "turning": "حتى تبلغ",
+      "onDate": "يصادف عيد ميلادك القادم يوم",
+      "todayBday": "عيد ميلاد سعيد اليوم!",
+      "milestoneTitle": "محطات أعياد الميلاد المهمة",
+      "age": "العمر",
+      "year": "السنة",
+      "date": "التاريخ",
+      "dayOfWeek": "يوم الأسبوع",
+      "status": "الحالة",
+      "passed": "مضى",
+      "upcoming": "قادم"
+    },
+    "ageDifference": {
+      "title": "حاسبة فرق العمر بين شخصين",
+      "desc": "قارن بين تاريخي ميلاد لحساب الفجوة العمرية بدقة بالسنوات والشهور والأيام.",
+      "personA": "الشخص (أ)",
+      "personB": "الشخص (ب)",
+      "dobLabel": "تاريخ الميلاد",
+      "btnCalculate": "احسب فرق السن",
+      "resultTitle": "تفصيل فارق السن",
+      "olderThan": "أكبر من",
+      "by": "بمقدار",
+      "totalDaysDiff": "إجمالي الفرق بالأيام",
+      "totalWeeksDiff": "إجمالي الفرق بالأسابيع",
+      "copySummary": "نسخ النتيجة",
+      "copied": "تم النسخ إلى الحافظة!",
+      "sameAge": "كلا الشخصين ولدا في نفس اليوم تماماً."
+    },
+    "dateDifference": {
+      "title": "حاسبة الفرق بين تاريخين",
+      "desc": "احسب المدة الدقيقة بين تاريخين بالسنوات والأشهر والأيام.",
+      "startDate": "تاريخ البداية",
+      "endDate": "تاريخ النهاية",
+      "btnCalculate": "احسب المدة",
+      "resultTitle": "المدة الزمنية بين التاريخين",
+      "diffYMD": "الفارق",
+      "totalDays": "إجمالي الأيام",
+      "totalWeeks": "إجمالي الأسابيع",
+      "totalHours": "إجمالي الساعات",
+      "totalMinutes": "إجمالي الدقائق",
+      "errorInvalid": "يرجى تحديد تواريخ بداية ونهاية صحيحة."
+    },
+    "dateOfBirth": {
+      "title": "حاسبة تاريخ الميلاد",
+      "desc": "حدد تاريخ ميلادك عبر إدخال عمرك المعروف بالسنوات والشهور والأيام.",
+      "ageYears": "سنوات",
+      "ageMonths": "أشهر",
+      "ageDays": "أيام",
+      "asOfDate": "العمر حتى تاريخ",
+      "btnCalculate": "استخراج تاريخ الميلاد",
+      "resultTitle": "تاريخ الميلاد المحسوب",
+      "estimatedDob": "تاريخ الميلاد التقديري",
+      "dayBorn": "يوم الأسبوع عند الولادة"
+    },
+    "birthdayCountdown": {
+      "title": "ساعة العد التنازلي لعيد الميلاد",
+      "desc": "ساعة حية بالثواني للعد التنازلي لأعياد الميلاد والاحتفالات الخاصة.",
+      "dobLabel": "تاريخ الميلاد",
+      "days": "أيام",
+      "hours": "ساعات",
+      "minutes": "دقائق",
+      "seconds": "ثوانٍ",
+      "turningAge": "ستبلغ",
+      "nextBdayOn": "عيد الميلاد القادم يوم",
+      "happyBday": "🎉 عيد ميلاد سعيد اليوم!"
+    },
+    "daysBetween": {
+      "title": "حاسبة الأيام بين تاريخين",
+      "desc": "احسب عدد الأيام والأسابيع وأيام العمل وعطلات نهاية الأسبوع بدقة.",
+      "startDate": "تاريخ البداية",
+      "endDate": "تاريخ النهاية",
+      "includeEndDay": "تضمين اليوم الأخير (+1 يوم)",
+      "btnCalculate": "احسب الأيام",
+      "totalDays": "إجمالي أيام التقويم",
+      "businessDays": "أيام العمل الرسمية",
+      "weekendDays": "أيام عطلة نهاية الأسبوع",
+      "totalWeeks": "إجمالي الأسابيع"
+    },
+    "chronological": {
+      "title": "حاسبة العمر الزمني السريري",
+      "desc": "حساب العمر الزمني المعتمد طبياً وتعليمياً للتقييمات الطبية والنفسية.",
+      "birthDate": "تاريخ الميلاد",
+      "testDate": "تاريخ الاختبار / التقييم",
+      "weeksPremature": "أسابيع الولادة المبكرة (التعديل الحملي)",
+      "btnCalculate": "احسب العمر الزمني",
+      "chronologicalAge": "العمر الزمني",
+      "notation": "الصيغة الطبية (Y;M;D)",
+      "exactInterval": "الفترة الزمنية المنقضية بدقة",
+      "adjustedAge": "العمر المعدل / المصحح"
+    },
+    "retirement": {
+      "title": "حاسبة سن التقاعد",
+      "desc": "احسب تاريخ تقاعدك المتوقع والمدة المتبقية حتى سن التقاعد المحدد.",
+      "birthDate": "تاريخ الميلاد",
+      "currentAge": "العمر الحالي",
+      "targetAge": "سن التقاعد المستهدف",
+      "asOfDate": "تاريخ الحساب",
+      "btnCalculate": "احسب بيانات التقاعد",
+      "yearsRemaining": "السنوات المتبقية",
+      "targetYear": "سنة التقاعد المتوقعة",
+      "workingDaysLeft": "أيام العمل التقديرية المتبقية",
+      "alreadyReached": "تم الوصول إلى هدف سن التقاعد بنجاح."
+    },
+    "leapYear": {
+      "title": "حاسبة السنوات الكبيسة و29 فبراير",
+      "desc": "اكتشف 'عمرك الكبيس' (أيام 29 فبراير التي عشتها فعلاً) ومواعيد أعياد الميلاد الكبيسة.",
+      "dobLabel": "تاريخ الميلاد",
+      "btnCalculate": "عرض بيانات السنة الكبيسة",
+      "leapYearsLived": "أيام 29 فبراير المعاشة",
+      "actualBirthdays": "أعياد الميلاد الكبيسة الرسمية",
+      "nextLeapBirthday": "عيد الميلاد الكبيس القادم",
+      "leapBabyBadge": "مولود في سنة كبيسة (29 فبراير)"
+    },
+    "liveTicker": {
+      "title": "عداد العمر المباشر في الوقت الفعلي",
+      "syncedLocal": "متزامن مع ساعة جهازك المحلية",
+      "clock": "الساعة",
+      "runningTotalSeconds": "إجمالي الثواني المعاشة",
+      "seconds": "ثوانٍ",
+      "solarOrbit": "التقدم في مدار السنة الشمسية",
+      "completed": "مكتمل",
+      "turnedAge": "أتممت في آخر عيد ميلاد",
+      "turningAgeIn": "ستبلغ في غضون",
+      "bioMilestones": "المحطات البيولوجية",
+      "spaceTravel": "السفر عبر الفضاء ومدار الأرض",
+      "heartbeats": "نبضات القلب التقديرية",
+      "breaths": "الأنفاس المأخوذة",
+      "blinks": "طرفة عين",
+      "hoursSlept": "ساعات النوم",
+      "earthRotation": "دوران سطح الأرض",
+      "sunOrbit": "المسافة المقطوعة حول الشمس",
+      "asOfTarget": "محسوب حتى التاريخ المستهدف"
     }
   }
 }

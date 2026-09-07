@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import { usePathname } from 'next/navigation';
 import { Stethoscope, Sparkles, AlertCircle, FileText } from 'lucide-react';
 import {
   calculateChronologicalAge,
@@ -10,8 +11,20 @@ import {
   ChronologicalAgeResult
 } from '@/lib/date-utils';
 import { trackEvent } from '@/lib/analytics';
+import { detectLocale } from '@/i18n/locale-utils';
+import { getTranslations } from '@/i18n/getTranslations';
+import { formatNumber } from '@/lib/format-utils';
 
-export default function ChronologicalAgeCalculator() {
+interface ChronologicalAgeCalculatorProps {
+  locale?: string;
+}
+
+export default function ChronologicalAgeCalculator({ locale: propLocale }: ChronologicalAgeCalculatorProps) {
+  const pathname = usePathname() || '/';
+  const locale = propLocale || detectLocale(pathname);
+  const { t, raw } = getTranslations(locale);
+  const c = raw.calculators?.chronological;
+
   const today = getTodayCalendarDate();
   const todayStr = toDateString(today);
 
@@ -19,14 +32,14 @@ export default function ChronologicalAgeCalculator() {
   const [testDateStr, setTestDateStr] = useState(todayStr);
   const [weeksPremature, setWeeksPremature] = useState(0);
 
-  const compute = (b: string, t: string, prem: number) => {
+  const compute = (b: string, testStr: string, prem: number) => {
     const birth = parseDateString(b);
-    const test = parseDateString(t);
-    if (!birth || !test) return { res: null, err: 'Please provide valid birth and testing dates.' };
+    const test = parseDateString(testStr);
+    if (!birth || !test) return { res: null, err: t('errors.invalidDate', 'Please provide valid birth and testing dates.') };
     try {
       return { res: calculateChronologicalAge(birth, test, prem), err: null };
     } catch (err: unknown) {
-      return { res: null, err: err instanceof Error ? err.message : 'Calculation error' };
+      return { res: null, err: err instanceof Error ? err.message : t('errors.invalidDate', 'Calculation error') };
     }
   };
 
@@ -34,8 +47,8 @@ export default function ChronologicalAgeCalculator() {
   const [result, setResult] = useState<ChronologicalAgeResult | null>(initial.res);
   const [error, setError] = useState<string | null>(initial.err);
 
-  const handleCalculate = (b: string, t: string, prem: number) => {
-    const data = compute(b, t, prem);
+  const handleCalculate = (b: string, testStr: string, prem: number) => {
+    const data = compute(b, testStr, prem);
     setResult(data.res);
     setError(data.err);
     if (data.res) {
@@ -46,6 +59,9 @@ export default function ChronologicalAgeCalculator() {
     }
   };
 
+  const calcTitle = c?.title || raw.tools?.['chronological-age-calculator']?.title || 'Chronological Age Calculator';
+  const calcDesc = c?.desc || raw.tools?.['chronological-age-calculator']?.desc || 'Standardized clinical & academic age calculation.';
+
   return (
     <div className="calculator-card p-6 sm:p-8 bg-white border border-slate-200 rounded-2xl shadow-sm">
       <div className="flex items-center gap-2.5 mb-2">
@@ -54,10 +70,10 @@ export default function ChronologicalAgeCalculator() {
         </div>
         <div>
           <h2 className="text-xl sm:text-2xl font-bold text-slate-900">
-            Chronological Age Calculator
+            {calcTitle}
           </h2>
           <p className="text-sm text-slate-600">
-            Standardized clinical & academic age calculation (Years;Months;Days) for psychological, medical, and developmental evaluations.
+            {calcDesc}
           </p>
         </div>
       </div>
@@ -65,7 +81,7 @@ export default function ChronologicalAgeCalculator() {
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-6">
         <div>
           <label htmlFor="c-dob" className="block text-sm font-bold text-slate-800 mb-1">
-            Child Date of Birth
+            {c?.birthDate || 'Date of Birth'}
           </label>
           <input
             id="c-dob"
@@ -81,7 +97,7 @@ export default function ChronologicalAgeCalculator() {
 
         <div>
           <label htmlFor="c-test" className="block text-sm font-bold text-slate-800 mb-1">
-            Testing / Assessment Date
+            {c?.testDate || 'Date of Testing'}
           </label>
           <input
             id="c-test"
@@ -97,7 +113,7 @@ export default function ChronologicalAgeCalculator() {
 
         <div>
           <label htmlFor="prem" className="block text-sm font-bold text-slate-800 mb-1">
-            Weeks Premature (0–16)
+            {c?.weeksPremature || 'Weeks Premature'}
           </label>
           <input
             id="prem"
@@ -122,7 +138,7 @@ export default function ChronologicalAgeCalculator() {
           className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold bg-cyan-700 text-white hover:bg-cyan-800 shadow-sm transition-all"
         >
           <Sparkles className="w-4 h-4" />
-          <span>Compute Chronological Age</span>
+          <span>{c?.btnCalculate || 'Calculate Chronological Age'}</span>
         </button>
       </div>
 
@@ -137,26 +153,26 @@ export default function ChronologicalAgeCalculator() {
         <div className="mt-8 space-y-6">
           <div className="p-6 bg-cyan-50/70 border border-cyan-200 rounded-2xl">
             <div className="text-xs font-bold text-cyan-800 uppercase tracking-wider mb-1">
-              Standard Chronological Age (CA)
+              {c?.chronologicalAge || 'Chronological Age'}
             </div>
             <div className="text-4xl sm:text-5xl font-mono font-extrabold text-cyan-950 mt-1">
               {result.standardNotation}
             </div>
             <div className="text-sm font-semibold text-cyan-900 mt-2">
-              {result.chronologicalYears} Years, {result.chronologicalMonths} Months, {result.chronologicalDays} Days ({result.totalDays.toLocaleString()} total days)
+              {formatNumber(result.chronologicalYears, locale)} {t('calculator.years', 'Years')}, {formatNumber(result.chronologicalMonths, locale)} {t('calculator.months', 'Months')}, {formatNumber(result.chronologicalDays, locale)} {t('calculator.days', 'Days')} ({formatNumber(result.totalDays, locale)} {t('calculator.days', 'total days')})
             </div>
           </div>
 
           {result.adjustedAge && (
             <div className="p-5 bg-amber-50/70 border border-amber-200 rounded-2xl">
               <div className="text-xs font-bold text-amber-800 uppercase tracking-wider mb-1">
-                Adjusted / Corrected Age (Prematurity: {result.adjustedAge.weeksPremature} Weeks)
+                {c?.adjustedAge || 'Corrected / Adjusted Age'} ({c?.weeksPremature || 'Premature'}: {formatNumber(result.adjustedAge.weeksPremature, locale)})
               </div>
               <div className="text-3xl font-mono font-extrabold text-amber-950 mt-1">
                 {result.adjustedAge.standardNotation}
               </div>
               <div className="text-sm text-amber-900 mt-1 font-medium">
-                {result.adjustedAge.years} Years, {result.adjustedAge.months} Months, {result.adjustedAge.days} Days
+                {formatNumber(result.adjustedAge.years, locale)} {t('calculator.years', 'Years')}, {formatNumber(result.adjustedAge.months, locale)} {t('calculator.months', 'Months')}, {formatNumber(result.adjustedAge.days, locale)} {t('calculator.days', 'Days')}
               </div>
             </div>
           )}
@@ -164,10 +180,10 @@ export default function ChronologicalAgeCalculator() {
           <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-600 space-y-1">
             <div className="font-bold text-slate-800 flex items-center gap-1">
               <FileText className="w-3.5 h-3.5" />
-              <span>Clinical Reporting Standards</span>
+              <span>{c?.notation || 'Clinical Notation (Y;M;D)'}</span>
             </div>
             <p>
-              Standard assessment tools (e.g. WISC-V, Bayley Scales, WPPSI, Woodcock-Johnson) require exact date subtraction with borrow adjustments. Gestational correction is standard practice for infants up to 24 months born prior to 37 weeks.
+              {c?.desc || 'Standard assessment calculation with borrow adjustments.'}
             </p>
           </div>
         </div>

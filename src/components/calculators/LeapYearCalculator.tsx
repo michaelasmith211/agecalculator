@@ -1,27 +1,39 @@
 'use client';
 
 import React, { useState } from 'react';
+import { usePathname } from 'next/navigation';
 import { Calendar, Sparkles, AlertCircle, Compass } from 'lucide-react';
 import {
   calculateLeapYearInfo,
   getTodayCalendarDate,
   parseDateString,
-  formatDisplayDate,
   LeapYearBirthdayInfo
 } from '@/lib/date-utils';
 import { trackEvent } from '@/lib/analytics';
+import { detectLocale } from '@/i18n/locale-utils';
+import { getTranslations } from '@/i18n/getTranslations';
+import { formatDateShort, formatNumber } from '@/lib/format-utils';
 
-export default function LeapYearCalculator() {
+interface LeapYearCalculatorProps {
+  locale?: string;
+}
+
+export default function LeapYearCalculator({ locale: propLocale }: LeapYearCalculatorProps) {
+  const pathname = usePathname() || '/';
+  const locale = propLocale || detectLocale(pathname);
+  const { t, raw } = getTranslations(locale);
+  const c = raw.calculators?.leapYear;
+
   const today = getTodayCalendarDate();
   const [birthDateStr, setBirthDateStr] = useState('2000-02-29');
 
   const compute = (b: string) => {
     const birth = parseDateString(b);
-    if (!birth) return { res: null, err: 'Please provide a valid date.' };
+    if (!birth) return { res: null, err: t('errors.invalidDate', 'Please provide a valid date.') };
     try {
       return { res: calculateLeapYearInfo(birth, today), err: null };
     } catch (err: unknown) {
-      return { res: null, err: err instanceof Error ? err.message : 'Calculation error' };
+      return { res: null, err: err instanceof Error ? err.message : t('errors.invalidDate', 'Calculation error') };
     }
   };
 
@@ -38,6 +50,13 @@ export default function LeapYearCalculator() {
     }
   };
 
+  const calcTitle = c?.title || raw.tools?.['leap-year-age-calculator']?.title || 'Leap Year & Feb 29 Birthday Calculator';
+  const calcDesc = c?.desc || raw.tools?.['leap-year-age-calculator']?.desc || 'Discover your quadrennial leap age and see upcoming Leap Day birthdays.';
+
+  const formattedNextFeb29Date = result
+    ? formatDateShort(new Date(result.nextFeb29Date.year, result.nextFeb29Date.month - 1, result.nextFeb29Date.day), locale)
+    : '';
+
   return (
     <div className="calculator-card p-6 sm:p-8 bg-white border border-slate-200 rounded-2xl shadow-sm">
       <div className="flex items-center gap-2.5 mb-2">
@@ -46,10 +65,10 @@ export default function LeapYearCalculator() {
         </div>
         <div>
           <h2 className="text-xl sm:text-2xl font-bold text-slate-900">
-            Leap Year & Feb 29 Birthday Calculator
+            {calcTitle}
           </h2>
           <p className="text-sm text-slate-600">
-            Discover your quadrennial &quot;leap age&quot; (actual February 29ths lived) and see all upcoming Leap Day birthdays.
+            {calcDesc}
           </p>
         </div>
       </div>
@@ -57,7 +76,7 @@ export default function LeapYearCalculator() {
       <div className="mt-6 max-w-sm space-y-4">
         <div>
           <label htmlFor="ly-dob" className="block text-sm font-bold text-slate-800 mb-1">
-            Date of Birth
+            {c?.dobLabel || t('calculator.dobLabel', 'Date of Birth')}
           </label>
           <input
             id="ly-dob"
@@ -69,9 +88,11 @@ export default function LeapYearCalculator() {
             }}
             className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-slate-900 font-medium text-sm"
           />
-          <p className="text-xs text-slate-500 mt-1">
-            Standard default is Leap Day (February 29).
-          </p>
+          {result?.isLeapYearBaby && (
+            <span className="inline-block mt-1 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-800">
+              {c?.leapBabyBadge || 'Leap Year Baby (Feb 29)'}
+            </span>
+          )}
         </div>
 
         <button
@@ -80,7 +101,7 @@ export default function LeapYearCalculator() {
           className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold bg-emerald-600 text-white hover:bg-emerald-700 shadow-sm transition-all"
         >
           <Sparkles className="w-4 h-4" />
-          <span>Calculate Leap Age</span>
+          <span>{c?.btnCalculate || 'Check Leap Year Info'}</span>
         </button>
       </div>
 
@@ -96,25 +117,19 @@ export default function LeapYearCalculator() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="p-6 bg-emerald-50/70 border border-emerald-200 rounded-2xl">
               <div className="text-xs font-bold text-emerald-800 uppercase tracking-wider mb-1">
-                Calendar Age (Years Lived)
+                {t('calculator.years', 'Calendar Age')}
               </div>
               <div className="text-4xl sm:text-5xl font-extrabold text-emerald-950 mt-1">
-                {result.calendarAge} Years Old
-              </div>
-              <div className="text-xs text-emerald-800 mt-2">
-                Standard chronological years elapsed
+                {formatNumber(result.calendarAge, locale)} {t('calculator.years', 'Years Old')}
               </div>
             </div>
 
             <div className="p-6 bg-indigo-50/70 border border-indigo-200 rounded-2xl">
               <div className="text-xs font-bold text-indigo-800 uppercase tracking-wider mb-1">
-                Leap Year Age (Feb 29ths Celebrated)
+                {c?.leapYearsLived || 'Actual Feb 29ths Lived'}
               </div>
               <div className="text-4xl sm:text-5xl font-extrabold text-indigo-950 mt-1">
-                {result.leapYearAge} Leap Birthdays
-              </div>
-              <div className="text-xs text-indigo-800 mt-2">
-                Exact number of leap days experienced
+                {formatNumber(result.leapYearAge, locale)} {c?.actualBirthdays || 'Official Leap Birthdays'}
               </div>
             </div>
           </div>
@@ -122,26 +137,28 @@ export default function LeapYearCalculator() {
           <div className="p-5 bg-white border border-slate-200 rounded-xl space-y-2">
             <div className="text-sm font-bold text-slate-800 flex items-center gap-2">
               <Compass className="w-4 h-4 text-emerald-600" />
-              <span>Next Official February 29 Birthday</span>
+              <span>{c?.nextLeapBirthday || 'Next Leap Day Birthday'}</span>
             </div>
             <div className="text-lg font-bold text-slate-900">
-              {formatDisplayDate(result.nextFeb29Date)}
+              {formattedNextFeb29Date}
             </div>
             <div className="text-sm text-slate-600">
-              Only <strong>{result.daysUntilNextFeb29.toLocaleString()} days</strong> until the next calendar leap day occurs!
+              {formatNumber(result.daysUntilNextFeb29, locale)} {t('calculator.days', 'days')}
             </div>
           </div>
 
           {result.upcomingCelebrations.length > 0 && (
             <div>
               <h3 className="text-sm font-bold text-slate-900 uppercase tracking-wider mb-3">
-                Next Leap Year Celebrations
+                {c?.actualBirthdays || 'Upcoming Celebrations'}
               </h3>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-sm">
-                {result.upcomingCelebrations.slice(0, 8).map((c) => (
-                  <div key={c.year} className="p-3 bg-slate-50 border border-slate-200 rounded-xl">
-                    <div className="font-bold text-slate-900">Year {c.year}</div>
-                    <div className="text-xs text-slate-600 mt-0.5">Turns {c.milestoneAge} (Leap #{(c.milestoneAge / 4)})</div>
+                {result.upcomingCelebrations.slice(0, 8).map((uc) => (
+                  <div key={uc.year} className="p-3 bg-slate-50 border border-slate-200 rounded-xl">
+                    <div className="font-bold text-slate-900">{formatNumber(uc.year, locale)}</div>
+                    <div className="text-xs text-slate-600 mt-0.5">
+                      {t('calculator.years', 'Age')} {formatNumber(uc.milestoneAge, locale)} (Leap #{formatNumber(uc.milestoneAge / 4, locale)})
+                    </div>
                   </div>
                 ))}
               </div>

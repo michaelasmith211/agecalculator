@@ -1,8 +1,11 @@
 'use client';
 
 import React, { useState, useSyncExternalStore } from 'react';
+import { usePathname } from 'next/navigation';
 import { Share2, Copy, Check, MessageCircle } from 'lucide-react';
 import { SITE_CONFIG } from '@/lib/constants';
+import { detectLocale } from '@/i18n/locale-utils';
+import { getTranslations } from '@/i18n/getTranslations';
 
 interface SocialShareProps {
   title?: string;
@@ -10,6 +13,7 @@ interface SocialShareProps {
   url?: string;
   resultText?: string;
   className?: string;
+  locale?: string;
 }
 
 const emptySubscribe = () => () => {};
@@ -19,8 +23,12 @@ export default function SocialShare({
   description = 'Fast, accurate, and free online Age Calculator in years, months, and days.',
   url,
   resultText,
-  className = ''
+  className = '',
+  locale: propLocale
 }: SocialShareProps) {
+  const pathname = usePathname() || '/';
+  const locale = propLocale || detectLocale(pathname);
+  const { t } = getTranslations(locale);
   const [copied, setCopied] = useState(false);
 
   // Hydration-safe client detection via useSyncExternalStore (React 18 & 19 standard)
@@ -77,10 +85,10 @@ export default function SocialShare({
           </div>
           <div>
             <div className="text-xs font-bold uppercase tracking-wider text-slate-700">
-              Share This Tool or Result
+              {t('share.title', 'Share This Tool or Result')}
             </div>
             <p className="text-[11px] text-slate-500">
-              Help friends and family calculate their exact age & milestone countdowns
+              {t('share.subtitle', 'Help friends and family calculate their exact age & milestone countdowns')}
             </p>
           </div>
         </div>
@@ -93,7 +101,7 @@ export default function SocialShare({
             className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-blue-600 text-white hover:bg-blue-700 shadow-2xs transition-colors self-start sm:self-auto cursor-pointer"
           >
             <Share2 className="w-3.5 h-3.5" />
-            <span>Share via Apps</span>
+            <span>{t('share.viaApps', 'Share via Apps')}</span>
           </button>
         )}
       </div>
@@ -164,12 +172,12 @@ export default function SocialShare({
           {copied ? (
             <>
               <Check className="w-3.5 h-3.5 text-emerald-600" />
-              <span className="text-emerald-700 font-bold">Copied!</span>
+              <span className="text-emerald-700 font-bold">{t('calculator.copied', 'Copied!')}</span>
             </>
           ) : (
             <>
               <Copy className="w-3.5 h-3.5 text-slate-500" />
-              <span>Copy Link</span>
+              <span>{t('calculator.copy', 'Copy Link')}</span>
             </>
           )}
         </button>

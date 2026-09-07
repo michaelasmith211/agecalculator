@@ -1,176 +1,318 @@
 {
   "meta": {
-    "homeTitle": "Kalkulačka Věku – Vypočítejte Svůj Přesný Věk v Letech, Měsících a Dnech",
-    "homeDescription": "Bezplatná online kalkulačka věku. Spočítejte si přesný věk v letech, měsících, dnech a živých sekundách s odpočtem narozenin.",
+    "homeTitle": "Kalkulačka Věku – Spočítejte Si Přesný Věk v Letech, Měsících a Dnech",
+    "homeDescription": "Bezplatná online kalkulačka věku. Zjistěte svůj přesný věk v letech, měsících, dnech i sekundách v reálném čase s odpočtem narozenin.",
     "homeH1": "Online Kalkulačka Věku",
-    "homeSubtitle": "Spočítejte si svůj přesný chronologický věk v letech, měsících, dnech, hodinách a sekundách s gregoriánskou přesností."
+    "homeSubtitle": "Vypočítejte si svůj přesný chronologický věk v letech, měsících, dnech, hodinách a sekundách s gregoriánskou přesností."
   },
   "navigation": {
-    "home": "Home",
+    "home": "Domů",
     "ageCalculator": "Kalkulačka Věku",
-    "birthday": "Birthday",
-    "ageDifference": "Age Difference",
-    "dateDifference": "Date Difference",
-    "dateOfBirth": "Date of Birth",
-    "moreTools": "More Tools",
-    "allAgeTools": "All Age & Date Tools",
-    "calculateAge": "Spočítat Věk",
-    "calculateMyAgeNow": "Spočítat Věk",
-    "mainTools": "Main Tools",
-    "moreCalculators": "More Calculators"
+    "birthday": "Narozeninová Kalkulačka",
+    "ageDifference": "Věkový Rozdíl",
+    "dateDifference": "Rozdíl Mezi Daty",
+    "dateOfBirth": "Kalkulačka Data Narození",
+    "moreTools": "Další Nástroje",
+    "allAgeTools": "Všechny Nástroje Věku a Dat",
+    "calculateAge": "Vypočítat Věk",
+    "calculateMyAgeNow": "Vypočítat Můj Věk",
+    "mainTools": "Hlavní Nástroje",
+    "moreCalculators": "Další Kalkulačky"
   },
   "calculator": {
-    "badge": "Instant Calendar & Time Precision Calculation",
-    "dobLabel": "Date of Birth",
-    "dobPlaceholder": "Select your birth date",
-    "dobHelper": "Select your birth day, month, and year (DD / MM / YYYY). Auto-saved locally in cookies.",
-    "targetDateLabel": "Age As Of Date",
-    "useToday": "Use Today",
-    "changeDate": "Change Date",
-    "includeTime": "Include Exact Birth Time (Optional)",
-    "includeTimeHelper": "For down-to-the-minute precision",
-    "birthTimeLabel": "Time of Birth (Local Time)",
+    "badge": "Přesný Výpočet Kalendáře a Času v Reálném Čase",
+    "dobLabel": "Datum Narození",
+    "dobPlaceholder": "Vyberte datum narození",
+    "dobHelper": "Zadejte den, měsíc a rok narození (DD.MM.RRRR). Uloženo lokálně v cookies.",
+    "targetDateLabel": "Věk ke Dni",
+    "useToday": "Použít Dnešek",
+    "changeDate": "Změnit Datum",
+    "includeTime": "Zahrnout Přesný Čas Narození (Volitelné)",
+    "includeTimeHelper": "Pro přesnost na minuty",
+    "birthTimeLabel": "Čas Narození (Místní Čas)",
     "calculate": "Spočítat Věk",
-    "reset": "Reset",
-    "clear": "Clear",
-    "copied": "Copied!",
-    "copy": "Copy",
-    "print": "Print",
-    "yourExactAge": "Your Exact Age",
+    "reset": "Resetovat",
+    "clear": "Smazat",
+    "copied": "Zkopírováno!",
+    "copy": "Kopírovat",
+    "print": "Tisk",
+    "yourExactAge": "Váš Přesný Věk",
     "years": "Let",
     "months": "Měsíců",
     "days": "Dní",
-    "hours": "Hours",
-    "minutes": "Minutes",
+    "hours": "Hodin",
+    "minutes": "Minut",
     "seconds": "Sekund",
-    "nextBirthday": "Next Birthday",
-    "daysRemaining": "days remaining",
-    "turning": "Turning",
-    "happyBirthday": "🎉 Happy Birthday Today!",
-    "totalDaysLived": "Total Days Lived",
-    "totalWeeks": "Total Weeks",
-    "heartbeats": "Estimated Heartbeats",
-    "solarOrbit": "Solar Year Progress",
-    "liveSeconds": "Running Total Seconds Lived",
-    "timeBreakdown": "Comprehensive Time Breakdown",
-    "zodiacSign": "Western Zodiac",
-    "chineseZodiac": "Chinese Zodiac",
-    "dayBorn": "Day of Birth"
+    "nextBirthday": "Příští Narozeniny",
+    "daysRemaining": "dní zbývá",
+    "turning": "Bude vám",
+    "happyBirthday": "🎉 Všechno nejlepší k dnešním narozeninám!",
+    "totalDaysLived": "Celkem Prožitých Dní",
+    "totalWeeks": "Celkem Prožitých Týdnů",
+    "heartbeats": "Odhadovaný Počet Úderů Srdce",
+    "solarOrbit": "Průběh Slunečního Roku",
+    "liveSeconds": "Celkem Prožitých Sekund Živě",
+    "timeBreakdown": "Kompletní Časový Přehled",
+    "zodiacSign": "Znamení Zvěrokruhu",
+    "chineseZodiac": "Čínský Horoskop",
+    "dayBorn": "Den v Týdnu při Narození"
   },
   "features": {
-    "gregorianPrecisionTitle": "Gregorian Precision",
-    "gregorianPrecisionDesc": "Accounts for leap years, 30/31-day months, and February leap days down to the second.",
-    "liveSecondsTitle": "Live Running Seconds",
-    "liveSecondsDesc": "Real-time live age odometer synchronized with your device clock.",
-    "privateAndFreeTitle": "100% Private & Free",
-    "privateAndFreeDesc": "No registration or server uploads. All calculations run strictly in your browser."
+    "gregorianPrecisionTitle": "Gregoriánská Přesnost",
+    "gregorianPrecisionDesc": "Zohledňuje přestupné roky, 30/31denní měsíce i 29. únor s přesností na vteřiny.",
+    "liveSecondsTitle": "Živý Počítadlo Sekund",
+    "liveSecondsDesc": "Měřič věku v reálném čase synchronizovaný s hodinami vašeho zařízení.",
+    "privateAndFreeTitle": "100% Soukromé a Zdarma",
+    "privateAndFreeDesc": "Bez registrace a bez odesílání dat na server. Vše běží pouze ve vašem prohlížeči."
   },
   "howItWorks": {
-    "title": "How the Age Calculator Works",
-    "subtitle": "A transparent breakdown of how our algorithm calculates calendar days, handles month borrowing, and tracks live seconds."
+    "title": "Jak Kalkulačka Věku Funguje",
+    "subtitle": "Jasné vysvětlení, jak náš algoritmus počítá kalendářní dny, přechody měsíců a sekundy."
   },
   "faq": {
-    "title": "Frequently Asked Questions",
+    "title": "Často Kladené Otázky (FAQ)",
     "items": [
       {
-        "question": "How does the Age Calculator calculate my exact age?",
-        "answer": "The calculator compares your Date of Birth with your target date using the Gregorian calendar algorithm. It computes complete elapsed years, calculates remaining full months, and calculates the remaining days by borrowing the exact days of the previous month."
+        "question": "Jak kalkulačka počítá přesný věk?",
+        "answer": "Porovnává datum narození s cílovým datem podle gregoriánského kalendáře a přesně počítá roky, měsíce a dny."
       },
       {
-        "question": "Does this calculator account for leap years?",
-        "answer": "Yes. The algorithm handles February 29 correctly. If your birthday is on a leap day, the calculator checks leap cycle rules and measures exact calendar intervals."
+        "question": "Počítá se s přestupnými roky?",
+        "answer": "Ano, narození 29. února jsou korektně zpracována podle oficiálních čtyřletých cyklů."
       },
       {
-        "question": "How accurate is the live running seconds counter?",
-        "answer": "The live counter updates every second in real time, synchronized with your system clock, computing exact elapsed seconds from your birth timestamp."
+        "question": "Jak přesný je živý čítač sekund?",
+        "answer": "Aktualizuje se každou sekundu podle hodin vašeho zařízení a počítá čas od narození."
       },
       {
-        "question": "Is my personal data safe and private?",
-        "answer": "Yes, 100%. All calculations happen entirely on your device inside your web browser. No personal information or birth dates are transmitted to any external server."
+        "question": "Jsou má data v bezpečí?",
+        "answer": "Ano, na 100%. Vše probíhá pouze ve vašem prohlížeči, nic se neposílá ven."
       },
       {
-        "question": "Can I calculate the age difference between two people?",
-        "answer": "Yes. Use our Age Difference Calculator to compare two birth dates and find the exact duration in years, months, and days."
+        "question": "Mohu spočítat věkový rozdíl dvou lidí?",
+        "answer": "Ano, použijte naši 'Kalkulačku Věkového Rozdílu' pro porovnání dvou dat."
       }
     ]
   },
   "breadcrumbs": {
-    "home": "Home"
+    "home": "Domů"
   },
   "related": {
-    "title": "Explore Related Age & Date Calculators",
-    "description": "Quickly switch to specialized calculators for birthdays, milestone ages, date durations, and interval counting.",
-    "openCalculator": "Open Calculator"
+    "title": "Další Kalkulačky Věku a Dat",
+    "description": "Přejděte k nástrojům pro narozeniny, jubilea a pracovní dny.",
+    "openCalculator": "Otevřít Kalkulačku"
   },
   "languageSelector": {
-    "title": "Select Language",
-    "subtitle": "Choose your preferred language for the entire website",
-    "searchPlaceholder": "Search language...",
-    "close": "Close"
+    "title": "Zvolte Jazyk",
+    "subtitle": "Vyberte si jazyk pro celý web",
+    "searchPlaceholder": "Hledat jazyk...",
+    "close": "Zavřít"
   },
   "footer": {
-    "brandDescription": "Free, accurate, and privacy-first online age calculator. Compute your exact age in years, months, and days, find your next birthday countdown, and calculate time differences with calendar precision.",
-    "coreCalculators": "Age Calculators",
-    "specialtyTools": "Specialty Tools",
-    "guide": "Calculation Guide",
-    "company": "Company & Legal",
-    "aboutUs": "About Us",
-    "contact": "Contact",
-    "privacy": "Privacy Policy",
-    "terms": "Terms of Service",
-    "languages": "Supported Languages & International Versions",
-    "clientSideBadge": "100% Client-Side • Zero Data Stored",
-    "allRightsReserved": "All rights reserved."
+    "brandDescription": "Bezplatná a přesná online kalkulačka věku s důrazem na soukromí. Počítejte věk a narozeniny s kalendářní přesností.",
+    "coreCalculators": "Kalkulačky Věku",
+    "specialtyTools": "Speciální Nástroje",
+    "guide": "Návod na Výpočet",
+    "company": "Společnost a Právní Informace",
+    "aboutUs": "O Nás",
+    "contact": "Kontakt",
+    "privacy": "Zásady Ochrany Osobních Údajů",
+    "terms": "Podmínky Použití",
+    "languages": "Podporované Jazyky a Mezinárodní Verze",
+    "clientSideBadge": "100% v Prohlížeči • Žádná Data se Neukládají",
+    "allRightsReserved": "Všechna práva vyhrazena."
   },
   "errors": {
-    "invalidDate": "Please enter a valid date.",
-    "futureDate": "Birth date cannot be in the future.",
-    "requiredDate": "Please select your date of birth."
+    "invalidDate": "Zadejte prosím platné datum.",
+    "futureDate": "Datum narození nemůže být v budoucnosti.",
+    "requiredDate": "Vyberte prosím datum narození."
   },
   "tools": {
     "age-calculator": {
       "title": "Kalkulačka Věku",
-      "desc": "Bezplatná online kalkulačka věku. Spočítejte si přesný věk v letech, měsících, dnech a živých sekundách s odpočtem narozenin."
+      "desc": "Vypočítejte si přesný věk v letech, měsících, dnech i sekundách."
     },
     "birthday-calculator": {
-      "title": "Birthday Calculator",
-      "desc": "Discover your next birthday, day of week, days countdown, and milestone ages."
+      "title": "Narozeninová Kalkulačka",
+      "desc": "Zjistěte den v týdnu svých příštích narozenin a odpočet dní."
     },
     "age-difference-calculator": {
-      "title": "Age Difference Calculator",
-      "desc": "Compare two dates of birth to find the precise difference in years, months, and days."
+      "title": "Kalkulačka Věkového Rozdílu",
+      "desc": "Porovnejte dvě data narození a zjistěte přesný rozdíl v letech, měsících a dnech."
     },
     "birthday-countdown": {
-      "title": "Birthday Countdown",
-      "desc": "Live real-time ticking countdown clock for upcoming birthdays and milestone celebrations."
+      "title": "Odpočet k Narozeninám",
+      "desc": "Živé hodiny odpočítávající čas do příštích narozenin."
     },
     "date-difference-calculator": {
-      "title": "Date Difference Calculator",
-      "desc": "Find the exact duration and interval between any two dates in years, months, and days."
+      "title": "Rozdíl Mezi Daty",
+      "desc": "Spočítejte přesný interval mezi dvěma daty v letech, měsících a dnech."
     },
     "date-of-birth-calculator": {
-      "title": "Date of Birth Calculator",
-      "desc": "Reverse calculator: determine your exact or approximate birth date from given age."
+      "title": "Kalkulačka Data Narození",
+      "desc": "Opačný výpočet: zjistěte své přibližné datum narození ze známého věku."
     },
     "days-between-dates": {
-      "title": "Days Between Dates",
-      "desc": "Calculate total calendar days and business days between any two dates."
+      "title": "Dny Mezi Daty",
+      "desc": "Spočítejte počet kalendářních, pracovních a víkendových dní."
     },
     "chronological-age-calculator": {
-      "title": "Chronological Age Calculator",
-      "desc": "Standard clinical and academic chronological age calculator (YY;MM;DD)."
+      "title": "Chronologický Věk",
+      "desc": "Standardní klinický výpočet chronologického věku (RR;MM;DD)."
     },
     "retirement-age-calculator": {
-      "title": "Retirement Age Calculator",
-      "desc": "Estimate your retirement milestone date and calculate remaining years and working days."
+      "title": "Kalkulačka Důchodového Věku",
+      "desc": "Odhadněte termín odchodu do důchodu a zbývající pracovní dny."
     },
     "leap-year-age-calculator": {
-      "title": "Leap Year Age Calculator",
-      "desc": "Special calculator for February 29 leap day babies to track birthdays vs calendar years."
+      "title": "Kalkulačka Přestupného Roku",
+      "desc": "Nástroj pro narozené 29. února ke sledování skutečných narozenin."
     },
     "how-to-calculate-age": {
-      "title": "How to Calculate Age",
-      "desc": "Step-by-step mathematical guide to manual age calculation and calendar borrowing rules."
+      "title": "Jak Vypočítat Věk",
+      "desc": "Podrobný matematický návod na ruční výpočet věku."
+    }
+  },
+  "calculators": {
+    "birthday": {
+      "title": "Narozeniny a Životní Jubilea",
+      "desc": "Zjistěte, kdy máte další narozeniny, kolik dní zbývá a jaké dny v týdnu připadají na kulatiny.",
+      "dobLabel": "Vaše Datum Narození",
+      "btnCalculate": "Zobrazit Informace o Narozeninách",
+      "nextCountdown": "Odpočet do Příštích Narozenin",
+      "daysUntil": "Dní",
+      "turning": "než vám bude",
+      "onDate": "Příští narozeniny připadají na",
+      "todayBday": "Všechno nejlepší k dnešním narozeninám!",
+      "milestoneTitle": "Významná Životní Jubilea",
+      "age": "Věk",
+      "year": "Rok",
+      "date": "Datum",
+      "dayOfWeek": "Den v Týdnu",
+      "status": "Stav",
+      "passed": "Uplynulo",
+      "upcoming": "Nadcházející"
+    },
+    "ageDifference": {
+      "title": "Kalkulačka Věkového Rozdílu",
+      "desc": "Porovnejte dvě data narození a zjistěte věkový rozdíl v letech, měsících a dnech.",
+      "personA": "Osoba A",
+      "personB": "Osoba B",
+      "dobLabel": "Datum Narození",
+      "btnCalculate": "Spočítat Věkový Rozdíl",
+      "resultTitle": "Výsledný Věkový Rozdíl",
+      "olderThan": "je starší než",
+      "by": "o",
+      "totalDaysDiff": "Celkový Rozdíl ve Dnech",
+      "totalWeeksDiff": "Celkový Rozdíl v Týdnech",
+      "copySummary": "Kopírovat Souhrn",
+      "copied": "Zkopírováno do schránky!",
+      "sameAge": "Obě osoby se narodily přesně v týž den."
+    },
+    "dateDifference": {
+      "title": "Výpočet Rozdílu Mezi Daty",
+      "desc": "Spočítejte přesnou dobu mezi dvěma daty v letech, měsících a dnech.",
+      "startDate": "Počáteční Datum",
+      "endDate": "Koncové Datum",
+      "btnCalculate": "Spočítat Dobu",
+      "resultTitle": "Doba Mezi Daty",
+      "diffYMD": "Rozdíl",
+      "totalDays": "Celkem Dní",
+      "totalWeeks": "Celkem Týdnů",
+      "totalHours": "Celkem Hodin",
+      "totalMinutes": "Celkem Minut",
+      "errorInvalid": "Zvolte prosím platná počáteční a koncová data."
+    },
+    "dateOfBirth": {
+      "title": "Výpočet Data Narození",
+      "desc": "Zadejte svůj věk v letech, měsících a dnech a zjistěte datum narození.",
+      "ageYears": "Let",
+      "ageMonths": "Měsíců",
+      "ageDays": "Dní",
+      "asOfDate": "Věk ke Dni",
+      "btnCalculate": "Vypočítat Datum Narození",
+      "resultTitle": "Vypočtené Datum Narození",
+      "estimatedDob": "Odhadované Datum Narození",
+      "dayBorn": "Den v Týdnu při Narození"
+    },
+    "birthdayCountdown": {
+      "title": "Živý Odpočet k Narozeninám",
+      "desc": "Sledujte v reálném čase ubíhající vteřiny do dalších narozenin.",
+      "dobLabel": "Datum Narození",
+      "days": "Dní",
+      "hours": "Hodin",
+      "minutes": "Minut",
+      "seconds": "Sekund",
+      "turningAge": "Bude vám",
+      "nextBdayOn": "Příští narozeniny dne",
+      "happyBday": "🎉 Všechno nejlepší k dnešním narozeninám!"
+    },
+    "daysBetween": {
+      "title": "Kalkulačka Dní Mezi Daty",
+      "desc": "Spočítejte kalendářní dny, pracovní dny a víkendy mezi dvěma daty.",
+      "startDate": "Počáteční Datum",
+      "endDate": "Koncové Datum",
+      "includeEndDay": "Zahrnout koncový den (+1 den)",
+      "btnCalculate": "Spočítat Dny",
+      "totalDays": "Celkem Kalendářních Dní",
+      "businessDays": "Pracovní Dny (Po-Pá)",
+      "weekendDays": "Víkendové Dny",
+      "totalWeeks": "Celkem Týdnů"
+    },
+    "chronological": {
+      "title": "Chronologický Věk (Klinický)",
+      "desc": "Standardní zápis chronologického věku (RR;MM;DD) pro lékařská a psychologická vyšetření.",
+      "birthDate": "Datum Narození",
+      "testDate": "Datum Vyšetření / Testu",
+      "weeksPremature": "Týdny Předčasného Narození (Korigovaný Věk)",
+      "btnCalculate": "Spočítat Chronologický Věk",
+      "chronologicalAge": "Chronologický Věk",
+      "notation": "Klinický Zápis (R;M;D)",
+      "exactInterval": "Skutečný Uplynulý Čas",
+      "adjustedAge": "Korigovaný Věk"
+    },
+    "retirement": {
+      "title": "Kalkulačka Důchodového Věku",
+      "desc": "Odhadněte termín odchodu do penze a zbývající čas do stanoveného věku.",
+      "birthDate": "Datum Narození",
+      "currentAge": "Současný Věk",
+      "targetAge": "Cílový Důchodový Věk",
+      "asOfDate": "Datum Výpočtu",
+      "btnCalculate": "Spočítat Důchod",
+      "yearsRemaining": "Zbývající Roky",
+      "targetYear": "Předpokládaný Rok Důchodu",
+      "workingDaysLeft": "Odhad Zbývajících Pracovních Dní",
+      "alreadyReached": "Dosaženo cílového věku odchodu do důchodu."
+    },
+    "leapYear": {
+      "title": "Kalkulačka 29. Února a Přestupných Let",
+      "desc": "Zjistěte, kolikrát jste opravdu zažili 29. únor a kdy připadají další přestupné narozeniny.",
+      "dobLabel": "Datum Narození",
+      "btnCalculate": "Ověřit Údaje o Přestupném Roce",
+      "leapYearsLived": "Prožitých 29. Únorů",
+      "actualBirthdays": "Oficiální Přestupné Narozeniny",
+      "nextLeapBirthday": "Příští 29. Únor",
+      "leapBabyBadge": "Narozen v Přestupném Roce (29. Úno)"
+    },
+    "liveTicker": {
+      "title": "Živý Měřič Věku",
+      "syncedLocal": "Synchronizováno s hodinami vašeho zařízení",
+      "clock": "Čas",
+      "runningTotalSeconds": "Celkem Prožitých Sekund",
+      "seconds": "sekund",
+      "solarOrbit": "Průběh Oběhu Slunce",
+      "completed": "Dokončeno",
+      "turnedAge": "Věk dovršený při posledních narozeninách",
+      "turningAgeIn": "Další věk za",
+      "bioMilestones": "Biologické Milníky",
+      "spaceTravel": "Vesmírná Cesta",
+      "heartbeats": "Odhadované Údery Srdce",
+      "breaths": "Nadechnutí",
+      "blinks": "Mrknutí Oka",
+      "hoursSlept": "Prospané Hodiny",
+      "earthRotation": "Rotace Země",
+      "sunOrbit": "Vzdálenost Uražená Kolem Slunce",
+      "asOfTarget": "Vypočteno k cílovému datu"
     }
   }
 }

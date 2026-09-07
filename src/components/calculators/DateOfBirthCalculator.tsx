@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import { usePathname } from 'next/navigation';
 import { Calendar, Sparkles, AlertCircle, Info } from 'lucide-react';
 import {
   calculateDateOfBirthFromAge,
@@ -10,8 +11,20 @@ import {
   ReverseDobResult
 } from '@/lib/date-utils';
 import { trackEvent } from '@/lib/analytics';
+import { detectLocale } from '@/i18n/locale-utils';
+import { getTranslations } from '@/i18n/getTranslations';
+import { formatDateShort, formatWeekday } from '@/lib/format-utils';
 
-export default function DateOfBirthCalculator() {
+interface DateOfBirthCalculatorProps {
+  locale?: string;
+}
+
+export default function DateOfBirthCalculator({ locale: propLocale }: DateOfBirthCalculatorProps) {
+  const pathname = usePathname() || '/';
+  const locale = propLocale || detectLocale(pathname);
+  const { t, raw } = getTranslations(locale);
+  const c = raw.calculators?.dateOfBirth;
+
   const today = getTodayCalendarDate();
   const todayStr = toDateString(today);
 
@@ -22,11 +35,11 @@ export default function DateOfBirthCalculator() {
 
   const compute = (y: number, m: number, d: number, asOf: string) => {
     const parsedAsOf = parseDateString(asOf);
-    if (!parsedAsOf) return { res: null, err: 'Please select a valid reference date.' };
+    if (!parsedAsOf) return { res: null, err: t('errors.invalidDate', 'Please select a valid reference date.') };
     try {
       return { res: calculateDateOfBirthFromAge(y, m, d, parsedAsOf), err: null };
     } catch (e: unknown) {
-      return { res: null, err: e instanceof Error ? e.message : 'Calculation error' };
+      return { res: null, err: e instanceof Error ? e.message : t('errors.invalidDate', 'Calculation error') };
     }
   };
 
@@ -43,6 +56,12 @@ export default function DateOfBirthCalculator() {
     }
   };
 
+  const calcTitle = c?.title || raw.tools?.['date-of-birth-calculator']?.title || 'Date of Birth Calculator';
+  const calcDesc = c?.desc || raw.tools?.['date-of-birth-calculator']?.desc || 'Determine your exact or estimated birth date.';
+
+  const formattedDobDate = result ? formatDateShort(new Date(result.estimatedBirthDate.year, result.estimatedBirthDate.month - 1, result.estimatedBirthDate.day), locale) : '';
+  const formattedDobWeekday = result ? formatWeekday(new Date(result.estimatedBirthDate.year, result.estimatedBirthDate.month - 1, result.estimatedBirthDate.day), locale) : '';
+
   return (
     <div className="calculator-card p-6 sm:p-8 bg-white border border-slate-200 rounded-2xl shadow-sm">
       <div className="flex items-center gap-2.5 mb-2">
@@ -51,10 +70,10 @@ export default function DateOfBirthCalculator() {
         </div>
         <div>
           <h2 className="text-xl sm:text-2xl font-bold text-slate-900">
-            Date of Birth Calculator
+            {calcTitle}
           </h2>
           <p className="text-sm text-slate-600">
-            Determine an estimated birth date by entering your known age in years, months, and days.
+            {calcDesc}
           </p>
         </div>
       </div>
@@ -62,11 +81,13 @@ export default function DateOfBirthCalculator() {
       <div className="mt-6 space-y-6">
         <div>
           <label className="block text-sm font-bold text-slate-800 mb-2">
-            Enter Age
+            {c?.title || 'Enter Age'}
           </label>
           <div className="grid grid-cols-3 gap-3">
             <div>
-              <span className="text-xs text-slate-500 font-semibold mb-1 block">Years</span>
+              <span className="text-xs text-slate-500 font-semibold mb-1 block">
+                {c?.ageYears || t('calculator.years', 'Years')}
+              </span>
               <input
                 type="number"
                 min="0"
@@ -81,7 +102,9 @@ export default function DateOfBirthCalculator() {
               />
             </div>
             <div>
-              <span className="text-xs text-slate-500 font-semibold mb-1 block">Months</span>
+              <span className="text-xs text-slate-500 font-semibold mb-1 block">
+                {c?.ageMonths || t('calculator.months', 'Months')}
+              </span>
               <input
                 type="number"
                 min="0"
@@ -96,7 +119,9 @@ export default function DateOfBirthCalculator() {
               />
             </div>
             <div>
-              <span className="text-xs text-slate-500 font-semibold mb-1 block">Days</span>
+              <span className="text-xs text-slate-500 font-semibold mb-1 block">
+                {c?.ageDays || t('calculator.days', 'Days')}
+              </span>
               <input
                 type="number"
                 min="0"
@@ -115,7 +140,7 @@ export default function DateOfBirthCalculator() {
 
         <div className="max-w-xs">
           <label htmlFor="ref-date" className="block text-sm font-bold text-slate-800 mb-1">
-            As Of Date (Reference Date)
+            {c?.asOfDate || 'Age As Of Date'}
           </label>
           <input
             id="ref-date"
@@ -135,7 +160,7 @@ export default function DateOfBirthCalculator() {
           className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold bg-amber-600 text-white hover:bg-amber-700 shadow-sm transition-all"
         >
           <Sparkles className="w-4 h-4" />
-          <span>Estimate Birth Date</span>
+          <span>{c?.btnCalculate || 'Calculate Date of Birth'}</span>
         </button>
       </div>
 
@@ -149,13 +174,13 @@ export default function DateOfBirthCalculator() {
       {result && (
         <div className="mt-8 p-6 bg-amber-50/70 border border-amber-200 rounded-2xl space-y-3">
           <div className="text-xs font-bold text-amber-800 uppercase tracking-wider">
-            Estimated Date of Birth
+            {c?.resultTitle || 'Calculated Date of Birth'}
           </div>
           <div className="text-3xl sm:text-4xl font-extrabold text-amber-950">
-            {result.formattedDate}
+            {formattedDobDate}
           </div>
           <div className="text-sm font-semibold text-amber-800">
-            Born on a <strong>{result.dayOfWeek}</strong>
+            {c?.dayBorn || 'Day of Week Born'}: <strong>{formattedDobWeekday}</strong>
           </div>
           <div className="pt-3 border-t border-amber-200 text-xs text-slate-600 flex items-start gap-1.5">
             <Info className="w-4 h-4 text-amber-700 shrink-0 mt-0.5" />

@@ -1,176 +1,318 @@
 {
   "meta": {
     "homeTitle": "Ikälaskuri – Laske Tarkka Ikäsi Vuosina, Kuukausina ja Päivinä",
-    "homeDescription": "Ilmainen online ikälaskuri. Laske tarkka ikäsi vuosina, kuukausina, päivinä ja reaaliaikaisina sekunteina syntymäpäivälaskurin kera.",
+    "homeDescription": "Ilmainen online-ikälaskuri. Laske tarkka ikäsi vuosina, kuukausina, päivinä ja sekunteina syntymäpäivän reaaliaikaisella laskurilla.",
     "homeH1": "Online Ikälaskuri",
-    "homeSubtitle": "Laske tarkka kronologinen ikäsi vuosina, kuukausina, päivinä, tunteina ja sekunteina gregoriaanisen kalenterin tarkkuudella."
+    "homeSubtitle": "Laske tarkka kronologinen ikäsi vuosina, kuukausina, päivinä, tunteina ja reaaliaikaisina sekunteina gregoriaanisen kalenterin tarkkuudella."
   },
   "navigation": {
-    "home": "Home",
+    "home": "Etusivu",
     "ageCalculator": "Ikälaskuri",
-    "birthday": "Birthday",
-    "ageDifference": "Age Difference",
-    "dateDifference": "Date Difference",
-    "dateOfBirth": "Date of Birth",
-    "moreTools": "More Tools",
-    "allAgeTools": "All Age & Date Tools",
+    "birthday": "Syntymäpäivälaskuri",
+    "ageDifference": "Ikäero",
+    "dateDifference": "Päivämäärien Erotus",
+    "dateOfBirth": "Syntymäajan Laskuri",
+    "moreTools": "Lisää Työkaluja",
+    "allAgeTools": "Kaikki Ikä- ja Päivämäärätyökalut",
     "calculateAge": "Laske Ikä",
-    "calculateMyAgeNow": "Laske Ikä",
-    "mainTools": "Main Tools",
-    "moreCalculators": "More Calculators"
+    "calculateMyAgeNow": "Laske Oma Ikäni",
+    "mainTools": "Päätyökalut",
+    "moreCalculators": "Lisää Laskureita"
   },
   "calculator": {
-    "badge": "Instant Calendar & Time Precision Calculation",
-    "dobLabel": "Date of Birth",
-    "dobPlaceholder": "Select your birth date",
-    "dobHelper": "Select your birth day, month, and year (DD / MM / YYYY). Auto-saved locally in cookies.",
-    "targetDateLabel": "Age As Of Date",
-    "useToday": "Use Today",
-    "changeDate": "Change Date",
-    "includeTime": "Include Exact Birth Time (Optional)",
-    "includeTimeHelper": "For down-to-the-minute precision",
-    "birthTimeLabel": "Time of Birth (Local Time)",
+    "badge": "Reaaliaikainen Kalenteri- ja Aikatarkkuus",
+    "dobLabel": "Syntymäaika",
+    "dobPlaceholder": "Valitse syntymäaikasi",
+    "dobHelper": "Valitse syntymäpäivä, -kuukausi ja -vuosi (PP.KK.VVVV). Tallennetaan evästeisiin.",
+    "targetDateLabel": "Ikä Päivänä",
+    "useToday": "Käytä Tätä Päivää",
+    "changeDate": "Vaihda Päivämäärää",
+    "includeTime": "Sisällytä Tarkka Kellonaika (Valinnainen)",
+    "includeTimeHelper": "Minuutin tarkkuutta varten",
+    "birthTimeLabel": "Syntymäaika (Paikallinen Aika)",
     "calculate": "Laske Ikä",
-    "reset": "Reset",
-    "clear": "Clear",
-    "copied": "Copied!",
-    "copy": "Copy",
-    "print": "Print",
-    "yourExactAge": "Your Exact Age",
+    "reset": "Nollaa",
+    "clear": "Tyhjennä",
+    "copied": "Kopioitu!",
+    "copy": "Kopioi",
+    "print": "Tulosta",
+    "yourExactAge": "Tarkka Ikäsi",
     "years": "Vuotta",
     "months": "Kuukautta",
     "days": "Päivää",
-    "hours": "Hours",
-    "minutes": "Minutes",
+    "hours": "Tuntia",
+    "minutes": "Minuuttia",
     "seconds": "Sekuntia",
-    "nextBirthday": "Next Birthday",
-    "daysRemaining": "days remaining",
-    "turning": "Turning",
-    "happyBirthday": "🎉 Happy Birthday Today!",
-    "totalDaysLived": "Total Days Lived",
-    "totalWeeks": "Total Weeks",
-    "heartbeats": "Estimated Heartbeats",
-    "solarOrbit": "Solar Year Progress",
-    "liveSeconds": "Running Total Seconds Lived",
-    "timeBreakdown": "Comprehensive Time Breakdown",
-    "zodiacSign": "Western Zodiac",
-    "chineseZodiac": "Chinese Zodiac",
-    "dayBorn": "Day of Birth"
+    "nextBirthday": "Seuraava Syntymäpäivä",
+    "daysRemaining": "päivää jäljellä",
+    "turning": "Täytät",
+    "happyBirthday": "🎉 Hyvää Syntymäpäivää Tänään!",
+    "totalDaysLived": "Eletyt Päivät Yhteensä",
+    "totalWeeks": "Eletyt Viikot Yhteensä",
+    "heartbeats": "Arvioidut Sydämenlyönnit",
+    "solarOrbit": "Aurinkovuoden Eteneminen",
+    "liveSeconds": "Eletyt Sekunnit Yhteensä Reaaliajassa",
+    "timeBreakdown": "Yksityiskohtainen Ajan Jakauma",
+    "zodiacSign": "Horoskooppimerkki",
+    "chineseZodiac": "Kiinalainen Horoskooppi",
+    "dayBorn": "Syntymäviikonpäivä"
   },
   "features": {
-    "gregorianPrecisionTitle": "Gregorian Precision",
-    "gregorianPrecisionDesc": "Accounts for leap years, 30/31-day months, and February leap days down to the second.",
-    "liveSecondsTitle": "Live Running Seconds",
-    "liveSecondsDesc": "Real-time live age odometer synchronized with your device clock.",
-    "privateAndFreeTitle": "100% Private & Free",
-    "privateAndFreeDesc": "No registration or server uploads. All calculations run strictly in your browser."
+    "gregorianPrecisionTitle": "Gregoriaaninen Tarkkuus",
+    "gregorianPrecisionDesc": "Ottaa huomioon karkausvuodet, 30/31-päiväiset kuukaudet ja 29. helmikuuta sekunnin tarkkuudella.",
+    "liveSecondsTitle": "Reaaliaikainen Sekuntimittari",
+    "liveSecondsDesc": "Reaaliaikainen ikämittari, joka on synkronoitu laitteesi kellon kanssa.",
+    "privateAndFreeTitle": "100% Yksityinen & Ilmainen",
+    "privateAndFreeDesc": "Ei rekisteröitymistä eikä tietojen lähettämistä palvelimille. Kaikki toimii selaimessasi."
   },
   "howItWorks": {
-    "title": "How the Age Calculator Works",
-    "subtitle": "A transparent breakdown of how our algorithm calculates calendar days, handles month borrowing, and tracks live seconds."
+    "title": "Miten Ikälaskuri Toimii",
+    "subtitle": "Selkeä kuvaus siitä, miten algoritmimme laskee kalenteripäivät, kuukausilainaukset ja sekunnit."
   },
   "faq": {
-    "title": "Frequently Asked Questions",
+    "title": "Usein Kysytyt Kysymykset (FAQ)",
     "items": [
       {
-        "question": "How does the Age Calculator calculate my exact age?",
-        "answer": "The calculator compares your Date of Birth with your target date using the Gregorian calendar algorithm. It computes complete elapsed years, calculates remaining full months, and calculates the remaining days by borrowing the exact days of the previous month."
+        "question": "Miten laskuri määrittää tarkan ikäni?",
+        "answer": "Se vertaa syntymäaikaa kohdepäivään gregoriaanisen kalenterin sääntöjen mukaisesti ja laskee täydet vuodet, kuukaudet ja päivät."
       },
       {
-        "question": "Does this calculator account for leap years?",
-        "answer": "Yes. The algorithm handles February 29 correctly. If your birthday is on a leap day, the calculator checks leap cycle rules and measures exact calendar intervals."
+        "question": "Otetaanko karkausvuodet huomioon?",
+        "answer": "Kyllä. 29. helmikuuta syntyneiden ikä lasketaan virallisten 4 vuoden karkausvuosisyklien mukaan."
       },
       {
-        "question": "How accurate is the live running seconds counter?",
-        "answer": "The live counter updates every second in real time, synchronized with your system clock, computing exact elapsed seconds from your birth timestamp."
+        "question": "Kuinka tarkka reaaliaikainen sekuntilaskuri on?",
+        "answer": "Se päivittyy joka sekunti reaaliajassa laitteesi järjestelmäkellon tahdissa."
       },
       {
-        "question": "Is my personal data safe and private?",
-        "answer": "Yes, 100%. All calculations happen entirely on your device inside your web browser. No personal information or birth dates are transmitted to any external server."
+        "question": "Ovatko henkilötietoni turvassa?",
+        "answer": "Kyllä, 100-prosenttisesti. Kaikki laskenta tapahtuu suoraan selaimessasi ilman ulkoista tallennusta."
       },
       {
-        "question": "Can I calculate the age difference between two people?",
-        "answer": "Yes. Use our Age Difference Calculator to compare two birth dates and find the exact duration in years, months, and days."
+        "question": "Voinko laskea kahden ihmisen välisen ikäeron?",
+        "answer": "Kyllä, käytä 'Ikäerolaskuriamme' vertaillaksesi kahta syntymäaikaa vuosina, kuukausina ja päivinä."
       }
     ]
   },
   "breadcrumbs": {
-    "home": "Home"
+    "home": "Etusivu"
   },
   "related": {
-    "title": "Explore Related Age & Date Calculators",
-    "description": "Quickly switch to specialized calculators for birthdays, milestone ages, date durations, and interval counting.",
-    "openCalculator": "Open Calculator"
+    "title": "Lisää Ikä- ja Päivämäärälaskureita",
+    "description": "Siirry nopeasti syntymäpäivien, virstanpylväiden ja työpäivien erikoistyökaluihin.",
+    "openCalculator": "Avaa Laskuri"
   },
   "languageSelector": {
-    "title": "Select Language",
-    "subtitle": "Choose your preferred language for the entire website",
-    "searchPlaceholder": "Search language...",
-    "close": "Close"
+    "title": "Valitse Kieli",
+    "subtitle": "Valitse haluamasi kieli koko sivustolle",
+    "searchPlaceholder": "Etsi kieltä...",
+    "close": "Sulje"
   },
   "footer": {
-    "brandDescription": "Free, accurate, and privacy-first online age calculator. Compute your exact age in years, months, and days, find your next birthday countdown, and calculate time differences with calendar precision.",
-    "coreCalculators": "Age Calculators",
-    "specialtyTools": "Specialty Tools",
-    "guide": "Calculation Guide",
-    "company": "Company & Legal",
-    "aboutUs": "About Us",
-    "contact": "Contact",
-    "privacy": "Privacy Policy",
-    "terms": "Terms of Service",
-    "languages": "Supported Languages & International Versions",
-    "clientSideBadge": "100% Client-Side • Zero Data Stored",
-    "allRightsReserved": "All rights reserved."
+    "brandDescription": "Ilmainen, tarkka ja yksityisyyttä kunnioittava online-ikälaskuri. Laske ikäsi, syntymäpäiväsi ja aikavälit kalenteritarkkuudella.",
+    "coreCalculators": "Ikälaskurit",
+    "specialtyTools": "Erikoistyökalut",
+    "guide": "Laskentaohje",
+    "company": "Yritys & Laillisuus",
+    "aboutUs": "Tietoa Meistä",
+    "contact": "Ota Yhteyttä",
+    "privacy": "Tietosuojaseloste",
+    "terms": "Käyttöehdot",
+    "languages": "Tuetut Kielet & Kansainväliset Versiot",
+    "clientSideBadge": "100% Selaimessa • Tietoja Ei Tallenneta",
+    "allRightsReserved": "Kaikki oikeudet pidätetään."
   },
   "errors": {
-    "invalidDate": "Please enter a valid date.",
-    "futureDate": "Birth date cannot be in the future.",
-    "requiredDate": "Please select your date of birth."
+    "invalidDate": "Syötä kelvollinen päivämäärä.",
+    "futureDate": "Syntymäaika ei voi olla tulevaisuudessa.",
+    "requiredDate": "Valitse syntymäaikasi."
   },
   "tools": {
     "age-calculator": {
       "title": "Ikälaskuri",
-      "desc": "Ilmainen online ikälaskuri. Laske tarkka ikäsi vuosina, kuukausina, päivinä ja reaaliaikaisina sekunteina syntymäpäivälaskurin kera."
+      "desc": "Laske tarkka ikäsi vuosina, kuukausina, päivinä ja sekunteina reaaliajassa."
     },
     "birthday-calculator": {
-      "title": "Birthday Calculator",
-      "desc": "Discover your next birthday, day of week, days countdown, and milestone ages."
+      "title": "Syntymäpäivälaskuri",
+      "desc": "Selvitä seuraavan syntymäpäiväsi viikonpäivä, jäljellä olevat päivät ja pyöreät vuodet."
     },
     "age-difference-calculator": {
-      "title": "Age Difference Calculator",
-      "desc": "Compare two dates of birth to find the precise difference in years, months, and days."
+      "title": "Ikäerolaskuri",
+      "desc": "Vertaile kahta syntymäaikaa ja laske tarkka ikäero vuosina, kuukausina ja päivinä."
     },
     "birthday-countdown": {
-      "title": "Birthday Countdown",
-      "desc": "Live real-time ticking countdown clock for upcoming birthdays and milestone celebrations."
+      "title": "Syntymäpäivälaskuri",
+      "desc": "Reaaliaikainen kello, joka laskee aikaa tuleviin syntymäpäiviin ja juhliin."
     },
     "date-difference-calculator": {
-      "title": "Date Difference Calculator",
-      "desc": "Find the exact duration and interval between any two dates in years, months, and days."
+      "title": "Päivämäärien Erotus",
+      "desc": "Laske tarkka kesto kahden päivämäärän välillä vuosina, kuukausina ja päivinä."
     },
     "date-of-birth-calculator": {
-      "title": "Date of Birth Calculator",
-      "desc": "Reverse calculator: determine your exact or approximate birth date from given age."
+      "title": "Syntymäajan Laskuri",
+      "desc": "Käänteinen laskuri: määritä arvioitu syntymäaika nykyisen iän perusteella."
     },
     "days-between-dates": {
-      "title": "Days Between Dates",
-      "desc": "Calculate total calendar days and business days between any two dates."
+      "title": "Päivät Kahden Päivämäärän Välillä",
+      "desc": "Laske kalenteripäivät, arkipäivät ja viikonloput kahden päivämäärän välillä."
     },
     "chronological-age-calculator": {
-      "title": "Chronological Age Calculator",
-      "desc": "Standard clinical and academic chronological age calculator (YY;MM;DD)."
+      "title": "Kronologinen Ikälaskuri",
+      "desc": "Standardi kliininen ja akateeminen iän laskenta (VV;KK;PP)."
     },
     "retirement-age-calculator": {
-      "title": "Retirement Age Calculator",
-      "desc": "Estimate your retirement milestone date and calculate remaining years and working days."
+      "title": "Eläkeikälaskuri",
+      "desc": "Arvioi eläkkeellesiirtoaikasi, jäljellä olevat vuodet ja työpäivät."
     },
     "leap-year-age-calculator": {
-      "title": "Leap Year Age Calculator",
-      "desc": "Special calculator for February 29 leap day babies to track birthdays vs calendar years."
+      "title": "Karkausvuosilaskuri",
+      "desc": "Työkalu 29. helmikuuta syntyneille todellisten syntymäpäivien seuraamiseen."
     },
     "how-to-calculate-age": {
-      "title": "How to Calculate Age",
-      "desc": "Step-by-step mathematical guide to manual age calculation and calendar borrowing rules."
+      "title": "Miten Ikä Lasketaan",
+      "desc": "Vaiheittainen matemaattinen opas iän manuaaliseen laskemiseen."
+    }
+  },
+  "calculators": {
+    "birthday": {
+      "title": "Syntymäpäivä- ja Virstanpylväslaskuri",
+      "desc": "Katso milloin seuraava syntymäpäiväsi on, montako päivää on jäljellä ja mille viikonpäiville pyöreät vuodet osuvat.",
+      "dobLabel": "Syntymäaikasi",
+      "btnCalculate": "Katso Syntymäpäivän Tiedot",
+      "nextCountdown": "Aikalaskuri Seuraavaan Syntymäpäivään",
+      "daysUntil": "Päivää",
+      "turning": "kunnes täytät",
+      "onDate": "Seuraava syntymäpäiväsi on",
+      "todayBday": "Hyvää Syntymäpäivää Tänään!",
+      "milestoneTitle": "Tärkeät Merkkipäivät",
+      "age": "Ikä",
+      "year": "Vuosi",
+      "date": "Päivämäärä",
+      "dayOfWeek": "Viikonpäivä",
+      "status": "Tila",
+      "passed": "Ohitettu",
+      "upcoming": "Tuleva"
+    },
+    "ageDifference": {
+      "title": "Ikäerolaskuri",
+      "desc": "Vertaile kahta syntymäaikaa laskeaksesi tarkan ikäeron vuosina, kuukausina ja päivinä.",
+      "personA": "Henkilö A",
+      "personB": "Henkilö B",
+      "dobLabel": "Syntymäaika",
+      "btnCalculate": "Laske Ikäero",
+      "resultTitle": "Ikäeron Erittely",
+      "olderThan": "on vanhempi kuin",
+      "by": "erotuksella",
+      "totalDaysDiff": "Kokonaisero Päivinä",
+      "totalWeeksDiff": "Kokonaisero Viikkoina",
+      "copySummary": "Kopioi Yhteenveto",
+      "copied": "Kopioitu leikepöydälle!",
+      "sameAge": "Molemmat henkilöt syntyivät täsmälleen samana päivänä."
+    },
+    "dateDifference": {
+      "title": "Päivämäärien Välinen Aika",
+      "desc": "Laske tarkka aika kahden kalenteripäivämäärän välillä vuosina, kuukausina ja päivinä.",
+      "startDate": "Alkamispäivämäärä",
+      "endDate": "Päättymispäivämäärä",
+      "btnCalculate": "Laske Kesto",
+      "resultTitle": "Päivämäärien Välinen Kesto",
+      "diffYMD": "Erotus",
+      "totalDays": "Päiviä Yhteensä",
+      "totalWeeks": "Viikkoja Yhteensä",
+      "totalHours": "Tunteja Yhteensä",
+      "totalMinutes": "Minuutteja Yhteensä",
+      "errorInvalid": "Valitse kelvolliset alku- ja loppupäivämäärät."
+    },
+    "dateOfBirth": {
+      "title": "Syntymäajan Määrittäminen Iästä",
+      "desc": "Määritä syntymäaikasi syöttämällä ikäsi vuosina, kuukausina ja päivinä.",
+      "ageYears": "Vuotta",
+      "ageMonths": "Kuukautta",
+      "ageDays": "Päivää",
+      "asOfDate": "Ikä Päivämääränä",
+      "btnCalculate": "Laske Syntymäaika",
+      "resultTitle": "Laskettu Syntymäaika",
+      "estimatedDob": "Arvioitu Syntymäaika",
+      "dayBorn": "Syntymäviikonpäivä"
+    },
+    "birthdayCountdown": {
+      "title": "Syntymäpäivän Reaaliaikainen Laskuri",
+      "desc": "Reaaliaikainen kello, joka laskee sekunteja tuleviin syntymäpäiviin.",
+      "dobLabel": "Syntymäaika",
+      "days": "Päivää",
+      "hours": "Tuntia",
+      "minutes": "Minuuttia",
+      "seconds": "Sekuntia",
+      "turningAge": "Täytät",
+      "nextBdayOn": "Seuraava syntymäpäivä",
+      "happyBday": "🎉 Hyvää Syntymäpäivää Tänään!"
+    },
+    "daysBetween": {
+      "title": "Päivät Kahden Päivämäärän Välillä",
+      "desc": "Laske kalenteripäivät, arkipäivät ja viikonloput kahden päivämäärän välillä.",
+      "startDate": "Alkamispäivämäärä",
+      "endDate": "Päättymispäivämäärä",
+      "includeEndDay": "Sisällytä päättymispäivä (+1 päivä)",
+      "btnCalculate": "Laske Päivät",
+      "totalDays": "Kalenteripäiviä Yhteensä",
+      "businessDays": "Arkipäivät (Ma-Pe)",
+      "weekendDays": "Viikonloppupäivät",
+      "totalWeeks": "Viikkoja Yhteensä"
+    },
+    "chronological": {
+      "title": "Kronologinen Ikälaskuri",
+      "desc": "Standardi kliininen iän laskenta (Vuodet;Kuukaudet;Päivät) tutkimuksia varten.",
+      "birthDate": "Syntymäaika",
+      "testDate": "Testaus- / Arviointipäivämäärä",
+      "weeksPremature": "Keskosviikot (Korjattu Ikä)",
+      "btnCalculate": "Laske Kronologinen Ikä",
+      "chronologicalAge": "Kronologinen Ikä",
+      "notation": "Kliininen Merkintä (V;K;P)",
+      "exactInterval": "Tarkka Kulunut Aika",
+      "adjustedAge": "Korjattu Ikä"
+    },
+    "retirement": {
+      "title": "Eläkeikälaskuri",
+      "desc": "Arvioi eläkkeellesiirtymispäiväsi ja tavoiteikään jäljellä oleva aika.",
+      "birthDate": "Syntymäaika",
+      "currentAge": "Nykyinen Ikä",
+      "targetAge": "Tavoite-eläkeikä",
+      "asOfDate": "Laskentapäivämäärä",
+      "btnCalculate": "Laske Eläkeaika",
+      "yearsRemaining": "Jäljellä Olevat Vuodet",
+      "targetYear": "Oletettu Eläköitymisvuosi",
+      "workingDaysLeft": "Arvioidut Jäljellä Olevat Työpäivät",
+      "alreadyReached": "Tavoite-eläkeikä on saavutettu."
+    },
+    "leapYear": {
+      "title": "Karkausvuoden ja 29. Helmikuuta Laskuri",
+      "desc": "Tarkista kuinka monta kertaa olet kokenut 29. helmikuuta ja milloin ovat seuraavat karkauspäiväsynttärit.",
+      "dobLabel": "Syntymäaika",
+      "btnCalculate": "Tarkista Karkausvuositiedot",
+      "leapYearsLived": "Koetut 29. Helmikuuta Päivät",
+      "actualBirthdays": "Viralliset Karkauspäiväsyntymäpäivät",
+      "nextLeapBirthday": "Seuraava 29. Helmikuuta",
+      "leapBabyBadge": "Syntynyt Karkauspäivänä (29. Hel)"
+    },
+    "liveTicker": {
+      "title": "Reaaliaikainen Ikämittari",
+      "syncedLocal": "Synkronoitu laitteesi kellon kanssa",
+      "clock": "Kello",
+      "runningTotalSeconds": "Eletyt Sekunnit Yhteensä",
+      "seconds": "sekuntia",
+      "solarOrbit": "Aurinkovuoden Eteneminen",
+      "completed": "Valmis",
+      "turnedAge": "Täytti viime syntymäpäivänä",
+      "turningAgeIn": "Täyttää seuraavan iän ajassa",
+      "bioMilestones": "Biologiset Virstanpylväät",
+      "spaceTravel": "Avaruusmatka & Kiertorata",
+      "heartbeats": "Arvioidut Sydämenlyönnit",
+      "breaths": "Otettuja Hengityksiä",
+      "blinks": "Silmänräpäytyksiä",
+      "hoursSlept": "Nukuttuja Tunteja",
+      "earthRotation": "Maan Pinnan Pyörimisliike",
+      "sunOrbit": "Auringon Ympäri Kuljettu Matka",
+      "asOfTarget": "Laskettu tavoitepäivämäärän mukaan"
     }
   }
 }

@@ -1,176 +1,318 @@
 {
   "meta": {
-    "homeTitle": "Yaş Hesaplama – Yıl, Ay ve Gün Olarak Tam Yaşınızı Hesaplayın",
-    "homeDescription": "Ücretsiz online yaş hesaplama aracı. Doğum tarihinize göre yaşınızı yıl, ay, gün ve canlı saniye olarak kesin hesaplayın.",
-    "homeH1": "Online Yaş Hesaplama Aracı",
-    "homeSubtitle": "Miladi takvim hassasiyetiyle doğum tarihinizden itibaren geçen tam yıl, ay, gün ve saniyeleri hesaplayın."
+    "homeTitle": "Yaş Hesaplama – Yıl, Ay ve Gün Olarak Kesin Yaşınızı Hesaplayın",
+    "homeDescription": "Ücretsiz çevrim içi yaş hesaplama aracı. Yaşınızı yıl, ay, gün ve canlı saniyelerle hesaplayın. Doğum günü geri sayımı ve yaşam istatistikleri.",
+    "homeH1": "Çevrim İçi Yaş Hesaplama",
+    "homeSubtitle": "Miladi takvim hassasiyetiyle yaşınızı yıl, ay, gün, saat ve canlı saniyelerle tam doğrulukla hesaplayın."
   },
   "navigation": {
-    "home": "Home",
+    "home": "Ana Sayfa",
     "ageCalculator": "Yaş Hesaplama",
-    "birthday": "Birthday",
-    "ageDifference": "Age Difference",
-    "dateDifference": "Date Difference",
-    "dateOfBirth": "Date of Birth",
-    "moreTools": "More Tools",
-    "allAgeTools": "All Age & Date Tools",
+    "birthday": "Doğum Günü Hesaplama",
+    "ageDifference": "Yaş Farkı Hesaplama",
+    "dateDifference": "Tarih Farkı",
+    "dateOfBirth": "Doğum Tarihi Bulma",
+    "moreTools": "Diğer Araçlar",
+    "allAgeTools": "Tüm Yaş ve Tarih Araçları",
     "calculateAge": "Yaş Hesapla",
-    "calculateMyAgeNow": "Yaş Hesapla",
-    "mainTools": "Main Tools",
-    "moreCalculators": "More Calculators"
+    "calculateMyAgeNow": "Yaşımı Hesapla",
+    "mainTools": "Ana Araçlar",
+    "moreCalculators": "Daha Fazla Hesaplayıcı"
   },
   "calculator": {
-    "badge": "Instant Calendar & Time Precision Calculation",
-    "dobLabel": "Date of Birth",
-    "dobPlaceholder": "Select your birth date",
-    "dobHelper": "Select your birth day, month, and year (DD / MM / YYYY). Auto-saved locally in cookies.",
-    "targetDateLabel": "Age As Of Date",
-    "useToday": "Use Today",
-    "changeDate": "Change Date",
-    "includeTime": "Include Exact Birth Time (Optional)",
-    "includeTimeHelper": "For down-to-the-minute precision",
-    "birthTimeLabel": "Time of Birth (Local Time)",
-    "calculate": "Yaş Hesapla",
-    "reset": "Reset",
-    "clear": "Clear",
-    "copied": "Copied!",
-    "copy": "Copy",
-    "print": "Print",
-    "yourExactAge": "Your Exact Age",
+    "badge": "Gerçek Zamanlı Takvim ve Saat Hassasiyeti",
+    "dobLabel": "Doğum Tarihi",
+    "dobPlaceholder": "Doğum tarihinizi seçin",
+    "dobHelper": "Doğum gün, ay ve yılınızı seçin (GG/AA/YYYY). Çerezlerde güvenle saklanır.",
+    "targetDateLabel": "Hesaplama Tarihi",
+    "useToday": "Bugünü Kullan",
+    "changeDate": "Tarihi Değiştir",
+    "includeTime": "Doğum Saatini Ekle (İsteğe Bağlı)",
+    "includeTimeHelper": "Dakika bazında hassasiyet için",
+    "birthTimeLabel": "Doğum Saati (Yerel Saat)",
+    "calculate": "Yaşı Hesapla",
+    "reset": "Sıfırla",
+    "clear": "Temizle",
+    "copied": "Kopyalandı!",
+    "copy": "Kopyala",
+    "print": "Yazdır",
+    "yourExactAge": "Tam Yaşınız",
     "years": "Yıl",
     "months": "Ay",
     "days": "Gün",
-    "hours": "Hours",
-    "minutes": "Minutes",
+    "hours": "Saat",
+    "minutes": "Dakika",
     "seconds": "Saniye",
-    "nextBirthday": "Next Birthday",
-    "daysRemaining": "days remaining",
-    "turning": "Turning",
-    "happyBirthday": "🎉 Happy Birthday Today!",
-    "totalDaysLived": "Total Days Lived",
-    "totalWeeks": "Total Weeks",
-    "heartbeats": "Estimated Heartbeats",
-    "solarOrbit": "Solar Year Progress",
-    "liveSeconds": "Running Total Seconds Lived",
-    "timeBreakdown": "Comprehensive Time Breakdown",
-    "zodiacSign": "Western Zodiac",
-    "chineseZodiac": "Chinese Zodiac",
-    "dayBorn": "Day of Birth"
+    "nextBirthday": "Sonraki Doğum Günü",
+    "daysRemaining": "gün kaldı",
+    "turning": "Gireceğiniz yaş",
+    "happyBirthday": "🎉 Bugün Doğum Günü! Mutlu Yıllar!",
+    "totalDaysLived": "Yaşanan Toplam Gün",
+    "totalWeeks": "Toplam Hafta",
+    "heartbeats": "Tahmini Kalp Atışı",
+    "solarOrbit": "Güneş Yılı Yörünge İlerlemesi",
+    "liveSeconds": "Canlı Yaşanan Toplam Saniye",
+    "timeBreakdown": "Kapsamlı Zaman Dökümü",
+    "zodiacSign": "Burç",
+    "chineseZodiac": "Çin Burcu",
+    "dayBorn": "Doğum Günü (Haftanın Günü)"
   },
   "features": {
-    "gregorianPrecisionTitle": "Gregorian Precision",
-    "gregorianPrecisionDesc": "Accounts for leap years, 30/31-day months, and February leap days down to the second.",
-    "liveSecondsTitle": "Live Running Seconds",
-    "liveSecondsDesc": "Real-time live age odometer synchronized with your device clock.",
-    "privateAndFreeTitle": "100% Private & Free",
-    "privateAndFreeDesc": "No registration or server uploads. All calculations run strictly in your browser."
+    "gregorianPrecisionTitle": "Miladi Takvim Hassasiyeti",
+    "gregorianPrecisionDesc": "Artık yılları, 30/31 günlük ayları ve 29 Şubat'ı saniyesine kadar hesaba katar.",
+    "liveSecondsTitle": "Canlı Saniye Sayacı",
+    "liveSecondsDesc": "Cihazınızın saatiyle senkronize, gerçek zamanlı çalışan yaş göstergesi.",
+    "privateAndFreeTitle": "%100 Gizli ve Ücretsiz",
+    "privateAndFreeDesc": "Kayıt yok, sunucuya veri aktarımı yok. Tüm hesaplamalar tarayıcınızda gerçekleşir."
   },
   "howItWorks": {
-    "title": "How the Age Calculator Works",
-    "subtitle": "A transparent breakdown of how our algorithm calculates calendar days, handles month borrowing, and tracks live seconds."
+    "title": "Yaş Hesaplama Nasıl Çalışır?",
+    "subtitle": "Algoritmamızın takvim günlerini, ay devirlerini ve canlı saniyeleri nasıl hesapladığının açık açıklaması."
   },
   "faq": {
-    "title": "Frequently Asked Questions",
+    "title": "Sıkça Sorulan Sorular (SSS)",
     "items": [
       {
-        "question": "How does the Age Calculator calculate my exact age?",
-        "answer": "The calculator compares your Date of Birth with your target date using the Gregorian calendar algorithm. It computes complete elapsed years, calculates remaining full months, and calculates the remaining days by borrowing the exact days of the previous month."
+        "question": "Yaş hesaplayıcı tam yaşımı nasıl bulur?",
+        "answer": "Doğum tarihinizi hedef tarihle Miladi takvime göre karşılaştırır, tam yılları, ayları ve önceki aydan kalan günleri ödünç alarak kesin hesaplar."
       },
       {
-        "question": "Does this calculator account for leap years?",
-        "answer": "Yes. The algorithm handles February 29 correctly. If your birthday is on a leap day, the calculator checks leap cycle rules and measures exact calendar intervals."
+        "question": "Artık yıllar hesaba katılıyor mu?",
+        "answer": "Evet, 29 Şubat doğumlular dahil 4 yıllık artık yıl döngüleri kurallara uygun biçimde işlenir."
       },
       {
-        "question": "How accurate is the live running seconds counter?",
-        "answer": "The live counter updates every second in real time, synchronized with your system clock, computing exact elapsed seconds from your birth timestamp."
+        "question": "Canlı saniye sayacı ne kadar doğru?",
+        "answer": "Cihazınızın saatiyle her saniye anlık olarak senkronize edilir ve geçen zamanı hesaplar."
       },
       {
-        "question": "Is my personal data safe and private?",
-        "answer": "Yes, 100%. All calculations happen entirely on your device inside your web browser. No personal information or birth dates are transmitted to any external server."
+        "question": "Kişisel bilgilerim güvende mi?",
+        "answer": "Evet, %100 güvendedir. Tüm işlemler yerel olarak tarayıcınızda yürütülür."
       },
       {
-        "question": "Can I calculate the age difference between two people?",
-        "answer": "Yes. Use our Age Difference Calculator to compare two birth dates and find the exact duration in years, months, and days."
+        "question": "İki kişi arasındaki yaş farkı hesaplanabilir mi?",
+        "answer": "Evet, 'Yaş Farkı Hesaplama' aracımızla iki doğum tarihi arasındaki yıl, ay ve gün farkını kolayca bulabilirsiniz."
       }
     ]
   },
   "breadcrumbs": {
-    "home": "Home"
+    "home": "Ana Sayfa"
   },
   "related": {
-    "title": "Explore Related Age & Date Calculators",
-    "description": "Quickly switch to specialized calculators for birthdays, milestone ages, date durations, and interval counting.",
-    "openCalculator": "Open Calculator"
+    "title": "Diğer Yaş ve Tarih Hesaplayıcıları",
+    "description": "Doğum günü geri sayımı, dönüm noktaları ve iş günü hesaplama araçlarına geçiş yapın.",
+    "openCalculator": "Hesaplayıcıyı Aç"
   },
   "languageSelector": {
-    "title": "Select Language",
-    "subtitle": "Choose your preferred language for the entire website",
-    "searchPlaceholder": "Search language...",
-    "close": "Close"
+    "title": "Dil Seçin",
+    "subtitle": "Tüm web sitesi için tercih ettiğiniz dili seçin",
+    "searchPlaceholder": "Dil ara...",
+    "close": "Kapat"
   },
   "footer": {
-    "brandDescription": "Free, accurate, and privacy-first online age calculator. Compute your exact age in years, months, and days, find your next birthday countdown, and calculate time differences with calendar precision.",
-    "coreCalculators": "Age Calculators",
-    "specialtyTools": "Specialty Tools",
-    "guide": "Calculation Guide",
-    "company": "Company & Legal",
-    "aboutUs": "About Us",
-    "contact": "Contact",
-    "privacy": "Privacy Policy",
-    "terms": "Terms of Service",
-    "languages": "Supported Languages & International Versions",
-    "clientSideBadge": "100% Client-Side • Zero Data Stored",
-    "allRightsReserved": "All rights reserved."
+    "brandDescription": "Ücretsiz, doğru ve gizlilik odaklı çevrim içi yaş hesaplama aracı. Yaşınızı, doğum günlerinizi ve tarih farklarını takvim hassasiyetiyle hesaplayın.",
+    "coreCalculators": "Yaş Hesaplayıcılar",
+    "specialtyTools": "Özel Araçlar",
+    "guide": "Hesaplama Rehberi",
+    "company": "Şirket ve Yasal",
+    "aboutUs": "Hakkımızda",
+    "contact": "İletişim",
+    "privacy": "Gizlilik Politikası",
+    "terms": "Kullanım Koşulları",
+    "languages": "Desteklenen Diller ve Uluslararası Sürümler",
+    "clientSideBadge": "%100 İstemci Taraflı • Veri Saklanmaz",
+    "allRightsReserved": "Tüm hakları saklıdır."
   },
   "errors": {
-    "invalidDate": "Please enter a valid date.",
-    "futureDate": "Birth date cannot be in the future.",
-    "requiredDate": "Please select your date of birth."
+    "invalidDate": "Lütfen geçerli bir tarih girin.",
+    "futureDate": "Doğum tarihi gelecekte olamaz.",
+    "requiredDate": "Lütfen doğum tarihinizi seçin."
   },
   "tools": {
     "age-calculator": {
       "title": "Yaş Hesaplama",
-      "desc": "Ücretsiz online yaş hesaplama aracı. Doğum tarihinize göre yaşınızı yıl, ay, gün ve canlı saniye olarak kesin hesaplayın."
+      "desc": "Yaşınızı yıl, ay, gün ve saniyelerle gerçek zamanlı olarak hesaplayın."
     },
     "birthday-calculator": {
-      "title": "Birthday Calculator",
-      "desc": "Discover your next birthday, day of week, days countdown, and milestone ages."
+      "title": "Doğum Günü Hesaplama",
+      "desc": "Gelecek doğum gününüzü, haftanın gününü ve dönüm noktası yaşlarınızı öğrenin."
     },
     "age-difference-calculator": {
-      "title": "Age Difference Calculator",
-      "desc": "Compare two dates of birth to find the precise difference in years, months, and days."
+      "title": "Yaş Farkı Hesaplama",
+      "desc": "İki doğum tarihini karşılaştırarak kesin yaş farkını yıl, ay ve gün olarak bulun."
     },
     "birthday-countdown": {
-      "title": "Birthday Countdown",
-      "desc": "Live real-time ticking countdown clock for upcoming birthdays and milestone celebrations."
+      "title": "Doğum Günü Geri Sayımı",
+      "desc": "Yaklaşan doğum günleri ve özel kutlamalar için canlı geri sayım saati."
     },
     "date-difference-calculator": {
-      "title": "Date Difference Calculator",
-      "desc": "Find the exact duration and interval between any two dates in years, months, and days."
+      "title": "Tarih Farkı Hesaplama",
+      "desc": "İki tarih arasındaki süreyi yıl, ay, gün ve saat olarak öğrenin."
     },
     "date-of-birth-calculator": {
-      "title": "Date of Birth Calculator",
-      "desc": "Reverse calculator: determine your exact or approximate birth date from given age."
+      "title": "Doğum Tarihi Bulma",
+      "desc": "Ters hesaplayıcı: Bilinen yaştan doğum tarihinizi geriye dönük hesaplayın."
     },
     "days-between-dates": {
-      "title": "Days Between Dates",
-      "desc": "Calculate total calendar days and business days between any two dates."
+      "title": "İki Tarih Arasındaki Günler",
+      "desc": "İki tarih arasındaki toplam takvim günlerini, iş günlerini ve hafta sonlarını sayın."
     },
     "chronological-age-calculator": {
-      "title": "Chronological Age Calculator",
-      "desc": "Standard clinical and academic chronological age calculator (YY;MM;DD)."
+      "title": "Kronolojik Yaş Hesaplama",
+      "desc": "Klinik ve akademik değerlendirmeler için standart kronolojik yaş (YY;AA;GG)."
     },
     "retirement-age-calculator": {
-      "title": "Retirement Age Calculator",
-      "desc": "Estimate your retirement milestone date and calculate remaining years and working days."
+      "title": "Emeklilik Yaşı Hesaplama",
+      "desc": "Tahmini emeklilik tarihinizi, kalan yılları ve kalan çalışma günlerini hesaplayın."
     },
     "leap-year-age-calculator": {
-      "title": "Leap Year Age Calculator",
-      "desc": "Special calculator for February 29 leap day babies to track birthdays vs calendar years."
+      "title": "Artık Yıl Yaş Hesaplayıcı",
+      "desc": "29 Şubat doğumluların gerçek artık yıl doğum günlerini takip etmesi için özel araç."
     },
     "how-to-calculate-age": {
-      "title": "How to Calculate Age",
-      "desc": "Step-by-step mathematical guide to manual age calculation and calendar borrowing rules."
+      "title": "Yaş Nasıl Hesaplanır?",
+      "desc": "Takvim kurallarıyla manuel yaş hesaplama için adım adım matematik rehberi."
+    }
+  },
+  "calculators": {
+    "birthday": {
+      "title": "Doğum Günü ve Dönüm Noktaları",
+      "desc": "Gelecek doğum gününüze kaç gün kaldığını ve önemli yaşlarınızın hangi güne denk geldiğini görün.",
+      "dobLabel": "Doğum Tarihiniz",
+      "btnCalculate": "Doğum Günü Bilgilerini Gör",
+      "nextCountdown": "Sonraki Doğum Günü Geri Sayımı",
+      "daysUntil": "Gün",
+      "turning": "yaşına girmenize",
+      "onDate": "Sonraki doğum gününüz:",
+      "todayBday": "Bugün Doğum Gününüz! İyi ki Doğdunuz!",
+      "milestoneTitle": "Önemli Dönüm Noktası Yaşlar",
+      "age": "Yaş",
+      "year": "Yıl",
+      "date": "Tarih",
+      "dayOfWeek": "Haftanın Günü",
+      "status": "Durum",
+      "passed": "Geçti",
+      "upcoming": "Yaklaşan"
+    },
+    "ageDifference": {
+      "title": "İki Kişi Arasındaki Yaş Farkı",
+      "desc": "İki doğum tarihini karşılaştırıp aradaki kesin yaş farkını yıl, ay ve gün olarak hesaplayın.",
+      "personA": "1. Kişi",
+      "personB": "2. Kişi",
+      "dobLabel": "Doğum Tarihi",
+      "btnCalculate": "Yaş Farkını Hesapla",
+      "resultTitle": "Yaş Farkı Dökümü",
+      "olderThan": "kişisinden büyüktür",
+      "by": "fark:",
+      "totalDaysDiff": "Toplam Gün Farkı",
+      "totalWeeksDiff": "Toplam Hafta Farkı",
+      "copySummary": "Özeti Kopyala",
+      "copied": "Panoya kopyalandı!",
+      "sameAge": "Her iki kişi de tamamen aynı tarihte doğmuştur."
+    },
+    "dateDifference": {
+      "title": "Tarih Aralığı Hesaplama",
+      "desc": "İki takvim tarihi arasındaki süreyi yıl, ay ve gün cinsinden kesin olarak hesaplayın.",
+      "startDate": "Başlangıç Tarihi",
+      "endDate": "Bitiş Tarihi",
+      "btnCalculate": "Süreyi Hesapla",
+      "resultTitle": "Tarihler Arasındaki Süre",
+      "diffYMD": "Fark",
+      "totalDays": "Toplam Gün",
+      "totalWeeks": "Toplam Hafta",
+      "totalHours": "Toplam Saat",
+      "totalMinutes": "Toplam Dakika",
+      "errorInvalid": "Lütfen geçerli başlangıç ve bitiş tarihleri seçin."
+    },
+    "dateOfBirth": {
+      "title": "Doğum Tarihi Bulma Aracı",
+      "desc": "Mevcut yaşınızı (yıl, ay, gün) girerek tahmini doğum tarihinizi hesaplayın.",
+      "ageYears": "Yıl",
+      "ageMonths": "Ay",
+      "ageDays": "Gün",
+      "asOfDate": "Hesaplama Tarihi",
+      "btnCalculate": "Doğum Tarihini Bul",
+      "resultTitle": "Hesaplanan Doğum Tarihi",
+      "estimatedDob": "Tahmini Doğum Tarihi",
+      "dayBorn": "Doğum Günü"
+    },
+    "birthdayCountdown": {
+      "title": "Doğum Günü Geri Sayım Saati",
+      "desc": "Gelecek doğum gününe saniyeler kalan canlı geri sayım.",
+      "dobLabel": "Doğum Tarihi",
+      "days": "Gün",
+      "hours": "Saat",
+      "minutes": "Dakika",
+      "seconds": "Saniye",
+      "turningAge": "Gireceğiniz yaş:",
+      "nextBdayOn": "Sonraki doğum günü tarihi:",
+      "happyBday": "🎉 Bugün Doğum Gününüz Kutlu Olsun!"
+    },
+    "daysBetween": {
+      "title": "Tarihler Arasındaki Gün Sayısı",
+      "desc": "İki tarih arasındaki takvim günlerini, iş günlerini ve hafta sonlarını hesaplayın.",
+      "startDate": "Başlangıç Tarihi",
+      "endDate": "Bitiş Tarihi",
+      "includeEndDay": "Bitiş gününü dahil et (+1 gün)",
+      "btnCalculate": "Günleri Say",
+      "totalDays": "Toplam Takvim Günü",
+      "businessDays": "İş Günü (Pzt-Cum)",
+      "weekendDays": "Hafta Sonu Günleri",
+      "totalWeeks": "Toplam Hafta"
+    },
+    "chronological": {
+      "title": "Kronolojik Yaş Hesaplayıcı",
+      "desc": "Klinik değerlendirmeler için standart kronolojik yaş (Yıl;Ay;Gün) hesabı.",
+      "birthDate": "Doğum Tarihi",
+      "testDate": "Test / Değerlendirme Tarihi",
+      "weeksPremature": "Erken Doğum Haftası (Düzeltilmiş Yaş İçin)",
+      "btnCalculate": "Kronolojik Yaşı Hesapla",
+      "chronologicalAge": "Kronolojik Yaş",
+      "notation": "Klinik Gösterim (Y;A;G)",
+      "exactInterval": "Geçen Net Zaman",
+      "adjustedAge": "Düzeltilmiş Yaş"
+    },
+    "retirement": {
+      "title": "Emeklilik Yaşı Hesaplayıcı",
+      "desc": "Hedeflediğiniz emeklilik yaşına kalan süreyi ve tahmini çalışma günlerini hesaplayın.",
+      "birthDate": "Doğum Tarihi",
+      "currentAge": "Mevcut Yaş",
+      "targetAge": "Hedef Emeklilik Yaşı",
+      "asOfDate": "Hesaplama Tarihi",
+      "btnCalculate": "Emekliliği Hesapla",
+      "yearsRemaining": "Kalan Yıl",
+      "targetYear": "Tahmini Emeklilik Yılı",
+      "workingDaysLeft": "Tahmini Kalan İş Günü",
+      "alreadyReached": "Hedef emeklilik yaşına ulaşıldı."
+    },
+    "leapYear": {
+      "title": "Artık Yıl ve 29 Şubat Hesaplayıcı",
+      "desc": "Kaç kez 29 Şubat yaşadığınızı ve gelecek artık yıl doğum günlerinizi öğrenin.",
+      "dobLabel": "Doğum Tarihi",
+      "btnCalculate": "Artık Yıl Bilgisini Gör",
+      "leapYearsLived": "Yaşanan 29 Şubat Sayısı",
+      "actualBirthdays": "Resmi Artık Yıl Doğum Günleri",
+      "nextLeapBirthday": "Gelecek 29 Şubat Doğum Günü",
+      "leapBabyBadge": "Artık Yıl Doğumlu (29 Şubat)"
+    },
+    "liveTicker": {
+      "title": "Canlı Yaş Sayacı",
+      "syncedLocal": "Cihaz saatinizle senkronize",
+      "clock": "Saat",
+      "runningTotalSeconds": "Yaşanan Toplam Saniye",
+      "seconds": "saniye",
+      "solarOrbit": "Güneş Yılı İlerlemesi",
+      "completed": "Tamamlandı",
+      "turnedAge": "Son doğum gününde girilen yaş",
+      "turningAgeIn": "Yeni yaşa kalan süre",
+      "bioMilestones": "Biyolojik Kilometre Taşları",
+      "spaceTravel": "Uzay ve Gezegen Seyahati",
+      "heartbeats": "Tahmini Kalp Atışı",
+      "breaths": "Alınan Nefes",
+      "blinks": "Göz Kırpma Sayısı",
+      "hoursSlept": "Uyunan Saat",
+      "earthRotation": "Dünya Yüzeyi Dönüş Mesafesi",
+      "sunOrbit": "Güneş Çevresinde Kat Edilen Mesafe",
+      "asOfTarget": "Hedef tarih itibarıyla hesaplandı"
     }
   }
 }

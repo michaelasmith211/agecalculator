@@ -1,15 +1,18 @@
 'use client';
 
 import React, { useState } from 'react';
+import { usePathname } from 'next/navigation';
 import { Clock, Sparkles, AlertCircle } from 'lucide-react';
 import {
   calculateDaysBetweenDates,
   getTodayCalendarDate,
   parseDateString,
-  toDateString,
-  formatDisplayDate
+  toDateString
 } from '@/lib/date-utils';
 import { trackEvent } from '@/lib/analytics';
+import { detectLocale } from '@/i18n/locale-utils';
+import { getTranslations } from '@/i18n/getTranslations';
+import { formatDateShort, formatNumber } from '@/lib/format-utils';
 
 interface DateDifferenceDetails {
   years: number;
@@ -23,7 +26,16 @@ interface DateDifferenceDetails {
   endFormatted: string;
 }
 
-export default function DateDifferenceCalculator() {
+interface DateDifferenceCalculatorProps {
+  locale?: string;
+}
+
+export default function DateDifferenceCalculator({ locale: propLocale }: DateDifferenceCalculatorProps) {
+  const pathname = usePathname() || '/';
+  const locale = propLocale || detectLocale(pathname);
+  const { t, raw } = getTranslations(locale);
+  const c = raw.calculators?.dateDifference;
+
   const today = getTodayCalendarDate();
   const todayStr = toDateString(today);
 
@@ -33,11 +45,15 @@ export default function DateDifferenceCalculator() {
   const compute = (s: string, e: string) => {
     const start = parseDateString(s);
     const end = parseDateString(e);
-    if (!start || !end) return { res: null, err: 'Please select valid start and end dates.' };
+    if (!start || !end) {
+      return { res: null, err: c?.errorInvalid || t('errors.invalidDate', 'Please select valid start and end dates.') };
+    }
     try {
       const daysRes = calculateDaysBetweenDates(start, end, false);
-      const startFormatted = formatDisplayDate(daysRes.isEndBeforeStart ? end : start);
-      const endFormatted = formatDisplayDate(daysRes.isEndBeforeStart ? start : end);
+      const startCal = daysRes.isEndBeforeStart ? end : start;
+      const endCal = daysRes.isEndBeforeStart ? start : end;
+      const startFormatted = formatDateShort(new Date(startCal.year, startCal.month - 1, startCal.day), locale);
+      const endFormatted = formatDateShort(new Date(endCal.year, endCal.month - 1, endCal.day), locale);
 
       const details: DateDifferenceDetails = {
         years: daysRes.years,
@@ -52,7 +68,7 @@ export default function DateDifferenceCalculator() {
       };
       return { res: details, err: null };
     } catch (err: unknown) {
-      return { res: null, err: err instanceof Error ? err.message : 'Calculation error' };
+      return { res: null, err: err instanceof Error ? err.message : t('errors.invalidDate', 'Calculation error') };
     }
   };
 
@@ -69,6 +85,9 @@ export default function DateDifferenceCalculator() {
     }
   };
 
+  const calcTitle = c?.title || raw.tools?.['date-difference-calculator']?.title || 'Date Difference Calculator';
+  const calcDesc = c?.desc || raw.tools?.['date-difference-calculator']?.desc || 'Find the exact duration between any two dates.';
+
   return (
     <div className="calculator-card p-6 sm:p-8 bg-white border border-slate-200 rounded-2xl shadow-sm">
       <div className="flex items-center gap-2.5 mb-2">
@@ -77,10 +96,10 @@ export default function DateDifferenceCalculator() {
         </div>
         <div>
           <h2 className="text-xl sm:text-2xl font-bold text-slate-900">
-            Date Difference Calculator
+            {calcTitle}
           </h2>
           <p className="text-sm text-slate-600">
-            Find the exact difference and duration between any two historical or future calendar dates.
+            {calcDesc}
           </p>
         </div>
       </div>
@@ -88,7 +107,7 @@ export default function DateDifferenceCalculator() {
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
         <div>
           <label htmlFor="d1" className="block text-sm font-bold text-slate-800 mb-1">
-            From Date (Start)
+            {c?.startDate || 'Start Date'}
           </label>
           <input
             id="d1"
@@ -104,7 +123,7 @@ export default function DateDifferenceCalculator() {
 
         <div>
           <label htmlFor="d2" className="block text-sm font-bold text-slate-800 mb-1">
-            To Date (End)
+            {c?.endDate || 'End Date'}
           </label>
           <input
             id="d2"
@@ -126,7 +145,7 @@ export default function DateDifferenceCalculator() {
           className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold bg-violet-600 text-white hover:bg-violet-700 shadow-sm transition-all"
         >
           <Sparkles className="w-4 h-4" />
-          <span>Calculate Difference</span>
+          <span>{c?.btnCalculate || 'Calculate Difference'}</span>
         </button>
       </div>
 
@@ -141,49 +160,49 @@ export default function DateDifferenceCalculator() {
         <div className="mt-8 space-y-6">
           <div className="p-6 bg-violet-50/70 border border-violet-200 rounded-2xl">
             <div className="text-xs font-bold text-violet-800 uppercase tracking-wider">
-              Exact Calendar Duration
+              {c?.resultTitle || 'Exact Calendar Duration'}
             </div>
             <div className="flex flex-wrap items-baseline gap-2 sm:gap-4 mt-2">
               <div className="flex items-baseline gap-1">
                 <span className="text-4xl sm:text-5xl font-extrabold text-violet-950">
-                  {details.years}
+                  {formatNumber(details.years, locale)}
                 </span>
-                <span className="text-base font-bold text-violet-800">Years</span>
+                <span className="text-base font-bold text-violet-800">{t('calculator.years', 'Years')}</span>
               </div>
               <div className="flex items-baseline gap-1">
                 <span className="text-4xl sm:text-5xl font-extrabold text-violet-950">
-                  {details.months}
+                  {formatNumber(details.months, locale)}
                 </span>
-                <span className="text-base font-bold text-violet-800">Months</span>
+                <span className="text-base font-bold text-violet-800">{t('calculator.months', 'Months')}</span>
               </div>
               <div className="flex items-baseline gap-1">
                 <span className="text-4xl sm:text-5xl font-extrabold text-violet-950">
-                  {details.days}
+                  {formatNumber(details.days, locale)}
                 </span>
-                <span className="text-base font-bold text-violet-800">Days</span>
+                <span className="text-base font-bold text-violet-800">{t('calculator.days', 'Days')}</span>
               </div>
             </div>
             <div className="mt-3 text-xs text-slate-600">
-              Between {details.startFormatted} and {details.endFormatted}
+              {details.startFormatted} ➔ {details.endFormatted}
             </div>
           </div>
 
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl">
-              <div className="text-xs font-semibold text-slate-500 uppercase">Days</div>
-              <div className="text-xl font-bold text-slate-900 mt-1">{details.totalDays.toLocaleString()}</div>
+              <div className="text-xs font-semibold text-slate-500 uppercase">{c?.totalDays || 'Total Days'}</div>
+              <div className="text-xl font-bold text-slate-900 mt-1">{formatNumber(details.totalDays, locale)}</div>
             </div>
             <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl">
-              <div className="text-xs font-semibold text-slate-500 uppercase">Weeks</div>
-              <div className="text-xl font-bold text-slate-900 mt-1">{details.totalWeeks.toLocaleString()}</div>
+              <div className="text-xs font-semibold text-slate-500 uppercase">{c?.totalWeeks || 'Total Weeks'}</div>
+              <div className="text-xl font-bold text-slate-900 mt-1">{formatNumber(details.totalWeeks, locale)}</div>
             </div>
             <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl">
-              <div className="text-xs font-semibold text-slate-500 uppercase">Hours</div>
-              <div className="text-xl font-bold text-slate-900 mt-1">{details.totalHours.toLocaleString()}</div>
+              <div className="text-xs font-semibold text-slate-500 uppercase">{c?.totalHours || 'Total Hours'}</div>
+              <div className="text-xl font-bold text-slate-900 mt-1">{formatNumber(details.totalHours, locale)}</div>
             </div>
             <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl min-w-0">
-              <div className="text-xs font-semibold text-slate-500 uppercase">Minutes</div>
-              <div className="text-[clamp(14px,3.5vw,1.25rem)] font-bold text-slate-900 mt-1 whitespace-nowrap overflow-x-auto scrollbar-none">{details.totalMinutes.toLocaleString()}</div>
+              <div className="text-xs font-semibold text-slate-500 uppercase">{c?.totalMinutes || 'Total Minutes'}</div>
+              <div className="text-[clamp(14px,3.5vw,1.25rem)] font-bold text-slate-900 mt-1 whitespace-nowrap overflow-x-auto scrollbar-none">{formatNumber(details.totalMinutes, locale)}</div>
             </div>
           </div>
         </div>

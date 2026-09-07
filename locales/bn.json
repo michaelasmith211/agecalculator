@@ -1,176 +1,318 @@
 {
   "meta": {
-    "homeTitle": "বয়স ক্যালকুলেটর – বছর, মাস ও দিনে সঠিক বয়স গণনা করুন",
-    "homeDescription": "বিনামূল্যে অনলাইন বয়স ক্যালকুলেটর। আপনার সঠিক বয়স বছর, মাস, দিন এবং রিয়েল-টাইম সেকেন্ডে গণনা করুন।",
+    "homeTitle": "বয়স ক্যালকুলেটর – বছর, মাস এবং দিনে আপনার সঠিক বয়স হিসাব করুন",
+    "homeDescription": "বিনামূল্যে অনলাইন বয়স ক্যালকুলেটর। বছর, মাস, দিন এবং লাইভ সেকেন্ডে আপনার সঠিক বয়স জানুন। জন্মদিন কাউন্টডাউন ও জীবন পরিসংখ্যান।",
     "homeH1": "অনলাইন বয়স ক্যালকুলেটর",
-    "homeSubtitle": "গ্রেগরিয়ান ক্যালেন্ডারের নিখুঁত নির্ভুলতার সাথে আপনার সঠিক বয়স বছর, মাস, দিন, ঘন্টা এবং সেকেন্ডে হিসাব করুন।"
+    "homeSubtitle": "গ্রেগরিয়ান ক্যালেন্ডারের নিখুঁত নিয়মে বছর, মাস, দিন, ঘণ্টা এবং লাইভ চলমান সেকেন্ডে আপনার সঠিক বয়স হিসাব করুন।"
   },
   "navigation": {
-    "home": "Home",
+    "home": "হোম",
     "ageCalculator": "বয়স ক্যালকুলেটর",
-    "birthday": "Birthday",
-    "ageDifference": "Age Difference",
-    "dateDifference": "Date Difference",
-    "dateOfBirth": "Date of Birth",
-    "moreTools": "More Tools",
-    "allAgeTools": "All Age & Date Tools",
+    "birthday": "জন্মদিন ক্যালকুলেটর",
+    "ageDifference": "বয়সের পার্থক্য",
+    "dateDifference": "তারিখের পার্থক্য",
+    "dateOfBirth": "জন্মতারিখ ক্যালকুলেটর",
+    "moreTools": "আরও সরঞ্জাম",
+    "allAgeTools": "সকল বয়স ও তারিখ সরঞ্জাম",
     "calculateAge": "বয়স গণনা করুন",
-    "calculateMyAgeNow": "বয়স গণনা করুন",
-    "mainTools": "Main Tools",
-    "moreCalculators": "More Calculators"
+    "calculateMyAgeNow": "আমার বয়স গণনা করুন",
+    "mainTools": "মূল সরঞ্জাম",
+    "moreCalculators": "আরও ক্যালকুলেটর"
   },
   "calculator": {
-    "badge": "Instant Calendar & Time Precision Calculation",
-    "dobLabel": "Date of Birth",
-    "dobPlaceholder": "Select your birth date",
-    "dobHelper": "Select your birth day, month, and year (DD / MM / YYYY). Auto-saved locally in cookies.",
-    "targetDateLabel": "Age As Of Date",
-    "useToday": "Use Today",
-    "changeDate": "Change Date",
-    "includeTime": "Include Exact Birth Time (Optional)",
-    "includeTimeHelper": "For down-to-the-minute precision",
-    "birthTimeLabel": "Time of Birth (Local Time)",
-    "calculate": "বয়স গণনা করুন",
-    "reset": "Reset",
-    "clear": "Clear",
-    "copied": "Copied!",
-    "copy": "Copy",
-    "print": "Print",
-    "yourExactAge": "Your Exact Age",
+    "badge": "তাৎক্ষণিক ক্যালেন্ডার ও লাইভ সময়ের নির্ভুল গণনা",
+    "dobLabel": "জন্মতারিখ",
+    "dobPlaceholder": "আপনার জন্মতারিখ নির্বাচন করুন",
+    "dobHelper": "জন্মের দিন, মাস ও বছর নির্বাচন করুন (দিন/মাস/বছর)। কুকিজে সংরক্ষিত থাকে।",
+    "targetDateLabel": "যে তারিখ পর্যন্ত বয়স",
+    "useToday": "আজকের তারিখ",
+    "changeDate": "তারিখ পরিবর্তন করুন",
+    "includeTime": "জন্মের সঠিক সময় যুক্ত করুন (ঐচ্ছিক)",
+    "includeTimeHelper": "মিনিটের নির্ভুলতার জন্য",
+    "birthTimeLabel": "জন্মের সময় (স্থানীয় সময়)",
+    "calculate": "বয়স হিসাব করুন",
+    "reset": "রিসেট",
+    "clear": "মুছুন",
+    "copied": "কপি হয়েছে!",
+    "copy": "কপি করুন",
+    "print": "প্রিন্ট করুন",
+    "yourExactAge": "আপনার সঠিক বয়স",
     "years": "বছর",
     "months": "মাস",
     "days": "দিন",
-    "hours": "Hours",
-    "minutes": "Minutes",
+    "hours": "ঘণ্টা",
+    "minutes": "মিনিট",
     "seconds": "সেকেন্ড",
-    "nextBirthday": "Next Birthday",
-    "daysRemaining": "days remaining",
-    "turning": "Turning",
-    "happyBirthday": "🎉 Happy Birthday Today!",
-    "totalDaysLived": "Total Days Lived",
-    "totalWeeks": "Total Weeks",
-    "heartbeats": "Estimated Heartbeats",
-    "solarOrbit": "Solar Year Progress",
-    "liveSeconds": "Running Total Seconds Lived",
-    "timeBreakdown": "Comprehensive Time Breakdown",
-    "zodiacSign": "Western Zodiac",
-    "chineseZodiac": "Chinese Zodiac",
-    "dayBorn": "Day of Birth"
+    "nextBirthday": "পরবর্তী জন্মদিন",
+    "daysRemaining": "দিন বাকি",
+    "turning": "হবে",
+    "happyBirthday": "🎉 আজ আপনার জন্মদিন! শুভ জন্মদিন!",
+    "totalDaysLived": "মোট অতিক্রান্ত দিন",
+    "totalWeeks": "মোট সপ্তাহ",
+    "heartbeats": "আনুমানিক হৃদস্পন্দন",
+    "solarOrbit": "সৌর বছর অগ্রগতি",
+    "liveSeconds": "মোট অতিক্রান্ত লাইভ সেকেন্ড",
+    "timeBreakdown": "সময়ের পূর্ণ বিবরণ",
+    "zodiacSign": "পশ্চিমা রাশি",
+    "chineseZodiac": "চীনা রাশি",
+    "dayBorn": "জন্মের বার"
   },
   "features": {
-    "gregorianPrecisionTitle": "Gregorian Precision",
-    "gregorianPrecisionDesc": "Accounts for leap years, 30/31-day months, and February leap days down to the second.",
-    "liveSecondsTitle": "Live Running Seconds",
-    "liveSecondsDesc": "Real-time live age odometer synchronized with your device clock.",
-    "privateAndFreeTitle": "100% Private & Free",
-    "privateAndFreeDesc": "No registration or server uploads. All calculations run strictly in your browser."
+    "gregorianPrecisionTitle": "গ্রেগরিয়ান নিখুঁত হিসাব",
+    "gregorianPrecisionDesc": "অধিবর্ষ (লিপ ইয়ার), ৩০/৩১ দিনের মাস এবং ২৯ ফেব্রুয়ারিকে সেকেন্ডের নির্ভুলতায় হিসাব করে।",
+    "liveSecondsTitle": "লাইভ সেকেন্ড ওডোমিটার",
+    "liveSecondsDesc": "আপনার ডিভাইসের ঘড়ির সাথে সিঙ্ক করা রিয়েল-টাইম লাইভ কাউন্টার।",
+    "privateAndFreeTitle": "১০০% নিরাপদ ও বিনামূল্যে",
+    "privateAndFreeDesc": "কোনো নিবন্ধন বা সার্ভার আপলোড নেই। সমস্ত হিসাব কেবল আপনার ব্রাউজারেই হয়।"
   },
   "howItWorks": {
-    "title": "How the Age Calculator Works",
-    "subtitle": "A transparent breakdown of how our algorithm calculates calendar days, handles month borrowing, and tracks live seconds."
+    "title": "বয়স ক্যালকুলেটর কীভাবে কাজ করে",
+    "subtitle": "আমাদের অ্যালগরিদম কীভাবে ক্যালেন্ডারের দিন, মাস এবং লাইভ সেকেন্ড হিসাব করে তার স্পষ্ট বিবরণ।"
   },
   "faq": {
-    "title": "Frequently Asked Questions",
+    "title": "সাধারণ জিজ্ঞাসা (FAQ)",
     "items": [
       {
-        "question": "How does the Age Calculator calculate my exact age?",
-        "answer": "The calculator compares your Date of Birth with your target date using the Gregorian calendar algorithm. It computes complete elapsed years, calculates remaining full months, and calculates the remaining days by borrowing the exact days of the previous month."
+        "question": "বয়স ক্যালকুলেটর কীভাবে আমার সঠিক বয়স হিসাব করে?",
+        "answer": "এটি গ্রেগরিয়ান ক্যালেন্ডার নিয়ম অনুযায়ী জন্মতারিখ ও লক্ষ্য তারিখের তুলনা করে সম্পূর্ণ বছর, মাস এবং পূর্ববর্তী মাসের দিন ধার করে সঠিক দিন নির্ণয় করে।"
       },
       {
-        "question": "Does this calculator account for leap years?",
-        "answer": "Yes. The algorithm handles February 29 correctly. If your birthday is on a leap day, the calculator checks leap cycle rules and measures exact calendar intervals."
+        "question": "এটি কি লিপ ইয়ার বা অধিবর্ষ সঠিকভাবে ধরে?",
+        "answer": "হ্যাঁ। ২৯ ফেব্রুয়ারি জন্মগ্রহণকারীদের ক্ষেত্রে এটি ৪ বছরের লিপ ইয়ার চক্রের আনুষ্ঠানিক নিয়ম অনুসরণ করে।"
       },
       {
-        "question": "How accurate is the live running seconds counter?",
-        "answer": "The live counter updates every second in real time, synchronized with your system clock, computing exact elapsed seconds from your birth timestamp."
+        "question": "লাইভ সেকেন্ড কাউন্টার কতটা নির্ভুল?",
+        "answer": "এটি আপনার ডিভাইসের ঘড়ির সাথে প্রতি সেকেন্ডে রিয়েল-টাইমে আপডেট হয়।"
       },
       {
-        "question": "Is my personal data safe and private?",
-        "answer": "Yes, 100%. All calculations happen entirely on your device inside your web browser. No personal information or birth dates are transmitted to any external server."
+        "question": "আমার ব্যক্তিগত তথ্য কি নিরাপদ?",
+        "answer": "হ্যাঁ, শতভাগ। সমস্ত প্রক্রিয়া আপনার ব্রাউজারে ঘটে, কোনো তথ্য বাইরের সার্ভারে যায় না।"
       },
       {
-        "question": "Can I calculate the age difference between two people?",
-        "answer": "Yes. Use our Age Difference Calculator to compare two birth dates and find the exact duration in years, months, and days."
+        "question": "দুইজনের বয়সের পার্থক্য কি বের করা যায়?",
+        "answer": "হ্যাঁ, আমাদের 'বয়সের পার্থক্য' ক্যালকুলেটর দিয়ে দুইজন ব্যক্তির জন্মতারিখের মধ্যে বছর, মাস ও দিনের ব্যবধান মাপুন।"
       }
     ]
   },
   "breadcrumbs": {
-    "home": "Home"
+    "home": "হোম"
   },
   "related": {
-    "title": "Explore Related Age & Date Calculators",
-    "description": "Quickly switch to specialized calculators for birthdays, milestone ages, date durations, and interval counting.",
-    "openCalculator": "Open Calculator"
+    "title": "অন্যান্য সম্পর্কিত বয়স ও তারিখ ক্যালকুলেটর",
+    "description": "জন্মদিন, মাইলফলক বয়স, তারিখের ব্যবধান ও কাজের দিন গণনার জন্য বিশেষায়িত সরঞ্জাম।",
+    "openCalculator": "ক্যালকুলেটর খুলুন"
   },
   "languageSelector": {
-    "title": "Select Language",
-    "subtitle": "Choose your preferred language for the entire website",
-    "searchPlaceholder": "Search language...",
-    "close": "Close"
+    "title": "ভাষা নির্বাচন করুন",
+    "subtitle": "সম্পূর্ণ ওয়েবসাইটের জন্য আপনার পছন্দের ভাষা বেছে নিন",
+    "searchPlaceholder": "ভাষা খুঁজুন...",
+    "close": "বন্ধ করুন"
   },
   "footer": {
-    "brandDescription": "Free, accurate, and privacy-first online age calculator. Compute your exact age in years, months, and days, find your next birthday countdown, and calculate time differences with calendar precision.",
-    "coreCalculators": "Age Calculators",
-    "specialtyTools": "Specialty Tools",
-    "guide": "Calculation Guide",
-    "company": "Company & Legal",
-    "aboutUs": "About Us",
-    "contact": "Contact",
-    "privacy": "Privacy Policy",
-    "terms": "Terms of Service",
-    "languages": "Supported Languages & International Versions",
-    "clientSideBadge": "100% Client-Side • Zero Data Stored",
-    "allRightsReserved": "All rights reserved."
+    "brandDescription": "বিনামূল্যে, নির্ভরযোগ্য ও গোপনীয় অনলাইন বয়স ক্যালকুলেটর। ক্যালেন্ডারের নিখুঁত নিয়মে আপনার বয়স, জন্মদিন এবং তারিখের ব্যবধান জানুন।",
+    "coreCalculators": "বয়স ক্যালকুলেটর",
+    "specialtyTools": "বিশেষ সরঞ্জাম",
+    "guide": "গণনা নির্দেশিকা",
+    "company": "প্রতিষ্ঠান ও আইনি",
+    "aboutUs": "আমাদের সম্পর্কে",
+    "contact": "যোগাযোগ",
+    "privacy": "গোপনীয়তা নীতি",
+    "terms": "ব্যবহারের শর্তাবলী",
+    "languages": "উপলব্ধ ভাষা ও আন্তর্জাতিক সংস্করণ",
+    "clientSideBadge": "১০০% ক্লায়েন্ট-সাইড • কোনো ডেটা সংরক্ষণ করা হয় না",
+    "allRightsReserved": "সর্বস্বত্ব সংরক্ষিত।"
   },
   "errors": {
-    "invalidDate": "Please enter a valid date.",
-    "futureDate": "Birth date cannot be in the future.",
-    "requiredDate": "Please select your date of birth."
+    "invalidDate": "অনুগ্রহ করে একটি সঠিক তারিখ দিন।",
+    "futureDate": "জন্মতারিখ ভবিষ্যতের হতে পারে না।",
+    "requiredDate": "অনুগ্রহ করে আপনার জন্মতারিখ নির্বাচন করুন।"
   },
   "tools": {
     "age-calculator": {
       "title": "বয়স ক্যালকুলেটর",
-      "desc": "বিনামূল্যে অনলাইন বয়স ক্যালকুলেটর। আপনার সঠিক বয়স বছর, মাস, দিন এবং রিয়েল-টাইম সেকেন্ডে গণনা করুন।"
+      "desc": "বিনামূল্যে অনলাইন বয়স ক্যালকুলেটর। বছর, মাস, দিন এবং সেকেন্ডে আপনার সঠিক বয়স হিসাব করুন।"
     },
     "birthday-calculator": {
-      "title": "Birthday Calculator",
-      "desc": "Discover your next birthday, day of week, days countdown, and milestone ages."
+      "title": "জন্মদিন ক্যালকুলেটর",
+      "desc": "আপনার পরবর্তী জন্মদিন, বারের নাম, অবশিষ্ট দিন ও মাইলফলক বয়স জানুন।"
     },
     "age-difference-calculator": {
-      "title": "Age Difference Calculator",
-      "desc": "Compare two dates of birth to find the precise difference in years, months, and days."
+      "title": "বয়সের পার্থক্য ক্যালকুলেটর",
+      "desc": "দুটি জন্মতারিখের তুলনা করে বছর, মাস ও দিনে সঠিক ব্যবধান হিসাব করুন।"
     },
     "birthday-countdown": {
-      "title": "Birthday Countdown",
-      "desc": "Live real-time ticking countdown clock for upcoming birthdays and milestone celebrations."
+      "title": "জন্মদিন কাউন্টডাউন",
+      "desc": "আসন্ন জন্মদিন ও উৎসব উদযাপনের জন্য লাইভ কাউন্টডাউন ঘড়ি।"
     },
     "date-difference-calculator": {
-      "title": "Date Difference Calculator",
-      "desc": "Find the exact duration and interval between any two dates in years, months, and days."
+      "title": "তারিখের পার্থক্য ক্যালকুলেটর",
+      "desc": "যেকোনো দুটি তারিখের মধ্যে বছর, মাস, দিন এবং ঘণ্টার ব্যবধান জানুন।"
     },
     "date-of-birth-calculator": {
-      "title": "Date of Birth Calculator",
-      "desc": "Reverse calculator: determine your exact or approximate birth date from given age."
+      "title": "জন্মতারিখ ক্যালকুলেটর",
+      "desc": "রিভার্স ক্যালকুলেটর: জানা বয়স দিয়ে আপনার আনুমানিক বা সঠিক জন্মতারিখ বের করুন।"
     },
     "days-between-dates": {
-      "title": "Days Between Dates",
-      "desc": "Calculate total calendar days and business days between any two dates."
+      "title": "তারিখের মধ্যবর্তী দিন",
+      "desc": "দুটি তারিখের মধ্যে মোট ক্যালেন্ডার দিন, কর্মদিবস এবং সাপ্তাহিক ছুটির দিন হিসাব করুন।"
     },
     "chronological-age-calculator": {
-      "title": "Chronological Age Calculator",
-      "desc": "Standard clinical and academic chronological age calculator (YY;MM;DD)."
+      "title": "কালানুক্রমিক বয়স ক্যালকুলেটর",
+      "desc": "চিকিৎসা ও শিক্ষাগত মূল্যায়নের জন্য মানসম্মত বয়স নির্ণয় (YY;MM;DD)।"
     },
     "retirement-age-calculator": {
-      "title": "Retirement Age Calculator",
-      "desc": "Estimate your retirement milestone date and calculate remaining years and working days."
+      "title": "অবসর বয়স ক্যালকুলেটর",
+      "desc": "আপনার আনুমানিক অবসরের তারিখ ও অবশিষ্ট কর্মদিবস হিসাব করুন।"
     },
     "leap-year-age-calculator": {
-      "title": "Leap Year Age Calculator",
-      "desc": "Special calculator for February 29 leap day babies to track birthdays vs calendar years."
+      "title": "লিপ ইয়ার বয়স ক্যালকুলেটর",
+      "desc": "২৯ ফেব্রুয়ারি জন্ম নেওয়া ব্যক্তিদের জন্য প্রকৃত জন্মদিন হিসাব করার বিশেষ টুল।"
     },
     "how-to-calculate-age": {
-      "title": "How to Calculate Age",
-      "desc": "Step-by-step mathematical guide to manual age calculation and calendar borrowing rules."
+      "title": "বয়স কীভাবে হিসাব করবেন",
+      "desc": "ক্যালেন্ডার নিয়ম অনুসারে ম্যানুয়ালি বয়স গণনার ধাপে ধাপে গাণিতিক নির্দেশিকা।"
+    }
+  },
+  "calculators": {
+    "birthday": {
+      "title": "জন্মদিন ও মাইলফলক ক্যালকুলেটর",
+      "desc": "পরবর্তী জন্মদিন কবে, কত দিন বাকি এবং মূল জন্মদিনগুলো কোন বারে পড়বে তা জানুন।",
+      "dobLabel": "আপনার জন্মতারিখ",
+      "btnCalculate": "জন্মদিন তথ্য দেখুন",
+      "nextCountdown": "পরবর্তী জন্মদিন কাউন্টডাউন",
+      "daysUntil": "দিন",
+      "turning": "হবে যখন আপনি হবেন",
+      "onDate": "পরবর্তী জন্মদিন উদযাপিত হবে",
+      "todayBday": "আজ আপনার শুভ জন্মদিন!",
+      "milestoneTitle": "মাইলফলক জন্মদিনসমূহ",
+      "age": "বয়স",
+      "year": "বছর",
+      "date": "তারিখ",
+      "dayOfWeek": "বারের নাম",
+      "status": "অবস্থা",
+      "passed": "অতিক্রান্ত",
+      "upcoming": "আসন্ন"
+    },
+    "ageDifference": {
+      "title": "বয়সের পার্থক্য ক্যালকুলেটর",
+      "desc": "দুটি জন্মতারিখের তুলনা করে বছর, মাস ও দিনে নিখুঁত ব্যবধান বের করুন।",
+      "personA": "ব্যক্তি ক",
+      "personB": "ব্যক্তি খ",
+      "dobLabel": "জন্মতারিখ",
+      "btnCalculate": "পার্থক্য হিসাব করুন",
+      "resultTitle": "বয়সের পার্থক্যের বিবরণ",
+      "olderThan": "বড়",
+      "by": "এর ব্যবধানে",
+      "totalDaysDiff": "দিনে মোট পার্থক্য",
+      "totalWeeksDiff": "সপ্তাহে মোট পার্থক্য",
+      "copySummary": "বিবরণ কপি করুন",
+      "copied": "ক্লিপবোর্ডে কপি হয়েছে!",
+      "sameAge": "উভয় ব্যক্তি ঠিক একই দিনে জন্মগ্রহণ করেছিলেন।"
+    },
+    "dateDifference": {
+      "title": "তারিখের পার্থক্য ক্যালকুলেটর",
+      "desc": "যেকোনো দুটি ক্যালেন্ডার তারিখের মধ্যে বছর, মাস ও দিনের সঠিক ব্যবধান হিসাব করুন।",
+      "startDate": "শুরুর তারিখ",
+      "endDate": "শেষের তারিখ",
+      "btnCalculate": "ব্যবধান হিসাব করুন",
+      "resultTitle": "তারিখের মধ্যবর্তী সময়",
+      "diffYMD": "পার্থক্য",
+      "totalDays": "মোট দিন",
+      "totalWeeks": "মোট সপ্তাহ",
+      "totalHours": "মোট ঘণ্টা",
+      "totalMinutes": "মোট মিনিট",
+      "errorInvalid": "অনুগ্রহ করে সঠিক শুরুর ও শেষের তারিখ দিন।"
+    },
+    "dateOfBirth": {
+      "title": "জন্মতারিখ ক্যালকুলেটর",
+      "desc": "আপনার জানা বয়স (বছর, মাস, দিন) দিয়ে জন্মতারিখ হিসাব করুন।",
+      "ageYears": "বছর",
+      "ageMonths": "মাস",
+      "ageDays": "দিন",
+      "asOfDate": "যে তারিখ পর্যন্ত বয়স",
+      "btnCalculate": "জন্মতারিখ হিসাব করুন",
+      "resultTitle": "প্রাপ্ত জন্মতারিখ",
+      "estimatedDob": "আনুমানিক জন্মতারিখ",
+      "dayBorn": "জন্মের বার"
+    },
+    "birthdayCountdown": {
+      "title": "জন্মদিন কাউন্টডাউন ঘড়ি",
+      "desc": "আসন্ন জন্মদিন ও বিশেষ উদযাপনের জন্য লাইভ কাউন্টডাউন ঘড়ি।",
+      "dobLabel": "জন্মতারিখ",
+      "days": "দিন",
+      "hours": "ঘণ্টা",
+      "minutes": "মিনিট",
+      "seconds": "সেকেন্ড",
+      "turningAge": "হবেন",
+      "nextBdayOn": "পরবর্তী জন্মদিন হবে",
+      "happyBday": "🎉 আজ আপনার জন্মদিন! শুভ জন্মদিন!"
+    },
+    "daysBetween": {
+      "title": "তারিখের মধ্যবর্তী দিন ক্যালকুলেটর",
+      "desc": "দুটি তারিখের মধ্যে মোট ক্যালেন্ডার দিন, কর্মদিবস ও সাপ্তাহিক ছুটি গণনা করুন।",
+      "startDate": "শুরুর তারিখ",
+      "endDate": "শেষের তারিখ",
+      "includeEndDay": "শেষের দিন যুক্ত করুন (+১ দিন)",
+      "btnCalculate": "দিন গণনা করুন",
+      "totalDays": "মোট ক্যালেন্ডার দিন",
+      "businessDays": "কর্মদিবস (সোম-শুক্র)",
+      "weekendDays": "সাপ্তাহিক ছুটির দিন",
+      "totalWeeks": "মোট সপ্তাহ"
+    },
+    "chronological": {
+      "title": "কালানুক্রমিক বয়স ক্যালকুলেটর",
+      "desc": "চিকিৎসা ও মানসিক পরীক্ষার জন্য মানসম্মত বয়স হিসাব (বছর;মাস;দিন)।",
+      "birthDate": "জন্মতারিখ",
+      "testDate": "পরীক্ষার তারিখ",
+      "weeksPremature": "নির্দিষ্ট সময়ের আগে জন্ম (সপ্তাহ)",
+      "btnCalculate": "বয়স হিসাব করুন",
+      "chronologicalAge": "কালানুক্রমিক বয়স",
+      "notation": "ক্লিনিক্যাল ফরম্যাট (Y;M;D)",
+      "exactInterval": "প্রকৃত অতিক্রান্ত সময়",
+      "adjustedAge": "সংশোধিত বয়স"
+    },
+    "retirement": {
+      "title": "অবসর বয়স ক্যালকুলেটর",
+      "desc": "অবসরের সম্ভাব্য তারিখ এবং অবসর পর্যন্ত অবশিষ্ট সময় হিসাব করুন।",
+      "birthDate": "জন্মতারিখ",
+      "currentAge": "বর্তমান বয়স",
+      "targetAge": "অবসরের লক্ষ্য বয়স",
+      "asOfDate": "হিসাবের তারিখ",
+      "btnCalculate": "অবসর গণনা করুন",
+      "yearsRemaining": "অবশিষ্ট বছর",
+      "targetYear": "অবসরের বছর",
+      "workingDaysLeft": "আনুমানিক অবশিষ্ট কর্মদিবস",
+      "alreadyReached": "লক্ষ্যযুক্ত অবসরের মাইলফলক অর্জিত হয়েছে।"
+    },
+    "leapYear": {
+      "title": "লিপ ইয়ার ও ২৯ ফেব্রুয়ারি ক্যালকুলেটর",
+      "desc": "আপনার 'লিপ বয়স' (প্রকৃত অতিক্রান্ত ২৯ ফেব্রুয়ারি) এবং পরবর্তী লিপ জন্মদিন জানুন।",
+      "dobLabel": "জন্মতারিখ",
+      "btnCalculate": "লিপ ইয়ার তথ্য দেখুন",
+      "leapYearsLived": "অতিক্রান্ত ২৯ ফেব্রুয়ারি",
+      "actualBirthdays": "প্রকৃত লিপ জন্মদিন",
+      "nextLeapBirthday": "পরবর্তী ২৯ ফেব্রুয়ারি জন্মদিন",
+      "leapBabyBadge": "লিপ ইয়ারে জন্ম (২৯ ফেব্রুয়ারি)"
+    },
+    "liveTicker": {
+      "title": "লাইভ রিয়েল-টাইম বয়স ওডোমিটার",
+      "syncedLocal": "আপনার ডিভাইসের ঘড়ির সাথে সিঙ্ক করা",
+      "clock": "ঘড়ি",
+      "runningTotalSeconds": "মোট অতিক্রান্ত সেকেন্ড",
+      "seconds": "সেকেন্ড",
+      "solarOrbit": "সৌর বছর অগ্রগতি",
+      "completed": "সম্পন্ন",
+      "turnedAge": "গত জন্মদিনে বয়স হয়েছে",
+      "turningAgeIn": "বয়স হবে এতে",
+      "bioMilestones": "জৈবিক মাইলফলক",
+      "spaceTravel": "মহাকাশ ও গ্রহীয় ভ্রমণ",
+      "heartbeats": "আনুমানিক হৃদস্পন্দন",
+      "breaths": "অতিক্রান্ত শ্বাস",
+      "blinks": "চোখের পলক",
+      "hoursSlept": "ঘুমের ঘণ্টা",
+      "earthRotation": "পৃথিবীর আবর্তন",
+      "sunOrbit": "সূর্যের চারিদিকে অতিক্রান্ত দূরত্ব",
+      "asOfTarget": "লক্ষ্য তারিখ অনুযায়ী গণনা করা হয়েছে"
     }
   }
 }

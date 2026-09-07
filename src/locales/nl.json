@@ -1,176 +1,318 @@
 {
   "meta": {
-    "homeTitle": "Leeftijd Berekenen – Bereken Uw Exacte Leeftijd in Jaren, Maanden & Dagen",
-    "homeDescription": "Gratis online leeftijdscalculator. Bereken uw exacte leeftijd in jaren, maanden, dagen en live seconden met verjaardagscountdown.",
+    "homeTitle": "Leeftijdscalculator – Bereken Uw Exacte Leeftijd in Jaren, Maanden & Dagen",
+    "homeDescription": "Gratis online leeftijdscalculator. Bereken uw exacte leeftijd in jaren, maanden, dagen en live seconden met verjaardag countdown.",
     "homeH1": "Online Leeftijdscalculator",
-    "homeSubtitle": "Bereken uw exacte chronologische leeftijd in jaren, maanden, dagen, uren en seconden met Gregoriaanse kalenderprecisie."
+    "homeSubtitle": "Bereken uw exacte chronologische leeftijd in jaren, maanden, dagen, uren en seconden met gregoriaanse kalenderprecisie."
   },
   "navigation": {
-    "home": "Home",
-    "ageCalculator": "Leeftijd Berekenen",
-    "birthday": "Birthday",
-    "ageDifference": "Age Difference",
-    "dateDifference": "Date Difference",
-    "dateOfBirth": "Date of Birth",
-    "moreTools": "More Tools",
-    "allAgeTools": "All Age & Date Tools",
+    "home": "Startpagina",
+    "ageCalculator": "Leeftijdscalculator",
+    "birthday": "Verjaardagscalculator",
+    "ageDifference": "Leeftijdsverschil",
+    "dateDifference": "Datumverschil",
+    "dateOfBirth": "Geboortedatum",
+    "moreTools": "Meer Rekenmachines",
+    "allAgeTools": "Alle Leeftijd & Datum Tools",
     "calculateAge": "Leeftijd Berekenen",
-    "calculateMyAgeNow": "Leeftijd Berekenen",
-    "mainTools": "Main Tools",
-    "moreCalculators": "More Calculators"
+    "calculateMyAgeNow": "Mijn Leeftijd Berekenen",
+    "mainTools": "Hoofdfuncties",
+    "moreCalculators": "Meer Calculators"
   },
   "calculator": {
-    "badge": "Instant Calendar & Time Precision Calculation",
-    "dobLabel": "Date of Birth",
-    "dobPlaceholder": "Select your birth date",
-    "dobHelper": "Select your birth day, month, and year (DD / MM / YYYY). Auto-saved locally in cookies.",
-    "targetDateLabel": "Age As Of Date",
-    "useToday": "Use Today",
-    "changeDate": "Change Date",
-    "includeTime": "Include Exact Birth Time (Optional)",
-    "includeTimeHelper": "For down-to-the-minute precision",
-    "birthTimeLabel": "Time of Birth (Local Time)",
+    "badge": "Kalender- en Tijdprecisie in Realtime",
+    "dobLabel": "Geboortedatum",
+    "dobPlaceholder": "Selecteer uw geboortedatum",
+    "dobHelper": "Selecteer geboortedag, maand en jaar (DD/MM/JJJJ). Lokaal opgeslagen in cookies.",
+    "targetDateLabel": "Leeftijd op Datum van",
+    "useToday": "Gebruik Vandaag",
+    "changeDate": "Wijzig Datum",
+    "includeTime": "Exacte Geboortetijd Toevoegen (Optioneel)",
+    "includeTimeHelper": "Voor precisie tot op de minuut",
+    "birthTimeLabel": "Geboortetijd (Lokale Tijd)",
     "calculate": "Leeftijd Berekenen",
-    "reset": "Reset",
-    "clear": "Clear",
-    "copied": "Copied!",
-    "copy": "Copy",
-    "print": "Print",
-    "yourExactAge": "Your Exact Age",
-    "years": "Jaar",
+    "reset": "Herstellen",
+    "clear": "Wissen",
+    "copied": "Gekopieerd!",
+    "copy": "Kopiëren",
+    "print": "Afdrukken",
+    "yourExactAge": "Uw Exacte Leeftijd",
+    "years": "Jaren",
     "months": "Maanden",
     "days": "Dagen",
-    "hours": "Hours",
-    "minutes": "Minutes",
+    "hours": "Uren",
+    "minutes": "Minuten",
     "seconds": "Seconden",
-    "nextBirthday": "Next Birthday",
-    "daysRemaining": "days remaining",
-    "turning": "Turning",
-    "happyBirthday": "🎉 Happy Birthday Today!",
-    "totalDaysLived": "Total Days Lived",
-    "totalWeeks": "Total Weeks",
-    "heartbeats": "Estimated Heartbeats",
-    "solarOrbit": "Solar Year Progress",
-    "liveSeconds": "Running Total Seconds Lived",
-    "timeBreakdown": "Comprehensive Time Breakdown",
-    "zodiacSign": "Western Zodiac",
-    "chineseZodiac": "Chinese Zodiac",
-    "dayBorn": "Day of Birth"
+    "nextBirthday": "Volgende Verjaardag",
+    "daysRemaining": "dagen resterend",
+    "turning": "Wordt",
+    "happyBirthday": "🎉 Van Harte Gefeliciteerd Vandaag!",
+    "totalDaysLived": "Totaal Aantal Geleefde Dagen",
+    "totalWeeks": "Totaal Aantal Weken",
+    "heartbeats": "Geschatte Hartslagen",
+    "solarOrbit": "Zonnejaar Voortgang",
+    "liveSeconds": "Lopend Totaal Geleefde Seconden",
+    "timeBreakdown": "Volledige Tijdsindeling",
+    "zodiacSign": "Westerse Dierenriem",
+    "chineseZodiac": "Chinese Dierenriem",
+    "dayBorn": "Geboortedag van de Week"
   },
   "features": {
-    "gregorianPrecisionTitle": "Gregorian Precision",
-    "gregorianPrecisionDesc": "Accounts for leap years, 30/31-day months, and February leap days down to the second.",
-    "liveSecondsTitle": "Live Running Seconds",
-    "liveSecondsDesc": "Real-time live age odometer synchronized with your device clock.",
-    "privateAndFreeTitle": "100% Private & Free",
-    "privateAndFreeDesc": "No registration or server uploads. All calculations run strictly in your browser."
+    "gregorianPrecisionTitle": "Gregoriaanse Precisie",
+    "gregorianPrecisionDesc": "Houdt rekening met schrikkeljaren, maanden van 30/31 dagen en 29 februari tot op de seconde nauwkeurig.",
+    "liveSecondsTitle": "Live Seconden",
+    "liveSecondsDesc": "Realtime leeftijdsteller gesynchroniseerd met de klok van uw apparaat.",
+    "privateAndFreeTitle": "100% Privé & Gratis",
+    "privateAndFreeDesc": "Geen registratie of server-uploads. Alle berekeningen gebeuren lokaal in uw browser."
   },
   "howItWorks": {
-    "title": "How the Age Calculator Works",
-    "subtitle": "A transparent breakdown of how our algorithm calculates calendar days, handles month borrowing, and tracks live seconds."
+    "title": "Hoe de Leeftijdscalculator Werkt",
+    "subtitle": "Een heldere uitleg van hoe ons algoritme kalenderdagen, maandovergangen en seconden berekent."
   },
   "faq": {
-    "title": "Frequently Asked Questions",
+    "title": "Veelgestelde Vragen (FAQ)",
     "items": [
       {
-        "question": "How does the Age Calculator calculate my exact age?",
-        "answer": "The calculator compares your Date of Birth with your target date using the Gregorian calendar algorithm. It computes complete elapsed years, calculates remaining full months, and calculates the remaining days by borrowing the exact days of the previous month."
+        "question": "Hoe berekent deze calculator mijn exacte leeftijd?",
+        "answer": "De calculator vergelijkt uw geboortedatum met de doeldatum volgens de gregoriaanse kalender en berekent verstreken jaren, maanden en dagen."
       },
       {
-        "question": "Does this calculator account for leap years?",
-        "answer": "Yes. The algorithm handles February 29 correctly. If your birthday is on a leap day, the calculator checks leap cycle rules and measures exact calendar intervals."
+        "question": "Wordt er rekening gehouden met schrikkeljaren?",
+        "answer": "Ja. Personen geboren op 29 februari worden correct verwerkt volgens officiële 4-jarige schrikkelcycli."
       },
       {
-        "question": "How accurate is the live running seconds counter?",
-        "answer": "The live counter updates every second in real time, synchronized with your system clock, computing exact elapsed seconds from your birth timestamp."
+        "question": "Hoe accuraat is de live secondenteller?",
+        "answer": "De teller loopt synchroon met uw apparaatklok en berekent de exacte tijd die sinds uw geboorte is verstreken."
       },
       {
-        "question": "Is my personal data safe and private?",
-        "answer": "Yes, 100%. All calculations happen entirely on your device inside your web browser. No personal information or birth dates are transmitted to any external server."
+        "question": "Zijn mijn persoonsgegevens veilig?",
+        "answer": "Ja, 100%. Alles wordt lokaal in uw webbrowser berekend. Er worden geen data naar externe servers gestuurd."
       },
       {
-        "question": "Can I calculate the age difference between two people?",
-        "answer": "Yes. Use our Age Difference Calculator to compare two birth dates and find the exact duration in years, months, and days."
+        "question": "Kan ik het leeftijdsverschil tussen twee mensen berekenen?",
+        "answer": "Ja, gebruik onze Leeftijdsverschil Calculator om twee data nauwkeurig te vergelijken."
       }
     ]
   },
   "breadcrumbs": {
-    "home": "Home"
+    "home": "Startpagina"
   },
   "related": {
-    "title": "Explore Related Age & Date Calculators",
-    "description": "Quickly switch to specialized calculators for birthdays, milestone ages, date durations, and interval counting.",
-    "openCalculator": "Open Calculator"
+    "title": "Ontdek Meer Leeftijd- en Datumcalculators",
+    "description": "Schakel snel over naar gespecialiseerde tools voor verjaardagen, mijlpalen en werkdagen.",
+    "openCalculator": "Calculator Openen"
   },
   "languageSelector": {
-    "title": "Select Language",
-    "subtitle": "Choose your preferred language for the entire website",
-    "searchPlaceholder": "Search language...",
-    "close": "Close"
+    "title": "Taal Selecteren",
+    "subtitle": "Kies uw voorkeurstaal voor de gehele website",
+    "searchPlaceholder": "Taal zoeken...",
+    "close": "Sluiten"
   },
   "footer": {
-    "brandDescription": "Free, accurate, and privacy-first online age calculator. Compute your exact age in years, months, and days, find your next birthday countdown, and calculate time differences with calendar precision.",
-    "coreCalculators": "Age Calculators",
-    "specialtyTools": "Specialty Tools",
-    "guide": "Calculation Guide",
-    "company": "Company & Legal",
-    "aboutUs": "About Us",
+    "brandDescription": "Gratis, betrouwbare en privacygerichte online leeftijdscalculator. Bereken uw leeftijd, verjaardagen en tijdsintervallen tot op de seconde nauwkeurig.",
+    "coreCalculators": "Leeftijdscalculators",
+    "specialtyTools": "Speciale Tools",
+    "guide": "Berekeningsgids",
+    "company": "Bedrijf & Juridisch",
+    "aboutUs": "Over Ons",
     "contact": "Contact",
-    "privacy": "Privacy Policy",
-    "terms": "Terms of Service",
-    "languages": "Supported Languages & International Versions",
-    "clientSideBadge": "100% Client-Side • Zero Data Stored",
-    "allRightsReserved": "All rights reserved."
+    "privacy": "Privacybeleid",
+    "terms": "Servicevoorwaarden",
+    "languages": "Beschikbare Talen & Internationale Versies",
+    "clientSideBadge": "100% In Uw Browser • Geen Data Opgeslagen",
+    "allRightsReserved": "Alle rechten voorbehouden."
   },
   "errors": {
-    "invalidDate": "Please enter a valid date.",
-    "futureDate": "Birth date cannot be in the future.",
-    "requiredDate": "Please select your date of birth."
+    "invalidDate": "Voer een geldige datum in.",
+    "futureDate": "Geboortedatum kan niet in de toekomst liggen.",
+    "requiredDate": "Selecteer uw geboortedatum."
   },
   "tools": {
     "age-calculator": {
-      "title": "Leeftijd Berekenen",
-      "desc": "Gratis online leeftijdscalculator. Bereken uw exacte leeftijd in jaren, maanden, dagen en live seconden met verjaardagscountdown."
+      "title": "Leeftijdscalculator",
+      "desc": "Bereken uw exacte leeftijd in jaren, maanden, dagen en seconden in realtime."
     },
     "birthday-calculator": {
-      "title": "Birthday Calculator",
-      "desc": "Discover your next birthday, day of week, days countdown, and milestone ages."
+      "title": "Verjaardagscalculator",
+      "desc": "Ontdek uw volgende verjaardag, dag van de week, countdown en mijlpaalleeftijden."
     },
     "age-difference-calculator": {
-      "title": "Age Difference Calculator",
-      "desc": "Compare two dates of birth to find the precise difference in years, months, and days."
+      "title": "Leeftijdsverschil Calculator",
+      "desc": "Vergelijk twee geboortedata om het exacte verschil in jaren, maanden en dagen te berekenen."
     },
     "birthday-countdown": {
-      "title": "Birthday Countdown",
-      "desc": "Live real-time ticking countdown clock for upcoming birthdays and milestone celebrations."
+      "title": "Verjaardag Countdown",
+      "desc": "Live aftellende klok voor aankomende verjaardagen en speciale jubilea."
     },
     "date-difference-calculator": {
-      "title": "Date Difference Calculator",
-      "desc": "Find the exact duration and interval between any two dates in years, months, and days."
+      "title": "Datumverschil Calculator",
+      "desc": "Vind de exacte tijdsduur tussen twee data in jaren, maanden, dagen en uren."
     },
     "date-of-birth-calculator": {
-      "title": "Date of Birth Calculator",
-      "desc": "Reverse calculator: determine your exact or approximate birth date from given age."
+      "title": "Geboortedatum Calculator",
+      "desc": "Omgekeerde calculator: bepaal uw geschatte geboortedatum op basis van uw leeftijd."
     },
     "days-between-dates": {
-      "title": "Days Between Dates",
-      "desc": "Calculate total calendar days and business days between any two dates."
+      "title": "Dagen Tussen Twee Data",
+      "desc": "Bereken het totale aantal kalenderdagen, werkdagen en weekenden tussen twee data."
     },
     "chronological-age-calculator": {
-      "title": "Chronological Age Calculator",
-      "desc": "Standard clinical and academic chronological age calculator (YY;MM;DD)."
+      "title": "Chronologische Leeftijdscalculator",
+      "desc": "Klinische en academische standaard voor chronologische leeftijd (JJ;MM;DD)."
     },
     "retirement-age-calculator": {
-      "title": "Retirement Age Calculator",
-      "desc": "Estimate your retirement milestone date and calculate remaining years and working days."
+      "title": "Pensioenleeftijd Calculator",
+      "desc": "Schat uw verwachte pensioendatum, resterende jaren en aantal werkdagen."
     },
     "leap-year-age-calculator": {
-      "title": "Leap Year Age Calculator",
-      "desc": "Special calculator for February 29 leap day babies to track birthdays vs calendar years."
+      "title": "Schrikkeljaar Leeftijdscalculator",
+      "desc": "Speciale calculator voor personen geboren op 29 februari om echte verjaardagen bij te houden."
     },
     "how-to-calculate-age": {
-      "title": "How to Calculate Age",
-      "desc": "Step-by-step mathematical guide to manual age calculation and calendar borrowing rules."
+      "title": "Hoe Bereken Je Leeftijd",
+      "desc": "Stapsgewijze handleiding om uw leeftijd handmatig te berekenen volgens kalenderregels."
+    }
+  },
+  "calculators": {
+    "birthday": {
+      "title": "Verjaardags- & Mijlpaalcalculator",
+      "desc": "Ontdek wanneer uw volgende verjaardag is, hoeveel dagen nog resten en op welke weekdagen uw mijlpalen vallen.",
+      "dobLabel": "Uw Geboortedatum",
+      "btnCalculate": "Verjaardagsinzichten Bekijken",
+      "nextCountdown": "Aftellen Volgende Verjaardag",
+      "daysUntil": "Dagen",
+      "turning": "totdat u wordt",
+      "onDate": "Uw volgende verjaardag valt op",
+      "todayBday": "Gefeliciteerd Vandaag!",
+      "milestoneTitle": "Mijlpaal Verjaardagen",
+      "age": "Leeftijd",
+      "year": "Jaar",
+      "date": "Datum",
+      "dayOfWeek": "Dag van de Week",
+      "status": "Status",
+      "passed": "Voorbij",
+      "upcoming": "Aankomend"
+    },
+    "ageDifference": {
+      "title": "Leeftijdsverschil Calculator",
+      "desc": "Vergelijk twee geboortedata om het exacte leeftijdsverschil in jaren, maanden en dagen te berekenen.",
+      "personA": "Persoon A",
+      "personB": "Persoon B",
+      "dobLabel": "Geboortedatum",
+      "btnCalculate": "Leeftijdsverschil Berekenen",
+      "resultTitle": "Leeftijdsverschil Overzicht",
+      "olderThan": "is ouder dan",
+      "by": "met",
+      "totalDaysDiff": "Totaal Verschil in Dagen",
+      "totalWeeksDiff": "Totaal Verschil in Weken",
+      "copySummary": "Samenvatting Kopiëren",
+      "copied": "Gekopieerd naar klembord!",
+      "sameAge": "Beide personen zijn op exact dezelfde datum geboren."
+    },
+    "dateDifference": {
+      "title": "Datumverschil Calculator",
+      "desc": "Bereken de exacte duur tussen twee kalenderdata in jaren, maanden en dagen.",
+      "startDate": "Startdatum",
+      "endDate": "Einddatum",
+      "btnCalculate": "Duur Berekenen",
+      "resultTitle": "Duur Tussen Data",
+      "diffYMD": "Verschil",
+      "totalDays": "Totaal Dagen",
+      "totalWeeks": "Totaal Weken",
+      "totalHours": "Totaal Uren",
+      "totalMinutes": "Totaal Minuten",
+      "errorInvalid": "Selecteer alstublieft geldige begin- en einddata."
+    },
+    "dateOfBirth": {
+      "title": "Geboortedatum Calculator",
+      "desc": "Bepaal uw geboortedatum door uw bekende leeftijd in jaren, maanden en dagen in te voeren.",
+      "ageYears": "Jaren",
+      "ageMonths": "Maanden",
+      "ageDays": "Dagen",
+      "asOfDate": "Leeftijd op Datum",
+      "btnCalculate": "Geboortedatum Berekenen",
+      "resultTitle": "Berekende Geboortedatum",
+      "estimatedDob": "Geschatte Geboortedatum",
+      "dayBorn": "Geboortedag van de Week"
+    },
+    "birthdayCountdown": {
+      "title": "Verjaardag Countdown Klok",
+      "desc": "Live aftellende klok voor aankomende verjaardagen en speciale vieringen.",
+      "dobLabel": "Geboortedatum",
+      "days": "Dagen",
+      "hours": "Uren",
+      "minutes": "Minuten",
+      "seconds": "Seconden",
+      "turningAge": "Wordt",
+      "nextBdayOn": "Volgende verjaardag op",
+      "happyBday": "🎉 Van Harte Gefeliciteerd Vandaag!"
+    },
+    "daysBetween": {
+      "title": "Dagen Tussen Twee Data Calculator",
+      "desc": "Tel het exacte aantal kalenderdagen, weken, werkdagen en weekenden tussen twee data.",
+      "startDate": "Startdatum",
+      "endDate": "Einddatum",
+      "includeEndDay": "Einddag meerekenen (+1 dag)",
+      "btnCalculate": "Dagen Berekenen",
+      "totalDays": "Totaal Kalenderdagen",
+      "businessDays": "Werkdagen (Ma-Vr)",
+      "weekendDays": "Weekenddagen",
+      "totalWeeks": "Totaal Weken"
+    },
+    "chronological": {
+      "title": "Chronologische Leeftijdscalculator",
+      "desc": "Gestandaardiseerde klinische leeftijdsberekening (Jaren;Maanden;Dagen) voor evaluaties.",
+      "birthDate": "Geboortedatum",
+      "testDate": "Datum van Onderzoek / Test",
+      "weeksPremature": "Weken Vroeggeboorte (Gestatiecorrectie)",
+      "btnCalculate": "Chronologische Leeftijd Berekenen",
+      "chronologicalAge": "Chronologische Leeftijd",
+      "notation": "Klinische Notatie (J;M;D)",
+      "exactInterval": "Exact Verstreken Interval",
+      "adjustedAge": "Gecorrigeerde Leeftijd"
+    },
+    "retirement": {
+      "title": "Pensioenleeftijd Calculator",
+      "desc": "Schat uw verwachte pensioendatum en de resterende tijd tot uw gewenste pensioenleeftijd.",
+      "birthDate": "Geboortedatum",
+      "currentAge": "Huidige Leeftijd",
+      "targetAge": "Gewenste Pensioenleeftijd",
+      "asOfDate": "Berekeningsdatum",
+      "btnCalculate": "Pensioen Berekenen",
+      "yearsRemaining": "Resterende Jaren",
+      "targetYear": "Verwacht Pensioenjaar",
+      "workingDaysLeft": "Geschatte Resterende Werkdagen",
+      "alreadyReached": "Doel pensioenleeftijd bereikt."
+    },
+    "leapYear": {
+      "title": "Schrikkeljaar & 29 Februari Calculator",
+      "desc": "Ontdek uw vierjaarlijkse 'schrikkelleeftijd' (werkelijk beleefde 29 februari's) en komende schrikkelverjaardagen.",
+      "dobLabel": "Geboortedatum",
+      "btnCalculate": "Schrikkeljaar Info Bekijken",
+      "leapYearsLived": "Geleefde 29 Februari's",
+      "actualBirthdays": "Officiële Schrikkelverjaardagen",
+      "nextLeapBirthday": "Volgende 29 Februari Verjaardag",
+      "leapBabyBadge": "Schrikkelbaby (29 Feb)"
+    },
+    "liveTicker": {
+      "title": "Live Leeftijdsteller",
+      "syncedLocal": "Gesynchroniseerd met uw apparaatklok",
+      "clock": "Klok",
+      "runningTotalSeconds": "Lopend Totaal Geleefde Seconden",
+      "seconds": "seconden",
+      "solarOrbit": "Zonnejaar Voortgang",
+      "completed": "Voltooid",
+      "turnedAge": "Geroepen op laatste verjaardag",
+      "turningAgeIn": "Wordt over",
+      "bioMilestones": "Biologische Mijlpalen",
+      "spaceTravel": "Ruimtereis & Baan Om De Zon",
+      "heartbeats": "Geschatte Hartslagen",
+      "breaths": "Ademhalingen",
+      "blinks": "Knipperingen",
+      "hoursSlept": "Uren Geslapen",
+      "earthRotation": "Aardoppervlak Rotatie",
+      "sunOrbit": "Afgelegde Afstand Rond de Zon",
+      "asOfTarget": "Berekend op de streefdatum"
     }
   }
 }

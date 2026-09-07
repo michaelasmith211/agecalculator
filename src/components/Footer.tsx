@@ -12,7 +12,21 @@ import { getTranslations } from '@/i18n/getTranslations';
 export default function Footer() {
   const pathname = usePathname() || '/';
   const locale = detectLocale(pathname);
-  const { t } = getTranslations(locale);
+  const { t, raw } = getTranslations(locale);
+
+  const getToolTitle = (href: string, fallback: string) => {
+    const slug = href.replace(/^\/+|\/+$/g, '');
+    const tool = raw.tools?.[slug as keyof typeof raw.tools];
+    return tool?.title || fallback;
+  };
+
+  const getCompanyLinkTitle = (href: string, fallback: string) => {
+    if (href.includes('about')) return t('footer.aboutUs', fallback);
+    if (href.includes('contact')) return t('footer.contact', fallback);
+    if (href.includes('privacy')) return t('footer.privacy', fallback);
+    if (href.includes('terms')) return t('footer.terms', fallback);
+    return fallback;
+  };
 
   const getLocalizedLink = (href: string) => {
     const clean = href.replace(/^\/+|\/+$/g, '');
@@ -60,7 +74,7 @@ export default function Footer() {
                     href={getLocalizedLink(calc.href)}
                     className="text-slate-400 hover:text-white hover:underline transition-colors"
                   >
-                    {calc.title}
+                    {getToolTitle(calc.href, calc.title)}
                   </Link>
                 </li>
               ))}
@@ -79,7 +93,7 @@ export default function Footer() {
                     href={getLocalizedLink(calc.href)}
                     className="text-slate-400 hover:text-white hover:underline transition-colors"
                   >
-                    {calc.title}
+                    {getToolTitle(calc.href, calc.title)}
                   </Link>
                 </li>
               ))}
@@ -107,7 +121,7 @@ export default function Footer() {
                     href={getLocalizedLink(link.href)}
                     className="text-slate-400 hover:text-white hover:underline transition-colors"
                   >
-                    {link.title}
+                    {getCompanyLinkTitle(link.href, link.title)}
                   </Link>
                 </li>
               ))}

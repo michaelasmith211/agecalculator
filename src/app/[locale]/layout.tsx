@@ -1,5 +1,6 @@
 import React from 'react';
 import { NON_DEFAULT_LOCALES, isRTL, isValidLocale, DEFAULT_LOCALE } from '@/i18n/config';
+import HtmlLangSync from '@/components/HtmlLangSync';
 
 export function generateStaticParams() {
   return NON_DEFAULT_LOCALES.map((locale) => ({
@@ -24,6 +25,7 @@ export default async function LocalizedLayout({
 
   return (
     <div data-locale={locale} dir={dir} className={`min-h-screen ${dir === 'rtl' ? 'rtl text-right' : 'ltr text-left'}`}>
+      <HtmlLangSync locale={locale} dir={dir} />
       {children}
     </div>
   );

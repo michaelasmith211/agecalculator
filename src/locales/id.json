@@ -1,176 +1,318 @@
 {
   "meta": {
-    "homeTitle": "Kalkulator Usia – Hitung Usia Tepat dalam Tahun, Bulan & Hari",
-    "homeDescription": "Kalkulator usia online gratis. Hitung usia persis Anda dalam tahun, bulan, hari, dan detik berjalan dengan countdown ulang tahun.",
+    "homeTitle": "Kalkulator Usia – Hitung Umur Tepat Anda dalam Tahun, Bulan & Hari",
+    "homeDescription": "Kalkulator usia online gratis. Hitung umur persis Anda dalam tahun, bulan, hari, dan detik langsung dengan hitung mundur ulang tahun.",
     "homeH1": "Kalkulator Usia Online",
     "homeSubtitle": "Hitung usia kronologis tepat Anda dalam tahun, bulan, hari, jam, dan detik berjalan dengan presisi kalender Gregorian."
   },
   "navigation": {
-    "home": "Home",
+    "home": "Beranda",
     "ageCalculator": "Kalkulator Usia",
-    "birthday": "Birthday",
-    "ageDifference": "Age Difference",
-    "dateDifference": "Date Difference",
-    "dateOfBirth": "Date of Birth",
-    "moreTools": "More Tools",
-    "allAgeTools": "All Age & Date Tools",
+    "birthday": "Kalkulator Ulang Tahun",
+    "ageDifference": "Perbedaan Usia",
+    "dateDifference": "Perbedaan Tanggal",
+    "dateOfBirth": "Kalkulator Tanggal Lahir",
+    "moreTools": "Alat Lainnya",
+    "allAgeTools": "Semua Alat Usia & Tanggal",
     "calculateAge": "Hitung Usia",
-    "calculateMyAgeNow": "Hitung Usia",
-    "mainTools": "Main Tools",
-    "moreCalculators": "More Calculators"
+    "calculateMyAgeNow": "Hitung Usia Saya",
+    "mainTools": "Alat Utama",
+    "moreCalculators": "Kalkulator Lainnya"
   },
   "calculator": {
-    "badge": "Instant Calendar & Time Precision Calculation",
-    "dobLabel": "Date of Birth",
-    "dobPlaceholder": "Select your birth date",
-    "dobHelper": "Select your birth day, month, and year (DD / MM / YYYY). Auto-saved locally in cookies.",
-    "targetDateLabel": "Age As Of Date",
-    "useToday": "Use Today",
-    "changeDate": "Change Date",
-    "includeTime": "Include Exact Birth Time (Optional)",
-    "includeTimeHelper": "For down-to-the-minute precision",
-    "birthTimeLabel": "Time of Birth (Local Time)",
+    "badge": "Presisi Kalender & Waktu Berjalan Secara Real-Time",
+    "dobLabel": "Tanggal Lahir",
+    "dobPlaceholder": "Pilih tanggal lahir Anda",
+    "dobHelper": "Pilih tanggal, bulan, dan tahun lahir (HH/BB/TTTT). Tersimpan di peramban Anda.",
+    "targetDateLabel": "Usia per Tanggal",
+    "useToday": "Gunakan Hari Ini",
+    "changeDate": "Ubah Tanggal",
+    "includeTime": "Sertakan Waktu Lahir Tepat (Opsional)",
+    "includeTimeHelper": "Untuk presisi hingga hitungan menit",
+    "birthTimeLabel": "Waktu Lahir (Waktu Lokal)",
     "calculate": "Hitung Usia",
-    "reset": "Reset",
-    "clear": "Clear",
-    "copied": "Copied!",
-    "copy": "Copy",
-    "print": "Print",
-    "yourExactAge": "Your Exact Age",
+    "reset": "Atur Ulang",
+    "clear": "Hapus",
+    "copied": "Tersalin!",
+    "copy": "Salin",
+    "print": "Cetak",
+    "yourExactAge": "Usia Tepat Anda",
     "years": "Tahun",
     "months": "Bulan",
     "days": "Hari",
-    "hours": "Hours",
-    "minutes": "Minutes",
+    "hours": "Jam",
+    "minutes": "Menit",
     "seconds": "Detik",
-    "nextBirthday": "Next Birthday",
-    "daysRemaining": "days remaining",
-    "turning": "Turning",
-    "happyBirthday": "🎉 Happy Birthday Today!",
-    "totalDaysLived": "Total Days Lived",
-    "totalWeeks": "Total Weeks",
-    "heartbeats": "Estimated Heartbeats",
-    "solarOrbit": "Solar Year Progress",
-    "liveSeconds": "Running Total Seconds Lived",
-    "timeBreakdown": "Comprehensive Time Breakdown",
-    "zodiacSign": "Western Zodiac",
-    "chineseZodiac": "Chinese Zodiac",
-    "dayBorn": "Day of Birth"
+    "nextBirthday": "Ulang Tahun Berikutnya",
+    "daysRemaining": "hari tersisa",
+    "turning": "Akan berusia",
+    "happyBirthday": "🎉 Selamat Ulang Tahun Hari Ini!",
+    "totalDaysLived": "Total Hari yang Dijalani",
+    "totalWeeks": "Total Minggu",
+    "heartbeats": "Perkiraan Detak Jantung",
+    "solarOrbit": "Kemajuan Orbit Tahun Matahari",
+    "liveSeconds": "Total Detik Berjalan yang Dijalani",
+    "timeBreakdown": "Rincian Waktu Lengkap",
+    "zodiacSign": "Zodiak Barat",
+    "chineseZodiac": "Shio Tionghoa",
+    "dayBorn": "Hari Kelahiran"
   },
   "features": {
-    "gregorianPrecisionTitle": "Gregorian Precision",
-    "gregorianPrecisionDesc": "Accounts for leap years, 30/31-day months, and February leap days down to the second.",
-    "liveSecondsTitle": "Live Running Seconds",
-    "liveSecondsDesc": "Real-time live age odometer synchronized with your device clock.",
-    "privateAndFreeTitle": "100% Private & Free",
-    "privateAndFreeDesc": "No registration or server uploads. All calculations run strictly in your browser."
+    "gregorianPrecisionTitle": "Presisi Kalender Gregorian",
+    "gregorianPrecisionDesc": "Memperhitungkan tahun kabisat, bulan 30/31 hari, dan 29 Februari hingga satuan detik.",
+    "liveSecondsTitle": "Detik Berjalan Real-Time",
+    "liveSecondsDesc": "Odometer usia langsung yang disinkronkan dengan jam perangkat Anda.",
+    "privateAndFreeTitle": "100% Pribadi & Gratis",
+    "privateAndFreeDesc": "Tanpa registrasi dan tanpa unggah ke server. Semua perhitungan berjalan di peramban Anda."
   },
   "howItWorks": {
-    "title": "How the Age Calculator Works",
-    "subtitle": "A transparent breakdown of how our algorithm calculates calendar days, handles month borrowing, and tracks live seconds."
+    "title": "Cara Kerja Kalkulator Usia",
+    "subtitle": "Penjelasan cara algoritma kami menghitung hari kalender, peminjaman bulan, dan detik berjalan."
   },
   "faq": {
-    "title": "Frequently Asked Questions",
+    "title": "Pertanyaan yang Sering Diajukan (FAQ)",
     "items": [
       {
-        "question": "How does the Age Calculator calculate my exact age?",
-        "answer": "The calculator compares your Date of Birth with your target date using the Gregorian calendar algorithm. It computes complete elapsed years, calculates remaining full months, and calculates the remaining days by borrowing the exact days of the previous month."
+        "question": "Bagaimana kalkulator ini menghitung usia saya secara tepat?",
+        "answer": "Kalkulator membandingkan tanggal lahir dengan tanggal target menggunakan aturan kalender Gregorian, menghitung tahun, bulan, dan sisa hari dengan presisi."
       },
       {
-        "question": "Does this calculator account for leap years?",
-        "answer": "Yes. The algorithm handles February 29 correctly. If your birthday is on a leap day, the calculator checks leap cycle rules and measures exact calendar intervals."
+        "question": "Apakah tahun kabisat diperhitungkan?",
+        "answer": "Ya, tentu saja. Kelahiran pada tanggal 29 Februari diproses sesuai siklus resmi 4 tahunan kabisat."
       },
       {
-        "question": "How accurate is the live running seconds counter?",
-        "answer": "The live counter updates every second in real time, synchronized with your system clock, computing exact elapsed seconds from your birth timestamp."
+        "question": "Seberapa akurat penghitung detik langsung?",
+        "answer": "Penghitung diperbarui setiap detik secara real-time tersinkronisasi dengan jam perangkat Anda."
       },
       {
-        "question": "Is my personal data safe and private?",
-        "answer": "Yes, 100%. All calculations happen entirely on your device inside your web browser. No personal information or birth dates are transmitted to any external server."
+        "question": "Apakah data pribadi saya aman?",
+        "answer": "Ya, 100% aman. Semua perhitungan diproses secara lokal di peramban Anda tanpa pengiriman data ke server luar."
       },
       {
-        "question": "Can I calculate the age difference between two people?",
-        "answer": "Yes. Use our Age Difference Calculator to compare two birth dates and find the exact duration in years, months, and days."
+        "question": "Dapatkah saya menghitung selisih usia antara dua orang?",
+        "answer": "Ya, gunakan 'Kalkulator Perbedaan Usia' untuk membandingkan dua tanggal dalam tahun, bulan, dan hari."
       }
     ]
   },
   "breadcrumbs": {
-    "home": "Home"
+    "home": "Beranda"
   },
   "related": {
-    "title": "Explore Related Age & Date Calculators",
-    "description": "Quickly switch to specialized calculators for birthdays, milestone ages, date durations, and interval counting.",
-    "openCalculator": "Open Calculator"
+    "title": "Jelajahi Kalkulator Usia & Tanggal Lainnya",
+    "description": "Beralih cepat ke alat khusus ulang tahun, tonggak usia, dan selisih hari kerja.",
+    "openCalculator": "Buka Kalkulator"
   },
   "languageSelector": {
-    "title": "Select Language",
-    "subtitle": "Choose your preferred language for the entire website",
-    "searchPlaceholder": "Search language...",
-    "close": "Close"
+    "title": "Pilih Bahasa",
+    "subtitle": "Pilih bahasa yang Anda inginkan untuk seluruh situs",
+    "searchPlaceholder": "Cari bahasa...",
+    "close": "Tutup"
   },
   "footer": {
-    "brandDescription": "Free, accurate, and privacy-first online age calculator. Compute your exact age in years, months, and days, find your next birthday countdown, and calculate time differences with calendar precision.",
-    "coreCalculators": "Age Calculators",
-    "specialtyTools": "Specialty Tools",
-    "guide": "Calculation Guide",
-    "company": "Company & Legal",
-    "aboutUs": "About Us",
-    "contact": "Contact",
-    "privacy": "Privacy Policy",
-    "terms": "Terms of Service",
-    "languages": "Supported Languages & International Versions",
-    "clientSideBadge": "100% Client-Side • Zero Data Stored",
-    "allRightsReserved": "All rights reserved."
+    "brandDescription": "Kalkulator usia online gratis, akurat, dan mengutamakan privasi. Hitung usia, ulang tahun, dan selisih waktu dengan presisi kalender.",
+    "coreCalculators": "Kalkulator Usia",
+    "specialtyTools": "Alat Khusus",
+    "guide": "Panduan Perhitungan",
+    "company": "Perusahaan & Hukum",
+    "aboutUs": "Tentang Kami",
+    "contact": "Kontak",
+    "privacy": "Kebijakan Privasi",
+    "terms": "Syarat Layanan",
+    "languages": "Bahasa yang Didukung & Versi Internasional",
+    "clientSideBadge": "100% Sisi Klien • Tidak Ada Data Disimpan",
+    "allRightsReserved": "Hak cipta dilindungi undang-undang."
   },
   "errors": {
-    "invalidDate": "Please enter a valid date.",
-    "futureDate": "Birth date cannot be in the future.",
-    "requiredDate": "Please select your date of birth."
+    "invalidDate": "Silakan masukkan tanggal yang valid.",
+    "futureDate": "Tanggal lahir tidak boleh di masa depan.",
+    "requiredDate": "Silakan pilih tanggal lahir Anda."
   },
   "tools": {
     "age-calculator": {
       "title": "Kalkulator Usia",
-      "desc": "Kalkulator usia online gratis. Hitung usia persis Anda dalam tahun, bulan, hari, dan detik berjalan dengan countdown ulang tahun."
+      "desc": "Hitung usia tepat Anda dalam tahun, bulan, hari, dan detik berjalan secara langsung."
     },
     "birthday-calculator": {
-      "title": "Birthday Calculator",
-      "desc": "Discover your next birthday, day of week, days countdown, and milestone ages."
+      "title": "Kalkulator Ulang Tahun",
+      "desc": "Ketahui ulang tahun Anda berikutnya, hari dalam seminggu, hitung mundur, dan usia tonggak."
     },
     "age-difference-calculator": {
-      "title": "Age Difference Calculator",
-      "desc": "Compare two dates of birth to find the precise difference in years, months, and days."
+      "title": "Kalkulator Perbedaan Usia",
+      "desc": "Bandingkan dua tanggal lahir untuk mengetahui selisih usia tepat dalam tahun, bulan, dan hari."
     },
     "birthday-countdown": {
-      "title": "Birthday Countdown",
-      "desc": "Live real-time ticking countdown clock for upcoming birthdays and milestone celebrations."
+      "title": "Hitung Mundur Ulang Tahun",
+      "desc": "Jam hitung mundur langsung untuk ulang tahun dan perayaan istimewa mendatang."
     },
     "date-difference-calculator": {
-      "title": "Date Difference Calculator",
-      "desc": "Find the exact duration and interval between any two dates in years, months, and days."
+      "title": "Kalkulator Perbedaan Tanggal",
+      "desc": "Hitung durasi dan interval tepat antara dua tanggal dalam tahun, bulan, hari, dan jam."
     },
     "date-of-birth-calculator": {
-      "title": "Date of Birth Calculator",
-      "desc": "Reverse calculator: determine your exact or approximate birth date from given age."
+      "title": "Kalkulator Tanggal Lahir",
+      "desc": "Kalkulator terbalik: ketahui perkiraan tanggal lahir dari usia Anda saat ini."
     },
     "days-between-dates": {
-      "title": "Days Between Dates",
-      "desc": "Calculate total calendar days and business days between any two dates."
+      "title": "Hari Antara Dua Tanggal",
+      "desc": "Hitung total hari kalender, hari kerja, dan akhir pekan antara dua tanggal."
     },
     "chronological-age-calculator": {
-      "title": "Chronological Age Calculator",
-      "desc": "Standard clinical and academic chronological age calculator (YY;MM;DD)."
+      "title": "Kalkulator Usia Kronologis",
+      "desc": "Standar klinis dan akademis untuk menghitung usia kronologis (TT;BB;HH)."
     },
     "retirement-age-calculator": {
-      "title": "Retirement Age Calculator",
-      "desc": "Estimate your retirement milestone date and calculate remaining years and working days."
+      "title": "Kalkulator Usia Pensiun",
+      "desc": "Perkirakan tanggal pensiun, sisa tahun, dan hari kerja yang tersisa."
     },
     "leap-year-age-calculator": {
-      "title": "Leap Year Age Calculator",
-      "desc": "Special calculator for February 29 leap day babies to track birthdays vs calendar years."
+      "title": "Kalkulator Tahun Kabisat",
+      "desc": "Alat khusus bagi yang lahir 29 Februari untuk memantau ulang tahun kabisat sebenarnya."
     },
     "how-to-calculate-age": {
-      "title": "How to Calculate Age",
-      "desc": "Step-by-step mathematical guide to manual age calculation and calendar borrowing rules."
+      "title": "Cara Menghitung Usia",
+      "desc": "Panduan matematika langkah demi langkah untuk menghitung usia manual dengan aturan kalender."
+    }
+  },
+  "calculators": {
+    "birthday": {
+      "title": "Kalkulator Ulang Tahun & Tonggak Sejarah",
+      "desc": "Ketahui kapan ulang tahun berikutnya tiba, berapa hari tersisa, dan hari apa tonggak usia Anda jatuh.",
+      "dobLabel": "Tanggal Lahir Anda",
+      "btnCalculate": "Lihat Info Ulang Tahun",
+      "nextCountdown": "Hitung Mundur Ulang Tahun Berikutnya",
+      "daysUntil": "Hari",
+      "turning": "menuju usia",
+      "onDate": "Ulang tahun berikutnya jatuh pada",
+      "todayBday": "Selamat Ulang Tahun Hari Ini!",
+      "milestoneTitle": "Tonggak Usia Istimewa",
+      "age": "Usia",
+      "year": "Tahun",
+      "date": "Tanggal",
+      "dayOfWeek": "Hari",
+      "status": "Status",
+      "passed": "Sudah Lewat",
+      "upcoming": "Mendatang"
+    },
+    "ageDifference": {
+      "title": "Kalkulator Perbedaan Usia",
+      "desc": "Bandingkan dua tanggal lahir untuk menghitung selisih usia persis dalam tahun, bulan, dan hari.",
+      "personA": "Orang A",
+      "personB": "Orang B",
+      "dobLabel": "Tanggal Lahir",
+      "btnCalculate": "Hitung Selisih Usia",
+      "resultTitle": "Rincian Selisih Usia",
+      "olderThan": "lebih tua daripada",
+      "by": "selisih",
+      "totalDaysDiff": "Total Selisih Hari",
+      "totalWeeksDiff": "Total Selisih Minggu",
+      "copySummary": "Salin Ringkasan",
+      "copied": "Tersalin ke papan klip!",
+      "sameAge": "Kedua orang lahir pada tanggal yang persis sama."
+    },
+    "dateDifference": {
+      "title": "Kalkulator Selisih Tanggal",
+      "desc": "Hitung rentang waktu tepat antara dua tanggal dalam tahun, bulan, dan hari.",
+      "startDate": "Tanggal Mulai",
+      "endDate": "Tanggal Selesai",
+      "btnCalculate": "Hitung Durasi",
+      "resultTitle": "Durasi Antara Dua Tanggal",
+      "diffYMD": "Selisih",
+      "totalDays": "Total Hari",
+      "totalWeeks": "Total Minggu",
+      "totalHours": "Total Jam",
+      "totalMinutes": "Total Menit",
+      "errorInvalid": "Silakan pilih tanggal mulai dan selesai yang valid."
+    },
+    "dateOfBirth": {
+      "title": "Kalkulator Tanggal Lahir",
+      "desc": "Tentukan tanggal lahir Anda dengan memasukkan usia dalam tahun, bulan, dan hari.",
+      "ageYears": "Tahun",
+      "ageMonths": "Bulan",
+      "ageDays": "Hari",
+      "asOfDate": "Usia per Tanggal",
+      "btnCalculate": "Hitung Tanggal Lahir",
+      "resultTitle": "Hasil Tanggal Lahir",
+      "estimatedDob": "Perkiraan Tanggal Lahir",
+      "dayBorn": "Hari Lahir"
+    },
+    "birthdayCountdown": {
+      "title": "Jam Hitung Mundur Ulang Tahun",
+      "desc": "Hitung mundur langsung untuk ulang tahun dan perayaan istimewa mendatang.",
+      "dobLabel": "Tanggal Lahir",
+      "days": "Hari",
+      "hours": "Jam",
+      "minutes": "Menit",
+      "seconds": "Detik",
+      "turningAge": "Akan berusia",
+      "nextBdayOn": "Ulang tahun berikutnya pada",
+      "happyBday": "🎉 Selamat Ulang Tahun Hari Ini!"
+    },
+    "daysBetween": {
+      "title": "Kalkulator Hari Antara Dua Tanggal",
+      "desc": "Hitung jumlah hari kalender, minggu, hari kerja, dan akhir pekan secara akurat.",
+      "startDate": "Tanggal Mulai",
+      "endDate": "Tanggal Selesai",
+      "includeEndDay": "Sertakan hari terakhir (+1 hari)",
+      "btnCalculate": "Hitung Hari",
+      "totalDays": "Total Hari Kalender",
+      "businessDays": "Hari Kerja (Senin-Jumat)",
+      "weekendDays": "Hari Akhir Pekan",
+      "totalWeeks": "Total Minggu"
+    },
+    "chronological": {
+      "title": "Kalkulator Usia Kronologis Klinis",
+      "desc": "Perhitungan usia kronologis standar (Tahun;Bulan;Hari) untuk evaluasi medis dan psikologis.",
+      "birthDate": "Tanggal Lahir",
+      "testDate": "Tanggal Pengujian / Pemeriksaan",
+      "weeksPremature": "Minggu Prematur (Koreksi Gestasi)",
+      "btnCalculate": "Hitung Usia Kronologis",
+      "chronologicalAge": "Usia Kronologis",
+      "notation": "Format Klinis (Y;M;D)",
+      "exactInterval": "Interval Waktu yang Berlalu",
+      "adjustedAge": "Usia Terkoreksi"
+    },
+    "retirement": {
+      "title": "Kalkulator Usia Pensiun",
+      "desc": "Perkirakan tanggal pensiun dan waktu yang tersisa hingga usia pensiun yang Anda targetkan.",
+      "birthDate": "Tanggal Lahir",
+      "currentAge": "Usia Saat Ini",
+      "targetAge": "Target Usia Pensiun",
+      "asOfDate": "Tanggal Perhitungan",
+      "btnCalculate": "Hitung Pensiun",
+      "yearsRemaining": "Sisa Tahun",
+      "targetYear": "Tahun Pensiun Diperkirakan",
+      "workingDaysLeft": "Perkiraan Sisa Hari Kerja",
+      "alreadyReached": "Target usia pensiun telah tercapai."
+    },
+    "leapYear": {
+      "title": "Kalkulator Tahun Kabisat (29 Februari)",
+      "desc": "Ketahui berapa kali Anda mengalami 29 Februari dan tanggal ulang tahun kabisat berikutnya.",
+      "dobLabel": "Tanggal Lahir",
+      "btnCalculate": "Periksa Info Kabisat",
+      "leapYearsLived": "29 Februari yang Dialami",
+      "actualBirthdays": "Ulang Tahun Kabisat Resmi",
+      "nextLeapBirthday": "Ulang Tahun 29 Februari Berikutnya",
+      "leapBabyBadge": "Lahir Tahun Kabisat (29 Feb)"
+    },
+    "liveTicker": {
+      "title": "Penghitung Usia Waktu Nyata",
+      "syncedLocal": "Tersinkronisasi dengan jam perangkat Anda",
+      "clock": "Jam",
+      "runningTotalSeconds": "Total Detik yang Dijalani",
+      "seconds": "detik",
+      "solarOrbit": "Kemajuan Orbit Matahari",
+      "completed": "Selesai",
+      "turnedAge": "Berusia saat ulang tahun terakhir",
+      "turningAgeIn": "Akan bertambah usia dalam",
+      "bioMilestones": "Tonggak Biologis",
+      "spaceTravel": "Perjalanan Luar Angkasa & Orbit",
+      "heartbeats": "Perkiraan Detak Jantung",
+      "breaths": "Jumlah Nafas",
+      "blinks": "Kedipan Mata",
+      "hoursSlept": "Jam Tidur",
+      "earthRotation": "Rotasi Permukaan Bumi",
+      "sunOrbit": "Jarak Mengelilingi Matahari",
+      "asOfTarget": "Dihitung per tanggal target"
     }
   }
 }

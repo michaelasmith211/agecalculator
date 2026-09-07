@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import { usePathname } from 'next/navigation';
 import { Users, Calendar, AlertCircle, Copy, Check } from 'lucide-react';
 import {
   calculateAgeDifference,
@@ -9,24 +10,36 @@ import {
 } from '@/lib/date-utils';
 import { trackEvent } from '@/lib/analytics';
 import SocialShare from '@/components/SocialShare';
+import { detectLocale } from '@/i18n/locale-utils';
+import { getTranslations } from '@/i18n/getTranslations';
+import { formatNumber } from '@/lib/format-utils';
 
-export default function AgeDifferenceCalculator() {
+interface AgeDifferenceCalculatorProps {
+  locale?: string;
+}
+
+export default function AgeDifferenceCalculator({ locale: propLocale }: AgeDifferenceCalculatorProps) {
+  const pathname = usePathname() || '/';
+  const locale = propLocale || detectLocale(pathname);
+  const { t, raw } = getTranslations(locale);
+  const c = raw.calculators?.ageDifference;
+
   const [dobAStr, setDobAStr] = useState('1990-01-01');
   const [dobBStr, setDobBStr] = useState('1995-06-15');
-  const [personAName, setPersonAName] = useState('Person A');
-  const [personBName, setPersonBName] = useState('Person B');
+  const [personAName, setPersonAName] = useState(c?.personA || 'Person A');
+  const [personBName, setPersonBName] = useState(c?.personB || 'Person B');
   const [copied, setCopied] = useState(false);
 
   const compute = (dateA: string, dateB: string) => {
     const parsedA = parseDateString(dateA);
     const parsedB = parseDateString(dateB);
     if (!parsedA || !parsedB) {
-      return { res: null, err: 'Please enter valid dates of birth for both individuals.' };
+      return { res: null, err: t('errors.invalidDate', 'Please enter valid dates of birth for both individuals.') };
     }
     try {
       return { res: calculateAgeDifference(parsedA, parsedB), err: null };
     } catch (e: unknown) {
-      return { res: null, err: e instanceof Error ? e.message : 'Calculation error' };
+      return { res: null, err: e instanceof Error ? e.message : t('errors.invalidDate', 'Calculation error') };
     }
   };
 
@@ -53,6 +66,9 @@ export default function AgeDifferenceCalculator() {
     setTimeout(() => setCopied(false), 2000);
   };
 
+  const calcTitle = c?.title || raw.tools?.['age-difference-calculator']?.title || 'Age Difference Calculator';
+  const calcDesc = c?.desc || raw.tools?.['age-difference-calculator']?.desc || 'Compare two birth dates to find the exact age gap in years, months, and days.';
+
   return (
     <div className="calculator-card p-6 sm:p-8 bg-white border border-slate-200 rounded-2xl shadow-sm">
       <div className="flex items-center gap-2.5 mb-2">
@@ -61,10 +77,10 @@ export default function AgeDifferenceCalculator() {
         </div>
         <div>
           <h2 className="text-xl sm:text-2xl font-bold text-slate-900">
-            Age Difference Calculator
+            {calcTitle}
           </h2>
           <p className="text-sm text-slate-600">
-            Compare two birth dates to find the exact age gap in years, months, and days.
+            {calcDesc}
           </p>
         </div>
       </div>
@@ -73,18 +89,18 @@ export default function AgeDifferenceCalculator() {
         {/* Person A */}
         <div className="p-5 bg-slate-50 border border-slate-200 rounded-xl space-y-3">
           <div className="font-bold text-slate-800 text-sm flex items-center justify-between">
-            <span>First Person</span>
+            <span>{c?.personA || 'Person A'}</span>
             <input
               type="text"
               value={personAName}
               onChange={(e) => setPersonAName(e.target.value)}
-              placeholder="Name (Optional)"
+              placeholder="Name"
               className="text-xs bg-white border border-slate-300 rounded px-2 py-1 w-32 font-normal"
             />
           </div>
           <div>
             <label htmlFor="dob-a" className="block text-xs font-semibold text-slate-600 mb-1">
-              Date of Birth
+              {c?.dobLabel || t('calculator.dobLabel', 'Date of Birth')}
             </label>
             <input
               id="dob-a"
@@ -102,18 +118,18 @@ export default function AgeDifferenceCalculator() {
         {/* Person B */}
         <div className="p-5 bg-slate-50 border border-slate-200 rounded-xl space-y-3">
           <div className="font-bold text-slate-800 text-sm flex items-center justify-between">
-            <span>Second Person</span>
+            <span>{c?.personB || 'Person B'}</span>
             <input
               type="text"
               value={personBName}
               onChange={(e) => setPersonBName(e.target.value)}
-              placeholder="Name (Optional)"
+              placeholder="Name"
               className="text-xs bg-white border border-slate-300 rounded px-2 py-1 w-32 font-normal"
             />
           </div>
           <div>
             <label htmlFor="dob-b" className="block text-xs font-semibold text-slate-600 mb-1">
-              Date of Birth
+              {c?.dobLabel || t('calculator.dobLabel', 'Date of Birth')}
             </label>
             <input
               id="dob-b"
@@ -136,7 +152,7 @@ export default function AgeDifferenceCalculator() {
           className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold bg-indigo-600 text-white hover:bg-indigo-700 shadow-sm transition-all"
         >
           <Calendar className="w-4 h-4" />
-          <span>Calculate Difference</span>
+          <span>{c?.btnCalculate || 'Calculate Age Difference'}</span>
         </button>
       </div>
 
@@ -152,7 +168,7 @@ export default function AgeDifferenceCalculator() {
           <div className="p-6 bg-indigo-50/70 border border-indigo-200 rounded-2xl">
             <div className="flex items-center justify-between">
               <span className="text-xs font-bold text-indigo-700 uppercase tracking-wider">
-                Age Gap Summary
+                {c?.resultTitle || 'Age Difference Breakdown'}
               </span>
               <button
                 type="button"
@@ -160,39 +176,45 @@ export default function AgeDifferenceCalculator() {
                 className="inline-flex items-center gap-1 text-xs font-semibold text-indigo-700 hover:text-indigo-900"
               >
                 {copied ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
-                <span>{copied ? 'Copied' : 'Copy'}</span>
+                <span>{copied ? (c?.copied || 'Copied') : (c?.copySummary || 'Copy Summary')}</span>
               </button>
             </div>
 
             <div className="flex flex-wrap items-baseline gap-2 sm:gap-4 mt-3">
               <div className="flex items-baseline gap-1">
                 <span className="text-4xl sm:text-5xl font-extrabold text-indigo-950">
-                  {result.differenceYears}
+                  {formatNumber(result.differenceYears, locale)}
                 </span>
-                <span className="text-base font-bold text-indigo-800">Years</span>
+                <span className="text-base font-bold text-indigo-800">{t('calculator.years', 'Years')}</span>
               </div>
               <div className="flex items-baseline gap-1">
                 <span className="text-4xl sm:text-5xl font-extrabold text-indigo-950">
-                  {result.differenceMonths}
+                  {formatNumber(result.differenceMonths, locale)}
                 </span>
-                <span className="text-base font-bold text-indigo-800">Months</span>
+                <span className="text-base font-bold text-indigo-800">{t('calculator.months', 'Months')}</span>
               </div>
               <div className="flex items-baseline gap-1">
                 <span className="text-4xl sm:text-5xl font-extrabold text-indigo-950">
-                  {result.differenceDays}
+                  {formatNumber(result.differenceDays, locale)}
                 </span>
-                <span className="text-base font-bold text-indigo-800">Days</span>
+                <span className="text-base font-bold text-indigo-800">{t('calculator.days', 'Days')}</span>
               </div>
             </div>
 
             <p className="mt-4 text-sm text-slate-700 leading-relaxed font-medium">
               {result.olderPerson === 'same' ? (
-                'Both individuals were born on the exact same date. The age difference is 0 days.'
+                c?.sameAge || 'Both individuals were born on the exact same date.'
               ) : (
                 <>
-                  <strong>{result.olderPerson === 'A' ? personAName : personBName}</strong> is older than{' '}
-                  <strong>{result.olderPerson === 'A' ? personBName : personAName}</strong> by{' '}
-                  <strong>{result.differenceYears} years, {result.differenceMonths} months, and {result.differenceDays} days</strong>.
+                  <strong>{result.olderPerson === 'A' ? personAName : personBName}</strong>{' '}
+                  {c?.olderThan || 'is older than'}{' '}
+                  <strong>{result.olderPerson === 'A' ? personBName : personAName}</strong>{' '}
+                  {c?.by || 'by'}{' '}
+                  <strong>
+                    {formatNumber(result.differenceYears, locale)} {t('calculator.years', 'years')},{' '}
+                    {formatNumber(result.differenceMonths, locale)} {t('calculator.months', 'months')},{' '}
+                    {formatNumber(result.differenceDays, locale)} {t('calculator.days', 'days')}
+                  </strong>.
                 </>
               )}
             </p>
@@ -200,23 +222,27 @@ export default function AgeDifferenceCalculator() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl">
-              <div className="text-xs font-semibold text-slate-500 uppercase">Total Difference in Days</div>
+              <div className="text-xs font-semibold text-slate-500 uppercase">
+                {c?.totalDaysDiff || 'Total Days Difference'}
+              </div>
               <div className="text-2xl font-extrabold text-slate-900 mt-1">
-                {result.totalDaysDifference.toLocaleString()} Days
+                {formatNumber(result.totalDaysDifference, locale)} {t('calculator.days', 'Days')}
               </div>
             </div>
             <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl">
-              <div className="text-xs font-semibold text-slate-500 uppercase">Total Difference in Weeks</div>
+              <div className="text-xs font-semibold text-slate-500 uppercase">
+                {c?.totalWeeksDiff || 'Total Weeks Difference'}
+              </div>
               <div className="text-2xl font-extrabold text-slate-900 mt-1">
-                {result.totalWeeksDifference.toLocaleString()} Weeks
+                {formatNumber(result.totalWeeksDifference, locale)} {t('calculator.weeks', 'Weeks')}
               </div>
             </div>
           </div>
 
           <SocialShare
-            title="Age Difference Calculator"
-            url="/age-difference-calculator"
-            resultText={`Age Difference: ${result.differenceYears} Years, ${result.differenceMonths} Months, and ${result.differenceDays} Days (${result.totalDaysDifference.toLocaleString()} total days)!`}
+            title={calcTitle}
+            url={locale === 'en' ? '/age-difference-calculator' : `/${locale}/age-difference-calculator`}
+            resultText={`${calcTitle}: ${formatNumber(result.differenceYears, locale)} ${t('calculator.years', 'Years')}, ${formatNumber(result.differenceMonths, locale)} ${t('calculator.months', 'Months')}, ${formatNumber(result.differenceDays, locale)} ${t('calculator.days', 'Days')}!`}
           />
         </div>
       )}

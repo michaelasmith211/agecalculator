@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import { usePathname } from 'next/navigation';
 import { Sunset, Sparkles, AlertCircle, ShieldAlert } from 'lucide-react';
 import {
   calculateRetirement,
@@ -10,8 +11,20 @@ import {
   RetirementResult
 } from '@/lib/date-utils';
 import { trackEvent } from '@/lib/analytics';
+import { detectLocale } from '@/i18n/locale-utils';
+import { getTranslations } from '@/i18n/getTranslations';
+import { formatDateShort, formatNumber } from '@/lib/format-utils';
 
-export default function RetirementAgeCalculator() {
+interface RetirementAgeCalculatorProps {
+  locale?: string;
+}
+
+export default function RetirementAgeCalculator({ locale: propLocale }: RetirementAgeCalculatorProps) {
+  const pathname = usePathname() || '/';
+  const locale = propLocale || detectLocale(pathname);
+  const { t, raw } = getTranslations(locale);
+  const c = raw.calculators?.retirement;
+
   const today = getTodayCalendarDate();
   const todayStr = toDateString(today);
 
@@ -22,11 +35,11 @@ export default function RetirementAgeCalculator() {
   const compute = (b: string, age: number, asOf: string) => {
     const birth = parseDateString(b);
     const asOfDate = parseDateString(asOf);
-    if (!birth || !asOfDate) return { res: null, err: 'Please provide valid birth and calculation dates.' };
+    if (!birth || !asOfDate) return { res: null, err: t('errors.invalidDate', 'Please provide valid birth and calculation dates.') };
     try {
       return { res: calculateRetirement(birth, age, asOfDate), err: null };
     } catch (err: unknown) {
-      return { res: null, err: err instanceof Error ? err.message : 'Calculation error' };
+      return { res: null, err: err instanceof Error ? err.message : t('errors.invalidDate', 'Calculation error') };
     }
   };
 
@@ -43,6 +56,13 @@ export default function RetirementAgeCalculator() {
     }
   };
 
+  const calcTitle = c?.title || raw.tools?.['retirement-age-calculator']?.title || 'Retirement Age Calculator';
+  const calcDesc = c?.desc || raw.tools?.['retirement-age-calculator']?.desc || 'Estimate your projected retirement date and time remaining until your target retirement age.';
+
+  const formattedRetirementDate = result
+    ? formatDateShort(new Date(result.retirementDate.year, result.retirementDate.month - 1, result.retirementDate.day), locale)
+    : '';
+
   return (
     <div className="calculator-card p-6 sm:p-8 bg-white border border-slate-200 rounded-2xl shadow-sm">
       <div className="flex items-center gap-2.5 mb-2">
@@ -51,10 +71,10 @@ export default function RetirementAgeCalculator() {
         </div>
         <div>
           <h2 className="text-xl sm:text-2xl font-bold text-slate-900">
-            Retirement Age Calculator
+            {calcTitle}
           </h2>
           <p className="text-sm text-slate-600">
-            Estimate your projected retirement date and time remaining until your target retirement age.
+            {calcDesc}
           </p>
         </div>
       </div>
@@ -62,7 +82,7 @@ export default function RetirementAgeCalculator() {
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-6">
         <div>
           <label htmlFor="r-dob" className="block text-sm font-bold text-slate-800 mb-1">
-            Date of Birth
+            {c?.birthDate || 'Date of Birth'}
           </label>
           <input
             id="r-dob"
@@ -78,7 +98,7 @@ export default function RetirementAgeCalculator() {
 
         <div>
           <label htmlFor="r-age" className="block text-sm font-bold text-slate-800 mb-1">
-            Target Retirement Age
+            {c?.targetAge || 'Target Retirement Age'}
           </label>
           <input
             id="r-age"
@@ -97,7 +117,7 @@ export default function RetirementAgeCalculator() {
 
         <div>
           <label htmlFor="r-asof" className="block text-sm font-bold text-slate-800 mb-1">
-            Calculate As Of
+            {c?.asOfDate || 'Calculation Date'}
           </label>
           <input
             id="r-asof"
@@ -119,7 +139,7 @@ export default function RetirementAgeCalculator() {
           className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold bg-orange-600 text-white hover:bg-orange-700 shadow-sm transition-all"
         >
           <Sparkles className="w-4 h-4" />
-          <span>Calculate Retirement Countdown</span>
+          <span>{c?.btnCalculate || 'Calculate Retirement'}</span>
         </button>
       </div>
 
@@ -135,70 +155,68 @@ export default function RetirementAgeCalculator() {
           {result.isAlreadyRetired ? (
             <div className="p-6 bg-emerald-50 border border-emerald-200 rounded-2xl">
               <div className="text-xl font-bold text-emerald-900">
-                🎉 Congratulations! You have already reached your retirement age milestone.
+                🎉 {c?.alreadyReached || 'Target retirement milestone reached.'}
               </div>
               <div className="text-sm text-emerald-700 mt-1">
-                Target retirement date was {result.formattedRetirementDate}.
+                {c?.targetYear || 'Projected Retirement Date'}: {formattedRetirementDate}.
               </div>
             </div>
           ) : (
             <>
               <div className="p-6 bg-orange-50/70 border border-orange-200 rounded-2xl">
                 <div className="text-xs font-bold text-orange-800 uppercase tracking-wider mb-1">
-                  Time Remaining Until Retirement (Age {retireAge})
+                  {c?.yearsRemaining || 'Years Remaining'} ({c?.targetAge || 'Target Age'}: {formatNumber(retireAge, locale)})
                 </div>
                 <div className="flex flex-wrap items-baseline gap-2 sm:gap-4 mt-2">
                   <div className="flex items-baseline gap-1">
                     <span className="text-4xl sm:text-5xl font-extrabold text-orange-950">
-                      {result.yearsRemaining}
+                      {formatNumber(result.yearsRemaining, locale)}
                     </span>
-                    <span className="text-base font-bold text-orange-800">Years</span>
+                    <span className="text-base font-bold text-orange-800">{t('calculator.years', 'Years')}</span>
                   </div>
                   <div className="flex items-baseline gap-1">
                     <span className="text-4xl sm:text-5xl font-extrabold text-orange-950">
-                      {result.monthsRemaining}
+                      {formatNumber(result.monthsRemaining, locale)}
                     </span>
-                    <span className="text-base font-bold text-orange-800">Months</span>
+                    <span className="text-base font-bold text-orange-800">{t('calculator.months', 'Months')}</span>
                   </div>
                   <div className="flex items-baseline gap-1">
                     <span className="text-4xl sm:text-5xl font-extrabold text-orange-950">
-                      {result.daysRemaining}
+                      {formatNumber(result.daysRemaining, locale)}
                     </span>
-                    <span className="text-base font-bold text-orange-800">Days</span>
+                    <span className="text-base font-bold text-orange-800">{t('calculator.days', 'Days')}</span>
                   </div>
                 </div>
                 <div className="mt-3 text-sm text-slate-700">
-                  Projected Retirement Date: <strong>{result.formattedRetirementDate}</strong>
+                  {c?.targetYear || 'Projected Retirement Date'}: <strong>{formattedRetirementDate}</strong>
                 </div>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl">
-                  <div className="text-xs font-semibold text-slate-500 uppercase">Total Days Remaining</div>
+                  <div className="text-xs font-semibold text-slate-500 uppercase">{c?.yearsRemaining || 'Total Days Remaining'}</div>
                   <div className="text-2xl font-extrabold text-slate-900 mt-1">
-                    {result.totalDaysRemaining.toLocaleString()} Days
+                    {formatNumber(result.totalDaysRemaining, locale)} {t('calculator.days', 'Days')}
                   </div>
                 </div>
 
                 <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl">
-                  <div className="text-xs font-semibold text-slate-500 uppercase">Estimated Working Days</div>
+                  <div className="text-xs font-semibold text-slate-500 uppercase">{c?.workingDaysLeft || 'Estimated Working Days Left'}</div>
                   <div className="text-2xl font-extrabold text-slate-900 mt-1">
-                    ~{result.workingDaysRemaining.toLocaleString()} Days
+                    ~{formatNumber(result.workingDaysRemaining, locale)} {t('calculator.days', 'Days')}
                   </div>
-                  <div className="text-[11px] text-slate-400 mt-0.5">Based on 5 work days/week</div>
                 </div>
               </div>
             </>
           )}
 
-          {/* Legal / Informational Disclaimer */}
           <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-600 space-y-1">
             <div className="font-bold text-slate-800 flex items-center gap-1.5">
               <ShieldAlert className="w-4 h-4 text-slate-500" />
-              <span>Important Retirement Disclaimer</span>
+              <span>{c?.title || 'Retirement Age Calculator'}</span>
             </div>
             <p>
-              This calculator provides estimated calendar timelines for personal planning. Official pension, social security, and superannuation eligibility vary by country, employer terms, birth cohorts, and statutory laws. This tool does not constitute financial, legal, or retirement advice.
+              {c?.desc || 'Estimate your projected retirement date and time remaining until your target retirement age.'}
             </p>
           </div>
         </div>

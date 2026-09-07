@@ -1,176 +1,318 @@
 {
   "meta": {
-    "homeTitle": "周岁年龄计算器 – 精准计算出生年月日、周岁与天数",
-    "homeDescription": "免费在线年龄计算器。输入出生日期，快速计算您的精准周岁、出生月数、总天数及实时秒数。",
-    "homeH1": "在线周岁年龄计算器",
-    "homeSubtitle": "采用公历精准算法，实时计算您的准确周岁年龄、总存活天数、下个生日倒计时及属相星座。"
+    "homeTitle": "年龄计算器 – 精确计算您的周岁、月数与天数",
+    "homeDescription": "免费在线年龄计算器。精确计算周岁年龄、月数、天数与实时运行秒数，包含生日倒计时与生命统计数据。",
+    "homeH1": "在线年龄计算器",
+    "homeSubtitle": "遵循公历高精度日历算法，实时精确计算您出生的年、月、日、小时及运行秒数。"
   },
   "navigation": {
-    "home": "Home",
+    "home": "首页",
     "ageCalculator": "年龄计算器",
-    "birthday": "Birthday",
-    "ageDifference": "Age Difference",
-    "dateDifference": "Date Difference",
-    "dateOfBirth": "Date of Birth",
-    "moreTools": "More Tools",
-    "allAgeTools": "All Age & Date Tools",
+    "birthday": "生日计算器",
+    "ageDifference": "年龄差计算",
+    "dateDifference": "日期差计算",
+    "dateOfBirth": "出生日期计算器",
+    "moreTools": "更多工具",
+    "allAgeTools": "所有年龄与日期工具",
     "calculateAge": "计算年龄",
-    "calculateMyAgeNow": "计算年龄",
-    "mainTools": "Main Tools",
-    "moreCalculators": "More Calculators"
+    "calculateMyAgeNow": "计算我的年龄",
+    "mainTools": "核心工具",
+    "moreCalculators": "更多计算器"
   },
   "calculator": {
-    "badge": "Instant Calendar & Time Precision Calculation",
-    "dobLabel": "Date of Birth",
-    "dobPlaceholder": "Select your birth date",
-    "dobHelper": "Select your birth day, month, and year (DD / MM / YYYY). Auto-saved locally in cookies.",
-    "targetDateLabel": "Age As Of Date",
-    "useToday": "Use Today",
-    "changeDate": "Change Date",
-    "includeTime": "Include Exact Birth Time (Optional)",
-    "includeTimeHelper": "For down-to-the-minute precision",
-    "birthTimeLabel": "Time of Birth (Local Time)",
-    "calculate": "计算年龄",
-    "reset": "Reset",
-    "clear": "Clear",
-    "copied": "Copied!",
-    "copy": "Copy",
-    "print": "Print",
-    "yourExactAge": "Your Exact Age",
+    "badge": "公历日历算法与实时时间秒数高精运算",
+    "dobLabel": "出生日期",
+    "dobPlaceholder": "请选择您的出生日期",
+    "dobHelper": "选择出生年、月、日。本地加密保存于Cookie中。",
+    "targetDateLabel": "截至计算日期",
+    "useToday": "使用今天",
+    "changeDate": "修改日期",
+    "includeTime": "包含精确出生时间（可选）",
+    "includeTimeHelper": "精确到具体分钟",
+    "birthTimeLabel": "出生时间（本地时间）",
+    "calculate": "开始计算",
+    "reset": "重置",
+    "clear": "清除",
+    "copied": "已复制！",
+    "copy": "复制",
+    "print": "打印",
+    "yourExactAge": "您的精确年龄",
     "years": "岁",
     "months": "个月",
     "days": "天",
-    "hours": "Hours",
-    "minutes": "Minutes",
+    "hours": "小时",
+    "minutes": "分钟",
     "seconds": "秒",
-    "nextBirthday": "Next Birthday",
-    "daysRemaining": "days remaining",
-    "turning": "Turning",
-    "happyBirthday": "🎉 Happy Birthday Today!",
-    "totalDaysLived": "Total Days Lived",
-    "totalWeeks": "Total Weeks",
-    "heartbeats": "Estimated Heartbeats",
-    "solarOrbit": "Solar Year Progress",
-    "liveSeconds": "Running Total Seconds Lived",
-    "timeBreakdown": "Comprehensive Time Breakdown",
-    "zodiacSign": "Western Zodiac",
-    "chineseZodiac": "Chinese Zodiac",
-    "dayBorn": "Day of Birth"
+    "nextBirthday": "下一个生日",
+    "daysRemaining": "天后到来",
+    "turning": "将满",
+    "happyBirthday": "🎉 祝您今天生日快乐！",
+    "totalDaysLived": "已度过总天数",
+    "totalWeeks": "总周数",
+    "heartbeats": "预估心跳次数",
+    "solarOrbit": "太阳年公转进度",
+    "liveSeconds": "已生活总秒数实时递增",
+    "timeBreakdown": "多维度时间分解",
+    "zodiacSign": "西方星座",
+    "chineseZodiac": "生肖属相",
+    "dayBorn": "出生星期"
   },
   "features": {
-    "gregorianPrecisionTitle": "Gregorian Precision",
-    "gregorianPrecisionDesc": "Accounts for leap years, 30/31-day months, and February leap days down to the second.",
-    "liveSecondsTitle": "Live Running Seconds",
-    "liveSecondsDesc": "Real-time live age odometer synchronized with your device clock.",
-    "privateAndFreeTitle": "100% Private & Free",
-    "privateAndFreeDesc": "No registration or server uploads. All calculations run strictly in your browser."
+    "gregorianPrecisionTitle": "格里高利历法精准度",
+    "gregorianPrecisionDesc": "精确计算闰年、30/31天月份及2月29日，精确到秒。",
+    "liveSecondsTitle": "实时生命秒数表",
+    "liveSecondsDesc": "与您的设备时钟同步，实时跳动的生命里程计。",
+    "privateAndFreeTitle": "100% 隐私保护且永久免费",
+    "privateAndFreeDesc": "无需注册，无需上传任何数据到服务器。全部运算均在您的浏览器本地执行。"
   },
   "howItWorks": {
-    "title": "How the Age Calculator Works",
-    "subtitle": "A transparent breakdown of how our algorithm calculates calendar days, handles month borrowing, and tracks live seconds."
+    "title": "年龄计算器工作原理",
+    "subtitle": "深入了解我们的算法如何计算日历天数、月份借位规则及实时秒数运算。"
   },
   "faq": {
-    "title": "Frequently Asked Questions",
+    "title": "常见问题解答 (FAQ)",
     "items": [
       {
-        "question": "How does the Age Calculator calculate my exact age?",
-        "answer": "The calculator compares your Date of Birth with your target date using the Gregorian calendar algorithm. It computes complete elapsed years, calculates remaining full months, and calculates the remaining days by borrowing the exact days of the previous month."
+        "question": "年龄计算器是如何算出准确年龄的？",
+        "answer": "算法通过格里高利历法将您的出生日期与目标日期进行对比，逐级计算完整的年份、剩余月数，并准确借位前一个月的实际天数得出结果。"
       },
       {
-        "question": "Does this calculator account for leap years?",
-        "answer": "Yes. The algorithm handles February 29 correctly. If your birthday is on a leap day, the calculator checks leap cycle rules and measures exact calendar intervals."
+        "question": "闰年（如2月29日）如何计算？",
+        "answer": "完全准确。如果是闰年2月29日出生，系统自动匹配四周年公历规则并度量准确周期。"
       },
       {
-        "question": "How accurate is the live running seconds counter?",
-        "answer": "The live counter updates every second in real time, synchronized with your system clock, computing exact elapsed seconds from your birth timestamp."
+        "question": "实时秒数计数器有多准确？",
+        "answer": "计数器每秒自动与您的系统时钟校准，计算自出生时刻以来的绝对流逝秒数。"
       },
       {
-        "question": "Is my personal data safe and private?",
-        "answer": "Yes, 100%. All calculations happen entirely on your device inside your web browser. No personal information or birth dates are transmitted to any external server."
+        "question": "我的个人生日隐私安全吗？",
+        "answer": "100%安全。所有数据仅在您本地浏览器内存中处理，绝不上传到任何远程服务器。"
       },
       {
-        "question": "Can I calculate the age difference between two people?",
-        "answer": "Yes. Use our Age Difference Calculator to compare two birth dates and find the exact duration in years, months, and days."
+        "question": "我可以计算两个人的年龄差距吗？",
+        "answer": "可以，使用我们的'年龄差计算器'可以精确对比两个出生日期之间的年月日差距。"
       }
     ]
   },
   "breadcrumbs": {
-    "home": "Home"
+    "home": "首页"
   },
   "related": {
-    "title": "Explore Related Age & Date Calculators",
-    "description": "Quickly switch to specialized calculators for birthdays, milestone ages, date durations, and interval counting.",
-    "openCalculator": "Open Calculator"
+    "title": "探索更多年龄与日期工具",
+    "description": "快速切换至生日规划、人生里程碑、日期跨度及工作日计算等专项工具。",
+    "openCalculator": "打开工具"
   },
   "languageSelector": {
-    "title": "Select Language",
-    "subtitle": "Choose your preferred language for the entire website",
-    "searchPlaceholder": "Search language...",
-    "close": "Close"
+    "title": "选择语言",
+    "subtitle": "为整个网站选择您偏好的语言",
+    "searchPlaceholder": "搜索语言...",
+    "close": "关闭"
   },
   "footer": {
-    "brandDescription": "Free, accurate, and privacy-first online age calculator. Compute your exact age in years, months, and days, find your next birthday countdown, and calculate time differences with calendar precision.",
-    "coreCalculators": "Age Calculators",
-    "specialtyTools": "Specialty Tools",
-    "guide": "Calculation Guide",
-    "company": "Company & Legal",
-    "aboutUs": "About Us",
-    "contact": "Contact",
-    "privacy": "Privacy Policy",
-    "terms": "Terms of Service",
-    "languages": "Supported Languages & International Versions",
-    "clientSideBadge": "100% Client-Side • Zero Data Stored",
-    "allRightsReserved": "All rights reserved."
+    "brandDescription": "免费、精准且严格保护隐私的在线年龄计算器。精确计算周岁天数、生日倒计时及日期时差。",
+    "coreCalculators": "核心年龄计算器",
+    "specialtyTools": "特色工具",
+    "guide": "计算指南",
+    "company": "关于与法律",
+    "aboutUs": "关于我们",
+    "contact": "联系我们",
+    "privacy": "隐私政策",
+    "terms": "使用条款",
+    "languages": "支持的语言与国际版本",
+    "clientSideBadge": "100% 浏览器本地运算 • 不储存数据",
+    "allRightsReserved": "版权所有。"
   },
   "errors": {
-    "invalidDate": "Please enter a valid date.",
-    "futureDate": "Birth date cannot be in the future.",
-    "requiredDate": "Please select your date of birth."
+    "invalidDate": "请输入有效日期。",
+    "futureDate": "出生日期不能晚于当前日期。",
+    "requiredDate": "请选择您的出生日期。"
   },
   "tools": {
     "age-calculator": {
       "title": "年龄计算器",
-      "desc": "免费在线年龄计算器。输入出生日期，快速计算您的精准周岁、出生月数、总天数及实时秒数。"
+      "desc": "免费在线年龄计算器。精确计算周岁年龄、月数、天数与实时运行秒数。"
     },
     "birthday-calculator": {
-      "title": "Birthday Calculator",
-      "desc": "Discover your next birthday, day of week, days countdown, and milestone ages."
+      "title": "生日计算器",
+      "desc": "查询下一个生日的星期、倒计时天数及重要人生里程碑。"
     },
     "age-difference-calculator": {
-      "title": "Age Difference Calculator",
-      "desc": "Compare two dates of birth to find the precise difference in years, months, and days."
+      "title": "年龄差计算器",
+      "desc": "对比两个出生日期，计算两人相差的精准年、月、天数。"
     },
     "birthday-countdown": {
-      "title": "Birthday Countdown",
-      "desc": "Live real-time ticking countdown clock for upcoming birthdays and milestone celebrations."
+      "title": "生日倒计时",
+      "desc": "实时跳动的倒计时时钟，迎接即将到来的生日与纪念日。"
     },
     "date-difference-calculator": {
-      "title": "Date Difference Calculator",
-      "desc": "Find the exact duration and interval between any two dates in years, months, and days."
+      "title": "日期差计算器",
+      "desc": "计算任意两个日历日期之间的精确间隔天数、月数及年数。"
     },
     "date-of-birth-calculator": {
-      "title": "Date of Birth Calculator",
-      "desc": "Reverse calculator: determine your exact or approximate birth date from given age."
+      "title": "出生日期倒推计算器",
+      "desc": "反向计算器：根据已知年龄快速推算出出生日期。"
     },
     "days-between-dates": {
-      "title": "Days Between Dates",
-      "desc": "Calculate total calendar days and business days between any two dates."
+      "title": "日期间隔天数",
+      "desc": "统计两个日期之间的总天数、实际工作日与周末天数。"
     },
     "chronological-age-calculator": {
-      "title": "Chronological Age Calculator",
-      "desc": "Standard clinical and academic chronological age calculator (YY;MM;DD)."
+      "title": "实足年龄（生理年龄）计算器",
+      "desc": "适用于医学、心理学和发育评估的标准实足年龄计算（YY;MM;DD）。"
     },
     "retirement-age-calculator": {
-      "title": "Retirement Age Calculator",
-      "desc": "Estimate your retirement milestone date and calculate remaining years and working days."
+      "title": "退休年龄计算器",
+      "desc": "估算您的退休日期、剩余工作年限及工作日总数。"
     },
     "leap-year-age-calculator": {
-      "title": "Leap Year Age Calculator",
-      "desc": "Special calculator for February 29 leap day babies to track birthdays vs calendar years."
+      "title": "闰年2月29日年龄计算器",
+      "desc": "专为2月29日出生的朋友打造，追踪真实的公历生日与法定周期。"
     },
     "how-to-calculate-age": {
-      "title": "How to Calculate Age",
-      "desc": "Step-by-step mathematical guide to manual age calculation and calendar borrowing rules."
+      "title": "如何计算年龄",
+      "desc": "手动计算周岁年龄及日历借位运算的完整数学步骤指南。"
+    }
+  },
+  "calculators": {
+    "birthday": {
+      "title": "生日与里程碑计算器",
+      "desc": "了解您下一个生日还有几天、星期几，以及人生各整数岁生日对应的具体日期。",
+      "dobLabel": "您的出生日期",
+      "btnCalculate": "查看生日详情",
+      "nextCountdown": "距离下次生日倒计时",
+      "daysUntil": "天",
+      "turning": "届时您将满",
+      "onDate": "下次生日具体在",
+      "todayBday": "今天就是您的生日！祝您生日快乐！",
+      "milestoneTitle": "人生重要年龄里程碑",
+      "age": "年龄",
+      "year": "年份",
+      "date": "日期",
+      "dayOfWeek": "星期",
+      "status": "状态",
+      "passed": "已过",
+      "upcoming": "即将到来"
+    },
+    "ageDifference": {
+      "title": "年龄差距计算器",
+      "desc": "对比两个出生日期，精确计算出双方的年龄差（年、月、天）。",
+      "personA": "人员 A",
+      "personB": "人员 B",
+      "dobLabel": "出生日期",
+      "btnCalculate": "计算年龄差距",
+      "resultTitle": "年龄差分析结果",
+      "olderThan": "比",
+      "by": "大",
+      "totalDaysDiff": "总差距天数",
+      "totalWeeksDiff": "总差距周数",
+      "copySummary": "复制结果",
+      "copied": "已复制到剪贴板！",
+      "sameAge": "两人出生在同一天，同龄。"
+    },
+    "dateDifference": {
+      "title": "日期跨度计算器",
+      "desc": "精确计算两个日历日期之间包含的年、月、天总长度。",
+      "startDate": "开始日期",
+      "endDate": "结束日期",
+      "btnCalculate": "计算日期间隔",
+      "resultTitle": "两日期间隔明细",
+      "diffYMD": "时差",
+      "totalDays": "总天数",
+      "totalWeeks": "总周数",
+      "totalHours": "总小时数",
+      "totalMinutes": "总分钟数",
+      "errorInvalid": "请选择有效的开始与结束日期。"
+    },
+    "dateOfBirth": {
+      "title": "根据年龄倒推出生日期",
+      "desc": "输入您已知的岁数、月数及天数，反向推导出生日期。",
+      "ageYears": "岁",
+      "ageMonths": "个月",
+      "ageDays": "天",
+      "asOfDate": "基准日期",
+      "btnCalculate": "推算出生日期",
+      "resultTitle": "推算结果",
+      "estimatedDob": "估算出生日期",
+      "dayBorn": "出生星期"
+    },
+    "birthdayCountdown": {
+      "title": "生日实时倒计时时钟",
+      "desc": "实时流逝的倒计时，精准追踪下一次生日到来的每一秒。",
+      "dobLabel": "出生日期",
+      "days": "天",
+      "hours": "小时",
+      "minutes": "分钟",
+      "seconds": "秒",
+      "turningAge": "将满",
+      "nextBdayOn": "下一次生日在",
+      "happyBday": "🎉 祝您今天生日快乐！"
+    },
+    "daysBetween": {
+      "title": "两日期间天数计算器",
+      "desc": "精准统计任意两个日期间的自然天数、周数、法定工作日及周末。",
+      "startDate": "开始日期",
+      "endDate": "结束日期",
+      "includeEndDay": "包含结束当天 (+1天)",
+      "btnCalculate": "计算天数",
+      "totalDays": "自然日总数",
+      "businessDays": "工作日 (周一至周五)",
+      "weekendDays": "周末天数",
+      "totalWeeks": "总周数"
+    },
+    "chronological": {
+      "title": "临床与测评实足年龄计算器",
+      "desc": "针对心理测验和医学发育评估的标准实足年龄（年;月;日）计算。",
+      "birthDate": "出生日期",
+      "testDate": "施测 / 评估日期",
+      "weeksPremature": "早产周数（胎龄校正）",
+      "btnCalculate": "计算实足年龄",
+      "chronologicalAge": "实足年龄",
+      "notation": "临床记号格式 (Y;M;D)",
+      "exactInterval": "实际时间跨度",
+      "adjustedAge": "早产校正后年龄"
+    },
+    "retirement": {
+      "title": "退休年龄与倒计时计算器",
+      "desc": "评估您预计的退休年份、距离退休的剩余时间及工作日。",
+      "birthDate": "出生日期",
+      "currentAge": "当前年龄",
+      "targetAge": "目标退休年龄",
+      "asOfDate": "计算日期",
+      "btnCalculate": "计算退休时间",
+      "yearsRemaining": "剩余年数",
+      "targetYear": "预计退休年份",
+      "workingDaysLeft": "预计剩余工作日",
+      "alreadyReached": "已达到目标退休年龄里程碑。"
+    },
+    "leapYear": {
+      "title": "闰年2月29日专属计算器",
+      "desc": "探索您度过的真实'闰年岁数'（实际经历的2月29日）以及下一次法定公历生日。",
+      "dobLabel": "出生日期",
+      "btnCalculate": "查看闰年信息",
+      "leapYearsLived": "经历的2月29日总数",
+      "actualBirthdays": "法定正式闰年生日",
+      "nextLeapBirthday": "下一个2月29日生日",
+      "leapBabyBadge": "闰年寿星 (2月29日出生)"
+    },
+    "liveTicker": {
+      "title": "实时动态生命计时表",
+      "syncedLocal": "与本地设备时钟精准同步",
+      "clock": "时钟",
+      "runningTotalSeconds": "累计生活秒数",
+      "seconds": "秒",
+      "solarOrbit": "太阳公转周期进度",
+      "completed": "已完成",
+      "turnedAge": "上次生日本人生日为",
+      "turningAgeIn": "下次生日将在",
+      "bioMilestones": "人体生理里程碑",
+      "spaceTravel": "太空与地球公转旅行",
+      "heartbeats": "预估心跳总次数",
+      "breaths": "呼吸总次数",
+      "blinks": "眨眼次数",
+      "hoursSlept": "睡眠总小时数",
+      "earthRotation": "随地球自转距离",
+      "sunOrbit": "随地球绕日公转距离",
+      "asOfTarget": "截至目标日期计算"
     }
   }
 }

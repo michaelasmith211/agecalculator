@@ -1,14 +1,26 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 import { Clock } from 'lucide-react';
 import {
   calculateAge,
-  parseDateString,
-  formatDisplayDate
+  parseDateString
 } from '@/lib/date-utils';
+import { detectLocale } from '@/i18n/locale-utils';
+import { getTranslations } from '@/i18n/getTranslations';
+import { formatDateShort, formatWeekday, formatNumber } from '@/lib/format-utils';
 
-export default function BirthdayCountdown() {
+interface BirthdayCountdownProps {
+  locale?: string;
+}
+
+export default function BirthdayCountdown({ locale: propLocale }: BirthdayCountdownProps) {
+  const pathname = usePathname() || '/';
+  const locale = propLocale || detectLocale(pathname);
+  const { t, raw } = getTranslations(locale);
+  const c = raw.calculators?.birthdayCountdown;
+
   const [birthDateStr, setBirthDateStr] = useState('1996-10-25');
   const [timeLeft, setTimeLeft] = useState<{
     days: number;
@@ -17,6 +29,7 @@ export default function BirthdayCountdown() {
     seconds: number;
     turningAge: number;
     nextBirthdayDateFormatted: string;
+    dayOfWeek: string;
     isToday: boolean;
   } | null>(null);
 
@@ -31,6 +44,9 @@ export default function BirthdayCountdown() {
       try {
         const ageRes = calculateAge(birth, today);
         const nextBday = ageRes.nextBirthdayDate;
+        const nextBdayJsDate = new Date(nextBday.year, nextBday.month - 1, nextBday.day);
+        const dateFormatted = formatDateShort(nextBdayJsDate, locale);
+        const weekdayFormatted = formatWeekday(nextBdayJsDate, locale);
 
         // Target timestamp for next birthday at midnight local time
         const targetDate = new Date(nextBday.year, nextBday.month - 1, nextBday.day, 0, 0, 0, 0);
@@ -43,7 +59,8 @@ export default function BirthdayCountdown() {
             minutes: 0,
             seconds: 0,
             turningAge: ageRes.years,
-            nextBirthdayDateFormatted: formatDisplayDate(nextBday),
+            nextBirthdayDateFormatted: dateFormatted,
+            dayOfWeek: weekdayFormatted,
             isToday: true
           });
           return;
@@ -65,7 +82,8 @@ export default function BirthdayCountdown() {
           minutes,
           seconds,
           turningAge: ageRes.ageTurningNext,
-          nextBirthdayDateFormatted: formatDisplayDate(nextBday),
+          nextBirthdayDateFormatted: dateFormatted,
+          dayOfWeek: weekdayFormatted,
           isToday: false
         });
       } catch {
@@ -76,7 +94,10 @@ export default function BirthdayCountdown() {
     updateCountdown();
     const interval = setInterval(updateCountdown, 1000);
     return () => clearInterval(interval);
-  }, [birthDateStr]);
+  }, [birthDateStr, locale]);
+
+  const calcTitle = c?.title || raw.tools?.['birthday-countdown']?.title || 'Birthday Countdown Clock';
+  const calcDesc = c?.desc || raw.tools?.['birthday-countdown']?.desc || 'Live real-time ticking countdown clock for upcoming birthdays.';
 
   return (
     <div className="calculator-card p-6 sm:p-8 bg-white border border-slate-200 rounded-2xl shadow-sm">
@@ -86,10 +107,10 @@ export default function BirthdayCountdown() {
         </div>
         <div>
           <h2 className="text-xl sm:text-2xl font-bold text-slate-900">
-            Live Birthday Countdown Clock
+            {calcTitle}
           </h2>
           <p className="text-sm text-slate-600">
-            Real-time live countdown ticking down the exact days, hours, minutes, and seconds to your next birthday.
+            {calcDesc}
           </p>
         </div>
       </div>
@@ -97,7 +118,7 @@ export default function BirthdayCountdown() {
       <div className="mt-6 max-w-sm space-y-4">
         <div>
           <label htmlFor="bc-dob" className="block text-sm font-bold text-slate-800 mb-1">
-            Your Date of Birth
+            {c?.dobLabel || t('calculator.dobLabel', 'Your Date of Birth')}
           </label>
           <input
             id="bc-dob"
@@ -114,50 +135,58 @@ export default function BirthdayCountdown() {
           {timeLeft.isToday ? (
             <div className="p-8 bg-gradient-to-r from-pink-500 to-purple-600 text-white rounded-2xl text-center shadow-md">
               <div className="text-4xl sm:text-5xl font-extrabold mb-2">
-                🎉 Happy Birthday! 🎂
+                {c?.happyBday || '🎉 Happy Birthday Today!'}
               </div>
               <p className="text-lg font-medium opacity-90">
-                You are turning {timeLeft.turningAge} years old today! Wishing you a wonderful year ahead.
+                {c?.turningAge || 'Turning'} {formatNumber(timeLeft.turningAge, locale)}!
               </p>
             </div>
           ) : (
             <div className="p-6 sm:p-8 bg-purple-50/70 border border-purple-200 rounded-2xl text-center">
               <div className="text-xs font-bold text-purple-800 uppercase tracking-wider mb-2">
-                Countdown to {timeLeft.nextBirthdayDateFormatted} (Turning {timeLeft.turningAge})
+                {c?.nextBdayOn || 'Next Birthday falls on'} {timeLeft.nextBirthdayDateFormatted} ({c?.turningAge || 'Turning'} {formatNumber(timeLeft.turningAge, locale)})
               </div>
 
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 max-w-xl mx-auto my-4">
                 <div className="bg-white p-4 rounded-xl border border-purple-200 shadow-2xs">
                   <div className="text-3xl sm:text-5xl font-extrabold text-purple-950 font-mono">
-                    {timeLeft.days}
+                    {formatNumber(timeLeft.days, locale)}
                   </div>
-                  <div className="text-xs font-semibold text-purple-700 uppercase mt-1">Days</div>
+                  <div className="text-xs font-semibold text-purple-700 uppercase mt-1">
+                    {c?.days || t('calculator.days', 'Days')}
+                  </div>
                 </div>
 
                 <div className="bg-white p-4 rounded-xl border border-purple-200 shadow-2xs">
                   <div className="text-3xl sm:text-5xl font-extrabold text-purple-950 font-mono">
                     {String(timeLeft.hours).padStart(2, '0')}
                   </div>
-                  <div className="text-xs font-semibold text-purple-700 uppercase mt-1">Hours</div>
+                  <div className="text-xs font-semibold text-purple-700 uppercase mt-1">
+                    {c?.hours || 'Hours'}
+                  </div>
                 </div>
 
                 <div className="bg-white p-4 rounded-xl border border-purple-200 shadow-2xs">
                   <div className="text-3xl sm:text-5xl font-extrabold text-purple-950 font-mono">
                     {String(timeLeft.minutes).padStart(2, '0')}
                   </div>
-                  <div className="text-xs font-semibold text-purple-700 uppercase mt-1">Minutes</div>
+                  <div className="text-xs font-semibold text-purple-700 uppercase mt-1">
+                    {c?.minutes || 'Minutes'}
+                  </div>
                 </div>
 
                 <div className="bg-white p-4 rounded-xl border border-purple-200 shadow-2xs">
                   <div className="text-3xl sm:text-5xl font-extrabold text-purple-950 font-mono">
                     {String(timeLeft.seconds).padStart(2, '0')}
                   </div>
-                  <div className="text-xs font-semibold text-purple-700 uppercase mt-1">Seconds</div>
+                  <div className="text-xs font-semibold text-purple-700 uppercase mt-1">
+                    {c?.seconds || 'Seconds'}
+                  </div>
                 </div>
               </div>
 
               <div className="text-xs text-purple-800 mt-2">
-                Next birthday falls on <strong>{timeLeft.nextBirthdayDateFormatted}</strong>
+                {c?.nextBdayOn || 'Next Birthday falls on'} <strong>{timeLeft.nextBirthdayDateFormatted}</strong> ({timeLeft.dayOfWeek})
               </div>
             </div>
           )}

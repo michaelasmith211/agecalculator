@@ -1,176 +1,318 @@
 {
   "meta": {
-    "homeTitle": "מחשבון גיל מדויק – חישוב גיל בשנים, חודשים וימים",
-    "homeDescription": "מחשבון גיל אונליין בחינם. חשב את הגיל המדויק שלך בשנים, חודשים, ימים ושניות חיות כולל ספירה לאחור ליום ההולדת.",
-    "homeH1": "מחשבון גיל אונליין",
-    "homeSubtitle": "חשב את גילך הכרונולוגי המדויק בשנים, חודשים, ימים, שעות ושניות חיות בדיוק מלא של לוח השנה הגרגוריאני."
+    "homeTitle": "מחשבון גיל – חשב את גילך המדויק בשנים, חודשים וימים",
+    "homeDescription": "מחשבון גיל מקוון בחינם. חשב את גילך המדויק בשנים, חודשים, ימים ושניות חיות עם ספירה לאחור ליום ההולדת וסטטיסטיקות חיים.",
+    "homeH1": "מחשבון גיל מקוון",
+    "homeSubtitle": "חשב את גילך הכרונולוגי המדויק בשנים, חודשים, ימים, שעות ושניות חיות בדיוק מוחלט של הלוח הגרגוריאני."
   },
   "navigation": {
-    "home": "Home",
+    "home": "דף הבית",
     "ageCalculator": "מחשבון גיל",
-    "birthday": "Birthday",
-    "ageDifference": "Age Difference",
-    "dateDifference": "Date Difference",
-    "dateOfBirth": "Date of Birth",
-    "moreTools": "More Tools",
-    "allAgeTools": "All Age & Date Tools",
+    "birthday": "מחשבון יום הולדת",
+    "ageDifference": "הפרש גילאים",
+    "dateDifference": "הפרש בין תאריכים",
+    "dateOfBirth": "מחשבון תאריך לידה",
+    "moreTools": "כלים נוספים",
+    "allAgeTools": "כל כלי הגיל והתאריכים",
     "calculateAge": "חשב גיל",
-    "calculateMyAgeNow": "חשב גיל",
-    "mainTools": "Main Tools",
-    "moreCalculators": "More Calculators"
+    "calculateMyAgeNow": "חשב את גילי",
+    "mainTools": "כלים ראשיים",
+    "moreCalculators": "מחשבונים נוספים"
   },
   "calculator": {
-    "badge": "Instant Calendar & Time Precision Calculation",
-    "dobLabel": "Date of Birth",
-    "dobPlaceholder": "Select your birth date",
-    "dobHelper": "Select your birth day, month, and year (DD / MM / YYYY). Auto-saved locally in cookies.",
-    "targetDateLabel": "Age As Of Date",
-    "useToday": "Use Today",
-    "changeDate": "Change Date",
-    "includeTime": "Include Exact Birth Time (Optional)",
-    "includeTimeHelper": "For down-to-the-minute precision",
-    "birthTimeLabel": "Time of Birth (Local Time)",
+    "badge": "חישוב מדויק בזמן אמת של לוח השנה והשעון",
+    "dobLabel": "תאריך לידה",
+    "dobPlaceholder": "בחר את תאריך הלידה שלך",
+    "dobHelper": "בחר יום, חודש ושנת לידה (DD/MM/YYYY). נשמר מקומית בדפדפן.",
+    "targetDateLabel": "גיל נכון לתאריך",
+    "useToday": "היום",
+    "changeDate": "שנה תאריך",
+    "includeTime": "כלול שעת לידה מדויקת (אופציונלי)",
+    "includeTimeHelper": "לדיוק עד רמת הדקה",
+    "birthTimeLabel": "שעת לידה (שעון מקומי)",
     "calculate": "חשב גיל",
-    "reset": "Reset",
-    "clear": "Clear",
-    "copied": "Copied!",
-    "copy": "Copy",
-    "print": "Print",
-    "yourExactAge": "Your Exact Age",
+    "reset": "איפוס",
+    "clear": "נקה",
+    "copied": "הועתק!",
+    "copy": "העתק",
+    "print": "הדפס",
+    "yourExactAge": "גילך המדויק",
     "years": "שנים",
     "months": "חודשים",
     "days": "ימים",
-    "hours": "Hours",
-    "minutes": "Minutes",
+    "hours": "שעות",
+    "minutes": "דקות",
     "seconds": "שניות",
-    "nextBirthday": "Next Birthday",
-    "daysRemaining": "days remaining",
-    "turning": "Turning",
-    "happyBirthday": "🎉 Happy Birthday Today!",
-    "totalDaysLived": "Total Days Lived",
-    "totalWeeks": "Total Weeks",
-    "heartbeats": "Estimated Heartbeats",
-    "solarOrbit": "Solar Year Progress",
-    "liveSeconds": "Running Total Seconds Lived",
-    "timeBreakdown": "Comprehensive Time Breakdown",
-    "zodiacSign": "Western Zodiac",
-    "chineseZodiac": "Chinese Zodiac",
-    "dayBorn": "Day of Birth"
+    "nextBirthday": "יום הולדת הבא",
+    "daysRemaining": "ימים נותרו",
+    "turning": "תהיה בן/בת",
+    "happyBirthday": "🎉 יום הולדת שמח היום!",
+    "totalDaysLived": "סך כל הימים שחיית",
+    "totalWeeks": "סך כל השבועות",
+    "heartbeats": "פעימות לב משוערות",
+    "solarOrbit": "התקדמות במסלול השמש",
+    "liveSeconds": "שניות חיים בזמן אמת",
+    "timeBreakdown": "פירוט זמנים מקיף",
+    "zodiacSign": "מזל אסטרולוגי",
+    "chineseZodiac": "מזל סיני",
+    "dayBorn": "יום הלידה בשבוע"
   },
   "features": {
-    "gregorianPrecisionTitle": "Gregorian Precision",
-    "gregorianPrecisionDesc": "Accounts for leap years, 30/31-day months, and February leap days down to the second.",
-    "liveSecondsTitle": "Live Running Seconds",
-    "liveSecondsDesc": "Real-time live age odometer synchronized with your device clock.",
-    "privateAndFreeTitle": "100% Private & Free",
-    "privateAndFreeDesc": "No registration or server uploads. All calculations run strictly in your browser."
+    "gregorianPrecisionTitle": "דיוק גרגוריאני",
+    "gregorianPrecisionDesc": "מתחשב בשנים מעוברות, חודשים בני 30/31 ימים וב-29 בפברואר בדיוק של שניות.",
+    "liveSecondsTitle": "שניות בזמן אמת",
+    "liveSecondsDesc": "מד זמן חי המסונכרן עם שעון המכשיר שלך בדיוק של שניות.",
+    "privateAndFreeTitle": "100% פרטי ובחינם",
+    "privateAndFreeDesc": "ללא רישום וללא העלאת נתונים לשרת. כל החישובים נעשים ישירות בדפדפן שלך."
   },
   "howItWorks": {
-    "title": "How the Age Calculator Works",
-    "subtitle": "A transparent breakdown of how our algorithm calculates calendar days, handles month borrowing, and tracks live seconds."
+    "title": "איך עובד מחשבון הגיל",
+    "subtitle": "הסבר שקוף על האופן שבו האלגוריתם מחשב ימי לוח שנה, מעבר חודשים ושניות בזמן אמת."
   },
   "faq": {
-    "title": "Frequently Asked Questions",
+    "title": "שאלות נפוצות (FAQ)",
     "items": [
       {
-        "question": "How does the Age Calculator calculate my exact age?",
-        "answer": "The calculator compares your Date of Birth with your target date using the Gregorian calendar algorithm. It computes complete elapsed years, calculates remaining full months, and calculates the remaining days by borrowing the exact days of the previous month."
+        "question": "איך המחשבון קובע את גילי המדויק?",
+        "answer": "הוא משווה את תאריך הלידה לתאריך היעד לפי לוח השנה ומחשב שנים, חודשים וימים מלאים."
       },
       {
-        "question": "Does this calculator account for leap years?",
-        "answer": "Yes. The algorithm handles February 29 correctly. If your birthday is on a leap day, the calculator checks leap cycle rules and measures exact calendar intervals."
+        "question": "האם המחשבון מתחשב בשנים מעוברות?",
+        "answer": "כן, בהחלט. ילידי 29 בפברואר מקבלים חישוב מדויק לפי מחזורי 4 שנים רשמיים."
       },
       {
-        "question": "How accurate is the live running seconds counter?",
-        "answer": "The live counter updates every second in real time, synchronized with your system clock, computing exact elapsed seconds from your birth timestamp."
+        "question": "כמה מדויק מונה השניות החי?",
+        "answer": "המונה מתעדכן בכל שנייה בזמן אמת בסנכרון עם שעון המכשיר שלך."
       },
       {
-        "question": "Is my personal data safe and private?",
-        "answer": "Yes, 100%. All calculations happen entirely on your device inside your web browser. No personal information or birth dates are transmitted to any external server."
+        "question": "האם המידע האישי שלי מוגן?",
+        "answer": "כן, ב-100%. כל החישובים מבוצעים בדפדפן שלך ושום מידע לא מועבר לשרת חיצוני."
       },
       {
-        "question": "Can I calculate the age difference between two people?",
-        "answer": "Yes. Use our Age Difference Calculator to compare two birth dates and find the exact duration in years, months, and days."
+        "question": "האם ניתן לחשב הפרש גילאים בין שני אנשים?",
+        "answer": "כן, השתמש ב'מחשבון הפרש גילאים' כדי להשוות שני תאריכים בשנים, חודשים וימים."
       }
     ]
   },
   "breadcrumbs": {
-    "home": "Home"
+    "home": "דף הבית"
   },
   "related": {
-    "title": "Explore Related Age & Date Calculators",
-    "description": "Quickly switch to specialized calculators for birthdays, milestone ages, date durations, and interval counting.",
-    "openCalculator": "Open Calculator"
+    "title": "מחשבוני גיל ותאריכים נוספים",
+    "description": "מעבר מהיר למחשבוני ימי הולדת, ציוני דרך, ימי עבודה ומרווחי תאריכים.",
+    "openCalculator": "פתח מחשבון"
   },
   "languageSelector": {
-    "title": "Select Language",
-    "subtitle": "Choose your preferred language for the entire website",
-    "searchPlaceholder": "Search language...",
-    "close": "Close"
+    "title": "בחר שפה",
+    "subtitle": "בחר את השפה המועדפת עליך לאתר כולו",
+    "searchPlaceholder": "חיפוש שפה...",
+    "close": "סגור"
   },
   "footer": {
-    "brandDescription": "Free, accurate, and privacy-first online age calculator. Compute your exact age in years, months, and days, find your next birthday countdown, and calculate time differences with calendar precision.",
-    "coreCalculators": "Age Calculators",
-    "specialtyTools": "Specialty Tools",
-    "guide": "Calculation Guide",
-    "company": "Company & Legal",
-    "aboutUs": "About Us",
-    "contact": "Contact",
-    "privacy": "Privacy Policy",
-    "terms": "Terms of Service",
-    "languages": "Supported Languages & International Versions",
-    "clientSideBadge": "100% Client-Side • Zero Data Stored",
-    "allRightsReserved": "All rights reserved."
+    "brandDescription": "מחשבון גיל מקוון חינמי, מדויק ופרטי לחלוטין. חשב את גילך, ימי הולדת ומרווחי זמן בדיוק של לוח שנה.",
+    "coreCalculators": "מחשבוני גיל",
+    "specialtyTools": "כלים מיוחדים",
+    "guide": "מדריך חישוב",
+    "company": "חברה ומשפטי",
+    "aboutUs": "אודותינו",
+    "contact": "צור קשר",
+    "privacy": "מדיניות פרטיות",
+    "terms": "תנאי שימוש",
+    "languages": "שפות זמינות וגרסאות בינלאומיות",
+    "clientSideBadge": "100% בדפדפן • אין שמירת מידע",
+    "allRightsReserved": "כל הזכויות שמורות."
   },
   "errors": {
-    "invalidDate": "Please enter a valid date.",
-    "futureDate": "Birth date cannot be in the future.",
-    "requiredDate": "Please select your date of birth."
+    "invalidDate": "נא להזין תאריך חוקי.",
+    "futureDate": "תאריך הלידה אינו יכול להיות בעתיד.",
+    "requiredDate": "נא לבחור תאריך לידה."
   },
   "tools": {
     "age-calculator": {
       "title": "מחשבון גיל",
-      "desc": "מחשבון גיל אונליין בחינם. חשב את הגיל המדויק שלך בשנים, חודשים, ימים ושניות חיות כולל ספירה לאחור ליום ההולדת."
+      "desc": "חשב את גילך המדויק בשנים, חודשים, ימים ושניות בזמן אמת."
     },
     "birthday-calculator": {
-      "title": "Birthday Calculator",
-      "desc": "Discover your next birthday, day of week, days countdown, and milestone ages."
+      "title": "מחשבון יום הולדת",
+      "desc": "גלה מתי יום ההולדת הבא שלך, באיזה יום בשבוע הוא יחול, וימי הולדת משמעותיים."
     },
     "age-difference-calculator": {
-      "title": "Age Difference Calculator",
-      "desc": "Compare two dates of birth to find the precise difference in years, months, and days."
+      "title": "מחשבון הפרש גילאים",
+      "desc": "השווה בין שני תאריכי לידה כדי למצוא את ההפרש המדויק בשנים, חודשים וימים."
     },
     "birthday-countdown": {
-      "title": "Birthday Countdown",
-      "desc": "Live real-time ticking countdown clock for upcoming birthdays and milestone celebrations."
+      "title": "ספירה לאחור ליום הולדת",
+      "desc": "שעון ספירה לאחור חי לימי הולדת קרובים ואירועים מיוחדים."
     },
     "date-difference-calculator": {
-      "title": "Date Difference Calculator",
-      "desc": "Find the exact duration and interval between any two dates in years, months, and days."
+      "title": "הפרש בין תאריכים",
+      "desc": "מדוד את משך הזמן המדויק בין שני תאריכים בשנים, חודשים, ימים ושעות."
     },
     "date-of-birth-calculator": {
-      "title": "Date of Birth Calculator",
-      "desc": "Reverse calculator: determine your exact or approximate birth date from given age."
+      "title": "מחשבון תאריך לידה",
+      "desc": "מחשבון הפוך: מצא את תאריך הלידה המשוער שלך על פי גילך הידוע."
     },
     "days-between-dates": {
-      "title": "Days Between Dates",
-      "desc": "Calculate total calendar days and business days between any two dates."
+      "title": "ימים בין שני תאריכים",
+      "desc": "חשב את סך הימים, ימי העבודה וסופי השבוע בין שני תאריכים."
     },
     "chronological-age-calculator": {
-      "title": "Chronological Age Calculator",
-      "desc": "Standard clinical and academic chronological age calculator (YY;MM;DD)."
+      "title": "מחשבון גיל כרונולוגי",
+      "desc": "תקן רפואי ואקדמי לחישוב גיל כרונולוגי (YY;MM;DD)."
     },
     "retirement-age-calculator": {
-      "title": "Retirement Age Calculator",
-      "desc": "Estimate your retirement milestone date and calculate remaining years and working days."
+      "title": "מחשבון גיל פרישה",
+      "desc": "הערך את מועד הפרישה המשוער, השנים שנותרו וימי העבודה."
     },
     "leap-year-age-calculator": {
-      "title": "Leap Year Age Calculator",
-      "desc": "Special calculator for February 29 leap day babies to track birthdays vs calendar years."
+      "title": "מחשבון שנה מעוברת",
+      "desc": "מחשבון מיוחד לילידי 29 בפברואר למעקב אחר ימי הולדת אמיתיים."
     },
     "how-to-calculate-age": {
-      "title": "How to Calculate Age",
-      "desc": "Step-by-step mathematical guide to manual age calculation and calendar borrowing rules."
+      "title": "כיצד לחשב גיל",
+      "desc": "מדריך מתמטי שלב אחר שלב לחישוב ידני של גיל על פי חוקי לוח השנה."
+    }
+  },
+  "calculators": {
+    "birthday": {
+      "title": "מחשבון יום הולדת וציוני דרך",
+      "desc": "גלה מתי יום ההולדת הבא, כמה ימים נותרו ובאילו ימים בשבוע יחולו ימי הולדת עגולים.",
+      "dobLabel": "תאריך הלידה שלך",
+      "btnCalculate": "הצג נתוני יום הולדת",
+      "nextCountdown": "ספירה לאחור ליום ההולדת הבא",
+      "daysUntil": "ימים",
+      "turning": "עד שתגיע לגיל",
+      "onDate": "יום ההולדת הבא שלך יחול ביום",
+      "todayBday": "יום הולדת שמח היום!",
+      "milestoneTitle": "ימי הולדת משמעותיים",
+      "age": "גיל",
+      "year": "שנה",
+      "date": "תאריך",
+      "dayOfWeek": "יום בשבוע",
+      "status": "סטטוס",
+      "passed": "הסתיים",
+      "upcoming": "עתידי"
+    },
+    "ageDifference": {
+      "title": "מחשבון הפרש גילאים",
+      "desc": "השווה שני תאריכי לידה כדי לחשב את הפער המדויק בשנים, חודשים וימים.",
+      "personA": "אדם א'",
+      "personB": "אדם ב'",
+      "dobLabel": "תאריך לידה",
+      "btnCalculate": "חשב הפרש גילאים",
+      "resultTitle": "פירוט הפרש הגילאים",
+      "olderThan": "מבוגר/ת מ-",
+      "by": "ב-",
+      "totalDaysDiff": "סך ההפרש בימים",
+      "totalWeeksDiff": "סך ההפרש בשבועות",
+      "copySummary": "העתק סיכום",
+      "copied": "הועתק ללוח!",
+      "sameAge": "שני האנשים נולדו בדיוק באותו תאריך."
+    },
+    "dateDifference": {
+      "title": "מחשבון הפרש בין תאריכים",
+      "desc": "חשב את משך הזמן המדויק בין שני תאריכים בשנים, חודשים וימים.",
+      "startDate": "תאריך התחלה",
+      "endDate": "תאריך סיום",
+      "btnCalculate": "חשב משך זמן",
+      "resultTitle": "הפרש הזמן בין התאריכים",
+      "diffYMD": "הפרש",
+      "totalDays": "סך הימים",
+      "totalWeeks": "סך השבועות",
+      "totalHours": "סך השעות",
+      "totalMinutes": "סך הדקות",
+      "errorInvalid": "נא לבחור תאריכי התחלה וסיום תקינים."
+    },
+    "dateOfBirth": {
+      "title": "מחשבון תאריך לידה",
+      "desc": "קבע את תאריך הלידה על ידי הזנת גילך בשנים, חודשים וימים.",
+      "ageYears": "שנים",
+      "ageMonths": "חודשים",
+      "ageDays": "ימים",
+      "asOfDate": "גיל נכון לתאריך",
+      "btnCalculate": "חשב תאריך לידה",
+      "resultTitle": "תאריך הלידה שחושב",
+      "estimatedDob": "תאריך לידה משוער",
+      "dayBorn": "יום הלידה בשבוע"
+    },
+    "birthdayCountdown": {
+      "title": "שעון ספירה לאחור ליום הולדת",
+      "desc": "שעון חי לספירה לאחור לקראת ימי הולדת ואירועים מיוחדים.",
+      "dobLabel": "תאריך לידה",
+      "days": "ימים",
+      "hours": "שעות",
+      "minutes": "דקות",
+      "seconds": "שניות",
+      "turningAge": "תהיה בן/בת",
+      "nextBdayOn": "יום ההולדת הבא יחול ב-",
+      "happyBday": "🎉 יום הולדת שמח היום!"
+    },
+    "daysBetween": {
+      "title": "מחשבון ימים בין שני תאריכים",
+      "desc": "ספור את מספר הימים, השבועות, ימי העבודה וסופי השבוע בין שני תאריכים.",
+      "startDate": "תאריך התחלה",
+      "endDate": "תאריך סיום",
+      "includeEndDay": "כלול יום אחרון (+1 יום)",
+      "btnCalculate": "חשב ימים",
+      "totalDays": "סך ימי לוח שנה",
+      "businessDays": "ימי עבודה",
+      "weekendDays": "ימי סוף שבוע",
+      "totalWeeks": "סך השבועות"
+    },
+    "chronological": {
+      "title": "מחשבון גיל כרונולוגי רפואי",
+      "desc": "חישוב גיל כרונולוגי תקני (שנים;חודשים;ימים) להערכות רפואיות ופסיכולוגיות.",
+      "birthDate": "תאריך לידה",
+      "testDate": "תאריך בדיקה / הערכה",
+      "weeksPremature": "שבועות פגות (תיקון גיל)",
+      "btnCalculate": "חשב גיל כרונולוגי",
+      "chronologicalAge": "גיל כרונולוגי",
+      "notation": "סימון רפואי (Y;M;D)",
+      "exactInterval": "מרווח זמן מדויק שחלף",
+      "adjustedAge": "גיל מתוקן לפגות"
+    },
+    "retirement": {
+      "title": "מחשבון גיל פרישה",
+      "desc": "הערך את מועד הפרישה המשוער והזמן שנותר עד הגיל המיועד.",
+      "birthDate": "תאריך לידה",
+      "currentAge": "גיל נוכחי",
+      "targetAge": "גיל פרישה רצוי",
+      "asOfDate": "תאריך החישוב",
+      "btnCalculate": "חשב פרישה",
+      "yearsRemaining": "שנים שנותרו",
+      "targetYear": "שנת פרישה משוערת",
+      "workingDaysLeft": "ימי עבודה משוערים שנותרו",
+      "alreadyReached": "גיל הפרישה היעד הושג בהצלחה."
+    },
+    "leapYear": {
+      "title": "מחשבון שנה מעוברת ו-29 בפברואר",
+      "desc": "בדוק את מספר הפעמים שחווית את ה-29 בפברואר ואת ימי ההולדת המעוברים הבאים.",
+      "dobLabel": "תאריך לידה",
+      "btnCalculate": "בדוק נתוני שנה מעוברת",
+      "leapYearsLived": "ימי 29 בפברואר שנחגגו",
+      "actualBirthdays": "ימי הולדת מעוברים רשמיים",
+      "nextLeapBirthday": "ה-29 בפברואר הבא",
+      "leapBabyBadge": "יליד שנה מעוברת (29 בפב')"
+    },
+    "liveTicker": {
+      "title": "מד גיל חי בזמן אמת",
+      "syncedLocal": "מסונכרן עם שעון המכשיר שלך",
+      "clock": "שעון",
+      "runningTotalSeconds": "סך השניות שחיית",
+      "seconds": "שניות",
+      "solarOrbit": "התקדמות במסלול השמש",
+      "completed": "הושלם",
+      "turnedAge": "גיל ביום ההולדת האחרון",
+      "turningAgeIn": "גיל ביום ההולדת הבא בעוד",
+      "bioMilestones": "ציוני דרך ביולוגיים",
+      "spaceTravel": "מסע בחלל ומסלול כדור הארץ",
+      "heartbeats": "פעימות לב משוערות",
+      "breaths": "נשימות שנלקחו",
+      "blinks": "מצמוצי עיניים",
+      "hoursSlept": "שעות שינה",
+      "earthRotation": "סיבוב כדור הארץ",
+      "sunOrbit": "מרחק שחלף סביב השמש",
+      "asOfTarget": "מחושב נכון לתאריך היעד"
     }
   }
 }

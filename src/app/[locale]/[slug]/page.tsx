@@ -8,6 +8,8 @@ import { getCanonicalUrl, getHreflangAlternates } from '@/i18n/locale-utils';
 import { WebApplicationJsonLd, BreadcrumbJsonLd } from '@/components/JsonLd';
 import RelatedCalculators from '@/components/RelatedCalculators';
 
+import Breadcrumbs from '@/components/Breadcrumbs';
+
 // All 11 calculators
 import MainAgeCalculator from '@/components/calculators/MainAgeCalculator';
 import BirthdayCalculator from '@/components/calculators/BirthdayCalculator';
@@ -64,7 +66,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const tool = raw.tools?.[slug as keyof typeof raw.tools] || raw.tools['age-calculator'];
 
   const pageTitle = `${tool.title} – ${SITE_CONFIG.name}`;
-  const pageDesc = `${tool.desc} Free, instant, and 100% accurate on ${SITE_CONFIG.name}.`;
+  const pageDesc = tool.desc;
 
   return {
     title: pageTitle,
@@ -118,23 +120,23 @@ export default async function LocalizedToolPage({ params }: PageProps) {
   const renderCalculator = () => {
     switch (slug) {
       case 'birthday-calculator':
-        return <BirthdayCalculator />;
+        return <BirthdayCalculator locale={locale} />;
       case 'age-difference-calculator':
-        return <AgeDifferenceCalculator />;
+        return <AgeDifferenceCalculator locale={locale} />;
       case 'birthday-countdown':
-        return <BirthdayCountdown />;
+        return <BirthdayCountdown locale={locale} />;
       case 'date-difference-calculator':
-        return <DateDifferenceCalculator />;
+        return <DateDifferenceCalculator locale={locale} />;
       case 'date-of-birth-calculator':
-        return <DateOfBirthCalculator />;
+        return <DateOfBirthCalculator locale={locale} />;
       case 'days-between-dates':
-        return <DaysBetweenDates />;
+        return <DaysBetweenDates locale={locale} />;
       case 'chronological-age-calculator':
-        return <ChronologicalAgeCalculator />;
+        return <ChronologicalAgeCalculator locale={locale} />;
       case 'retirement-age-calculator':
-        return <RetirementAgeCalculator />;
+        return <RetirementAgeCalculator locale={locale} />;
       case 'leap-year-age-calculator':
-        return <LeapYearCalculator />;
+        return <LeapYearCalculator locale={locale} />;
       case 'how-to-calculate-age':
       case 'age-calculator':
       default:
@@ -157,12 +159,17 @@ export default async function LocalizedToolPage({ params }: PageProps) {
       />
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12 space-y-10">
+        <Breadcrumbs
+          items={[{ name: tool.title, href: `/${locale}/${slug}/` }]}
+          locale={locale}
+        />
+
         {/* Hero */}
         <div className="text-center space-y-3 max-w-3xl mx-auto">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-blue-100 text-blue-800">
             <span>{config.nativeName} ({config.englishName})</span>
             <span>•</span>
-            <span>100% Free Tool</span>
+            <span>{t('features.privateAndFreeTitle', '100% Private & Free')}</span>
           </div>
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
             {tool.title}

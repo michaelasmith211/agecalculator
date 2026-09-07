@@ -1,176 +1,318 @@
 {
   "meta": {
-    "homeTitle": "محاسبه سن دقیق آنلاین – محاسبه سن به سال، ماه و روز",
-    "homeDescription": "ماشین حساب آنلاین سن رایگان. محاسبه دقیق سن به سال، ماه، روز و ثانیه های زنده همراه با شمارش معکوس تولد بعدی.",
-    "homeH1": "محاسبه سن دقیق آنلاین",
-    "homeSubtitle": "محاسبه دقیق سن شناسنامه ای به سال، ماه، روز، ساعت و ثانیه با دقت تقویم میلادی."
+    "homeTitle": "محاسبه گر سن – سن دقیق خود را به سال، ماه و روز محاسبه کنید",
+    "homeDescription": "محاسبه گر آنلاین و رایگان سن. محاسبه دقیق سن به سال، ماه، روز و ثانیه‌های زنده به همراه شمارش معکوس تولد و آمار زندگی.",
+    "homeH1": "محاسبه گر آنلاین سن",
+    "homeSubtitle": "سن تقویمی دقیق خود را با دقت میلی‌ثانیه‌ای تقویم میلادی به سال، ماه، روز، ساعت و ثانیه‌های زنده محاسبه کنید."
   },
   "navigation": {
-    "home": "Home",
-    "ageCalculator": "محاسبه سن",
-    "birthday": "Birthday",
-    "ageDifference": "Age Difference",
-    "dateDifference": "Date Difference",
-    "dateOfBirth": "Date of Birth",
-    "moreTools": "More Tools",
-    "allAgeTools": "All Age & Date Tools",
+    "home": "صفحه اصلی",
+    "ageCalculator": "محاسبه گر سن",
+    "birthday": "محاسبه گر تولد",
+    "ageDifference": "اختلاف سن",
+    "dateDifference": "اختلاف تاریخ‌ها",
+    "dateOfBirth": "محاسبه تاریخ تولد",
+    "moreTools": "سایر ابزارها",
+    "allAgeTools": "تمام ابزارهای سن و تاریخ",
     "calculateAge": "محاسبه سن",
-    "calculateMyAgeNow": "محاسبه سن",
-    "mainTools": "Main Tools",
-    "moreCalculators": "More Calculators"
+    "calculateMyAgeNow": "محاسبه سن من",
+    "mainTools": "ابزارهای اصلی",
+    "moreCalculators": "ماشین حساب‌های بیشتر"
   },
   "calculator": {
-    "badge": "Instant Calendar & Time Precision Calculation",
-    "dobLabel": "Date of Birth",
-    "dobPlaceholder": "Select your birth date",
-    "dobHelper": "Select your birth day, month, and year (DD / MM / YYYY). Auto-saved locally in cookies.",
-    "targetDateLabel": "Age As Of Date",
-    "useToday": "Use Today",
-    "changeDate": "Change Date",
-    "includeTime": "Include Exact Birth Time (Optional)",
-    "includeTimeHelper": "For down-to-the-minute precision",
-    "birthTimeLabel": "Time of Birth (Local Time)",
+    "badge": "محاسبه آنی تقویم و زمان دقیق",
+    "dobLabel": "تاریخ تولد",
+    "dobPlaceholder": "تاریخ تولد خود را انتخاب کنید",
+    "dobHelper": "روز، ماه و سال تولد را انتخاب کنید. به صورت محلی در کوکی‌ها ذخیره می‌شود.",
+    "targetDateLabel": "سن تا تاریخ",
+    "useToday": "استفاده از امروز",
+    "changeDate": "تغییر تاریخ",
+    "includeTime": "شامل ساعت دقیق تولد (اختیاری)",
+    "includeTimeHelper": "برای دقت در حد دقیقه",
+    "birthTimeLabel": "ساعت تولد (به وقت محلی)",
     "calculate": "محاسبه سن",
-    "reset": "Reset",
-    "clear": "Clear",
-    "copied": "Copied!",
-    "copy": "Copy",
-    "print": "Print",
-    "yourExactAge": "Your Exact Age",
+    "reset": "بازنشانی",
+    "clear": "پاک کردن",
+    "copied": "کپی شد!",
+    "copy": "کپی",
+    "print": "چاپ",
+    "yourExactAge": "سن دقیق شما",
     "years": "سال",
     "months": "ماه",
     "days": "روز",
-    "hours": "Hours",
-    "minutes": "Minutes",
+    "hours": "ساعت",
+    "minutes": "دقیقه",
     "seconds": "ثانیه",
-    "nextBirthday": "Next Birthday",
-    "daysRemaining": "days remaining",
-    "turning": "Turning",
-    "happyBirthday": "🎉 Happy Birthday Today!",
-    "totalDaysLived": "Total Days Lived",
-    "totalWeeks": "Total Weeks",
-    "heartbeats": "Estimated Heartbeats",
-    "solarOrbit": "Solar Year Progress",
-    "liveSeconds": "Running Total Seconds Lived",
-    "timeBreakdown": "Comprehensive Time Breakdown",
-    "zodiacSign": "Western Zodiac",
-    "chineseZodiac": "Chinese Zodiac",
-    "dayBorn": "Day of Birth"
+    "nextBirthday": "تولد بعدی",
+    "daysRemaining": "روز باقی مانده",
+    "turning": "خواهید شد",
+    "happyBirthday": "🎉 امروز تولد شماست، مبارک باد!",
+    "totalDaysLived": "کل روزهای سپری شده",
+    "totalWeeks": "کل هفته‌ها",
+    "heartbeats": "ضربان قلب تخمینی",
+    "solarOrbit": "پیشرفت مدار سال خورشیدی",
+    "liveSeconds": "کل ثانیه‌های سپری شده زنده",
+    "timeBreakdown": "تفکیک کامل زمان",
+    "zodiacSign": "صورت فلکی غربی",
+    "chineseZodiac": "طالع بینی چینی",
+    "dayBorn": "روز هفته تولد"
   },
   "features": {
-    "gregorianPrecisionTitle": "Gregorian Precision",
-    "gregorianPrecisionDesc": "Accounts for leap years, 30/31-day months, and February leap days down to the second.",
-    "liveSecondsTitle": "Live Running Seconds",
-    "liveSecondsDesc": "Real-time live age odometer synchronized with your device clock.",
-    "privateAndFreeTitle": "100% Private & Free",
-    "privateAndFreeDesc": "No registration or server uploads. All calculations run strictly in your browser."
+    "gregorianPrecisionTitle": "دقت تقویمی بالا",
+    "gregorianPrecisionDesc": "محاسبه دقیق سال‌های کبیسه، ماه‌های ۳۰ و ۳۱ روزه و ۲۹ فوریه تا ثانیه.",
+    "liveSecondsTitle": "شمارنده زنده ثانیه‌ها",
+    "liveSecondsDesc": "شمارنده سن در لحظه هماهنگ با ساعت دستگاه شما.",
+    "privateAndFreeTitle": "۱۰۰٪ خصوصی و رایگان",
+    "privateAndFreeDesc": "بدون نیاز به ثبت نام و بدون ارسال داده به سرور. همه محاسبات در مرورگر شما انجام می‌شود."
   },
   "howItWorks": {
-    "title": "How the Age Calculator Works",
-    "subtitle": "A transparent breakdown of how our algorithm calculates calendar days, handles month borrowing, and tracks live seconds."
+    "title": "محاسبه گر سن چگونه کار می‌کند",
+    "subtitle": "توضیح چگونگی محاسبه روزهای تقویمی، انتقال ماه‌ها و ثانیه‌های زنده."
   },
   "faq": {
-    "title": "Frequently Asked Questions",
+    "title": "سوالات متداول (FAQ)",
     "items": [
       {
-        "question": "How does the Age Calculator calculate my exact age?",
-        "answer": "The calculator compares your Date of Birth with your target date using the Gregorian calendar algorithm. It computes complete elapsed years, calculates remaining full months, and calculates the remaining days by borrowing the exact days of the previous month."
+        "question": "این ابزار چگونه سن دقیق من را محاسبه می‌کند؟",
+        "answer": "با مقایسه تاریخ تولد شما با تاریخ هدف طبق الگوریتم تقویم، سال‌ها، ماه‌ها و روزهای کامل را با دقت محاسبه می‌کند."
       },
       {
-        "question": "Does this calculator account for leap years?",
-        "answer": "Yes. The algorithm handles February 29 correctly. If your birthday is on a leap day, the calculator checks leap cycle rules and measures exact calendar intervals."
+        "question": "آیا سال‌های کبیسه محاسبه می‌شوند؟",
+        "answer": "بله، برای متولدین ۲۹ فوریه قوانین رسمی چرخه‌های ۴ ساله اعمال می‌شود."
       },
       {
-        "question": "How accurate is the live running seconds counter?",
-        "answer": "The live counter updates every second in real time, synchronized with your system clock, computing exact elapsed seconds from your birth timestamp."
+        "question": "شمارنده ثانیه‌های زنده چقدر دقیق است؟",
+        "answer": "این شمارنده هر ثانیه با ساعت سیستم شما همگام شده و زمان سپری شده را نمایش می‌دهد."
       },
       {
-        "question": "Is my personal data safe and private?",
-        "answer": "Yes, 100%. All calculations happen entirely on your device inside your web browser. No personal information or birth dates are transmitted to any external server."
+        "question": "آیا اطلاعات من امن است؟",
+        "answer": "بله، ۱۰۰٪. تمام محاسبات در مرورگر شما انجام شده و هیچ اطلاعاتی ارسال نمی‌شود."
       },
       {
-        "question": "Can I calculate the age difference between two people?",
-        "answer": "Yes. Use our Age Difference Calculator to compare two birth dates and find the exact duration in years, months, and days."
+        "question": "آیا می‌توانم اختلاف سن دو نفر را محاسبه کنم؟",
+        "answer": "بله، با استفاده از 'محاسبه گر اختلاف سن' می‌توانید فاصله سنی دو نفر را به سال، ماه و روز به دست آورید."
       }
     ]
   },
   "breadcrumbs": {
-    "home": "Home"
+    "home": "صفحه اصلی"
   },
   "related": {
-    "title": "Explore Related Age & Date Calculators",
-    "description": "Quickly switch to specialized calculators for birthdays, milestone ages, date durations, and interval counting.",
-    "openCalculator": "Open Calculator"
+    "title": "سایر ابزارهای مرتبط سن و تاریخ",
+    "description": "دسترسی سریع به ابزارهای تولد، روزهای کاری و فاصله زمانی بین تاریخ‌ها.",
+    "openCalculator": "باز کردن ابزار"
   },
   "languageSelector": {
-    "title": "Select Language",
-    "subtitle": "Choose your preferred language for the entire website",
-    "searchPlaceholder": "Search language...",
-    "close": "Close"
+    "title": "انتخاب زبان",
+    "subtitle": "زبان مورد نظر خود را برای تمام وب‌سایت انتخاب کنید",
+    "searchPlaceholder": "جستجوی زبان...",
+    "close": "بستن"
   },
   "footer": {
-    "brandDescription": "Free, accurate, and privacy-first online age calculator. Compute your exact age in years, months, and days, find your next birthday countdown, and calculate time differences with calendar precision.",
-    "coreCalculators": "Age Calculators",
-    "specialtyTools": "Specialty Tools",
-    "guide": "Calculation Guide",
-    "company": "Company & Legal",
-    "aboutUs": "About Us",
-    "contact": "Contact",
-    "privacy": "Privacy Policy",
-    "terms": "Terms of Service",
-    "languages": "Supported Languages & International Versions",
-    "clientSideBadge": "100% Client-Side • Zero Data Stored",
-    "allRightsReserved": "All rights reserved."
+    "brandDescription": "محاسبه گر سن آنلاین، دقیق و کاملاً رایگان. سن دقیق، تولدها و فواصل زمانی را با دقت تقویمی محاسبه کنید.",
+    "coreCalculators": "محاسبه گرهای سن",
+    "specialtyTools": "ابزارهای تخصصی",
+    "guide": "راهنمای محاسبه",
+    "company": "شرکت و قوانین",
+    "aboutUs": "درباره ما",
+    "contact": "تماس با ما",
+    "privacy": "حریم خصوصی",
+    "terms": "شرایط استفاده",
+    "languages": "زبان‌های موجود و نسخه‌های بین‌المللی",
+    "clientSideBadge": "۱۰۰٪ در مرورگر • بدون ذخیره داده",
+    "allRightsReserved": "تمام حقوق محفوظ است."
   },
   "errors": {
-    "invalidDate": "Please enter a valid date.",
-    "futureDate": "Birth date cannot be in the future.",
-    "requiredDate": "Please select your date of birth."
+    "invalidDate": "لطفاً یک تاریخ معتبر وارد کنید.",
+    "futureDate": "تاریخ تولد نمی‌تواند در آینده باشد.",
+    "requiredDate": "لطفاً تاریخ تولد خود را انتخاب کنید."
   },
   "tools": {
     "age-calculator": {
-      "title": "محاسبه سن",
-      "desc": "ماشین حساب آنلاین سن رایگان. محاسبه دقیق سن به سال، ماه، روز و ثانیه های زنده همراه با شمارش معکوس تولد بعدی."
+      "title": "محاسبه گر سن",
+      "desc": "محاسبه سن دقیق به سال، ماه، روز و ثانیه به همراه آمار کامل."
     },
     "birthday-calculator": {
-      "title": "Birthday Calculator",
-      "desc": "Discover your next birthday, day of week, days countdown, and milestone ages."
+      "title": "محاسبه گر تولد",
+      "desc": "اطلاع از تولد بعدی، روز هفته، روزهای باقیمانده و سال‌های مهم زندگی."
     },
     "age-difference-calculator": {
-      "title": "Age Difference Calculator",
-      "desc": "Compare two dates of birth to find the precise difference in years, months, and days."
+      "title": "محاسبه گر اختلاف سن",
+      "desc": "مقایسه دو تاریخ تولد و محاسبه اختلاف دقیق سنی."
     },
     "birthday-countdown": {
-      "title": "Birthday Countdown",
-      "desc": "Live real-time ticking countdown clock for upcoming birthdays and milestone celebrations."
+      "title": "شمارش معکوس تولد",
+      "desc": "ساعت شمارش معکوس زنده برای تولدهای آینده و جشن‌ها."
     },
     "date-difference-calculator": {
-      "title": "Date Difference Calculator",
-      "desc": "Find the exact duration and interval between any two dates in years, months, and days."
+      "title": "اختلاف بین دو تاریخ",
+      "desc": "محاسبه مدت زمان دقیق بین دو تاریخ به سال، ماه، روز و ساعت."
     },
     "date-of-birth-calculator": {
-      "title": "Date of Birth Calculator",
-      "desc": "Reverse calculator: determine your exact or approximate birth date from given age."
+      "title": "محاسبه گر تاریخ تولد",
+      "desc": "محاسبه معکوس: به دست آوردن تاریخ تولد با وارد کردن سن."
     },
     "days-between-dates": {
-      "title": "Days Between Dates",
-      "desc": "Calculate total calendar days and business days between any two dates."
+      "title": "روزهای بین دو تاریخ",
+      "desc": "شمارش روزهای تقویمی، روزهای کاری و آخر هفته‌ها بین دو تاریخ."
     },
     "chronological-age-calculator": {
-      "title": "Chronological Age Calculator",
-      "desc": "Standard clinical and academic chronological age calculator (YY;MM;DD)."
+      "title": "محاسبه سن تقویمی",
+      "desc": "محاسبه استاندارد پزشکی و ارزیابی سن تقویمی (YY;MM;DD)."
     },
     "retirement-age-calculator": {
-      "title": "Retirement Age Calculator",
-      "desc": "Estimate your retirement milestone date and calculate remaining years and working days."
+      "title": "محاسبه سن بازنشستگی",
+      "desc": "تخمین تاریخ بازنشستگی، سال‌های باقیمانده و روزهای کاری."
     },
     "leap-year-age-calculator": {
-      "title": "Leap Year Age Calculator",
-      "desc": "Special calculator for February 29 leap day babies to track birthdays vs calendar years."
+      "title": "محاسبه گر سال کبیسه",
+      "desc": "ابزار ویژه متولدین ۲۹ فوریه برای مشاهده سن واقعی کبیسه."
     },
     "how-to-calculate-age": {
-      "title": "How to Calculate Age",
-      "desc": "Step-by-step mathematical guide to manual age calculation and calendar borrowing rules."
+      "title": "چگونه سن را محاسبه کنیم",
+      "desc": "راهنمای گام به گام ریاضی برای محاسبه سن به صورت دستی."
+    }
+  },
+  "calculators": {
+    "birthday": {
+      "title": "محاسبه گر تولد و نقاط عطف زندگی",
+      "desc": "ببینید تولد بعدی چه زمانی است و تولدهای مهم شما در چه روزهایی از هفته خواهد بود.",
+      "dobLabel": "تاریخ تولد شما",
+      "btnCalculate": "مشاهده اطلاعات تولد",
+      "nextCountdown": "شمارش معکوس تا تولد بعدی",
+      "daysUntil": "روز",
+      "turning": "تا رسیدن به سن",
+      "onDate": "تولد بعدی شما مصادف است با",
+      "todayBday": "امروز تولد شماست، مبارک!",
+      "milestoneTitle": "تولدهای مهم و نقاط عطف",
+      "age": "سن",
+      "year": "سال",
+      "date": "تاریخ",
+      "dayOfWeek": "روز هفته",
+      "status": "وضعیت",
+      "passed": "گذشته",
+      "upcoming": "آینده"
+    },
+    "ageDifference": {
+      "title": "محاسبه گر اختلاف سن",
+      "desc": "مقایسه دو تاریخ تولد برای محاسبه دقیق فاصله سنی به سال، ماه و روز.",
+      "personA": "شخص الف",
+      "personB": "شخص ب",
+      "dobLabel": "تاریخ تولد",
+      "btnCalculate": "محاسبه اختلاف سن",
+      "resultTitle": "تفکیک اختلاف سن",
+      "olderThan": "بزرگتر است از",
+      "by": "به میزان",
+      "totalDaysDiff": "اختلاف کل به روز",
+      "totalWeeksDiff": "اختلاف کل به هفته",
+      "copySummary": "کپی خلاصه",
+      "copied": "در حافظه کپی شد!",
+      "sameAge": "هر دو نفر دقیقاً در یک تاریخ به دنیا آمده‌اند."
+    },
+    "dateDifference": {
+      "title": "محاسبه گر اختلاف بین دو تاریخ",
+      "desc": "محاسبه فاصله دقیق بین دو تاریخ به سال، ماه و روز.",
+      "startDate": "تاریخ شروع",
+      "endDate": "تاریخ پایان",
+      "btnCalculate": "محاسبه مدت زمان",
+      "resultTitle": "فاصله بین دو تاریخ",
+      "diffYMD": "اختلاف",
+      "totalDays": "کل روزها",
+      "totalWeeks": "کل هفته‌ها",
+      "totalHours": "کل ساعت‌ها",
+      "totalMinutes": "کل دقیقه‌ها",
+      "errorInvalid": "لطفاً تاریخ‌های شروع و پایان معتبر انتخاب کنید."
+    },
+    "dateOfBirth": {
+      "title": "محاسبه گر تاریخ تولد",
+      "desc": "تاریخ تولد تقریبی خود را با وارد کردن سن به سال، ماه و روز پیدا کنید.",
+      "ageYears": "سال",
+      "ageMonths": "ماه",
+      "ageDays": "روز",
+      "asOfDate": "سن تا تاریخ",
+      "btnCalculate": "محاسبه تاریخ تولد",
+      "resultTitle": "تاریخ تولد محاسبه شده",
+      "estimatedDob": "تاریخ تولد تخمینی",
+      "dayBorn": "روز هفته تولد"
+    },
+    "birthdayCountdown": {
+      "title": "ساعت شمارش معکوس تولد",
+      "desc": "ساعت زنده برای شمارش معکوس تا تولدهای آینده و جشن‌ها.",
+      "dobLabel": "تاریخ تولد",
+      "days": "روز",
+      "hours": "ساعت",
+      "minutes": "دقیقه",
+      "seconds": "ثانیه",
+      "turningAge": "خواهید شد",
+      "nextBdayOn": "تولد بعدی مصادف با",
+      "happyBday": "🎉 امروز تولد شماست، تبریک می‌گوییم!"
+    },
+    "daysBetween": {
+      "title": "محاسبه روزهای بین دو تاریخ",
+      "desc": "شمارش روزهای تقویمی، هفته‌ها، روزهای کاری و آخر هفته‌ها بین دو تاریخ.",
+      "startDate": "تاریخ شروع",
+      "endDate": "تاریخ پایان",
+      "includeEndDay": "شامل روز پایانی (+۱ روز)",
+      "btnCalculate": "شمارش روزها",
+      "totalDays": "کل روزهای تقویمی",
+      "businessDays": "روزهای کاری",
+      "weekendDays": "روزهای آخر هفته",
+      "totalWeeks": "کل هفته‌ها"
+    },
+    "chronological": {
+      "title": "محاسبه سن تقویمی بالینی",
+      "desc": "محاسبه سن بالینی استاندارد (سال;ماه;روز) برای ارزیابی‌های روانشناسی و پزشکی.",
+      "birthDate": "تاریخ تولد",
+      "testDate": "تاریخ آزمایش / ارزیابی",
+      "weeksPremature": "هفته‌های زایمان زودرس",
+      "btnCalculate": "محاسبه سن تقویمی",
+      "chronologicalAge": "سن تقویمی",
+      "notation": "قالب بالینی (Y;M;D)",
+      "exactInterval": "فاصله دقیق سپری شده",
+      "adjustedAge": "سن اصلاح شده"
+    },
+    "retirement": {
+      "title": "محاسبه گر سن بازنشستگی",
+      "desc": "تخمین تاریخ بازنشستگی و زمان باقیمانده تا سن هدف.",
+      "birthDate": "تاریخ تولد",
+      "currentAge": "سن کنونی",
+      "targetAge": "سن هدف بازنشستگی",
+      "asOfDate": "تاریخ محاسبه",
+      "btnCalculate": "محاسبه بازنشستگی",
+      "yearsRemaining": "سال‌های باقیمانده",
+      "targetYear": "سال پیش‌بینی شده بازنشستگی",
+      "workingDaysLeft": "روزهای کاری تخمینی باقیمانده",
+      "alreadyReached": "به سن بازنشستگی هدف رسیده‌اید."
+    },
+    "leapYear": {
+      "title": "محاسبه گر سال کبیسه و ۲۹ فوریه",
+      "desc": "تعداد دفعاتی که ۲۹ فوریه را تجربه کرده‌اید و تولدهای کبیسه بعدی را ببینید.",
+      "dobLabel": "تاریخ تولد",
+      "btnCalculate": "بررسی اطلاعات کبیسه",
+      "leapYearsLived": "۲۹ فوریه‌های سپری شده",
+      "actualBirthdays": "تولدهای کبیسه واقعی",
+      "nextLeapBirthday": "تولد ۲۹ فوریه بعدی",
+      "leapBabyBadge": "متولد سال کبیسه (۲۹ فوریه)"
+    },
+    "liveTicker": {
+      "title": "شمارنده زنده سن در لحظه",
+      "syncedLocal": "همگام با ساعت سیستم شما",
+      "clock": "ساعت",
+      "runningTotalSeconds": "کل ثانیه‌های سپری شده",
+      "seconds": "ثانیه",
+      "solarOrbit": "پیشرفت مدار خورشیدی",
+      "completed": "تکمیل شده",
+      "turnedAge": "سن در آخرین تولد",
+      "turningAgeIn": "سن در تولد بعدی در",
+      "bioMilestones": "نقاط عطف بیولوژیکی",
+      "spaceTravel": "سفر فضایی و مدار زمین",
+      "heartbeats": "ضربان قلب تخمینی",
+      "breaths": "تعداد تنفس",
+      "blinks": "پلک زدن",
+      "hoursSlept": "ساعات خواب",
+      "earthRotation": "چرخش زمین",
+      "sunOrbit": "مسافت طی شده به دور خورشید",
+      "asOfTarget": "محاسبه‌شده بر اساس تاریخ هدف"
     }
   }
 }

@@ -1,176 +1,318 @@
 {
   "meta": {
     "homeTitle": "Calculateur d'Âge – Calculer Votre Âge Exact en Années, Mois et Jours",
-    "homeDescription": "Calculateur d'âge en ligne gratuit. Calculez votre âge exact en années, mois, jours et secondes en direct avec compte à rebours d'anniversaire.",
+    "homeDescription": "Calculateur d'âge en ligne gratuit. Calculez votre âge précis en années, mois, jours et secondes en temps réel avec compte à rebours d'anniversaire.",
     "homeH1": "Calculateur d'Âge en Ligne",
-    "homeSubtitle": "Calculez votre âge chronologique exact en années, mois, jours, heures et secondes en direct avec une précision calendaire grégorienne."
+    "homeSubtitle": "Calculez votre âge chronologique précis en années, mois, jours, heures et secondes en direct avec la précision du calendrier grégorien."
   },
   "navigation": {
-    "home": "Home",
+    "home": "Accueil",
     "ageCalculator": "Calculateur d'Âge",
-    "birthday": "Birthday",
-    "ageDifference": "Age Difference",
-    "dateDifference": "Date Difference",
-    "dateOfBirth": "Date of Birth",
-    "moreTools": "More Tools",
-    "allAgeTools": "All Age & Date Tools",
+    "birthday": "Calculateur d'Anniversaire",
+    "ageDifference": "Différence d'Âge",
+    "dateDifference": "Différence de Dates",
+    "dateOfBirth": "Date de Naissance",
+    "moreTools": "Plus d'Outils",
+    "allAgeTools": "Tous les Outils d'Âge et de Date",
     "calculateAge": "Calculer l'Âge",
-    "calculateMyAgeNow": "Calculer l'Âge",
-    "mainTools": "Main Tools",
-    "moreCalculators": "More Calculators"
+    "calculateMyAgeNow": "Calculer Mon Âge",
+    "mainTools": "Outils Principaux",
+    "moreCalculators": "Autres Calculateurs"
   },
   "calculator": {
-    "badge": "Instant Calendar & Time Precision Calculation",
-    "dobLabel": "Date of Birth",
-    "dobPlaceholder": "Select your birth date",
-    "dobHelper": "Select your birth day, month, and year (DD / MM / YYYY). Auto-saved locally in cookies.",
-    "targetDateLabel": "Age As Of Date",
-    "useToday": "Use Today",
-    "changeDate": "Change Date",
-    "includeTime": "Include Exact Birth Time (Optional)",
-    "includeTimeHelper": "For down-to-the-minute precision",
-    "birthTimeLabel": "Time of Birth (Local Time)",
+    "badge": "Calcul de Précision Calendaire et Temporelle en Direct",
+    "dobLabel": "Date de Naissance",
+    "dobPlaceholder": "Sélectionnez votre date de naissance",
+    "dobHelper": "Sélectionnez votre jour, mois et année de naissance (JJ/MM/AAAA). Enregistré localement.",
+    "targetDateLabel": "Âge à la Date du",
+    "useToday": "Aujourd'hui",
+    "changeDate": "Changer la Date",
+    "includeTime": "Inclure l'Heure Exacte de Naissance (Optionnel)",
+    "includeTimeHelper": "Pour une précision à la minute",
+    "birthTimeLabel": "Heure de Naissance (Heure Locale)",
     "calculate": "Calculer l'Âge",
-    "reset": "Reset",
-    "clear": "Clear",
-    "copied": "Copied!",
-    "copy": "Copy",
-    "print": "Print",
-    "yourExactAge": "Your Exact Age",
+    "reset": "Réinitialiser",
+    "clear": "Effacer",
+    "copied": "Copié !",
+    "copy": "Copier",
+    "print": "Imprimer",
+    "yourExactAge": "Votre Âge Exact",
     "years": "Ans",
     "months": "Mois",
     "days": "Jours",
-    "hours": "Hours",
+    "hours": "Heures",
     "minutes": "Minutes",
     "seconds": "Secondes",
-    "nextBirthday": "Next Birthday",
-    "daysRemaining": "days remaining",
-    "turning": "Turning",
-    "happyBirthday": "🎉 Happy Birthday Today!",
-    "totalDaysLived": "Total Days Lived",
-    "totalWeeks": "Total Weeks",
-    "heartbeats": "Estimated Heartbeats",
-    "solarOrbit": "Solar Year Progress",
-    "liveSeconds": "Running Total Seconds Lived",
-    "timeBreakdown": "Comprehensive Time Breakdown",
-    "zodiacSign": "Western Zodiac",
-    "chineseZodiac": "Chinese Zodiac",
-    "dayBorn": "Day of Birth"
+    "nextBirthday": "Prochain Anniversaire",
+    "daysRemaining": "jours restants",
+    "turning": "Vous aurez",
+    "happyBirthday": "🎉 Joyeux Anniversaire Aujourd'hui !",
+    "totalDaysLived": "Total des Jours Vécus",
+    "totalWeeks": "Total des Semaines",
+    "heartbeats": "Battements de Cœur Estimés",
+    "solarOrbit": "Progression de l'Orbite Solaire",
+    "liveSeconds": "Total des Secondes Vécues en Direct",
+    "timeBreakdown": "Décomposition Complète du Temps",
+    "zodiacSign": "Zodiaque Occidental",
+    "chineseZodiac": "Zodiaque Chinois",
+    "dayBorn": "Jour de Naissance"
   },
   "features": {
-    "gregorianPrecisionTitle": "Gregorian Precision",
-    "gregorianPrecisionDesc": "Accounts for leap years, 30/31-day months, and February leap days down to the second.",
-    "liveSecondsTitle": "Live Running Seconds",
-    "liveSecondsDesc": "Real-time live age odometer synchronized with your device clock.",
-    "privateAndFreeTitle": "100% Private & Free",
-    "privateAndFreeDesc": "No registration or server uploads. All calculations run strictly in your browser."
+    "gregorianPrecisionTitle": "Précision Grégorienne",
+    "gregorianPrecisionDesc": "Prend en compte les années bissextiles, les mois de 30/31 jours et les 29 février à la seconde près.",
+    "liveSecondsTitle": "Secondes en Direct",
+    "liveSecondsDesc": "Compteur d'âge en temps réel synchronisé avec l'horloge de votre appareil.",
+    "privateAndFreeTitle": "100% Privé et Gratuit",
+    "privateAndFreeDesc": "Aucune inscription ni envoi sur serveur. Tous les calculs s'exécutent strictement dans votre navigateur."
   },
   "howItWorks": {
-    "title": "How the Age Calculator Works",
-    "subtitle": "A transparent breakdown of how our algorithm calculates calendar days, handles month borrowing, and tracks live seconds."
+    "title": "Comment Fonctionne le Calculateur d'Âge",
+    "subtitle": "Une présentation claire de notre algorithme pour calculer les jours calendaires, les reports de mois et les secondes."
   },
   "faq": {
-    "title": "Frequently Asked Questions",
+    "title": "Foire Aux Questions (FAQ)",
     "items": [
       {
-        "question": "How does the Age Calculator calculate my exact age?",
-        "answer": "The calculator compares your Date of Birth with your target date using the Gregorian calendar algorithm. It computes complete elapsed years, calculates remaining full months, and calculates the remaining days by borrowing the exact days of the previous month."
+        "question": "Comment le calculateur détermine-t-il mon âge exact ?",
+        "answer": "Il compare votre date de naissance avec la date cible selon le calendrier grégorien, calculant les années complètes, les mois restants et les jours avec le report exact du mois précédent."
       },
       {
-        "question": "Does this calculator account for leap years?",
-        "answer": "Yes. The algorithm handles February 29 correctly. If your birthday is on a leap day, the calculator checks leap cycle rules and measures exact calendar intervals."
+        "question": "Prend-il en charge les années bissextiles ?",
+        "answer": "Oui, parfaitement. Si vous êtes né le 29 février, le système applique les règles bissextiles officielles et calcule les durées exactes."
       },
       {
-        "question": "How accurate is the live running seconds counter?",
-        "answer": "The live counter updates every second in real time, synchronized with your system clock, computing exact elapsed seconds from your birth timestamp."
+        "question": "Le compteur de secondes est-il précis ?",
+        "answer": "Oui, il est synchronisé chaque seconde avec l'horloge interne de votre appareil pour mesurer le temps réel écoulé depuis votre naissance."
       },
       {
-        "question": "Is my personal data safe and private?",
-        "answer": "Yes, 100%. All calculations happen entirely on your device inside your web browser. No personal information or birth dates are transmitted to any external server."
+        "question": "Mes données personnelles sont-elles protégées ?",
+        "answer": "Oui, à 100%. Tout se déroule localement dans votre navigateur web. Aucune date de naissance n'est transmise à des serveurs distants."
       },
       {
-        "question": "Can I calculate the age difference between two people?",
-        "answer": "Yes. Use our Age Difference Calculator to compare two birth dates and find the exact duration in years, months, and days."
+        "question": "Puis-je calculer l'écart d'âge entre deux personnes ?",
+        "answer": "Oui, utilisez notre Calculateur de Différence d'Âge pour comparer deux dates et obtenir l'écart précis en années, mois et jours."
       }
     ]
   },
   "breadcrumbs": {
-    "home": "Home"
+    "home": "Accueil"
   },
   "related": {
-    "title": "Explore Related Age & Date Calculators",
-    "description": "Quickly switch to specialized calculators for birthdays, milestone ages, date durations, and interval counting.",
-    "openCalculator": "Open Calculator"
+    "title": "Découvrez Nos Autres Outils d'Âge et de Date",
+    "description": "Accédez rapidement aux outils spécialisés pour les anniversaires, durées de dates et décomptes d'intervalles.",
+    "openCalculator": "Ouvrir l'Outil"
   },
   "languageSelector": {
-    "title": "Select Language",
-    "subtitle": "Choose your preferred language for the entire website",
-    "searchPlaceholder": "Search language...",
-    "close": "Close"
+    "title": "Choisir la Langue",
+    "subtitle": "Sélectionnez votre langue pour l'ensemble du site web",
+    "searchPlaceholder": "Rechercher une langue...",
+    "close": "Fermer"
   },
   "footer": {
-    "brandDescription": "Free, accurate, and privacy-first online age calculator. Compute your exact age in years, months, and days, find your next birthday countdown, and calculate time differences with calendar precision.",
-    "coreCalculators": "Age Calculators",
-    "specialtyTools": "Specialty Tools",
-    "guide": "Calculation Guide",
-    "company": "Company & Legal",
-    "aboutUs": "About Us",
+    "brandDescription": "Calculateur d'âge en ligne gratuit, précis et respectueux de votre vie privée. Calculez votre âge exact, vos prochains anniversaires et durées avec une précision absolue.",
+    "coreCalculators": "Calculateurs d'Âge",
+    "specialtyTools": "Outils Spécialisés",
+    "guide": "Guide de Calcul",
+    "company": "Société & Légal",
+    "aboutUs": "À Propos",
     "contact": "Contact",
-    "privacy": "Privacy Policy",
-    "terms": "Terms of Service",
-    "languages": "Supported Languages & International Versions",
-    "clientSideBadge": "100% Client-Side • Zero Data Stored",
-    "allRightsReserved": "All rights reserved."
+    "privacy": "Politique de Confidentialité",
+    "terms": "Conditions d'Utilisation",
+    "languages": "Langues Disponibles et Versions Internationales",
+    "clientSideBadge": "100% Côté Client • Aucune Donnée Stockée",
+    "allRightsReserved": "Tous droits réservés."
   },
   "errors": {
-    "invalidDate": "Please enter a valid date.",
-    "futureDate": "Birth date cannot be in the future.",
-    "requiredDate": "Please select your date of birth."
+    "invalidDate": "Veuillez entrer une date valide.",
+    "futureDate": "La date de naissance ne peut pas être dans le futur.",
+    "requiredDate": "Veuillez sélectionner votre date de naissance."
   },
   "tools": {
     "age-calculator": {
       "title": "Calculateur d'Âge",
-      "desc": "Calculateur d'âge en ligne gratuit. Calculez votre âge exact en années, mois, jours et secondes en direct avec compte à rebours d'anniversaire."
+      "desc": "Calculez votre âge exact en années, mois, jours et secondes en temps réel avec compte à rebours d'anniversaire."
     },
     "birthday-calculator": {
-      "title": "Birthday Calculator",
-      "desc": "Discover your next birthday, day of week, days countdown, and milestone ages."
+      "title": "Calculateur d'Anniversaire",
+      "desc": "Découvrez votre prochain anniversaire, jour de la semaine, compte à rebours et âges charnières."
     },
     "age-difference-calculator": {
-      "title": "Age Difference Calculator",
-      "desc": "Compare two dates of birth to find the precise difference in years, months, and days."
+      "title": "Calculateur de Différence d'Âge",
+      "desc": "Comparez deux dates de naissance pour calculer l'écart d'âge précis en années, mois et jours."
     },
     "birthday-countdown": {
-      "title": "Birthday Countdown",
-      "desc": "Live real-time ticking countdown clock for upcoming birthdays and milestone celebrations."
+      "title": "Compte à Rebours d'Anniversaire",
+      "desc": "Horloge en direct pour vos prochains anniversaires et célébrations importantes."
     },
     "date-difference-calculator": {
-      "title": "Date Difference Calculator",
-      "desc": "Find the exact duration and interval between any two dates in years, months, and days."
+      "title": "Calculateur de Différence de Dates",
+      "desc": "Mesurez l'intervalle exact entre deux dates en années, mois, jours, heures et minutes."
     },
     "date-of-birth-calculator": {
-      "title": "Date of Birth Calculator",
-      "desc": "Reverse calculator: determine your exact or approximate birth date from given age."
+      "title": "Calculateur de Date de Naissance",
+      "desc": "Calculateur inversé : retrouvez votre date de naissance estimée à partir de votre âge."
     },
     "days-between-dates": {
-      "title": "Days Between Dates",
-      "desc": "Calculate total calendar days and business days between any two dates."
+      "title": "Jours Entre Deux Dates",
+      "desc": "Calculez le nombre total de jours calendaires et jours ouvrés entre deux dates."
     },
     "chronological-age-calculator": {
-      "title": "Chronological Age Calculator",
-      "desc": "Standard clinical and academic chronological age calculator (YY;MM;DD)."
+      "title": "Calculateur d'Âge Chronologique",
+      "desc": "Norme clinique et académique de calcul d'âge chronologique (AA;MM;JJ)."
     },
     "retirement-age-calculator": {
-      "title": "Retirement Age Calculator",
-      "desc": "Estimate your retirement milestone date and calculate remaining years and working days."
+      "title": "Calculateur d'Âge de Retraite",
+      "desc": "Estimez votre date de départ à la retraite, années restantes et jours travaillés."
     },
     "leap-year-age-calculator": {
-      "title": "Leap Year Age Calculator",
-      "desc": "Special calculator for February 29 leap day babies to track birthdays vs calendar years."
+      "title": "Calculateur d'Âge Année Bissextile",
+      "desc": "Outil dédié aux personnes nées un 29 février pour suivre leurs anniversaires réels."
     },
     "how-to-calculate-age": {
-      "title": "How to Calculate Age",
-      "desc": "Step-by-step mathematical guide to manual age calculation and calendar borrowing rules."
+      "title": "Comment Calculer son Âge",
+      "desc": "Guide mathématique complet pour calculer manuellement son âge avec les reports de mois."
+    }
+  },
+  "calculators": {
+    "birthday": {
+      "title": "Calculateur d'Anniversaire & Jalons",
+      "desc": "Découvrez votre prochain anniversaire, le nombre de jours restants et les jours de la semaine de vos âges clés.",
+      "dobLabel": "Votre Date de Naissance",
+      "btnCalculate": "Découvrir les Infos d'Anniversaire",
+      "nextCountdown": "Compte à Rebours du Prochain Anniversaire",
+      "daysUntil": "Jours",
+      "turning": "avant d'avoir",
+      "onDate": "Votre prochain anniversaire aura lieu le",
+      "todayBday": "Joyeux Anniversaire Aujourd'hui !",
+      "milestoneTitle": "Anniversaires Marquants",
+      "age": "Âge",
+      "year": "Année",
+      "date": "Date",
+      "dayOfWeek": "Jour de la Semaine",
+      "status": "Statut",
+      "passed": "Passé",
+      "upcoming": "À venir"
+    },
+    "ageDifference": {
+      "title": "Calculateur de Différence d'Âge",
+      "desc": "Comparez deux dates de naissance pour calculer l'écart exact en années, mois et jours.",
+      "personA": "Personne A",
+      "personB": "Personne B",
+      "dobLabel": "Date de Naissance",
+      "btnCalculate": "Calculer la Différence d'Âge",
+      "resultTitle": "Détail de la Différence d'Âge",
+      "olderThan": "est plus âgé(e) que",
+      "by": "de",
+      "totalDaysDiff": "Différence Totale en Jours",
+      "totalWeeksDiff": "Différence Totale en Semaines",
+      "copySummary": "Copier le Résumé",
+      "copied": "Copié dans le presse-papiers !",
+      "sameAge": "Les deux personnes sont nées exactement le même jour."
+    },
+    "dateDifference": {
+      "title": "Calculateur de Différence de Dates",
+      "desc": "Calculez la durée exacte entre deux dates en années, mois et jours.",
+      "startDate": "Date de Début",
+      "endDate": "Date de Fin",
+      "btnCalculate": "Calculer la Durée",
+      "resultTitle": "Durée Entre les Dates",
+      "diffYMD": "Différence",
+      "totalDays": "Total des Jours",
+      "totalWeeks": "Total des Semaines",
+      "totalHours": "Total des Heures",
+      "totalMinutes": "Total des Minutes",
+      "errorInvalid": "Veuillez sélectionner des dates de début et de fin valides."
+    },
+    "dateOfBirth": {
+      "title": "Calculateur de Date de Naissance",
+      "desc": "Déterminez votre date de naissance en renseignant votre âge connu en années, mois et jours.",
+      "ageYears": "Ans",
+      "ageMonths": "Mois",
+      "ageDays": "Jours",
+      "asOfDate": "Âge à la Date du",
+      "btnCalculate": "Calculer la Date de Naissance",
+      "resultTitle": "Date de Naissance Calculée",
+      "estimatedDob": "Date Estimée de Naissance",
+      "dayBorn": "Jour de Naissance"
+    },
+    "birthdayCountdown": {
+      "title": "Compte à Rebours d'Anniversaire",
+      "desc": "Horloge en direct pour vos prochains anniversaires et célébrations importantes.",
+      "dobLabel": "Date de Naissance",
+      "days": "Jours",
+      "hours": "Heures",
+      "minutes": "Minutes",
+      "seconds": "Secondes",
+      "turningAge": "Vous aurez",
+      "nextBdayOn": "Prochain anniversaire le",
+      "happyBday": "🎉 Joyeux Anniversaire Aujourd'hui !"
+    },
+    "daysBetween": {
+      "title": "Calculateur de Jours Entre Deux Dates",
+      "desc": "Comptez le nombre exact de jours calendaires, semaines, jours ouvrés et week-ends.",
+      "startDate": "Date de Début",
+      "endDate": "Date de Fin",
+      "includeEndDay": "Inclure le jour de fin (+1 jour)",
+      "btnCalculate": "Calculer les Jours",
+      "totalDays": "Total des Jours Calendaires",
+      "businessDays": "Jours Ouvrés (Lun-Ven)",
+      "weekendDays": "Jours de Week-end",
+      "totalWeeks": "Total des Semaines"
+    },
+    "chronological": {
+      "title": "Calculateur d'Âge Chronologique",
+      "desc": "Calcul standardisé d'âge clinique (Années;Mois;Jours) pour évaluations psychologiques et médicales.",
+      "birthDate": "Date de Naissance",
+      "testDate": "Date de l'Évaluation / Test",
+      "weeksPremature": "Semaines de Prématurité (Correction Gestationnelle)",
+      "btnCalculate": "Calculer l'Âge Chronologique",
+      "chronologicalAge": "Âge Chronologique",
+      "notation": "Notation Clinique (A;M;J)",
+      "exactInterval": "Intervalle Réel Écoulé",
+      "adjustedAge": "Âge Corrigé / Ajusté"
+    },
+    "retirement": {
+      "title": "Calculateur d'Âge de Retraite",
+      "desc": "Estimez votre date de départ en retraite et le temps restant jusqu'à votre âge cible.",
+      "birthDate": "Date de Naissance",
+      "currentAge": "Âge Actuel",
+      "targetAge": "Âge Cible de Retraite",
+      "asOfDate": "Date de Calcul",
+      "btnCalculate": "Calculer la Retraite",
+      "yearsRemaining": "Années Restantes",
+      "targetYear": "Année Prévue de Retraite",
+      "workingDaysLeft": "Jours Ouvrés Estimés Restants",
+      "alreadyReached": "Objectif d'âge de retraite atteint."
+    },
+    "leapYear": {
+      "title": "Calculateur d'Année Bissextile (29 Février)",
+      "desc": "Découvrez votre 'âge bissextile' réel (nombre de 29 février vécus) et vos prochains anniversaires.",
+      "dobLabel": "Date de Naissance",
+      "btnCalculate": "Vérifier les Infos Bissextiles",
+      "leapYearsLived": "29 Février Réellement Vécus",
+      "actualBirthdays": "Anniversaires Bissextiles Officiels",
+      "nextLeapBirthday": "Prochain 29 Février",
+      "leapBabyBadge": "Né(e) une Année Bissextile (29 Fév)"
+    },
+    "liveTicker": {
+      "title": "Compteur d'Âge en Direct",
+      "syncedLocal": "Synchronisé avec l'horloge de votre système",
+      "clock": "Horloge",
+      "runningTotalSeconds": "Total des Secondes Vécues",
+      "seconds": "secondes",
+      "solarOrbit": "Progression de l'Orbite Solaire",
+      "completed": "Effectué",
+      "turnedAge": "A eu lors du dernier anniversaire",
+      "turningAgeIn": "Aura dans",
+      "bioMilestones": "Repères Biologiques",
+      "spaceTravel": "Voyage Spatial & Planétaire",
+      "heartbeats": "Battements de Cœur Estimés",
+      "breaths": "Respirations Effectuées",
+      "blinks": "Battements de Paupières",
+      "hoursSlept": "Heures Passées à Dormir",
+      "earthRotation": "Rotation Terrestre",
+      "sunOrbit": "Distance Parcourue Autour du Soleil",
+      "asOfTarget": "Calculé à la date cible"
     }
   }
 }

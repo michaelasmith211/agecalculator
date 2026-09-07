@@ -494,6 +494,7 @@ export default function MainAgeCalculator({
             daysUntilNextBirthday={result.daysUntilNextBirthday}
             ageTurningNext={result.ageTurningNext}
             birthDateFormatted={result.birthDateFormatted}
+            locale={locale}
           />
 
           {/* Quick Metrics Grid */}

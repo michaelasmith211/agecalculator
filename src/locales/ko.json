@@ -1,176 +1,318 @@
 {
   "meta": {
-    "homeTitle": "나이 계산기 – 만 나이 및 정확한 연월일 계산",
-    "homeDescription": "무료 온라인 만 나이 계산기. 생년월일을 입력하여 정확한 만 나이, 개월, 일수 및 실시간 경과 초를 계산하세요.",
-    "homeH1": "온라인 나이 계산기",
-    "homeSubtitle": "그레고리력 기준 완벽한 계산 알고리즘으로 만 나이, 살아온 총 일수 및 다음 생일 디데이를 제공합니다."
+    "homeTitle": "만 나이 계산기 – 연, 월, 일 단위로 정확한 나이 계산",
+    "homeDescription": "무료 온라인 만 나이 계산기. 정확한 만 나이, 개월 수, 일 수 및 실시간 초 단위를 계산하며 생일 디데이 카운트다운을 제공합니다.",
+    "homeH1": "온라인 만 나이 계산기",
+    "homeSubtitle": "그레고리력의 정밀한 달력 알고리즘을 통해 출생 연, 월, 일, 시간 및 실시간으로 흐르는 초 단위까지 정확하게 계산합니다."
   },
   "navigation": {
-    "home": "Home",
+    "home": "홈",
     "ageCalculator": "나이 계산기",
-    "birthday": "Birthday",
-    "ageDifference": "Age Difference",
-    "dateDifference": "Date Difference",
-    "dateOfBirth": "Date of Birth",
-    "moreTools": "More Tools",
-    "allAgeTools": "All Age & Date Tools",
+    "birthday": "생일 계산기",
+    "ageDifference": "나이 차이 계산",
+    "dateDifference": "날짜 차이 계산",
+    "dateOfBirth": "생년월일 역산기",
+    "moreTools": "기타 도구",
+    "allAgeTools": "모든 나이 및 날짜 도구",
     "calculateAge": "나이 계산하기",
-    "calculateMyAgeNow": "나이 계산하기",
-    "mainTools": "Main Tools",
-    "moreCalculators": "More Calculators"
+    "calculateMyAgeNow": "내 나이 계산하기",
+    "mainTools": "주요 도구",
+    "moreCalculators": "추가 계산기"
   },
   "calculator": {
-    "badge": "Instant Calendar & Time Precision Calculation",
-    "dobLabel": "Date of Birth",
-    "dobPlaceholder": "Select your birth date",
-    "dobHelper": "Select your birth day, month, and year (DD / MM / YYYY). Auto-saved locally in cookies.",
-    "targetDateLabel": "Age As Of Date",
-    "useToday": "Use Today",
-    "changeDate": "Change Date",
-    "includeTime": "Include Exact Birth Time (Optional)",
-    "includeTimeHelper": "For down-to-the-minute precision",
-    "birthTimeLabel": "Time of Birth (Local Time)",
+    "badge": "실시간 달력 및 시간 고정밀 연산",
+    "dobLabel": "생년월일",
+    "dobPlaceholder": "생년월일을 선택하세요",
+    "dobHelper": "출생 연, 월, 일을 선택하세요. 쿠키를 통해 브라우저에 안전하게 저장됩니다.",
+    "targetDateLabel": "계산 기준일",
+    "useToday": "오늘 날짜 사용",
+    "changeDate": "기준일 변경",
+    "includeTime": "정확한 출생 시간 포함 (선택사항)",
+    "includeTimeHelper": "분 단위까지 정확한 계산",
+    "birthTimeLabel": "출생 시간 (현지 시간)",
     "calculate": "나이 계산하기",
-    "reset": "Reset",
-    "clear": "Clear",
-    "copied": "Copied!",
-    "copy": "Copy",
-    "print": "Print",
-    "yourExactAge": "Your Exact Age",
-    "years": "년",
+    "reset": "초기화",
+    "clear": "지우기",
+    "copied": "복사 완료!",
+    "copy": "복사",
+    "print": "인쇄",
+    "yourExactAge": "정확한 만 나이",
+    "years": "세",
     "months": "개월",
     "days": "일",
-    "hours": "Hours",
-    "minutes": "Minutes",
+    "hours": "시간",
+    "minutes": "분",
     "seconds": "초",
-    "nextBirthday": "Next Birthday",
-    "daysRemaining": "days remaining",
-    "turning": "Turning",
-    "happyBirthday": "🎉 Happy Birthday Today!",
-    "totalDaysLived": "Total Days Lived",
-    "totalWeeks": "Total Weeks",
-    "heartbeats": "Estimated Heartbeats",
-    "solarOrbit": "Solar Year Progress",
-    "liveSeconds": "Running Total Seconds Lived",
-    "timeBreakdown": "Comprehensive Time Breakdown",
-    "zodiacSign": "Western Zodiac",
-    "chineseZodiac": "Chinese Zodiac",
-    "dayBorn": "Day of Birth"
+    "nextBirthday": "다음 생일",
+    "daysRemaining": "일 남음",
+    "turning": "맞이하는 나이",
+    "happyBirthday": "🎉 오늘 생일을 진심으로 축하합니다!",
+    "totalDaysLived": "살아온 총 일수",
+    "totalWeeks": "살아온 총 주수",
+    "heartbeats": "예상 심장 박동수",
+    "solarOrbit": "태양년 공전 진행도",
+    "liveSeconds": "태어나서 지금까지 살아온 실시간 총 초",
+    "timeBreakdown": "시간 종합 분석",
+    "zodiacSign": "별자리",
+    "chineseZodiac": "띠 (십이지)",
+    "dayBorn": "태어난 요일"
   },
   "features": {
-    "gregorianPrecisionTitle": "Gregorian Precision",
-    "gregorianPrecisionDesc": "Accounts for leap years, 30/31-day months, and February leap days down to the second.",
-    "liveSecondsTitle": "Live Running Seconds",
-    "liveSecondsDesc": "Real-time live age odometer synchronized with your device clock.",
-    "privateAndFreeTitle": "100% Private & Free",
-    "privateAndFreeDesc": "No registration or server uploads. All calculations run strictly in your browser."
+    "gregorianPrecisionTitle": "그레고리력 정밀 계산",
+    "gregorianPrecisionDesc": "윤년, 30일/31일인 달, 2월 29일을 초 단위까지 완벽하게 반영합니다.",
+    "liveSecondsTitle": "실시간 초 단위 측정기",
+    "liveSecondsDesc": "기기 시계와 동기화되어 매초마다 실시간으로 수치가 올라갑니다.",
+    "privateAndFreeTitle": "100% 안전한 개인정보 보호 및 무료",
+    "privateAndFreeDesc": "회원가입이나 서버 전송이 없습니다. 모든 연산은 오직 브라우저 내부에서만 수행됩니다."
   },
   "howItWorks": {
-    "title": "How the Age Calculator Works",
-    "subtitle": "A transparent breakdown of how our algorithm calculates calendar days, handles month borrowing, and tracks live seconds."
+    "title": "나이 계산기 동작 원리",
+    "subtitle": "달력 날짜 계산, 이전 달 일수 받아내림 및 실시간 초 단위 계산 알고리즘 안내."
   },
   "faq": {
-    "title": "Frequently Asked Questions",
+    "title": "자주 묻는 질문 (FAQ)",
     "items": [
       {
-        "question": "How does the Age Calculator calculate my exact age?",
-        "answer": "The calculator compares your Date of Birth with your target date using the Gregorian calendar algorithm. It computes complete elapsed years, calculates remaining full months, and calculates the remaining days by borrowing the exact days of the previous month."
+        "question": "만 나이는 어떻게 계산되나요?",
+        "answer": "생년월일과 기준일을 비교하여 그레고리력 달력 규칙에 따라 온전한 연수, 월수 및 일수를 정확하게 산출합니다."
       },
       {
-        "question": "Does this calculator account for leap years?",
-        "answer": "Yes. The algorithm handles February 29 correctly. If your birthday is on a leap day, the calculator checks leap cycle rules and measures exact calendar intervals."
+        "question": "윤년(2월 29일생)도 정확하게 처리되나요?",
+        "answer": "네, 완벽하게 지원합니다. 2월 29일 출생자의 경우 공식 4년 윤년 주기를 바탕으로 정확한 일수를 측정합니다."
       },
       {
-        "question": "How accurate is the live running seconds counter?",
-        "answer": "The live counter updates every second in real time, synchronized with your system clock, computing exact elapsed seconds from your birth timestamp."
+        "question": "실시간 초 카운터는 얼마나 정확한가요?",
+        "answer": "사용자 기기의 시스템 시계와 1초마다 실시간으로 동기화되어 출생 이후 흐른 초를 계산합니다."
       },
       {
-        "question": "Is my personal data safe and private?",
-        "answer": "Yes, 100%. All calculations happen entirely on your device inside your web browser. No personal information or birth dates are transmitted to any external server."
+        "question": "입력한 생년월일 정보는 안전한가요?",
+        "answer": "네, 100% 안전합니다. 어떤 정보도 외부 서버로 전송되지 않으며 모든 연산은 브라우저에서만 이루어집니다."
       },
       {
-        "question": "Can I calculate the age difference between two people?",
-        "answer": "Yes. Use our Age Difference Calculator to compare two birth dates and find the exact duration in years, months, and days."
+        "question": "두 사람의 나이 차이를 계산할 수 있나요?",
+        "answer": "네, '나이 차이 계산기'를 사용하시면 두 생년월일의 연, 월, 일 차이를 손쉽게 확인하실 수 있습니다."
       }
     ]
   },
   "breadcrumbs": {
-    "home": "Home"
+    "home": "홈"
   },
   "related": {
-    "title": "Explore Related Age & Date Calculators",
-    "description": "Quickly switch to specialized calculators for birthdays, milestone ages, date durations, and interval counting.",
-    "openCalculator": "Open Calculator"
+    "title": "관련 나이 및 날짜 계산 도구",
+    "description": "생일 디데이, 기념일, 날짜 간격 및 근무일수 계산 등 다양한 도구를 이용해보세요.",
+    "openCalculator": "계산기 열기"
   },
   "languageSelector": {
-    "title": "Select Language",
-    "subtitle": "Choose your preferred language for the entire website",
-    "searchPlaceholder": "Search language...",
-    "close": "Close"
+    "title": "언어 선택",
+    "subtitle": "웹사이트 전체에서 사용할 언어를 선택하세요",
+    "searchPlaceholder": "언어 검색...",
+    "close": "닫기"
   },
   "footer": {
-    "brandDescription": "Free, accurate, and privacy-first online age calculator. Compute your exact age in years, months, and days, find your next birthday countdown, and calculate time differences with calendar precision.",
-    "coreCalculators": "Age Calculators",
-    "specialtyTools": "Specialty Tools",
-    "guide": "Calculation Guide",
-    "company": "Company & Legal",
-    "aboutUs": "About Us",
-    "contact": "Contact",
-    "privacy": "Privacy Policy",
-    "terms": "Terms of Service",
-    "languages": "Supported Languages & International Versions",
-    "clientSideBadge": "100% Client-Side • Zero Data Stored",
+    "brandDescription": "무료이며 정확하고 개인정보를 완벽히 보호하는 온라인 만 나이 계산기. 정확한 나이, 다가오는 생일 및 시간 간격을 계산해보세요.",
+    "coreCalculators": "나이 계산 도구",
+    "specialtyTools": "특수 도구",
+    "guide": "계산 가이드",
+    "company": "회사 및 법적 고지",
+    "aboutUs": "소개",
+    "contact": "문의하기",
+    "privacy": "개인정보처리방침",
+    "terms": "이용약관",
+    "languages": "지원 언어 및 글로벌 버전",
+    "clientSideBadge": "100% 클라이언트 연산 • 데이터 미저장",
     "allRightsReserved": "All rights reserved."
   },
   "errors": {
-    "invalidDate": "Please enter a valid date.",
-    "futureDate": "Birth date cannot be in the future.",
-    "requiredDate": "Please select your date of birth."
+    "invalidDate": "유효한 날짜를 입력해주세요.",
+    "futureDate": "생년월일은 미래 날짜일 수 없습니다.",
+    "requiredDate": "생년월일을 선택해주세요."
   },
   "tools": {
     "age-calculator": {
-      "title": "나이 계산기",
-      "desc": "무료 온라인 만 나이 계산기. 생년월일을 입력하여 정확한 만 나이, 개월, 일수 및 실시간 경과 초를 계산하세요."
+      "title": "만 나이 계산기",
+      "desc": "만 나이, 개월 수, 일 수 및 실시간 초 단위를 정확하게 계산합니다."
     },
     "birthday-calculator": {
-      "title": "Birthday Calculator",
-      "desc": "Discover your next birthday, day of week, days countdown, and milestone ages."
+      "title": "생일 계산기",
+      "desc": "다음 생일 요일, 디데이 일수 및 생애 주요 기념일을 확인하세요."
     },
     "age-difference-calculator": {
-      "title": "Age Difference Calculator",
-      "desc": "Compare two dates of birth to find the precise difference in years, months, and days."
+      "title": "나이 차이 계산기",
+      "desc": "두 사람의 생년월일을 비교하여 정확한 연, 월, 일 차이를 계산합니다."
     },
     "birthday-countdown": {
-      "title": "Birthday Countdown",
-      "desc": "Live real-time ticking countdown clock for upcoming birthdays and milestone celebrations."
+      "title": "생일 디데이 카운트다운",
+      "desc": "다가오는 생일과 특별한 기념일을 향해 실시간으로 흐르는 타이머."
     },
     "date-difference-calculator": {
-      "title": "Date Difference Calculator",
-      "desc": "Find the exact duration and interval between any two dates in years, months, and days."
+      "title": "날짜 차이 계산기",
+      "desc": "두 날짜 사이의 정확한 기간(연, 월, 일, 시간)을 계산합니다."
     },
     "date-of-birth-calculator": {
-      "title": "Date of Birth Calculator",
-      "desc": "Reverse calculator: determine your exact or approximate birth date from given age."
+      "title": "생년월일 역산기",
+      "desc": "현재 나이 정보를 입력하여 태어난 생년월일을 역으로 추정합니다."
     },
     "days-between-dates": {
-      "title": "Days Between Dates",
-      "desc": "Calculate total calendar days and business days between any two dates."
+      "title": "날짜 간 일수 계산",
+      "desc": "두 날짜 사이의 총 일수, 평일(근무일) 및 주말 일수를 계산합니다."
     },
     "chronological-age-calculator": {
-      "title": "Chronological Age Calculator",
-      "desc": "Standard clinical and academic chronological age calculator (YY;MM;DD)."
+      "title": "만 나이(생활연령) 계산기",
+      "desc": "의학 및 발달 검사에서 활용되는 표준 생활연령(YY;MM;DD) 계산 도구."
     },
     "retirement-age-calculator": {
-      "title": "Retirement Age Calculator",
-      "desc": "Estimate your retirement milestone date and calculate remaining years and working days."
+      "title": "정년 은퇴 나이 계산기",
+      "desc": "예상 정년 은퇴일과 남은 연수 및 근무일수를 계산합니다."
     },
     "leap-year-age-calculator": {
-      "title": "Leap Year Age Calculator",
-      "desc": "Special calculator for February 29 leap day babies to track birthdays vs calendar years."
+      "title": "윤년(2월 29일) 계산기",
+      "desc": "2월 29일 출생자가 실제로 겪은 2월 29일 횟수와 진짜 생일을 확인합니다."
     },
     "how-to-calculate-age": {
-      "title": "How to Calculate Age",
-      "desc": "Step-by-step mathematical guide to manual age calculation and calendar borrowing rules."
+      "title": "만 나이 계산법",
+      "desc": "달력의 받아내림 규칙을 활용해 수동으로 만 나이를 구하는 수학적 가이드."
+    }
+  },
+  "calculators": {
+    "birthday": {
+      "title": "생일 및 기념일 계산기",
+      "desc": "다음 생일이 며칠 남았는지, 무슨 요일인지, 주요 주기별 생일이 무슨 요일에 돌아오는지 확인하세요.",
+      "dobLabel": "생년월일",
+      "btnCalculate": "생일 정보 확인하기",
+      "nextCountdown": "다음 생일 카운트다운",
+      "daysUntil": "일",
+      "turning": "맞이할 나이:",
+      "onDate": "다음 생일 날짜:",
+      "todayBday": "오늘 생일을 진심으로 축하합니다!",
+      "milestoneTitle": "주요 기념 나이",
+      "age": "나이",
+      "year": "연도",
+      "date": "날짜",
+      "dayOfWeek": "요일",
+      "status": "상태",
+      "passed": "지남",
+      "upcoming": "예정"
+    },
+    "ageDifference": {
+      "title": "나이 차이 계산기",
+      "desc": "두 생년월일을 비교하여 몇 년 몇 개월 며칠 차이가 나는지 계산합니다.",
+      "personA": "대상자 A",
+      "personB": "대상자 B",
+      "dobLabel": "생년월일",
+      "btnCalculate": "나이 차이 계산하기",
+      "resultTitle": "나이 차이 분석 결과",
+      "olderThan": "님이",
+      "by": "님보다 많습니다 (차이: ",
+      "totalDaysDiff": "총 일수 차이",
+      "totalWeeksDiff": "총 주수 차이",
+      "copySummary": "결과 복사",
+      "copied": "클립보드에 복사되었습니다!",
+      "sameAge": "두 사람은 완벽히 같은 날에 태어났습니다."
+    },
+    "dateDifference": {
+      "title": "날짜 간격 계산기",
+      "desc": "두 날짜 사이의 연, 월, 일 길이를 정확하게 계산합니다.",
+      "startDate": "시작일",
+      "endDate": "종료일",
+      "btnCalculate": "기간 계산하기",
+      "resultTitle": "날짜 간 기간",
+      "diffYMD": "기간 차이",
+      "totalDays": "총 일수",
+      "totalWeeks": "총 주수",
+      "totalHours": "총 시간",
+      "totalMinutes": "총 분",
+      "errorInvalid": "유효한 시작일과 종료일을 선택해주세요."
+    },
+    "dateOfBirth": {
+      "title": "생년월일 역산 계산기",
+      "desc": "현재 만 나이(세, 개월, 일)를 입력하여 생년월일을 역산합니다.",
+      "ageYears": "세",
+      "ageMonths": "개월",
+      "ageDays": "일",
+      "asOfDate": "기준일",
+      "btnCalculate": "생년월일 역산하기",
+      "resultTitle": "역산된 생년월일",
+      "estimatedDob": "추정 생년월일",
+      "dayBorn": "태어난 요일"
+    },
+    "birthdayCountdown": {
+      "title": "생일 실시간 카운트다운 타이머",
+      "desc": "다음 생일까지 남은 시간을 실시간 초 단위로 카운트다운합니다.",
+      "dobLabel": "생년월일",
+      "days": "일",
+      "hours": "시간",
+      "minutes": "분",
+      "seconds": "초",
+      "turningAge": "맞이할 나이:",
+      "nextBdayOn": "다음 생일:",
+      "happyBday": "🎉 오늘 생일을 진심으로 축하합니다!"
+    },
+    "daysBetween": {
+      "title": "날짜 간 일수 계산기",
+      "desc": "두 날짜 사이의 달력 일수, 평일 근무일 및 주말 일수를 계산합니다.",
+      "startDate": "시작일",
+      "endDate": "종료일",
+      "includeEndDay": "종료일 포함 (+1일)",
+      "btnCalculate": "일수 계산하기",
+      "totalDays": "총 달력 일수",
+      "businessDays": "평일 (월~금)",
+      "weekendDays": "주말 (토~일)",
+      "totalWeeks": "총 주수"
+    },
+    "chronological": {
+      "title": "생활연령(실제 나이) 계산기",
+      "desc": "발달 및 심리 평가에서 요구되는 표준 생활연령(YY;MM;DD) 계산.",
+      "birthDate": "생년월일",
+      "testDate": "검사 실시일",
+      "weeksPremature": "조산 주수 (교정 연령 계산용)",
+      "btnCalculate": "생활연령 계산하기",
+      "chronologicalAge": "생활연령",
+      "notation": "표준 표기 (Y;M;D)",
+      "exactInterval": "실제 경과 기간",
+      "adjustedAge": "교정 연령 (조산 보정)"
+    },
+    "retirement": {
+      "title": "정년 은퇴 계산기",
+      "desc": "목표 은퇴 나이까지 남은 시간과 남은 예상 근무일수를 계산합니다.",
+      "birthDate": "생년월일",
+      "currentAge": "현재 나이",
+      "targetAge": "목표 은퇴 나이",
+      "asOfDate": "계산 기준일",
+      "btnCalculate": "은퇴 시점 계산하기",
+      "yearsRemaining": "남은 연수",
+      "targetYear": "은퇴 예정 연도",
+      "workingDaysLeft": "예상 잔여 근무일",
+      "alreadyReached": "목표 은퇴 연령에 도달했습니다."
+    },
+    "leapYear": {
+      "title": "윤년 및 2월 29일 계산기",
+      "desc": "2월 29일 출생자가 실제로 맞이한 2월 29일의 횟수를 알아봅니다.",
+      "dobLabel": "생년월일",
+      "btnCalculate": "윤년 정보 확인하기",
+      "leapYearsLived": "경험한 2월 29일 횟수",
+      "actualBirthdays": "공식 윤년 생일",
+      "nextLeapBirthday": "다음 2월 29일 생일",
+      "leapBabyBadge": "윤년 출생자 (2월 29일)"
+    },
+    "liveTicker": {
+      "title": "실시간 나이 계측기",
+      "syncedLocal": "기기 시계와 실시간 동기화",
+      "clock": "시계",
+      "runningTotalSeconds": "태어난 후 총 누적 초",
+      "seconds": "초",
+      "solarOrbit": "태양 공전 주기 진행률",
+      "completed": "완료",
+      "turnedAge": "직전 생일에 도달한 나이",
+      "turningAgeIn": "다음 나이까지 남은 시간",
+      "bioMilestones": "생체 마일스톤",
+      "spaceTravel": "우주 및 지구 공전 이동 거리",
+      "heartbeats": "예상 총 심장 박동수",
+      "breaths": "총 호흡 횟수",
+      "blinks": "눈 깜빡임 횟수",
+      "hoursSlept": "수면 시간",
+      "earthRotation": "지구 자전 이동 거리",
+      "sunOrbit": "태양 공전 이동 거리",
+      "asOfTarget": "목표일 기준으로 계산됨"
     }
   }
 }
