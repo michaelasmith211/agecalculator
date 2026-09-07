@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Stethoscope, Sparkles, AlertCircle, FileText } from 'lucide-react';
+import { Stethoscope, Sparkles, AlertCircle } from 'lucide-react';
 import {
   calculateChronologicalAge,
   getTodayCalendarDate,
@@ -10,8 +10,10 @@ import {
   ChronologicalAgeResult
 } from '@/lib/date-utils';
 import { trackEvent } from '@/lib/analytics';
+import { useLanguage } from '@/lib/i18n/LanguageContext';
 
 export default function ChronologicalAgeCalculator() {
+  const { t } = useLanguage();
   const today = getTodayCalendarDate();
   const todayStr = toDateString(today);
 
@@ -19,12 +21,12 @@ export default function ChronologicalAgeCalculator() {
   const [testDateStr, setTestDateStr] = useState(todayStr);
   const [weeksPremature, setWeeksPremature] = useState(0);
 
-  const compute = (b: string, t: string, prem: number) => {
+  const compute = (b: string, test: string, prem: number) => {
     const birth = parseDateString(b);
-    const test = parseDateString(t);
-    if (!birth || !test) return { res: null, err: 'Please provide valid birth and testing dates.' };
+    const testDate = parseDateString(test);
+    if (!birth || !testDate) return { res: null, err: 'Please provide valid birth and testing dates.' };
     try {
-      return { res: calculateChronologicalAge(birth, test, prem), err: null };
+      return { res: calculateChronologicalAge(birth, testDate, prem), err: null };
     } catch (err: unknown) {
       return { res: null, err: err instanceof Error ? err.message : 'Calculation error' };
     }
@@ -34,8 +36,8 @@ export default function ChronologicalAgeCalculator() {
   const [result, setResult] = useState<ChronologicalAgeResult | null>(initial.res);
   const [error, setError] = useState<string | null>(initial.err);
 
-  const handleCalculate = (b: string, t: string, prem: number) => {
-    const data = compute(b, t, prem);
+  const handleCalculate = (b: string, test: string, prem: number) => {
+    const data = compute(b, test, prem);
     setResult(data.res);
     setError(data.err);
     if (data.res) {
@@ -54,10 +56,10 @@ export default function ChronologicalAgeCalculator() {
         </div>
         <div>
           <h2 className="text-xl sm:text-2xl font-bold text-slate-900">
-            Chronological Age Calculator
+            {t('chronologicalTitle', 'Chronological Age Calculator')}
           </h2>
           <p className="text-sm text-slate-600">
-            Standardized clinical & academic age calculation (Years;Months;Days) for psychological, medical, and developmental evaluations.
+            {t('chronologicalSubtitle', 'Calculate exact chronological age for clinical, school admission, demographic, and legal records.')}
           </p>
         </div>
       </div>
@@ -65,7 +67,7 @@ export default function ChronologicalAgeCalculator() {
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-6">
         <div>
           <label htmlFor="c-dob" className="block text-sm font-bold text-slate-800 mb-1">
-            Child Date of Birth
+            {t('dob', 'Date of Birth')}
           </label>
           <input
             id="c-dob"
@@ -81,7 +83,7 @@ export default function ChronologicalAgeCalculator() {
 
         <div>
           <label htmlFor="c-test" className="block text-sm font-bold text-slate-800 mb-1">
-            Testing / Assessment Date
+            {t('testDate', 'Testing / Assessment Date')}
           </label>
           <input
             id="c-test"
@@ -110,7 +112,7 @@ export default function ChronologicalAgeCalculator() {
               setWeeksPremature(val);
               if (birthDateStr && testDateStr) handleCalculate(birthDateStr, testDateStr, val);
             }}
-            className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-slate-900 font-medium text-sm"
+            className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-slate-900 font-bold text-sm"
           />
         </div>
       </div>
@@ -119,10 +121,10 @@ export default function ChronologicalAgeCalculator() {
         <button
           type="button"
           onClick={() => handleCalculate(birthDateStr, testDateStr, weeksPremature)}
-          className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold bg-cyan-700 text-white hover:bg-cyan-800 shadow-sm transition-all"
+          className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold bg-cyan-600 text-white hover:bg-cyan-700 shadow-sm transition-all cursor-pointer"
         >
           <Sparkles className="w-4 h-4" />
-          <span>Compute Chronological Age</span>
+          <span>{t('calcChronologicalBtn', 'Calculate Chronological Age')}</span>
         </button>
       </div>
 
@@ -136,39 +138,44 @@ export default function ChronologicalAgeCalculator() {
       {result && (
         <div className="mt-8 space-y-6">
           <div className="p-6 bg-cyan-50/70 border border-cyan-200 rounded-2xl">
-            <div className="text-xs font-bold text-cyan-800 uppercase tracking-wider mb-1">
-              Standard Chronological Age (CA)
+            <div className="text-xs font-bold text-cyan-800 uppercase tracking-wider mb-2">
+              {t('exactAge', 'Your Exact Age')}
             </div>
-            <div className="text-4xl sm:text-5xl font-mono font-extrabold text-cyan-950 mt-1">
-              {result.standardNotation}
-            </div>
-            <div className="text-sm font-semibold text-cyan-900 mt-2">
-              {result.chronologicalYears} Years, {result.chronologicalMonths} Months, {result.chronologicalDays} Days ({result.totalDays.toLocaleString()} total days)
+            <div className="flex flex-wrap items-baseline gap-2 sm:gap-4">
+              <div className="flex items-baseline gap-1">
+                <span className="text-4xl sm:text-5xl font-extrabold text-cyan-950">
+                  {result.chronologicalYears}
+                </span>
+                <span className="text-base font-bold text-cyan-800">{t('years', 'Years')}</span>
+              </div>
+              <div className="flex items-baseline gap-1">
+                <span className="text-4xl sm:text-5xl font-extrabold text-cyan-950">
+                  {result.chronologicalMonths}
+                </span>
+                <span className="text-base font-bold text-cyan-800">{t('months', 'Months')}</span>
+              </div>
+              <div className="flex items-baseline gap-1">
+                <span className="text-4xl sm:text-5xl font-extrabold text-cyan-950">
+                  {result.chronologicalDays}
+                </span>
+                <span className="text-base font-bold text-cyan-800">{t('days', 'Days')}</span>
+              </div>
             </div>
           </div>
 
-          {result.adjustedAge && (
-            <div className="p-5 bg-amber-50/70 border border-amber-200 rounded-2xl">
-              <div className="text-xs font-bold text-amber-800 uppercase tracking-wider mb-1">
-                Adjusted / Corrected Age (Prematurity: {result.adjustedAge.weeksPremature} Weeks)
-              </div>
-              <div className="text-3xl font-mono font-extrabold text-amber-950 mt-1">
-                {result.adjustedAge.standardNotation}
-              </div>
-              <div className="text-sm text-amber-900 mt-1 font-medium">
-                {result.adjustedAge.years} Years, {result.adjustedAge.months} Months, {result.adjustedAge.days} Days
-              </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+            <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl">
+              <div className="text-xs font-semibold text-slate-500 uppercase">{t('decimalAge', 'Decimal Age')}</div>
+              <div className="text-xl font-bold text-slate-900 mt-1">{(result.chronologicalYears + result.chronologicalMonths / 12).toFixed(2)} {t('years', 'Years')}</div>
             </div>
-          )}
-
-          <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl text-xs text-slate-600 space-y-1">
-            <div className="font-bold text-slate-800 flex items-center gap-1">
-              <FileText className="w-3.5 h-3.5" />
-              <span>Clinical Reporting Standards</span>
+            <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl">
+              <div className="text-xs font-semibold text-slate-500 uppercase">{t('totalMonths', 'Total Months')}</div>
+              <div className="text-xl font-bold text-slate-900 mt-1">{(result.chronologicalYears * 12 + result.chronologicalMonths).toFixed(1)} {t('months', 'Months')}</div>
             </div>
-            <p>
-              Standard assessment tools (e.g. WISC-V, Bayley Scales, WPPSI, Woodcock-Johnson) require exact date subtraction with borrow adjustments. Gestational correction is standard practice for infants up to 24 months born prior to 37 weeks.
-            </p>
+            <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl">
+              <div className="text-xs font-semibold text-slate-500 uppercase">{t('totalDays', 'Total Days')}</div>
+              <div className="text-xl font-bold text-slate-900 mt-1">{result.totalDays.toLocaleString()} {t('days', 'Days')}</div>
+            </div>
           </div>
         </div>
       )}

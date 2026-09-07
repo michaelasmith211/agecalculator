@@ -8,9 +8,10 @@ import {
   AgeDifferenceResult
 } from '@/lib/date-utils';
 import { trackEvent } from '@/lib/analytics';
-import SocialShare from '@/components/SocialShare';
+import { useLanguage } from '@/lib/i18n/LanguageContext';
 
 export default function AgeDifferenceCalculator() {
+  const { t } = useLanguage();
   const [dobAStr, setDobAStr] = useState('1990-01-01');
   const [dobBStr, setDobBStr] = useState('1995-06-15');
   const [personAName, setPersonAName] = useState('Person A');
@@ -61,19 +62,18 @@ export default function AgeDifferenceCalculator() {
         </div>
         <div>
           <h2 className="text-xl sm:text-2xl font-bold text-slate-900">
-            Age Difference Calculator
+            {t('ageDiffTitle', 'Age Difference Calculator')}
           </h2>
           <p className="text-sm text-slate-600">
-            Compare two birth dates to find the exact age gap in years, months, and days.
+            {t('ageDiffSubtitle', 'Compare two birth dates to find the exact age gap in years, months, and days.')}
           </p>
         </div>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
-        {/* Person A */}
         <div className="p-5 bg-slate-50 border border-slate-200 rounded-xl space-y-3">
           <div className="font-bold text-slate-800 text-sm flex items-center justify-between">
-            <span>First Person</span>
+            <span>{t('person1Label', 'First Person')}</span>
             <input
               type="text"
               value={personAName}
@@ -84,7 +84,7 @@ export default function AgeDifferenceCalculator() {
           </div>
           <div>
             <label htmlFor="dob-a" className="block text-xs font-semibold text-slate-600 mb-1">
-              Date of Birth
+              {t('person1', 'Date of Birth')}
             </label>
             <input
               id="dob-a"
@@ -99,10 +99,9 @@ export default function AgeDifferenceCalculator() {
           </div>
         </div>
 
-        {/* Person B */}
         <div className="p-5 bg-slate-50 border border-slate-200 rounded-xl space-y-3">
           <div className="font-bold text-slate-800 text-sm flex items-center justify-between">
-            <span>Second Person</span>
+            <span>{t('person2Label', 'Second Person')}</span>
             <input
               type="text"
               value={personBName}
@@ -113,7 +112,7 @@ export default function AgeDifferenceCalculator() {
           </div>
           <div>
             <label htmlFor="dob-b" className="block text-xs font-semibold text-slate-600 mb-1">
-              Date of Birth
+              {t('person2', 'Date of Birth')}
             </label>
             <input
               id="dob-b"
@@ -133,10 +132,10 @@ export default function AgeDifferenceCalculator() {
         <button
           type="button"
           onClick={() => handleCalculate(dobAStr, dobBStr)}
-          className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold bg-indigo-600 text-white hover:bg-indigo-700 shadow-sm transition-all"
+          className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold bg-indigo-600 text-white hover:bg-indigo-700 shadow-sm transition-all cursor-pointer"
         >
           <Calendar className="w-4 h-4" />
-          <span>Calculate Difference</span>
+          <span>{t('calcAgeDiffBtn', 'Calculate Age Difference')}</span>
         </button>
       </div>
 
@@ -152,72 +151,52 @@ export default function AgeDifferenceCalculator() {
           <div className="p-6 bg-indigo-50/70 border border-indigo-200 rounded-2xl">
             <div className="flex items-center justify-between">
               <span className="text-xs font-bold text-indigo-700 uppercase tracking-wider">
-                Age Gap Summary
+                {t('exactDuration', 'Age Gap Summary')}
               </span>
               <button
                 type="button"
                 onClick={handleCopy}
-                className="inline-flex items-center gap-1 text-xs font-semibold text-indigo-700 hover:text-indigo-900"
+                className="inline-flex items-center gap-1 text-xs font-semibold text-indigo-700 hover:text-indigo-900 cursor-pointer"
               >
-                {copied ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
-                <span>{copied ? 'Copied' : 'Copy'}</span>
+                {copied ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
+                <span>{copied ? t('copiedBtn', 'Copied!') : t('copyBtn', 'Copy')}</span>
               </button>
             </div>
 
-            <div className="flex flex-wrap items-baseline gap-2 sm:gap-4 mt-3">
-              <div className="flex items-baseline gap-1">
-                <span className="text-4xl sm:text-5xl font-extrabold text-indigo-950">
-                  {result.differenceYears}
-                </span>
-                <span className="text-base font-bold text-indigo-800">Years</span>
-              </div>
-              <div className="flex items-baseline gap-1">
-                <span className="text-4xl sm:text-5xl font-extrabold text-indigo-950">
-                  {result.differenceMonths}
-                </span>
-                <span className="text-base font-bold text-indigo-800">Months</span>
-              </div>
-              <div className="flex items-baseline gap-1">
-                <span className="text-4xl sm:text-5xl font-extrabold text-indigo-950">
-                  {result.differenceDays}
-                </span>
-                <span className="text-base font-bold text-indigo-800">Days</span>
-              </div>
-            </div>
-
-            <p className="mt-4 text-sm text-slate-700 leading-relaxed font-medium">
+            <div className="mt-2 text-xl sm:text-2xl font-extrabold text-indigo-950">
               {result.olderPerson === 'same' ? (
-                'Both individuals were born on the exact same date. The age difference is 0 days.'
+                <span>{t('sameAgeMsg', 'Both persons have the exact same date of birth!')}</span>
               ) : (
-                <>
-                  <strong>{result.olderPerson === 'A' ? personAName : personBName}</strong> is older than{' '}
-                  <strong>{result.olderPerson === 'A' ? personBName : personAName}</strong> by{' '}
-                  <strong>{result.differenceYears} years, {result.differenceMonths} months, and {result.differenceDays} days</strong>.
-                </>
+                <span>
+                  <strong>{result.olderPerson === 'A' ? personAName : personBName}</strong> {t('isOlderThan', 'is older than')}{' '}
+                  <strong>{result.olderPerson === 'A' ? personBName : personAName}</strong> {t('byExactGap', 'by an exact gap of')}
+                </span>
               )}
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl">
-              <div className="text-xs font-semibold text-slate-500 uppercase">Total Difference in Days</div>
-              <div className="text-2xl font-extrabold text-slate-900 mt-1">
-                {result.totalDaysDifference.toLocaleString()} Days
-              </div>
             </div>
-            <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl">
-              <div className="text-xs font-semibold text-slate-500 uppercase">Total Difference in Weeks</div>
-              <div className="text-2xl font-extrabold text-slate-900 mt-1">
-                {result.totalWeeksDifference.toLocaleString()} Weeks
-              </div>
-            </div>
-          </div>
 
-          <SocialShare
-            title="Age Difference Calculator"
-            url="/age-difference-calculator"
-            resultText={`Age Difference: ${result.differenceYears} Years, ${result.differenceMonths} Months, and ${result.differenceDays} Days (${result.totalDaysDifference.toLocaleString()} total days)!`}
-          />
+            {result.olderPerson !== 'same' && (
+              <div className="flex flex-wrap items-baseline gap-2 sm:gap-4 mt-3">
+                <div className="flex items-baseline gap-1">
+                  <span className="text-4xl sm:text-5xl font-extrabold text-indigo-950">
+                    {result.differenceYears}
+                  </span>
+                  <span className="text-base font-bold text-indigo-800">{t('years', 'Years')}</span>
+                </div>
+                <div className="flex items-baseline gap-1">
+                  <span className="text-4xl sm:text-5xl font-extrabold text-indigo-950">
+                    {result.differenceMonths}
+                  </span>
+                  <span className="text-base font-bold text-indigo-800">{t('months', 'Months')}</span>
+                </div>
+                <div className="flex items-baseline gap-1">
+                  <span className="text-4xl sm:text-5xl font-extrabold text-indigo-950">
+                    {result.differenceDays}
+                  </span>
+                  <span className="text-base font-bold text-indigo-800">{t('days', 'Days')}</span>
+                </div>
+              </div>
+            )}
+          </div>
         </div>
       )}
     </div>

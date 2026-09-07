@@ -6,12 +6,33 @@ import { usePathname } from 'next/navigation';
 import { Calendar, Clock, Menu, X, ChevronRight, Sparkles, Globe } from 'lucide-react';
 import { MAIN_NAV_ITEMS, ALL_CALCULATORS } from '@/lib/constants';
 import { useLanguage } from '@/lib/i18n/LanguageContext';
+import { TranslationKey } from '@/lib/i18n/dictionaries';
+
+const NAV_TITLE_MAP: Record<string, TranslationKey> = {
+  '/': 'appName',
+  '/age-calculator': 'appName',
+  '/birthday-calculator': 'bdayTitle',
+  '/birthday-countdown': 'bdayCountdownTitle',
+  '/chronological-age-calculator': 'chronologicalTitle',
+  '/age-difference-calculator': 'ageDiffTitle',
+  '/date-difference-calculator': 'dateDiffTitle',
+  '/date-of-birth-calculator': 'dobCalcTitle',
+  '/days-between-dates': 'daysBetweenTitle',
+  '/leap-year-age-calculator': 'leapYearTitle',
+  '/retirement-age-calculator': 'retirementTitle',
+  '/how-to-calculate-age': 'guideTitle'
+};
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [toolsDropdownOpen, setToolsDropdownOpen] = useState(false);
   const pathname = usePathname();
   const { currentLanguage, openModal, t, getLocalizedPath } = useLanguage();
+
+  const getNavTitle = (href: string, fallback: string) => {
+    const key = NAV_TITLE_MAP[href];
+    return key ? t(key, fallback) : fallback;
+  };
 
   return (
     <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-slate-200">
@@ -47,7 +68,7 @@ export default function Header() {
                       : 'text-slate-700 hover:text-slate-900 hover:bg-slate-100'
                   }`}
                 >
-                  {item.title}
+                  {getNavTitle(item.href, item.title)}
                 </Link>
               );
             })}
@@ -58,7 +79,7 @@ export default function Header() {
                 type="button"
                 onClick={() => setToolsDropdownOpen(!toolsDropdownOpen)}
                 onBlur={() => setTimeout(() => setToolsDropdownOpen(false), 200)}
-                className="px-3 py-2 rounded-lg text-sm font-medium text-slate-700 hover:text-slate-900 hover:bg-slate-100 transition-colors flex items-center gap-1"
+                className="px-3 py-2 rounded-lg text-sm font-medium text-slate-700 hover:text-slate-900 hover:bg-slate-100 transition-colors flex items-center gap-1 cursor-pointer"
                 aria-expanded={toolsDropdownOpen}
               >
                 {t('moreTools', 'More Tools')}
@@ -76,7 +97,7 @@ export default function Header() {
                       href={getLocalizedPath(calc.href)}
                       className="block px-3 py-2 text-sm text-slate-700 hover:bg-blue-50 hover:text-blue-700 transition-colors"
                     >
-                      <div className="font-medium text-slate-900">{calc.title}</div>
+                      <div className="font-medium text-slate-900">{getNavTitle(calc.href, calc.title)}</div>
                       <div className="text-xs text-slate-500 truncate">{calc.description}</div>
                     </Link>
                   ))}
@@ -136,7 +157,7 @@ export default function Header() {
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
         <div className="md:hidden border-t border-slate-200 bg-white px-4 pt-3 pb-6 space-y-2 shadow-lg">
-          <div className="text-xs font-semibold text-slate-400 uppercase px-3 py-1">Main Tools</div>
+          <div className="text-xs font-semibold text-slate-400 uppercase px-3 py-1">{t('moreTools', 'Main Tools')}</div>
           {MAIN_NAV_ITEMS.map((item) => (
             <Link
               key={item.href}
@@ -144,11 +165,11 @@ export default function Header() {
               onClick={() => setMobileMenuOpen(false)}
               className="block px-3 py-2.5 rounded-lg text-base font-medium text-slate-800 hover:bg-blue-50 hover:text-blue-700"
             >
-              {item.title}
+              {getNavTitle(item.href, item.title)}
             </Link>
           ))}
           <div className="border-t border-slate-100 my-2 pt-2">
-            <div className="text-xs font-semibold text-slate-400 uppercase px-3 py-1">More Calculators</div>
+            <div className="text-xs font-semibold text-slate-400 uppercase px-3 py-1">{t('allCalculators', 'More Calculators')}</div>
             {ALL_CALCULATORS.slice(5).map((calc) => (
               <Link
                 key={calc.href}
@@ -156,7 +177,7 @@ export default function Header() {
                 onClick={() => setMobileMenuOpen(false)}
                 className="block px-3 py-2 rounded-lg text-sm text-slate-700 hover:bg-blue-50 hover:text-blue-700"
               >
-                {calc.title}
+                {getNavTitle(calc.href, calc.title)}
               </Link>
             ))}
           </div>
@@ -167,7 +188,7 @@ export default function Header() {
               className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg text-base font-semibold bg-blue-600 text-white hover:bg-blue-700 shadow-sm"
             >
               <Sparkles className="w-4 h-4" />
-              Calculate My Age Now
+              {t('calculateBtn', 'Calculate Age')}
             </Link>
           </div>
         </div>

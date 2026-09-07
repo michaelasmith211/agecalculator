@@ -2,8 +2,10 @@ import React from 'react';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import HomePage from '@/app/page';
-import { LANGUAGES, getLanguageByCode } from '@/lib/i18n/languages';
+import { LANGUAGES } from '@/lib/i18n/languages';
 import { SITE_CONFIG } from '@/lib/constants';
+import { getPageData } from '@/lib/i18n/page-translations';
+import { LanguageProvider } from '@/lib/i18n/LanguageContext';
 
 interface LangPageProps {
   params: Promise<{
@@ -14,7 +16,6 @@ interface LangPageProps {
 export const dynamic = 'force-static';
 
 export async function generateStaticParams() {
-  // Generate static pages for all 38 international languages (excluding default 'en')
   return LANGUAGES.filter((l) => l.code !== 'en').map((lang) => ({
     lang: lang.code
   }));
@@ -22,10 +23,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: LangPageProps): Promise<Metadata> {
   const { lang } = await params;
-  const language = getLanguageByCode(lang);
-
-  const title = `Age Calculator (${language.nativeName}) – Calculate Exact Age`;
-  const description = `Free online Age Calculator in ${language.nativeName} (${language.name}). Calculate your exact age in years, months, days, and live running seconds.`;
+  const data = getPageData('age-calculator', lang);
   const canonicalUrl = `${SITE_CONFIG.domain}/${lang}/`;
 
   const alternatesLanguages: Record<string, string> = {
@@ -39,15 +37,15 @@ export async function generateMetadata({ params }: LangPageProps): Promise<Metad
   }
 
   return {
-    title,
-    description,
+    title: data.title,
+    description: data.description,
     alternates: {
       canonical: canonicalUrl,
       languages: alternatesLanguages
     },
     openGraph: {
-      title,
-      description,
+      title: data.title,
+      description: data.description,
       url: canonicalUrl,
       locale: lang,
       type: 'website',
@@ -55,8 +53,8 @@ export async function generateMetadata({ params }: LangPageProps): Promise<Metad
     },
     twitter: {
       card: 'summary_large_image',
-      title,
-      description,
+      title: data.title,
+      description: data.description,
       images: [`${SITE_CONFIG.domain}/images/age-calculator-how-it-works.jpg`]
     }
   };
@@ -70,5 +68,9 @@ export default async function LocalizedHomePage({ params }: LangPageProps) {
     notFound();
   }
 
-  return <HomePage />;
+  return (
+    <LanguageProvider initialLang={lang}>
+      <HomePage lang={lang} />
+    </LanguageProvider>
+  );
 }

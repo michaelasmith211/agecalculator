@@ -7,8 +7,10 @@ import {
   parseDateString,
   formatDisplayDate
 } from '@/lib/date-utils';
+import { useLanguage } from '@/lib/i18n/LanguageContext';
 
 export default function BirthdayCountdown() {
+  const { t } = useLanguage();
   const [birthDateStr, setBirthDateStr] = useState('1996-10-25');
   const [timeLeft, setTimeLeft] = useState<{
     days: number;
@@ -32,7 +34,6 @@ export default function BirthdayCountdown() {
         const ageRes = calculateAge(birth, today);
         const nextBday = ageRes.nextBirthdayDate;
 
-        // Target timestamp for next birthday at midnight local time
         const targetDate = new Date(nextBday.year, nextBday.month - 1, nextBday.day, 0, 0, 0, 0);
         let diffMs = targetDate.getTime() - now.getTime();
 
@@ -86,10 +87,10 @@ export default function BirthdayCountdown() {
         </div>
         <div>
           <h2 className="text-xl sm:text-2xl font-bold text-slate-900">
-            Live Birthday Countdown Clock
+            {t('bdayCountdownTitle', 'Live Birthday Countdown Clock')}
           </h2>
           <p className="text-sm text-slate-600">
-            Real-time live countdown ticking down the exact days, hours, minutes, and seconds to your next birthday.
+            {t('bdayCountdownSubtitle', 'Real-time live countdown ticking down the exact days, hours, minutes, and seconds to your next birthday.')}
           </p>
         </div>
       </div>
@@ -97,7 +98,7 @@ export default function BirthdayCountdown() {
       <div className="mt-6 max-w-sm space-y-4">
         <div>
           <label htmlFor="bc-dob" className="block text-sm font-bold text-slate-800 mb-1">
-            Your Date of Birth
+            {t('dob', 'Date of Birth')}
           </label>
           <input
             id="bc-dob"
@@ -111,56 +112,32 @@ export default function BirthdayCountdown() {
 
       {timeLeft && (
         <div className="mt-8 space-y-6">
-          {timeLeft.isToday ? (
-            <div className="p-8 bg-gradient-to-r from-pink-500 to-purple-600 text-white rounded-2xl text-center shadow-md">
-              <div className="text-4xl sm:text-5xl font-extrabold mb-2">
-                🎉 Happy Birthday! 🎂
-              </div>
-              <p className="text-lg font-medium opacity-90">
-                You are turning {timeLeft.turningAge} years old today! Wishing you a wonderful year ahead.
-              </p>
+          <div className="p-6 sm:p-8 bg-gradient-to-br from-purple-500 to-indigo-600 text-white rounded-2xl shadow-md text-center">
+            <div className="text-sm font-medium opacity-90 mb-4">
+              {timeLeft.isToday
+                ? t('happyBirthday', '🎉 Happy Birthday Today!')
+                : `${t('turningAge', 'Turning')} ${timeLeft.turningAge} on ${timeLeft.nextBirthdayDateFormatted}`}
             </div>
-          ) : (
-            <div className="p-6 sm:p-8 bg-purple-50/70 border border-purple-200 rounded-2xl text-center">
-              <div className="text-xs font-bold text-purple-800 uppercase tracking-wider mb-2">
-                Countdown to {timeLeft.nextBirthdayDateFormatted} (Turning {timeLeft.turningAge})
+
+            <div className="grid grid-cols-4 gap-2 sm:gap-4 max-w-md mx-auto">
+              <div className="bg-white/10 backdrop-blur-xs rounded-xl p-3 sm:p-4">
+                <div className="text-2xl sm:text-4xl font-extrabold">{timeLeft.days}</div>
+                <div className="text-xs uppercase tracking-wider mt-1 opacity-80">{t('countdownDays', 'Days')}</div>
               </div>
-
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 max-w-xl mx-auto my-4">
-                <div className="bg-white p-4 rounded-xl border border-purple-200 shadow-2xs">
-                  <div className="text-3xl sm:text-5xl font-extrabold text-purple-950 font-mono">
-                    {timeLeft.days}
-                  </div>
-                  <div className="text-xs font-semibold text-purple-700 uppercase mt-1">Days</div>
-                </div>
-
-                <div className="bg-white p-4 rounded-xl border border-purple-200 shadow-2xs">
-                  <div className="text-3xl sm:text-5xl font-extrabold text-purple-950 font-mono">
-                    {String(timeLeft.hours).padStart(2, '0')}
-                  </div>
-                  <div className="text-xs font-semibold text-purple-700 uppercase mt-1">Hours</div>
-                </div>
-
-                <div className="bg-white p-4 rounded-xl border border-purple-200 shadow-2xs">
-                  <div className="text-3xl sm:text-5xl font-extrabold text-purple-950 font-mono">
-                    {String(timeLeft.minutes).padStart(2, '0')}
-                  </div>
-                  <div className="text-xs font-semibold text-purple-700 uppercase mt-1">Minutes</div>
-                </div>
-
-                <div className="bg-white p-4 rounded-xl border border-purple-200 shadow-2xs">
-                  <div className="text-3xl sm:text-5xl font-extrabold text-purple-950 font-mono">
-                    {String(timeLeft.seconds).padStart(2, '0')}
-                  </div>
-                  <div className="text-xs font-semibold text-purple-700 uppercase mt-1">Seconds</div>
-                </div>
+              <div className="bg-white/10 backdrop-blur-xs rounded-xl p-3 sm:p-4">
+                <div className="text-2xl sm:text-4xl font-extrabold">{timeLeft.hours}</div>
+                <div className="text-xs uppercase tracking-wider mt-1 opacity-80">{t('countdownHours', 'Hours')}</div>
               </div>
-
-              <div className="text-xs text-purple-800 mt-2">
-                Next birthday falls on <strong>{timeLeft.nextBirthdayDateFormatted}</strong>
+              <div className="bg-white/10 backdrop-blur-xs rounded-xl p-3 sm:p-4">
+                <div className="text-2xl sm:text-4xl font-extrabold">{timeLeft.minutes}</div>
+                <div className="text-xs uppercase tracking-wider mt-1 opacity-80">{t('countdownMins', 'Mins')}</div>
+              </div>
+              <div className="bg-white/10 backdrop-blur-xs rounded-xl p-3 sm:p-4">
+                <div className="text-2xl sm:text-4xl font-extrabold">{timeLeft.seconds}</div>
+                <div className="text-xs uppercase tracking-wider mt-1 opacity-80">{t('countdownSecs', 'Secs')}</div>
               </div>
             </div>
-          )}
+          </div>
         </div>
       )}
     </div>

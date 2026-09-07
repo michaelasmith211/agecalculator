@@ -1,8 +1,10 @@
 import React from 'react';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { LANGUAGES, getLanguageByCode } from '@/lib/i18n/languages';
+import { LANGUAGES } from '@/lib/i18n/languages';
 import { SITE_CONFIG } from '@/lib/constants';
+import { getPageData } from '@/lib/i18n/page-translations';
+import { LanguageProvider } from '@/lib/i18n/LanguageContext';
 
 import AgeCalculatorPage from '@/app/age-calculator/page';
 import BirthdayCalculatorPage from '@/app/birthday-calculator/page';
@@ -29,22 +31,22 @@ interface LocalizedSlugPageProps {
 
 export const dynamic = 'force-static';
 
-const SLUG_MAP: Record<string, { component: React.ComponentType; title: string }> = {
-  'age-calculator': { component: AgeCalculatorPage, title: 'Age Calculator' },
-  'birthday-calculator': { component: BirthdayCalculatorPage, title: 'Birthday Calculator' },
-  'birthday-countdown': { component: BirthdayCountdownPage, title: 'Birthday Countdown' },
-  'chronological-age-calculator': { component: ChronologicalAgeCalculatorPage, title: 'Chronological Age Calculator' },
-  'age-difference-calculator': { component: AgeDifferenceCalculatorPage, title: 'Age Difference Calculator' },
-  'date-difference-calculator': { component: DateDifferenceCalculatorPage, title: 'Date Difference Calculator' },
-  'date-of-birth-calculator': { component: DateOfBirthCalculatorPage, title: 'Date of Birth Calculator' },
-  'days-between-dates': { component: DaysBetweenDatesPage, title: 'Days Between Dates' },
-  'leap-year-age-calculator': { component: LeapYearAgeCalculatorPage, title: 'Leap Year Age Calculator' },
-  'retirement-age-calculator': { component: RetirementAgeCalculatorPage, title: 'Retirement Age Calculator' },
-  'how-to-calculate-age': { component: HowToCalculateAgePage, title: 'How to Calculate Age' },
-  'about': { component: AboutPage, title: 'About Us' },
-  'contact': { component: ContactPage, title: 'Contact Us' },
-  'privacy-policy': { component: PrivacyPolicyPage, title: 'Privacy Policy' },
-  'terms': { component: TermsPage, title: 'Terms of Service' }
+const SLUG_MAP: Record<string, React.ComponentType<{ lang?: string }>> = {
+  'age-calculator': AgeCalculatorPage,
+  'birthday-calculator': BirthdayCalculatorPage,
+  'birthday-countdown': BirthdayCountdownPage,
+  'chronological-age-calculator': ChronologicalAgeCalculatorPage,
+  'age-difference-calculator': AgeDifferenceCalculatorPage,
+  'date-difference-calculator': DateDifferenceCalculatorPage,
+  'date-of-birth-calculator': DateOfBirthCalculatorPage,
+  'days-between-dates': DaysBetweenDatesPage,
+  'leap-year-age-calculator': LeapYearAgeCalculatorPage,
+  'retirement-age-calculator': RetirementAgeCalculatorPage,
+  'how-to-calculate-age': HowToCalculateAgePage,
+  'about': AboutPage,
+  'contact': ContactPage,
+  'privacy-policy': PrivacyPolicyPage,
+  'terms': TermsPage
 };
 
 export async function generateStaticParams() {
@@ -62,15 +64,13 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: LocalizedSlugPageProps): Promise<Metadata> {
   const { lang, slug } = await params;
-  const language = getLanguageByCode(lang);
   const target = SLUG_MAP[slug];
 
   if (!target) {
     return {};
   }
 
-  const title = `${target.title} (${language.nativeName}) – ${SITE_CONFIG.name}`;
-  const description = `${target.title} in ${language.nativeName} (${language.name}). Free, fast, and 100% accurate date calculation tool.`;
+  const data = getPageData(slug, lang);
   const canonicalUrl = `${SITE_CONFIG.domain}/${lang}/${slug}/`;
 
   const alternatesLanguages: Record<string, string> = {
@@ -84,15 +84,15 @@ export async function generateMetadata({ params }: LocalizedSlugPageProps): Prom
   }
 
   return {
-    title,
-    description,
+    title: data.title,
+    description: data.description,
     alternates: {
       canonical: canonicalUrl,
       languages: alternatesLanguages
     },
     openGraph: {
-      title,
-      description,
+      title: data.title,
+      description: data.description,
       url: canonicalUrl,
       locale: lang,
       type: 'website',
@@ -104,12 +104,15 @@ export async function generateMetadata({ params }: LocalizedSlugPageProps): Prom
 export default async function LocalizedSlugPage({ params }: LocalizedSlugPageProps) {
   const { lang, slug } = await params;
   const language = LANGUAGES.find((l) => l.code === lang);
-  const target = SLUG_MAP[slug];
+  const PageComponent = SLUG_MAP[slug];
 
-  if (!language || language.code === 'en' || !target) {
+  if (!language || language.code === 'en' || !PageComponent) {
     notFound();
   }
 
-  const PageComponent = target.component;
-  return <PageComponent />;
+  return (
+    <LanguageProvider initialLang={lang}>
+      <PageComponent lang={lang} />
+    </LanguageProvider>
+  );
 }
