@@ -36,6 +36,7 @@ import { trackEvent } from '@/lib/analytics';
 import SocialShare from '@/components/SocialShare';
 import LiveAgeTicker from '@/components/calculators/LiveAgeTicker';
 import ShareAgeCard from '@/components/ShareAgeCard';
+import { useLanguage } from '@/lib/i18n/LanguageContext';
 
 interface MainAgeCalculatorProps {
   initialBirthDate?: string;
@@ -48,6 +49,7 @@ export default function MainAgeCalculator({
   initialBirthDate = '2000-01-15',
   initialTargetDate
 }: MainAgeCalculatorProps) {
+  const { t, isRTL } = useLanguage();
   const today = getTodayCalendarDate();
   const todayStr = toDateString(today);
 
@@ -222,7 +224,7 @@ export default function MainAgeCalculator({
   const isTodayTarget = !isCustomTarget || targetDateStr === todayStr;
 
   return (
-    <div id="calculator" className="calculator-card p-4 sm:p-6 md:p-8 bg-white border border-slate-200 rounded-2xl shadow-sm">
+    <div id="calculator" className="calculator-card p-4 sm:p-6 md:p-8 bg-white border border-slate-200 rounded-2xl shadow-sm" dir={isRTL ? 'rtl' : 'ltr'}>
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-5 border-b border-slate-100">
         <div>
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-100 mb-1.5">
@@ -230,10 +232,10 @@ export default function MainAgeCalculator({
             <span>Instant Calendar & Time Precision Calculation</span>
           </div>
           <h2 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">
-            Online Age Calculator
+            {t('calculateAge', 'Online Age Calculator')}
           </h2>
           <p className="text-sm text-slate-600 mt-0.5">
-            Enter your date of birth (and optional birth time) to calculate your exact age in years, months, days, and live running seconds.
+            {t('tagline', 'Enter your date of birth (and optional birth time) to calculate your exact age in years, months, days, and live running seconds.')}
           </p>
         </div>
 
@@ -246,7 +248,7 @@ export default function MainAgeCalculator({
               title="Copy result summary"
             >
               {copied ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5 text-slate-500" />}
-              <span>{copied ? 'Copied!' : 'Copy'}</span>
+              <span>{copied ? t('copiedBtn', 'Copied!') : t('copyBtn', 'Copy')}</span>
             </button>
             <button
               type="button"
@@ -255,7 +257,7 @@ export default function MainAgeCalculator({
               title="Print result"
             >
               <Printer className="w-3.5 h-3.5 text-slate-500" />
-              <span>Print</span>
+              <span>{t('printBtn', 'Print')}</span>
             </button>
           </div>
         )}
@@ -295,7 +297,7 @@ export default function MainAgeCalculator({
           {/* Date of Birth Input */}
           <div className="space-y-2">
             <label htmlFor="dob-input" className="block text-sm font-bold text-slate-800">
-              Date of Birth <span className="text-rose-500">*</span>
+              {t('dob', 'Date of Birth')} <span className="text-rose-500">*</span>
             </label>
             <div className="relative">
               <input
@@ -323,7 +325,7 @@ export default function MainAgeCalculator({
           <div className="space-y-2">
             <div className="flex items-center justify-between">
               <label htmlFor="target-input" className="block text-sm font-bold text-slate-800">
-                Age As Of Date
+                {t('ageAsOf', 'Age As Of Date')}
               </label>
               <button
                 type="button"
@@ -383,7 +385,7 @@ export default function MainAgeCalculator({
               />
               <span className="text-xs font-bold text-slate-800 flex items-center gap-1.5">
                 <Clock className="w-3.5 h-3.5 text-blue-600" />
-                <span>Include Exact Birth Time (Optional)</span>
+                <span>{t('includeTime', 'Include Exact Birth Time (Optional)')}</span>
               </span>
             </label>
             <span className="text-[11px] text-slate-500">For down-to-the-minute precision</span>
@@ -393,7 +395,7 @@ export default function MainAgeCalculator({
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2 border-t border-slate-200/80 animate-in fade-in duration-150">
               <div>
                 <label htmlFor="birth-time" className="block text-xs font-semibold text-slate-700 mb-1">
-                  Time of Birth (Local Time)
+                  {t('timeOfBirth', 'Time of Birth (Local Time)')}
                 </label>
                 <input
                   id="birth-time"
@@ -410,7 +412,7 @@ export default function MainAgeCalculator({
               {isCustomTarget && (
                 <div>
                   <label htmlFor="target-time" className="block text-xs font-semibold text-slate-700 mb-1">
-                    Target Time
+                    {t('targetTime', 'Target Time')}
                   </label>
                   <input
                     id="target-time"
@@ -435,7 +437,7 @@ export default function MainAgeCalculator({
             className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl text-base font-bold bg-blue-600 text-white hover:bg-blue-700 shadow-sm hover:shadow transition-all focus:ring-4 focus:ring-blue-100 cursor-pointer"
           >
             <Calendar className="w-5 h-5" />
-            <span>Calculate Age</span>
+            <span>{t('calculateBtn', 'Calculate Age')}</span>
           </button>
 
           <button
@@ -444,7 +446,7 @@ export default function MainAgeCalculator({
             className="inline-flex items-center justify-center gap-1.5 px-4 py-3 rounded-xl text-sm font-semibold text-slate-600 bg-slate-100 hover:bg-slate-200 hover:text-slate-800 transition-colors cursor-pointer"
           >
             <RotateCcw className="w-4 h-4" />
-            <span>Reset</span>
+            <span>{t('resetBtn', 'Reset')}</span>
           </button>
         </div>
       </form>
@@ -463,32 +465,32 @@ export default function MainAgeCalculator({
           {/* Primary Result Banner */}
           <div className="p-4 sm:p-6 bg-gradient-to-br from-blue-50 to-indigo-50/50 border border-blue-200 rounded-2xl overflow-hidden">
             <div className="text-xs font-semibold text-blue-700 uppercase tracking-wider mb-1">
-              Your Exact Age
+              {t('exactAge')}
             </div>
             <div className="flex flex-wrap items-baseline gap-2 sm:gap-4 mt-2">
               <div className="flex items-baseline gap-1">
                 <span className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-blue-900 tracking-tight font-mono">
                   {result.years}
                 </span>
-                <span className="text-sm sm:text-base font-bold text-blue-700">Years</span>
+                <span className="text-sm sm:text-base font-bold text-blue-700">{t('years')}</span>
               </div>
               <div className="flex items-baseline gap-1">
                 <span className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-blue-900 tracking-tight font-mono">
                   {result.months}
                 </span>
-                <span className="text-sm sm:text-base font-bold text-blue-700">Months</span>
+                <span className="text-sm sm:text-base font-bold text-blue-700">{t('months')}</span>
               </div>
               <div className="flex items-baseline gap-1">
                 <span className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-blue-900 tracking-tight font-mono">
                   {result.days}
                 </span>
-                <span className="text-sm sm:text-base font-bold text-blue-700">Days</span>
+                <span className="text-sm sm:text-base font-bold text-blue-700">{t('days')}</span>
               </div>
             </div>
 
             <div className="mt-3 text-xs sm:text-sm text-slate-700 flex flex-wrap items-center gap-x-3 gap-y-1">
               <span>
-                Born: <strong>{result.birthDateFormatted}</strong>
+                {t('bornOn')}: <strong>{result.birthDateFormatted}</strong>
                 {result.birthTimeFormatted ? ` at ${result.birthTimeFormatted}` : ''} ({result.dayOfWeekBorn})
               </span>
               <span>•</span>
@@ -518,13 +520,13 @@ export default function MainAgeCalculator({
             {/* Next Birthday Card */}
             <div className="p-4 bg-white border border-slate-200 rounded-xl shadow-2xs">
               <div className="flex items-center justify-between text-slate-500 mb-1">
-                <span className="text-xs font-semibold uppercase tracking-wider">Next Birthday</span>
+                <span className="text-xs font-semibold uppercase tracking-wider">{t('nextBirthday')}</span>
                 <Cake className="w-4 h-4 text-pink-500" />
               </div>
               <div className="text-lg font-bold text-slate-900">
                 {result.isBirthdayToday ? (
                   <span className="text-pink-600 font-extrabold flex items-center gap-1">
-                    🎉 Happy Birthday Today!
+                    {t('happyBirthday')}
                   </span>
                 ) : (
                   formatDisplayDate(result.nextBirthdayDate)
@@ -535,7 +537,7 @@ export default function MainAgeCalculator({
                   <span>Turning {result.years} years old today!</span>
                 ) : (
                   <span>
-                    <strong>{result.daysUntilNextBirthday} days</strong> remaining (Turning {result.ageTurningNext} on {result.nextBirthdayDayOfWeek})
+                    <strong>{result.daysUntilNextBirthday} {t('daysRemaining')}</strong> ({t('turningAge')} {result.ageTurningNext} on {result.nextBirthdayDayOfWeek})
                   </span>
                 )}
               </div>
@@ -544,11 +546,11 @@ export default function MainAgeCalculator({
             {/* Total Days Card */}
             <div className="p-4 bg-white border border-slate-200 rounded-xl shadow-2xs">
               <div className="flex items-center justify-between text-slate-500 mb-1">
-                <span className="text-xs font-semibold uppercase tracking-wider">Total Days Lived</span>
+                <span className="text-xs font-semibold uppercase tracking-wider">{t('totalDaysLived')}</span>
                 <CalendarDays className="w-4 h-4 text-blue-500" />
               </div>
               <div className="text-xl font-extrabold text-slate-900 font-mono">
-                {result.totalDays.toLocaleString()} Days
+                {result.totalDays.toLocaleString()} {t('days')}
               </div>
               <div className="text-xs text-slate-600 mt-1">
                 Exact calendar days lived
@@ -558,11 +560,11 @@ export default function MainAgeCalculator({
             {/* Total Weeks Card */}
             <div className="p-4 bg-white border border-slate-200 rounded-xl shadow-2xs">
               <div className="flex items-center justify-between text-slate-500 mb-1">
-                <span className="text-xs font-semibold uppercase tracking-wider">Total Weeks</span>
+                <span className="text-xs font-semibold uppercase tracking-wider">{t('totalWeeksLived')}</span>
                 <Clock className="w-4 h-4 text-emerald-500" />
               </div>
               <div className="text-xl font-extrabold text-slate-900 font-mono">
-                {result.totalWeeks.toLocaleString()} Weeks
+                {result.totalWeeks.toLocaleString()}
               </div>
               <div className="text-xs text-slate-600 mt-1">
                 Plus {result.remainingDaysInWeek} day{result.remainingDaysInWeek === 1 ? '' : 's'}
@@ -573,11 +575,11 @@ export default function MainAgeCalculator({
           {/* Time Breakdown Details Table */}
           <div className="bg-slate-50 border border-slate-200 rounded-xl p-5">
             <h3 className="text-sm font-bold text-slate-900 uppercase tracking-wider mb-3">
-              Comprehensive Time Breakdown
+              {t('timeBreakdown')}
             </h3>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-sm">
               <div className="bg-white p-3 rounded-lg border border-slate-200/80">
-                <div className="text-xs text-slate-500 font-medium">Total Months</div>
+                <div className="text-xs text-slate-500 font-medium">Total {t('months')}</div>
                 <div className="text-lg font-bold text-slate-900 mt-0.5">
                   {result.years * 12 + result.months}
                   <span className="text-xs text-slate-500 font-normal ml-1">
@@ -588,7 +590,7 @@ export default function MainAgeCalculator({
               </div>
 
               <div className="bg-white p-3 rounded-lg border border-slate-200/80">
-                <div className="text-xs text-slate-500 font-medium">Total Hours</div>
+                <div className="text-xs text-slate-500 font-medium">Total {t('hours')}</div>
                 <div className="text-lg font-bold text-slate-900 mt-0.5 font-mono">
                   {result.totalHours.toLocaleString()}
                 </div>
@@ -596,7 +598,7 @@ export default function MainAgeCalculator({
               </div>
 
               <div className="bg-white p-3 rounded-lg border border-slate-200/80">
-                <div className="text-xs text-slate-500 font-medium">Total Minutes</div>
+                <div className="text-xs text-slate-500 font-medium">Total {t('minutes')}</div>
                 <div className="text-lg font-bold text-slate-900 mt-0.5 font-mono">
                   {result.totalMinutes.toLocaleString()}
                 </div>
@@ -604,7 +606,7 @@ export default function MainAgeCalculator({
               </div>
 
               <div className="bg-white p-3 rounded-lg border border-slate-200/80 min-w-0">
-                <div className="text-xs text-slate-500 font-medium">Total Seconds</div>
+                <div className="text-xs text-slate-500 font-medium">Total {t('seconds')}</div>
                 <div className="text-[clamp(13px,3.5vw,1.125rem)] font-bold text-slate-900 mt-0.5 font-mono whitespace-nowrap overflow-x-auto scrollbar-none">
                   {result.totalSeconds.toLocaleString()}
                 </div>
@@ -615,13 +617,13 @@ export default function MainAgeCalculator({
             {/* Astrology / Fun facts */}
             <div className="mt-4 pt-4 border-t border-slate-200/80 flex flex-wrap items-center justify-between gap-3 text-xs text-slate-600">
               <div>
-                Western Zodiac: <strong className="text-slate-800 font-semibold">{result.zodiacSign}</strong>
+                {t('zodiacSign')}: <strong className="text-slate-800 font-semibold">{result.zodiacSign}</strong>
               </div>
               <div>
-                Chinese Zodiac: <strong className="text-slate-800 font-semibold">{result.chineseZodiac}</strong>
+                {t('chineseZodiac')}: <strong className="text-slate-800 font-semibold">{result.chineseZodiac}</strong>
               </div>
               <div>
-                Day of Birth: <strong className="text-slate-800 font-semibold">{result.dayOfWeekBorn}</strong>
+                {t('bornOn')}: <strong className="text-slate-800 font-semibold">{result.dayOfWeekBorn}</strong>
               </div>
             </div>
           </div>

@@ -6,6 +6,8 @@ import CookieBanner from '@/components/CookieBanner';
 import GoogleAnalytics from '@/components/GoogleAnalytics';
 import { GlobalWebSiteJsonLd } from '@/components/JsonLd';
 import { SITE_CONFIG } from '@/lib/constants';
+import { LanguageProvider } from '@/lib/i18n/LanguageContext';
+import LanguageSelectorModal from '@/components/LanguageSelectorModal';
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_CONFIG.domain),
@@ -39,7 +41,32 @@ export const metadata: Metadata = {
     telephone: false
   },
   alternates: {
-    canonical: '/'
+    canonical: '/',
+    languages: {
+      'x-default': 'https://agecalculators.dev/',
+      en: 'https://agecalculators.dev/',
+      es: 'https://agecalculators.dev/?lang=es',
+      fr: 'https://agecalculators.dev/?lang=fr',
+      de: 'https://agecalculators.dev/?lang=de',
+      pt: 'https://agecalculators.dev/?lang=pt',
+      ar: 'https://agecalculators.dev/?lang=ar',
+      hi: 'https://agecalculators.dev/?lang=hi',
+      zh: 'https://agecalculators.dev/?lang=zh',
+      ja: 'https://agecalculators.dev/?lang=ja',
+      ru: 'https://agecalculators.dev/?lang=ru',
+      it: 'https://agecalculators.dev/?lang=it',
+      tr: 'https://agecalculators.dev/?lang=tr',
+      nl: 'https://agecalculators.dev/?lang=nl',
+      id: 'https://agecalculators.dev/?lang=id',
+      ko: 'https://agecalculators.dev/?lang=ko',
+      pl: 'https://agecalculators.dev/?lang=pl',
+      no: 'https://agecalculators.dev/?lang=no',
+      sv: 'https://agecalculators.dev/?lang=sv',
+      da: 'https://agecalculators.dev/?lang=da',
+      fi: 'https://agecalculators.dev/?lang=fi',
+      vi: 'https://agecalculators.dev/?lang=vi',
+      th: 'https://agecalculators.dev/?lang=th'
+    }
   },
   icons: {
     icon: [
@@ -125,12 +152,15 @@ export default function RootLayout({
         <GlobalWebSiteJsonLd />
       </head>
       <body className="min-h-screen flex flex-col bg-slate-50 text-slate-900 font-sans antialiased selection:bg-blue-100 selection:text-blue-900">
-        <Header />
-        <main className="flex-1">
-          {children}
-        </main>
-        <Footer />
-        <CookieBanner />
+        <LanguageProvider>
+          <Header />
+          <main className="flex-1">
+            {children}
+          </main>
+          <Footer />
+          <LanguageSelectorModal />
+          <CookieBanner />
+        </LanguageProvider>
       </body>
     </html>
   );

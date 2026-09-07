@@ -1,9 +1,33 @@
+'use client';
+
 import React from 'react';
 import Link from 'next/link';
-import { Calendar, ShieldCheck, Sparkles } from 'lucide-react';
+import { Calendar, ShieldCheck, Sparkles, Globe } from 'lucide-react';
 import { ALL_CALCULATORS, COMPANY_LINKS, SITE_CONFIG } from '@/lib/constants';
+import { useLanguage } from '@/lib/i18n/LanguageContext';
 
 export default function Footer() {
+  const { openModal, setLanguage, currentLanguage } = useLanguage();
+
+  const featuredLanguages = [
+    { code: 'en', name: 'English' },
+    { code: 'es', name: 'Español' },
+    { code: 'fr', name: 'Français' },
+    { code: 'de', name: 'Deutsch' },
+    { code: 'pt', name: 'Português' },
+    { code: 'it', name: 'Italiano' },
+    { code: 'ar', name: 'العربية' },
+    { code: 'hi', name: 'हिन्दी' },
+    { code: 'ru', name: 'Русский' },
+    { code: 'ja', name: '日本語' },
+    { code: 'zh', name: '中文' },
+    { code: 'tr', name: 'Türkçe' },
+    { code: 'nl', name: 'Nederlands' },
+    { code: 'id', name: 'Bahasa Indonesia' },
+    { code: 'ko', name: '한국어' },
+    { code: 'pl', name: 'Polski' }
+  ];
+
   return (
     <footer className="bg-slate-900 text-slate-300 pt-14 pb-10 border-t border-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -94,8 +118,42 @@ export default function Footer() {
           </div>
         </div>
 
+        {/* Multi-Language Quick Selection Bar */}
+        <div className="py-6 border-b border-slate-800 flex flex-wrap items-center justify-between gap-4 text-xs">
+          <div className="flex items-center gap-2 text-slate-400">
+            <Globe className="w-4 h-4 text-blue-400 shrink-0" />
+            <span className="font-semibold text-slate-200">Global Languages:</span>
+          </div>
+
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5 text-slate-400">
+            {featuredLanguages.map((fl) => {
+              const isActive = currentLanguage.code === fl.code;
+              return (
+                <button
+                  key={fl.code}
+                  type="button"
+                  onClick={() => setLanguage(fl.code)}
+                  className={`transition-colors cursor-pointer ${
+                    isActive ? 'text-blue-400 font-bold underline' : 'hover:text-white'
+                  }`}
+                >
+                  {fl.name}
+                </button>
+              );
+            })}
+
+            <button
+              type="button"
+              onClick={openModal}
+              className="text-blue-400 hover:text-blue-300 font-bold ml-1 cursor-pointer flex items-center gap-1"
+            >
+              <span>More (39+) &rarr;</span>
+            </button>
+          </div>
+        </div>
+
         {/* Bottom bar */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
           <div>
             © {SITE_CONFIG.currentYear} {SITE_CONFIG.name} (agecalculators.dev). All rights reserved.
           </div>
