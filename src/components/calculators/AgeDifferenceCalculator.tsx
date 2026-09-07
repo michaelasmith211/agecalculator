@@ -8,10 +8,10 @@ import {
   AgeDifferenceResult
 } from '@/lib/date-utils';
 import { trackEvent } from '@/lib/analytics';
-import { useLanguage } from '@/lib/i18n/LanguageContext';
+
+const t = (_key: string, fallback: string) => fallback;
 
 export default function AgeDifferenceCalculator() {
-  const { t } = useLanguage();
   const [dobAStr, setDobAStr] = useState('1990-01-01');
   const [dobBStr, setDobBStr] = useState('1995-06-15');
   const [personAName, setPersonAName] = useState('Person A');

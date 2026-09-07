@@ -7,10 +7,10 @@ import {
   parseDateString,
   formatDisplayDate
 } from '@/lib/date-utils';
-import { useLanguage } from '@/lib/i18n/LanguageContext';
+
+const t = (_key: string, fallback: string) => fallback;
 
 export default function BirthdayCountdown() {
-  const { t } = useLanguage();
   const [birthDateStr, setBirthDateStr] = useState('1996-10-25');
   const [timeLeft, setTimeLeft] = useState<{
     days: number;

@@ -9,12 +9,26 @@ import { SITE_CONFIG } from '@/lib/constants';
 import { getPageData } from '@/lib/i18n/page-translations';
 import Image from 'next/image';
 
+import { SUPPORTED_LANGUAGES } from '@/lib/i18n/languages';
+
+const languageAlternates: Record<string, string> = {
+  'x-default': `${SITE_CONFIG.domain}/`,
+  en: `${SITE_CONFIG.domain}/`
+};
+
+SUPPORTED_LANGUAGES.forEach((l) => {
+  if (l.code !== 'en') {
+    languageAlternates[l.code] = `${SITE_CONFIG.domain}/${l.code}/`;
+  }
+});
+
 export const metadata: Metadata = {
   title: 'Age Calculator – Calculate Exact Age in Years, Months & Days',
   description:
     'Free online Age Calculator. Calculate your exact age in years, months, days, and live running seconds with full calendar precision.',
   alternates: {
-    canonical: '/'
+    canonical: `${SITE_CONFIG.domain}/`,
+    languages: languageAlternates
   }
 };
 

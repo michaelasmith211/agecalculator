@@ -10,10 +10,10 @@ import {
   DateDifferenceResult
 } from '@/lib/date-utils';
 import { trackEvent } from '@/lib/analytics';
-import { useLanguage } from '@/lib/i18n/LanguageContext';
+
+const t = (_key: string, fallback: string) => fallback;
 
 export default function DaysBetweenDates() {
-  const { t } = useLanguage();
   const today = getTodayCalendarDate();
   const todayStr = toDateString(today);
 

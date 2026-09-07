@@ -1,146 +1,149 @@
 'use client';
 
-import React, { useState, useMemo } from 'react';
-import { X, Search, Globe, Check } from 'lucide-react';
-import { useLanguage } from '@/lib/i18n/LanguageContext';
-import { trackEvent } from '@/lib/analytics';
+import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
+import { Globe, X, Search, Check } from 'lucide-react';
+import { SUPPORTED_LANGUAGES, LanguageInfo } from '@/lib/i18n/languages';
 
-export default function LanguageSelectorModal() {
-  const { currentLanguage, setLanguage, isModalOpen, closeModal, allLanguages, t } = useLanguage();
+interface LanguageSelectorModalProps {
+  currentLocale?: string;
+  isOpen: boolean;
+  onClose: () => void;
+}
+
+export default function LanguageSelectorModal({
+  currentLocale = 'en',
+  isOpen,
+  onClose
+}: LanguageSelectorModalProps) {
   const [searchQuery, setSearchQuery] = useState('');
 
-  const filteredLanguages = useMemo(() => {
-    if (!searchQuery.trim()) return allLanguages;
+  // Close on Escape key press
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose();
+    };
+    if (isOpen) {
+      window.addEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = 'hidden';
+    }
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = 'unset';
+    };
+  }, [isOpen, onClose]);
+
+  if (!isOpen) return null;
+
+  const filteredLanguages: LanguageInfo[] = SUPPORTED_LANGUAGES.filter((lang) => {
     const q = searchQuery.toLowerCase().trim();
-    return allLanguages.filter(
-      (lang) =>
-        lang.name.toLowerCase().includes(q) ||
-        lang.nativeName.toLowerCase().includes(q) ||
-        lang.code.toLowerCase().includes(q)
+    return (
+      lang.name.toLowerCase().includes(q) ||
+      lang.nativeName.toLowerCase().includes(q) ||
+      lang.code.toLowerCase().includes(q)
     );
-  }, [allLanguages, searchQuery]);
-
-  if (!isModalOpen) return null;
-
-  const handleSelect = (code: string) => {
-    setLanguage(code);
-    trackEvent('age_calculator_used', { language: code });
-    closeModal();
-  };
+  });
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-900/60 backdrop-blur-xs animate-in fade-in duration-200 notranslate"
-      translate="no"
-      onClick={closeModal}
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-xs animate-in fade-in duration-200"
+      onClick={onClose}
       role="dialog"
       aria-modal="true"
       aria-labelledby="language-modal-title"
     >
       <div
-        className="relative w-full max-w-4xl max-h-[90vh] bg-white rounded-3xl shadow-2xl border border-slate-200 overflow-hidden flex flex-col animate-in zoom-in-95 duration-200 notranslate"
-        translate="no"
+        className="bg-white rounded-3xl max-w-4xl w-full max-h-[90vh] flex flex-col shadow-2xl border border-slate-200 overflow-hidden"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Header */}
+        {/* Modal Header */}
         <div className="p-5 sm:p-6 border-b border-slate-100 flex items-center justify-between gap-4">
-          <div className="flex items-center gap-2.5">
-            <div className="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-2xl bg-blue-50 text-blue-600 border border-blue-100 flex items-center justify-center shrink-0">
               <Globe className="w-5 h-5" />
             </div>
             <div>
-              <h3 id="language-modal-title" className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">
-                {t('selectLanguage', 'Choose Your Language')}
+              <h3 id="language-modal-title" className="text-lg sm:text-xl font-bold text-slate-900">
+                Choose Language / Idioma / Langue
               </h3>
-              <p className="text-xs sm:text-sm text-slate-500 mt-0.5">
-                Select your preferred language for instant full translation across all pages.
+              <p className="text-xs sm:text-sm text-slate-500">
+                Select your preferred language for calculations and share cards.
               </p>
             </div>
           </div>
 
           <button
             type="button"
-            onClick={closeModal}
-            className="w-9 h-9 rounded-xl text-slate-400 hover:text-slate-700 hover:bg-slate-100 flex items-center justify-center transition-colors cursor-pointer"
-            aria-label="Close"
+            onClick={onClose}
+            className="p-2 text-slate-400 hover:text-slate-700 hover:bg-slate-100 rounded-xl transition-colors cursor-pointer"
+            aria-label="Close language selector"
           >
             <X className="w-5 h-5" />
           </button>
         </div>
 
         {/* Search Bar */}
-        <div className="p-4 sm:px-6 bg-slate-50 border-b border-slate-200/80">
+        <div className="px-5 sm:px-6 pt-4">
           <div className="relative">
-            <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+            <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
             <input
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder={t('searchLanguage', 'Search language... (e.g. Français, Español, हिन्दी)')}
-              className="w-full pl-10 pr-4 py-2.5 bg-white border border-slate-300 focus:border-blue-600 rounded-xl text-sm font-medium text-slate-900 placeholder:text-slate-400 shadow-2xs transition-all"
+              placeholder="Search language (e.g., Français, Español, Hindi, 日本語)..."
+              className="w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm font-medium text-slate-900 focus:bg-white focus:border-blue-600 outline-none transition-all placeholder:text-slate-400"
               autoFocus
             />
           </div>
         </div>
 
-        {/* 3-Column Native Language Grid (Matching User Screenshot) */}
-        <div className="p-4 sm:p-6 overflow-y-auto flex-1 scrollbar-thin">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 sm:gap-3">
+        {/* Language Grid (Matching User Screenshot Layout) */}
+        <div className="p-5 sm:p-6 overflow-y-auto flex-1">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2.5">
             {filteredLanguages.map((lang) => {
-              const isSelected = currentLanguage.code === lang.code;
+              const isSelected = currentLocale === lang.code;
+              const href = lang.code === 'en' ? '/' : `/${lang.code}/`;
+
               return (
-                <button
+                <Link
                   key={lang.code}
-                  type="button"
-                  onClick={() => handleSelect(lang.code)}
-                  className={`flex items-center justify-between p-3 sm:p-3.5 rounded-2xl border transition-all text-left cursor-pointer group notranslate ${
+                  href={href}
+                  onClick={onClose}
+                  className={`flex items-center justify-between p-3.5 rounded-2xl text-sm font-semibold transition-all border ${
                     isSelected
-                      ? 'bg-blue-50/90 border-blue-600 text-blue-900 shadow-xs'
-                      : 'bg-white border-slate-200 hover:border-slate-300 hover:bg-slate-50 text-slate-700'
+                      ? 'bg-blue-50 border-blue-200 text-blue-900 font-bold shadow-2xs'
+                      : 'bg-white border-transparent hover:border-slate-200 hover:bg-slate-50 text-slate-700 hover:text-slate-900'
                   }`}
                   dir={lang.dir}
-                  translate="no"
                 >
-                  <div className="min-w-0 notranslate" translate="no">
-                    <div
-                      className={`text-base font-bold tracking-tight transition-colors notranslate ${
-                        isSelected ? 'text-blue-900' : 'text-slate-800 group-hover:text-blue-600'
-                      }`}
-                      translate="no"
-                    >
-                      {lang.nativeName}
-                    </div>
-                    <div className="text-xs text-slate-400 mt-0.5 truncate notranslate" translate="no">{lang.name}</div>
+                  <div className="flex items-center gap-2.5 min-w-0">
+                    <span className="text-base truncate">{lang.nativeName}</span>
+                    {lang.name !== lang.nativeName && (
+                      <span className="text-xs text-slate-400 font-normal truncate">
+                        ({lang.name})
+                      </span>
+                    )}
                   </div>
 
                   {isSelected && (
-                    <div className="w-6 h-6 rounded-full bg-blue-600 text-white flex items-center justify-center shrink-0 ml-2 shadow-2xs">
-                      <Check className="w-3.5 h-3.5" />
-                    </div>
+                    <Check className="w-4 h-4 text-blue-600 shrink-0 ml-2" />
                   )}
-                </button>
+                </Link>
               );
             })}
           </div>
 
           {filteredLanguages.length === 0 && (
-            <div className="py-12 text-center text-slate-500">
-              <Globe className="w-10 h-10 mx-auto text-slate-300 mb-2" />
-              <p className="text-sm font-medium">No language found matching &ldquo;{searchQuery}&rdquo;</p>
+            <div className="text-center py-12 text-slate-500 text-sm">
+              No language matching &quot;{searchQuery}&quot; found.
             </div>
           )}
         </div>
 
-        {/* Footer */}
-        <div className="p-4 bg-slate-50 border-t border-slate-200 flex items-center justify-between text-xs text-slate-500">
-          <span>39 Global Languages Supported</span>
-          <button
-            type="button"
-            onClick={closeModal}
-            className="px-4 py-2 bg-white border border-slate-300 hover:bg-slate-100 rounded-xl font-bold text-slate-700 transition-colors cursor-pointer"
-          >
-            {t('close', 'Close')}
-          </button>
+        {/* Modal Footer */}
+        <div className="p-4 bg-slate-50 border-t border-slate-100 text-center text-xs text-slate-500 flex items-center justify-between px-6">
+          <span>{SUPPORTED_LANGUAGES.length} Languages Supported</span>
+          <span className="font-semibold text-slate-700">100% Free & Fast</span>
         </div>
       </div>
     </div>

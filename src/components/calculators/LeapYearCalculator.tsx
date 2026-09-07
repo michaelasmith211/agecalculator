@@ -10,10 +10,10 @@ import {
   LeapYearBirthdayInfo
 } from '@/lib/date-utils';
 import { trackEvent } from '@/lib/analytics';
-import { useLanguage } from '@/lib/i18n/LanguageContext';
+
+const t = (_key: string, fallback: string) => fallback;
 
 export default function LeapYearCalculator() {
-  const { t } = useLanguage();
   const today = getTodayCalendarDate();
   const [birthDateStr, setBirthDateStr] = useState('2000-02-29');
 

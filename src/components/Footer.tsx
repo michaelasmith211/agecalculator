@@ -1,33 +1,10 @@
-'use client';
-
 import React from 'react';
 import Link from 'next/link';
-import { Calendar, ShieldCheck, Sparkles, Globe } from 'lucide-react';
+import { Calendar, ShieldCheck, Sparkles } from 'lucide-react';
 import { ALL_CALCULATORS, COMPANY_LINKS, SITE_CONFIG } from '@/lib/constants';
-import { useLanguage } from '@/lib/i18n/LanguageContext';
+import { SUPPORTED_LANGUAGES } from '@/lib/i18n/languages';
 
 export default function Footer() {
-  const { openModal, setLanguage, currentLanguage, getLocalizedPath } = useLanguage();
-
-  const featuredLanguages = [
-    { code: 'en', name: 'English' },
-    { code: 'es', name: 'Español' },
-    { code: 'fr', name: 'Français' },
-    { code: 'de', name: 'Deutsch' },
-    { code: 'pt', name: 'Português' },
-    { code: 'it', name: 'Italiano' },
-    { code: 'ar', name: 'العربية' },
-    { code: 'hi', name: 'हिन्दी' },
-    { code: 'ru', name: 'Русский' },
-    { code: 'ja', name: '日本語' },
-    { code: 'zh', name: '中文' },
-    { code: 'tr', name: 'Türkçe' },
-    { code: 'nl', name: 'Nederlands' },
-    { code: 'id', name: 'Bahasa Indonesia' },
-    { code: 'ko', name: '한국어' },
-    { code: 'pl', name: 'Polski' }
-  ];
-
   return (
     <footer className="bg-slate-900 text-slate-300 pt-14 pb-10 border-t border-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -60,7 +37,7 @@ export default function Footer() {
               {ALL_CALCULATORS.slice(0, 6).map((calc) => (
                 <li key={calc.href}>
                   <Link
-                    href={getLocalizedPath(calc.href)}
+                    href={calc.href}
                     className="text-slate-400 hover:text-white hover:underline transition-colors"
                   >
                     {calc.title}
@@ -79,7 +56,7 @@ export default function Footer() {
               {ALL_CALCULATORS.slice(6).map((calc) => (
                 <li key={calc.href}>
                   <Link
-                    href={getLocalizedPath(calc.href)}
+                    href={calc.href}
                     className="text-slate-400 hover:text-white hover:underline transition-colors"
                   >
                     {calc.title}
@@ -88,7 +65,7 @@ export default function Footer() {
               ))}
               <li>
                 <Link
-                  href={getLocalizedPath('/how-to-calculate-age')}
+                  href="/how-to-calculate-age"
                   className="text-slate-400 hover:text-white hover:underline transition-colors flex items-center gap-1 text-blue-400"
                 >
                   <Sparkles className="w-3 h-3" />
@@ -107,7 +84,7 @@ export default function Footer() {
               {COMPANY_LINKS.map((link) => (
                 <li key={link.href}>
                   <Link
-                    href={getLocalizedPath(link.href)}
+                    href={link.href}
                     className="text-slate-400 hover:text-white hover:underline transition-colors"
                   >
                     {link.title}
@@ -118,45 +95,30 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Multi-Language Quick Selection Bar */}
-        <div className="py-6 border-b border-slate-800 flex flex-wrap items-center justify-between gap-4 text-xs notranslate" translate="no">
-          <div className="flex items-center gap-2 text-slate-400">
-            <Globe className="w-4 h-4 text-blue-400 shrink-0" />
-            <span className="font-semibold text-slate-200">Global Languages:</span>
+        {/* Multi-Language Global SEO Mesh */}
+        <div className="py-8 border-b border-slate-800 space-y-3">
+          <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-slate-400">
+            <span>Supported Languages & International Versions</span>
           </div>
-
-          <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5 text-slate-400 notranslate" translate="no">
-            {featuredLanguages.map((fl) => {
-              const isActive = currentLanguage.code === fl.code;
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs">
+            {SUPPORTED_LANGUAGES.map((lang) => {
+              const href = lang.code === 'en' ? '/' : `/${lang.code}/`;
               return (
-                <button
-                  key={fl.code}
-                  type="button"
-                  onClick={() => setLanguage(fl.code)}
-                  className={`transition-colors cursor-pointer notranslate ${
-                    isActive ? 'text-blue-400 font-bold underline' : 'hover:text-white'
-                  }`}
-                  translate="no"
-                  suppressHydrationWarning
+                <Link
+                  key={lang.code}
+                  href={href}
+                  className="text-slate-400 hover:text-white hover:underline transition-colors"
+                  dir={lang.dir}
                 >
-                  {fl.name}
-                </button>
+                  {lang.nativeName}
+                </Link>
               );
             })}
-
-            <button
-              type="button"
-              onClick={openModal}
-              className="text-blue-400 hover:text-blue-300 font-bold ml-1 cursor-pointer flex items-center gap-1 notranslate"
-              translate="no"
-            >
-              <span>More (39+) &rarr;</span>
-            </button>
           </div>
         </div>
 
         {/* Bottom bar */}
-        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
           <div>
             © {SITE_CONFIG.currentYear} {SITE_CONFIG.name} (agecalculators.dev). All rights reserved.
           </div>

@@ -10,10 +10,10 @@ import {
   RetirementResult
 } from '@/lib/date-utils';
 import { trackEvent } from '@/lib/analytics';
-import { useLanguage } from '@/lib/i18n/LanguageContext';
+
+const t = (_key: string, fallback: string) => fallback;
 
 export default function RetirementAgeCalculator() {
-  const { t } = useLanguage();
   const today = getTodayCalendarDate();
   const todayStr = toDateString(today);
 
@@ -121,7 +121,7 @@ export default function RetirementAgeCalculator() {
           className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold bg-orange-600 text-white hover:bg-orange-700 shadow-sm transition-all cursor-pointer"
         >
           <Sparkles className="w-4 h-4" />
-          <span>{t('calcRetirementBtn', 'Calculate Retirement Date')}</span>
+          <span>Calculate Retirement Date</span>
         </button>
       </div>
 
@@ -136,13 +136,13 @@ export default function RetirementAgeCalculator() {
         <div className="mt-8 space-y-6">
           <div className="p-6 bg-orange-50/70 border border-orange-200 rounded-2xl">
             <div className="text-xs font-bold text-orange-800 uppercase tracking-wider mb-1">
-              {t('retirementDate', 'Target Retirement Date')}
+              Target Retirement Date
             </div>
             <div className="text-3xl sm:text-4xl font-extrabold text-orange-950">
               {result.formattedRetirementDate}
             </div>
             <div className="mt-2 text-sm text-slate-700">
-              {t('timeRemainingUntilRetirement', 'Time Remaining Until Retirement')}: <strong>{result.yearsRemaining} {t('years', 'Years')}, {result.monthsRemaining} {t('months', 'Months')}, {result.daysRemaining} {t('days', 'Days')}</strong> ({result.totalDaysRemaining.toLocaleString()} {t('totalDays', 'Total Days')}).
+              Time Remaining Until Retirement: <strong>{result.yearsRemaining} Years, {result.monthsRemaining} Months, {result.daysRemaining} Days</strong> ({result.totalDaysRemaining.toLocaleString()} Total Days).
             </div>
           </div>
         </div>

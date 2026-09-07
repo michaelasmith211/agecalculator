@@ -12,7 +12,6 @@ import {
 } from '@/lib/date-utils';
 import { trackEvent } from '@/lib/analytics';
 import SocialShare from '@/components/SocialShare';
-import { useLanguage } from '@/lib/i18n/LanguageContext';
 
 interface MilestoneRow {
   age: number;
@@ -31,8 +30,9 @@ interface NextBdayInfo {
   currentAgeYears: number;
 }
 
+const t = (_key: string, fallback: string) => fallback;
+
 export default function BirthdayCalculator() {
-  const { t } = useLanguage();
   const today = getTodayCalendarDate();
   const [birthDateStr, setBirthDateStr] = useState('1998-06-15');
 

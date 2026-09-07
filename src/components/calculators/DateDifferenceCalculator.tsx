@@ -11,8 +11,6 @@ import {
 } from '@/lib/date-utils';
 import { trackEvent } from '@/lib/analytics';
 
-import { useLanguage } from '@/lib/i18n/LanguageContext';
-
 interface DateDifferenceDetails {
   years: number;
   months: number;
@@ -26,7 +24,6 @@ interface DateDifferenceDetails {
 }
 
 export default function DateDifferenceCalculator() {
-  const { t } = useLanguage();
   const today = getTodayCalendarDate();
   const todayStr = toDateString(today);
 
@@ -80,10 +77,10 @@ export default function DateDifferenceCalculator() {
         </div>
         <div>
           <h2 className="text-xl sm:text-2xl font-bold text-slate-900">
-            {t('dateDiffTitle', 'Date Difference Calculator')}
+            Date Difference Calculator
           </h2>
           <p className="text-sm text-slate-600">
-            {t('dateDiffSubtitle', 'Find the exact difference and duration between any two historical or future calendar dates.')}
+            Find the exact difference and duration between any two historical or future calendar dates.
           </p>
         </div>
       </div>
@@ -91,7 +88,7 @@ export default function DateDifferenceCalculator() {
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
         <div>
           <label htmlFor="d1" className="block text-sm font-bold text-slate-800 mb-1">
-            {t('startDate', 'From Date (Start)')}
+            From Date (Start)
           </label>
           <input
             id="d1"
@@ -107,7 +104,7 @@ export default function DateDifferenceCalculator() {
 
         <div>
           <label htmlFor="d2" className="block text-sm font-bold text-slate-800 mb-1">
-            {t('endDate', 'To Date (End)')}
+            To Date (End)
           </label>
           <input
             id="d2"
@@ -126,10 +123,10 @@ export default function DateDifferenceCalculator() {
         <button
           type="button"
           onClick={() => handleCalculate(startDateStr, endDateStr)}
-          className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold bg-violet-600 text-white hover:bg-violet-700 shadow-sm transition-all cursor-pointer"
+          className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold bg-violet-600 text-white hover:bg-violet-700 shadow-sm transition-all"
         >
           <Sparkles className="w-4 h-4" />
-          <span>{t('calcDiffBtn', 'Calculate Difference')}</span>
+          <span>Calculate Difference</span>
         </button>
       </div>
 
@@ -144,49 +141,49 @@ export default function DateDifferenceCalculator() {
         <div className="mt-8 space-y-6">
           <div className="p-6 bg-violet-50/70 border border-violet-200 rounded-2xl">
             <div className="text-xs font-bold text-violet-800 uppercase tracking-wider">
-              {t('exactDuration', 'Exact Calendar Duration')}
+              Exact Calendar Duration
             </div>
             <div className="flex flex-wrap items-baseline gap-2 sm:gap-4 mt-2">
               <div className="flex items-baseline gap-1">
                 <span className="text-4xl sm:text-5xl font-extrabold text-violet-950">
                   {details.years}
                 </span>
-                <span className="text-base font-bold text-violet-800">{t('years', 'Years')}</span>
+                <span className="text-base font-bold text-violet-800">Years</span>
               </div>
               <div className="flex items-baseline gap-1">
                 <span className="text-4xl sm:text-5xl font-extrabold text-violet-950">
                   {details.months}
                 </span>
-                <span className="text-base font-bold text-violet-800">{t('months', 'Months')}</span>
+                <span className="text-base font-bold text-violet-800">Months</span>
               </div>
               <div className="flex items-baseline gap-1">
                 <span className="text-4xl sm:text-5xl font-extrabold text-violet-950">
                   {details.days}
                 </span>
-                <span className="text-base font-bold text-violet-800">{t('days', 'Days')}</span>
+                <span className="text-base font-bold text-violet-800">Days</span>
               </div>
             </div>
             <div className="mt-3 text-xs text-slate-600">
-              {t('between', 'Between')} {details.startFormatted} {t('and', 'and')} {details.endFormatted}
+              Between {details.startFormatted} and {details.endFormatted}
             </div>
           </div>
 
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl">
-              <div className="text-xs font-semibold text-slate-500 uppercase">{t('totalDays', 'Total Days')}</div>
-              <div className="text-xl font-bold text-slate-900 mt-1">{details.totalDays.toLocaleString()} {t('days', 'Days')}</div>
+              <div className="text-xs font-semibold text-slate-500 uppercase">Days</div>
+              <div className="text-xl font-bold text-slate-900 mt-1">{details.totalDays.toLocaleString()}</div>
             </div>
             <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl">
-              <div className="text-xs font-semibold text-slate-500 uppercase">{t('totalWeeks', 'Total Weeks')}</div>
-              <div className="text-xl font-bold text-slate-900 mt-1">{details.totalWeeks.toLocaleString()} {t('weeks', 'Weeks')}</div>
+              <div className="text-xs font-semibold text-slate-500 uppercase">Weeks</div>
+              <div className="text-xl font-bold text-slate-900 mt-1">{details.totalWeeks.toLocaleString()}</div>
             </div>
             <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl">
-              <div className="text-xs font-semibold text-slate-500 uppercase">{t('totalHours', 'Total Hours')}</div>
-              <div className="text-xl font-bold text-slate-900 mt-1">{details.totalHours.toLocaleString()} {t('hours', 'Hours')}</div>
+              <div className="text-xs font-semibold text-slate-500 uppercase">Hours</div>
+              <div className="text-xl font-bold text-slate-900 mt-1">{details.totalHours.toLocaleString()}</div>
             </div>
             <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl min-w-0">
-              <div className="text-xs font-semibold text-slate-500 uppercase">{t('totalMinutes', 'Total Minutes')}</div>
-              <div className="text-[clamp(14px,3.5vw,1.25rem)] font-bold text-slate-900 mt-1 whitespace-nowrap overflow-x-auto scrollbar-none">{details.totalMinutes.toLocaleString()} {t('minutes', 'Minutes')}</div>
+              <div className="text-xs font-semibold text-slate-500 uppercase">Minutes</div>
+              <div className="text-[clamp(14px,3.5vw,1.25rem)] font-bold text-slate-900 mt-1 whitespace-nowrap overflow-x-auto scrollbar-none">{details.totalMinutes.toLocaleString()}</div>
             </div>
           </div>
         </div>
