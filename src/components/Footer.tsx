@@ -119,13 +119,13 @@ export default function Footer() {
         </div>
 
         {/* Multi-Language Quick Selection Bar */}
-        <div className="py-6 border-b border-slate-800 flex flex-wrap items-center justify-between gap-4 text-xs">
+        <div className="py-6 border-b border-slate-800 flex flex-wrap items-center justify-between gap-4 text-xs notranslate" translate="no">
           <div className="flex items-center gap-2 text-slate-400">
             <Globe className="w-4 h-4 text-blue-400 shrink-0" />
             <span className="font-semibold text-slate-200">Global Languages:</span>
           </div>
 
-          <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5 text-slate-400">
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5 text-slate-400 notranslate" translate="no">
             {featuredLanguages.map((fl) => {
               const isActive = currentLanguage.code === fl.code;
               return (
@@ -133,9 +133,10 @@ export default function Footer() {
                   key={fl.code}
                   type="button"
                   onClick={() => setLanguage(fl.code)}
-                  className={`transition-colors cursor-pointer ${
+                  className={`transition-colors cursor-pointer notranslate ${
                     isActive ? 'text-blue-400 font-bold underline' : 'hover:text-white'
                   }`}
+                  translate="no"
                 >
                   {fl.name}
                 </button>
@@ -145,7 +146,8 @@ export default function Footer() {
             <button
               type="button"
               onClick={openModal}
-              className="text-blue-400 hover:text-blue-300 font-bold ml-1 cursor-pointer flex items-center gap-1"
+              className="text-blue-400 hover:text-blue-300 font-bold ml-1 cursor-pointer flex items-center gap-1 notranslate"
+              translate="no"
             >
               <span>More (39+) &rarr;</span>
             </button>

@@ -30,14 +30,16 @@ export default function LanguageSelectorModal() {
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-900/60 backdrop-blur-xs animate-in fade-in duration-200"
+      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-900/60 backdrop-blur-xs animate-in fade-in duration-200 notranslate"
+      translate="no"
       onClick={closeModal}
       role="dialog"
       aria-modal="true"
       aria-labelledby="language-modal-title"
     >
       <div
-        className="relative w-full max-w-4xl max-h-[90vh] bg-white rounded-3xl shadow-2xl border border-slate-200 overflow-hidden flex flex-col animate-in zoom-in-95 duration-200"
+        className="relative w-full max-w-4xl max-h-[90vh] bg-white rounded-3xl shadow-2xl border border-slate-200 overflow-hidden flex flex-col animate-in zoom-in-95 duration-200 notranslate"
+        translate="no"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
@@ -91,22 +93,24 @@ export default function LanguageSelectorModal() {
                   key={lang.code}
                   type="button"
                   onClick={() => handleSelect(lang.code)}
-                  className={`flex items-center justify-between p-3 sm:p-3.5 rounded-2xl border transition-all text-left cursor-pointer group ${
+                  className={`flex items-center justify-between p-3 sm:p-3.5 rounded-2xl border transition-all text-left cursor-pointer group notranslate ${
                     isSelected
                       ? 'bg-blue-50/90 border-blue-600 text-blue-900 shadow-xs'
                       : 'bg-white border-slate-200 hover:border-slate-300 hover:bg-slate-50 text-slate-700'
                   }`}
                   dir={lang.dir}
+                  translate="no"
                 >
-                  <div className="min-w-0">
+                  <div className="min-w-0 notranslate" translate="no">
                     <div
-                      className={`text-base font-bold tracking-tight transition-colors ${
+                      className={`text-base font-bold tracking-tight transition-colors notranslate ${
                         isSelected ? 'text-blue-900' : 'text-slate-800 group-hover:text-blue-600'
                       }`}
+                      translate="no"
                     >
                       {lang.nativeName}
                     </div>
-                    <div className="text-xs text-slate-400 mt-0.5 truncate">{lang.name}</div>
+                    <div className="text-xs text-slate-400 mt-0.5 truncate notranslate" translate="no">{lang.name}</div>
                   </div>
 
                   {isSelected && (
