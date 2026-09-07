@@ -11,14 +11,14 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [toolsDropdownOpen, setToolsDropdownOpen] = useState(false);
   const pathname = usePathname();
-  const { currentLanguage, openModal, t } = useLanguage();
+  const { currentLanguage, openModal, t, getLocalizedPath } = useLanguage();
 
   return (
     <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Brand Logo */}
-          <Link href="/" className="flex items-center gap-2.5 group">
+          <Link href={getLocalizedPath('/')} className="flex items-center gap-2.5 group">
             <div className="w-10 h-10 rounded-xl bg-blue-600 text-white flex items-center justify-center shadow-sm group-hover:bg-blue-700 transition-colors">
               <Calendar className="w-5 h-5" />
             </div>
@@ -35,11 +35,12 @@ export default function Header() {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-1">
             {MAIN_NAV_ITEMS.map((item) => {
-              const isActive = pathname === item.href;
+              const localizedHref = getLocalizedPath(item.href);
+              const isActive = pathname === item.href || pathname === localizedHref;
               return (
                 <Link
                   key={item.href}
-                  href={item.href}
+                  href={localizedHref}
                   className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
                     isActive
                       ? 'bg-blue-50 text-blue-700 font-semibold'
@@ -72,7 +73,7 @@ export default function Header() {
                   {ALL_CALCULATORS.map((calc) => (
                     <Link
                       key={calc.href}
-                      href={calc.href}
+                      href={getLocalizedPath(calc.href)}
                       className="block px-3 py-2 text-sm text-slate-700 hover:bg-blue-50 hover:text-blue-700 transition-colors"
                     >
                       <div className="font-medium text-slate-900">{calc.title}</div>
@@ -99,7 +100,7 @@ export default function Header() {
             </button>
 
             <Link
-              href="/#calculator"
+              href={getLocalizedPath('/#calculator')}
               className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-semibold bg-blue-600 text-white hover:bg-blue-700 shadow-sm transition-all focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2"
             >
               <Clock className="w-4 h-4" />
@@ -139,7 +140,7 @@ export default function Header() {
           {MAIN_NAV_ITEMS.map((item) => (
             <Link
               key={item.href}
-              href={item.href}
+              href={getLocalizedPath(item.href)}
               onClick={() => setMobileMenuOpen(false)}
               className="block px-3 py-2.5 rounded-lg text-base font-medium text-slate-800 hover:bg-blue-50 hover:text-blue-700"
             >
@@ -151,7 +152,7 @@ export default function Header() {
             {ALL_CALCULATORS.slice(5).map((calc) => (
               <Link
                 key={calc.href}
-                href={calc.href}
+                href={getLocalizedPath(calc.href)}
                 onClick={() => setMobileMenuOpen(false)}
                 className="block px-3 py-2 rounded-lg text-sm text-slate-700 hover:bg-blue-50 hover:text-blue-700"
               >
@@ -161,7 +162,7 @@ export default function Header() {
           </div>
           <div className="pt-2">
             <Link
-              href="/#calculator"
+              href={getLocalizedPath('/#calculator')}
               onClick={() => setMobileMenuOpen(false)}
               className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg text-base font-semibold bg-blue-600 text-white hover:bg-blue-700 shadow-sm"
             >

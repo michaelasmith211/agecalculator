@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import Link from 'next/link';
 import {
@@ -13,6 +15,7 @@ import {
   ArrowRight
 } from 'lucide-react';
 import { ALL_CALCULATORS } from '@/lib/constants';
+import { useLanguage } from '@/lib/i18n/LanguageContext';
 
 interface RelatedCalculatorsProps {
   currentSlug?: string;
@@ -40,6 +43,7 @@ export default function RelatedCalculators({
   description = 'Quickly switch to specialized calculators for birthdays, milestone ages, date durations, and interval counting.',
   limit = 6
 }: RelatedCalculatorsProps) {
+  const { getLocalizedPath } = useLanguage();
   const filtered = ALL_CALCULATORS.filter((calc) => calc.href !== currentSlug).slice(0, limit);
 
   return (
@@ -59,7 +63,7 @@ export default function RelatedCalculators({
         {filtered.map((calc) => (
           <Link
             key={calc.href}
-            href={`${calc.href}/`}
+            href={getLocalizedPath(calc.href)}
             className="group p-5 bg-white hover:bg-blue-50/40 border border-slate-200 hover:border-blue-300 rounded-2xl shadow-2xs hover:shadow-md transition-all flex flex-col justify-between"
           >
             <div>

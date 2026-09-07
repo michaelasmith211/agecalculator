@@ -8,6 +8,7 @@ import { TranslationKey, getTranslation } from './dictionaries';
 interface LanguageContextType {
   currentLanguage: Language;
   setLanguage: (code: string) => void;
+  getLocalizedPath: (path: string) => string;
   t: (key: TranslationKey, fallback?: string) => string;
   isRTL: boolean;
   isModalOpen: boolean;
@@ -170,6 +171,35 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     }
   }, [router]);
 
+  const getLocalizedPath = useCallback(
+    (rawPath: string): string => {
+      const [pathPart, hashPart] = rawPath.split('#');
+      const hashSuffix = hashPart !== undefined ? `#${hashPart}` : '';
+
+      const segments = pathPart.split('/').filter(Boolean);
+      let subPath = '';
+
+      // If first segment is already a language code, remove it
+      if (segments.length > 0 && LANGUAGES.some((l) => l.code === segments[0].toLowerCase())) {
+        subPath = '/' + segments.slice(1).join('/');
+      } else {
+        subPath = pathPart;
+      }
+
+      if (!subPath.startsWith('/')) subPath = '/' + subPath;
+      if (subPath !== '/' && !subPath.endsWith('/')) subPath = subPath + '/';
+
+      if (currentLanguage.code === 'en') {
+        const cleanEn = subPath === '//' ? '/' : subPath;
+        return `${cleanEn}${hashSuffix}`;
+      }
+
+      const localized = `/${currentLanguage.code}${subPath === '/' ? '/' : subPath}`;
+      return `${localized}${hashSuffix}`;
+    },
+    [currentLanguage]
+  );
+
   const t = useCallback(
     (key: TranslationKey, fallback?: string): string => {
       return getTranslation(currentLanguage.code, key, fallback);
@@ -185,6 +215,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
       value={{
         currentLanguage,
         setLanguage,
+        getLocalizedPath,
         t,
         isRTL: currentLanguage.dir === 'rtl',
         isModalOpen,

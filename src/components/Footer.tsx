@@ -7,7 +7,7 @@ import { ALL_CALCULATORS, COMPANY_LINKS, SITE_CONFIG } from '@/lib/constants';
 import { useLanguage } from '@/lib/i18n/LanguageContext';
 
 export default function Footer() {
-  const { openModal, setLanguage, currentLanguage } = useLanguage();
+  const { openModal, setLanguage, currentLanguage, getLocalizedPath } = useLanguage();
 
   const featuredLanguages = [
     { code: 'en', name: 'English' },
@@ -60,7 +60,7 @@ export default function Footer() {
               {ALL_CALCULATORS.slice(0, 6).map((calc) => (
                 <li key={calc.href}>
                   <Link
-                    href={calc.href}
+                    href={getLocalizedPath(calc.href)}
                     className="text-slate-400 hover:text-white hover:underline transition-colors"
                   >
                     {calc.title}
@@ -79,7 +79,7 @@ export default function Footer() {
               {ALL_CALCULATORS.slice(6).map((calc) => (
                 <li key={calc.href}>
                   <Link
-                    href={calc.href}
+                    href={getLocalizedPath(calc.href)}
                     className="text-slate-400 hover:text-white hover:underline transition-colors"
                   >
                     {calc.title}
@@ -88,7 +88,7 @@ export default function Footer() {
               ))}
               <li>
                 <Link
-                  href="/how-to-calculate-age"
+                  href={getLocalizedPath('/how-to-calculate-age')}
                   className="text-slate-400 hover:text-white hover:underline transition-colors flex items-center gap-1 text-blue-400"
                 >
                   <Sparkles className="w-3 h-3" />
@@ -107,7 +107,7 @@ export default function Footer() {
               {COMPANY_LINKS.map((link) => (
                 <li key={link.href}>
                   <Link
-                    href={link.href}
+                    href={getLocalizedPath(link.href)}
                     className="text-slate-400 hover:text-white hover:underline transition-colors"
                   >
                     {link.title}
