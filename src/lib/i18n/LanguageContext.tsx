@@ -75,45 +75,18 @@ function getInitialLanguage(): Language {
   return DEFAULT_LANGUAGE;
 }
 
-function applyGoogleTranslate(targetCode: string) {
-  if (typeof window === 'undefined') return;
-
-  const hostname = window.location.hostname;
-  const isEn = targetCode === 'en';
-
-  try {
-    if (isEn) {
-      document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
-      document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=${hostname};`;
-      document.cookie = `googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.${hostname};`;
-    } else {
-      const val = `/en/${targetCode}`;
-      document.cookie = `googtrans=${val}; path=/; max-age=31536000; SameSite=Lax;`;
-      document.cookie = `googtrans=${val}; path=/; domain=${hostname}; max-age=31536000; SameSite=Lax;`;
-      document.cookie = `googtrans=${val}; path=/; domain=.${hostname}; max-age=31536000; SameSite=Lax;`;
-    }
-  } catch {
-    // Ignore cookie errors
-  }
-
-  const tryChangeCombo = (attempts: number) => {
-    const combo = document.querySelector('.goog-te-combo') as HTMLSelectElement | null;
-    if (combo) {
-      if (combo.value !== (isEn ? 'en' : targetCode)) {
-        combo.value = isEn ? 'en' : targetCode;
-        combo.dispatchEvent(new Event('change'));
-      }
-    } else if (attempts > 0) {
-      setTimeout(() => tryChangeCombo(attempts - 1), 250);
-    }
-  };
-
-  tryChangeCombo(8);
-}
-
-export function LanguageProvider({ children }: { children: React.ReactNode }) {
+export function LanguageProvider({
+  children,
+  initialLang
+}: {
+  children: React.ReactNode;
+  initialLang?: string;
+}) {
   const router = useRouter();
   const [currentLanguage, setCurrentLanguageState] = useState<Language>(() => {
+    if (initialLang) {
+      return getLanguageByCode(initialLang);
+    }
     if (typeof window !== 'undefined') {
       return getInitialLanguage();
     }
@@ -125,7 +98,6 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     // Synchronize document attributes on language change
     document.documentElement.lang = currentLanguage.code;
     document.documentElement.dir = currentLanguage.dir;
-    applyGoogleTranslate(currentLanguage.code);
   }, [currentLanguage]);
 
   const setLanguage = useCallback((code: string) => {
@@ -137,8 +109,6 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
       document.cookie = `${COOKIE_NAME}=${lang.code};path=/;max-age=31536000;SameSite=Lax`;
       document.documentElement.lang = lang.code;
       document.documentElement.dir = lang.dir;
-
-      applyGoogleTranslate(lang.code);
 
       if (typeof window !== 'undefined') {
         const currentPath = window.location.pathname;

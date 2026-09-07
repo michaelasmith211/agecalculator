@@ -62,6 +62,8 @@ export async function generateMetadata({ params }: LangPageProps): Promise<Metad
   };
 }
 
+import { LanguageProvider } from '@/lib/i18n/LanguageContext';
+
 export default async function LocalizedHomePage({ params }: LangPageProps) {
   const { lang } = await params;
   const language = LANGUAGES.find((l) => l.code === lang);
@@ -70,5 +72,9 @@ export default async function LocalizedHomePage({ params }: LangPageProps) {
     notFound();
   }
 
-  return <HomePage />;
+  return (
+    <LanguageProvider initialLang={lang}>
+      <HomePage />
+    </LanguageProvider>
+  );
 }
