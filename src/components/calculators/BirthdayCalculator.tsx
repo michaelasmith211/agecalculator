@@ -30,8 +30,6 @@ interface NextBdayInfo {
   currentAgeYears: number;
 }
 
-const t = (_key: string, fallback: string) => fallback;
-
 export default function BirthdayCalculator() {
   const today = getTodayCalendarDate();
   const [birthDateStr, setBirthDateStr] = useState('1998-06-15');
@@ -93,17 +91,17 @@ export default function BirthdayCalculator() {
           <Cake className="w-4 h-4" />
         </div>
         <h2 className="text-xl sm:text-2xl font-bold text-slate-900">
-          {t('bdayTitle', 'Birthday & Milestone Calculator')}
+          Birthday & Milestone Calculator
         </h2>
       </div>
       <p className="text-sm text-slate-600 mb-6">
-        {t('bdaySubtitle', 'Discover when your next birthday is, how many days remain, and see the exact days of the week for all your milestone birthdays.')}
+        Discover when your next birthday is, how many days remain, and see the exact days of the week for all your milestone birthdays.
       </p>
 
       <div className="space-y-4 max-w-md">
         <div>
           <label htmlFor="bday-input" className="block text-sm font-bold text-slate-800 mb-1">
-            {t('dob', 'Date of Birth')}
+            Your Date of Birth
           </label>
           <input
             id="bday-input"
@@ -120,10 +118,10 @@ export default function BirthdayCalculator() {
         <button
           type="button"
           onClick={() => handleUpdate(birthDateStr)}
-          className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-bold bg-pink-600 text-white hover:bg-pink-700 shadow-sm transition-all cursor-pointer"
+          className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-bold bg-pink-600 text-white hover:bg-pink-700 shadow-sm transition-all"
         >
           <Sparkles className="w-4 h-4" />
-          <span>{t('calculateBtn', 'Calculate Age')}</span>
+          <span>Find Birthday Insights</span>
         </button>
       </div>
 
@@ -138,50 +136,50 @@ export default function BirthdayCalculator() {
         <div className="mt-8 space-y-6">
           <div className="p-6 bg-pink-50/70 border border-pink-200 rounded-2xl">
             <div className="text-xs font-bold text-pink-700 uppercase tracking-wider mb-1">
-              {t('nextBirthday', 'Next Birthday')}
+              Next Birthday Countdown
             </div>
             <div className="flex flex-wrap items-baseline gap-3 mt-1">
               <span className="text-4xl sm:text-5xl font-extrabold text-pink-900">
-                {nextBdayInfo.daysUntil === 0 ? t('happyBirthday', 'Happy Birthday Today!') : `${nextBdayInfo.daysUntil} ${t('daysRemaining', 'days remaining')}`}
+                {nextBdayInfo.daysUntil === 0 ? 'Today!' : `${nextBdayInfo.daysUntil} Days`}
               </span>
               <span className="text-base text-pink-700 font-semibold">
-                {t('turningAge', 'Turning')} <strong>{nextBdayInfo.turningAge}</strong>
+                until you turn <strong>{nextBdayInfo.turningAge}</strong>
               </span>
             </div>
             <div className="mt-3 text-sm text-slate-700">
-              {t('bornOn', 'Born on')} <strong>{nextBdayInfo.formatted}</strong> ({nextBdayInfo.dayOfWeek}).
+              Your next birthday falls on <strong>{nextBdayInfo.formatted}</strong> ({nextBdayInfo.dayOfWeek}).
             </div>
           </div>
 
           <div>
             <h3 className="text-base font-bold text-slate-900 flex items-center gap-2 mb-3">
               <Award className="w-4 h-4 text-pink-600" />
-              <span>{t('milestoneTitle', 'Milestone Birthday Schedule')}</span>
+              <span>Milestone Birthday Calendar</span>
             </h3>
             <div className="overflow-x-auto border border-slate-200 rounded-xl">
               <table className="w-full text-left text-sm">
                 <thead>
                   <tr className="bg-slate-50 border-b border-slate-200 text-xs font-semibold text-slate-600 uppercase">
-                    <th className="py-3 px-4">{t('milestoneAge', 'Milestone Age')}</th>
-                    <th className="py-3 px-4">{t('dob', 'Date')}</th>
-                    <th className="py-3 px-4">{t('milestoneDay', 'Day of Week')}</th>
-                    <th className="py-3 px-4">{t('milestoneStatus', 'Status')}</th>
+                    <th className="py-3 px-4">Milestone Age</th>
+                    <th className="py-3 px-4">Date</th>
+                    <th className="py-3 px-4">Day of Week</th>
+                    <th className="py-3 px-4">Status</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-slate-100 font-medium">
                   {milestones.map((m) => (
                     <tr key={m.age} className={m.passed ? 'bg-slate-50/30' : 'bg-white hover:bg-pink-50/40'}>
-                      <td className="py-3 px-4 font-bold text-slate-900">{m.age} {t('years', 'Years')}</td>
+                      <td className="py-3 px-4 font-bold text-slate-900">{m.age}th Birthday</td>
                       <td className="py-3 px-4 text-slate-700">{m.dateStr}</td>
                       <td className="py-3 px-4 text-slate-600">{m.dayOfWeek}</td>
                       <td className="py-3 px-4">
                         {m.passed ? (
                           <span className="inline-block px-2.5 py-0.5 rounded-full text-xs font-semibold bg-slate-100 text-slate-600">
-                            {t('celebrated', 'Celebrated')}
+                            Completed
                           </span>
                         ) : (
                           <span className="inline-block px-2.5 py-0.5 rounded-full text-xs font-semibold bg-pink-100 text-pink-700">
-                            {t('upcoming', 'Upcoming')}
+                            Upcoming
                           </span>
                         )}
                       </td>

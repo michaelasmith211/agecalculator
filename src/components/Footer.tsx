@@ -2,7 +2,6 @@ import React from 'react';
 import Link from 'next/link';
 import { Calendar, ShieldCheck, Sparkles } from 'lucide-react';
 import { ALL_CALCULATORS, COMPANY_LINKS, SITE_CONFIG } from '@/lib/constants';
-import { SUPPORTED_LANGUAGES } from '@/lib/i18n/languages';
 
 export default function Footer() {
   return (
@@ -92,28 +91,6 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
-          </div>
-        </div>
-
-        {/* Multi-Language Global SEO Mesh */}
-        <div className="py-8 border-b border-slate-800 space-y-3">
-          <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-slate-400">
-            <span>Supported Languages & International Versions</span>
-          </div>
-          <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs">
-            {SUPPORTED_LANGUAGES.map((lang) => {
-              const href = lang.code === 'en' ? '/' : `/${lang.code}/`;
-              return (
-                <Link
-                  key={lang.code}
-                  href={href}
-                  className="text-slate-400 hover:text-white hover:underline transition-colors"
-                  dir={lang.dir}
-                >
-                  {lang.nativeName}
-                </Link>
-              );
-            })}
           </div>
         </div>
 

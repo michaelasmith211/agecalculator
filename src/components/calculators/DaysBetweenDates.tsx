@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { CalendarRange, CheckSquare, Square, AlertCircle } from 'lucide-react';
+import { CalendarRange, CheckSquare, Square, AlertCircle, Briefcase, Sun } from 'lucide-react';
 import {
   calculateDaysBetweenDates,
   getTodayCalendarDate,
@@ -10,8 +10,6 @@ import {
   DateDifferenceResult
 } from '@/lib/date-utils';
 import { trackEvent } from '@/lib/analytics';
-
-const t = (_key: string, fallback: string) => fallback;
 
 export default function DaysBetweenDates() {
   const today = getTodayCalendarDate();
@@ -53,10 +51,10 @@ export default function DaysBetweenDates() {
         </div>
         <div>
           <h2 className="text-xl sm:text-2xl font-bold text-slate-900">
-            {t('daysBetweenTitle', 'Days Between Dates Calculator')}
+            Days Between Dates Calculator
           </h2>
           <p className="text-sm text-slate-600">
-            {t('daysBetweenSubtitle', 'Count the exact number of calendar days, business days, and weekend days between any two dates.')}
+            Count the exact number of days, weeks, business days, and weekends between two dates.
           </p>
         </div>
       </div>
@@ -64,7 +62,7 @@ export default function DaysBetweenDates() {
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
         <div>
           <label htmlFor="start-date" className="block text-sm font-bold text-slate-800 mb-1">
-            {t('startDate', 'From Date (Start)')}
+            Start Date
           </label>
           <input
             id="start-date"
@@ -80,7 +78,7 @@ export default function DaysBetweenDates() {
 
         <div>
           <label htmlFor="end-date" className="block text-sm font-bold text-slate-800 mb-1">
-            {t('endDate', 'To Date (End)')}
+            End Date
           </label>
           <input
             id="end-date"
@@ -95,29 +93,23 @@ export default function DaysBetweenDates() {
         </div>
       </div>
 
+      {/* Inclusive Toggle */}
       <div className="mt-4 flex items-center gap-2">
         <button
           type="button"
           onClick={() => {
-            const nextInc = !inclusive;
-            setInclusive(nextInc);
-            if (startDateStr && endDateStr) handleCalculate(startDateStr, endDateStr, nextInc);
+            const next = !inclusive;
+            setInclusive(next);
+            handleCalculate(startDateStr, endDateStr, next);
           }}
-          className="flex items-center gap-2 text-sm font-semibold text-slate-700 hover:text-slate-900 cursor-pointer"
+          className="flex items-center gap-2 text-sm font-medium text-slate-700 hover:text-slate-900"
         >
-          {inclusive ? <CheckSquare className="w-4 h-4 text-teal-600" /> : <Square className="w-4 h-4 text-slate-400" />}
-          <span>{t('includeEndDay', 'Include End Date in Count (+1 day)')}</span>
-        </button>
-      </div>
-
-      <div className="mt-5">
-        <button
-          type="button"
-          onClick={() => handleCalculate(startDateStr, endDateStr, inclusive)}
-          className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold bg-teal-600 text-white hover:bg-teal-700 shadow-sm transition-all cursor-pointer"
-        >
-          <CalendarRange className="w-4 h-4" />
-          <span>{t('calcDaysBtn', 'Calculate Days')}</span>
+          {inclusive ? (
+            <CheckSquare className="w-5 h-5 text-teal-600" />
+          ) : (
+            <Square className="w-5 h-5 text-slate-400" />
+          )}
+          <span>Include end date in calculation (add 1 day)</span>
         </button>
       </div>
 
@@ -130,27 +122,51 @@ export default function DaysBetweenDates() {
 
       {result && (
         <div className="mt-8 space-y-6">
-          <div className="p-6 bg-teal-50/70 border border-teal-200 rounded-2xl text-center sm:text-left">
-            <div className="text-xs font-bold text-teal-800 uppercase tracking-wider mb-1">
-              {t('calendarDays', 'Calendar Days')}
+          <div className="p-6 bg-teal-50/70 border border-teal-200 rounded-2xl">
+            <div className="text-xs font-bold text-teal-800 uppercase tracking-wider">
+              Total Duration
             </div>
-            <div className="text-4xl sm:text-5xl font-extrabold text-teal-950">
-              {result.totalDays.toLocaleString()} {t('days', 'Days')}
+            <div className="text-4xl sm:text-5xl font-extrabold text-teal-950 mt-1">
+              {result.totalDays.toLocaleString()} Days
+            </div>
+            <div className="text-sm font-semibold text-teal-800 mt-2">
+              Equivalent to {result.totalWeeks} weeks and {result.remainingDays} days
+              {result.years > 0 || result.months > 0 ? ` (approx. ${result.years}y ${result.months}m ${result.days}d)` : ''}
             </div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-            <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl">
-              <div className="text-xs font-semibold text-slate-500 uppercase">{t('totalWeeks', 'Total Weeks')}</div>
-              <div className="text-xl font-bold text-slate-900 mt-1">{result.totalWeeks.toLocaleString()} {t('weeks', 'Weeks')}</div>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl flex items-center gap-3">
+              <div className="p-2 bg-emerald-100 text-emerald-800 rounded-lg">
+                <Briefcase className="w-5 h-5" />
+              </div>
+              <div>
+                <div className="text-xs font-semibold text-slate-500 uppercase">Business Days</div>
+                <div className="text-xl font-bold text-slate-900">{result.businessDays} Days</div>
+                <div className="text-[11px] text-slate-400">Monday – Friday</div>
+              </div>
             </div>
-            <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl">
-              <div className="text-xs font-semibold text-slate-500 uppercase">{t('weekdaysCount', 'Business Days (Mon–Fri)')}</div>
-              <div className="text-xl font-bold text-slate-900 mt-1">{result.businessDays.toLocaleString()} {t('days', 'Days')}</div>
+
+            <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl flex items-center gap-3">
+              <div className="p-2 bg-amber-100 text-amber-800 rounded-lg">
+                <Sun className="w-5 h-5" />
+              </div>
+              <div>
+                <div className="text-xs font-semibold text-slate-500 uppercase">Weekend Days</div>
+                <div className="text-xl font-bold text-slate-900">{result.weekendDays} Days</div>
+                <div className="text-[11px] text-slate-400">Saturday & Sunday</div>
+              </div>
             </div>
-            <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl">
-              <div className="text-xs font-semibold text-slate-500 uppercase">{t('weekendDaysCount', 'Weekend Days (Sat–Sun)')}</div>
-              <div className="text-xl font-bold text-slate-900 mt-1">{result.weekendDays.toLocaleString()} {t('days', 'Days')}</div>
+
+            <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl flex items-center gap-3">
+              <div className="p-2 bg-blue-100 text-blue-800 rounded-lg">
+                <CalendarRange className="w-5 h-5" />
+              </div>
+              <div>
+                <div className="text-xs font-semibold text-slate-500 uppercase">Total Hours</div>
+                <div className="text-xl font-bold text-slate-900">{result.totalHours.toLocaleString()} Hours</div>
+                <div className="text-[11px] text-slate-400">24 hours / day</div>
+              </div>
             </div>
           </div>
         </div>

@@ -1,55 +1,93 @@
 import React from 'react';
 import { Metadata } from 'next';
+import Link from 'next/link';
+import { ArrowRight, ShieldAlert, Briefcase, Calendar, TrendingUp } from 'lucide-react';
 import RetirementAgeCalculator from '@/components/calculators/RetirementAgeCalculator';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import RelatedCalculators from '@/components/RelatedCalculators';
 import FAQAccordion from '@/components/ui/FAQAccordion';
 import AdSlot from '@/components/AdSlot';
+import SocialShare from '@/components/SocialShare';
 import { WebApplicationJsonLd, FaqJsonLd, BreadcrumbJsonLd } from '@/components/JsonLd';
-import { getPageData } from '@/lib/i18n/page-translations';
+import { SITE_CONFIG } from '@/lib/constants';
 
 export const metadata: Metadata = {
-  title: 'Retirement Age Calculator – Plan Your Target Retirement Date',
-  description: 'Calculate your exact retirement date and see the remaining years, months, and days until you reach your target retirement age.',
+  title: 'Retirement Age Calculator – Plan Your Retirement Timeline',
+  description:
+    'Estimate your projected retirement date and calculate the exact years, months, total days, and working days remaining until your target retirement age.',
   alternates: {
     canonical: '/retirement-age-calculator/'
+  },
+  openGraph: {
+    title: 'Retirement Age Calculator – Plan Your Timeline & Countdown',
+    description: 'Estimate your target retirement date and calculate remaining years, months, and working days.',
+    url: `${SITE_CONFIG.domain}/retirement-age-calculator/`,
+    type: 'website',
+    images: [`${SITE_CONFIG.domain}/og-image.svg`]
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Retirement Age Calculator – Retirement Timeline',
+    description: 'Estimate your target retirement date and calculate remaining years, months, and working days.',
+    images: [`${SITE_CONFIG.domain}/og-image.svg`]
   }
 };
 
-export default function RetirementAgeCalculatorPage({ lang = 'en' }: { lang?: string }) {
-  const data = getPageData('retirement-age-calculator', lang);
+const FAQS = [
+  {
+    question: 'How is the retirement date calculated?',
+    answer:
+      'The calculator determines your projected retirement date by adding your chosen retirement age (e.g., 65 or 67) to your birth year and matching your birth month and day.'
+  },
+  {
+    question: 'How are remaining working days estimated?',
+    answer:
+      'Estimated working days represent typical 5-day workweeks (Monday through Friday) between today and your projected retirement milestone, excluding weekends.'
+  },
+  {
+    question: 'Does this calculator guarantee pension or government benefit eligibility?',
+    answer:
+      'No. Government pension eligibility rules (such as US Social Security Full Retirement Age, UK State Pension Age, or Australian Age Pension) vary by birth year, legislative changes, and work credit history. This tool provides a personal timeline planning estimation.'
+  },
+  {
+    question: 'What is Full Retirement Age (FRA)?',
+    answer:
+      'Full Retirement Age is the age at which a person becomes entitled to full, unreduced retirement benefits under statutory social security or state pension systems (typically between 66 and 67 for individuals born after 1960).'
+  }
+];
 
+export default function RetirementAgePage() {
   return (
     <>
       <WebApplicationJsonLd
-        name={data.heroTitle}
-        description={data.description}
+        name="Retirement Age Calculator"
+        description="Estimate retirement milestone date and count down remaining time."
         url="/retirement-age-calculator/"
         applicationCategory="UtilityApplication"
       />
       <BreadcrumbJsonLd
         items={[
           { name: 'Home', item: '/' },
-          { name: data.breadcrumb, item: '/retirement-age-calculator/' }
+          { name: 'Retirement Age Calculator', item: '/retirement-age-calculator/' }
         ]}
       />
-      <FaqJsonLd items={data.faqs} />
+      <FaqJsonLd items={FAQS} />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10">
         <Breadcrumbs
           items={[
             { name: 'Age Calculators', href: '/' },
-            { name: data.breadcrumb, href: '/retirement-age-calculator/' }
+            { name: 'Retirement Age Calculator', href: '/retirement-age-calculator/' }
           ]}
         />
 
         <div className="max-w-4xl mx-auto mt-4">
           <div className="text-center mb-8">
             <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
-              {data.heroTitle}
+              Retirement Age Calculator
             </h1>
             <p className="mt-2 text-base text-slate-600 max-w-xl mx-auto">
-              {data.heroSubtitle}
+              Plan your personal timeline: estimate your milestone retirement date and calculate remaining years, months, days, and working days.
             </p>
           </div>
 
@@ -57,8 +95,75 @@ export default function RetirementAgeCalculatorPage({ lang = 'en' }: { lang?: st
 
           <AdSlot slotId="retire-mid" format="horizontal" />
 
-          <FAQAccordion items={data.faqs} />
+          {/* Educational Content & Disclaimer */}
+          <div className="mt-12 bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 space-y-6">
+            <h2 className="text-xl sm:text-2xl font-bold text-slate-900">
+              Planning Your Retirement Milestone Timeline
+            </h2>
+            <p className="text-sm text-slate-600 leading-relaxed">
+              Tracking your exact timeline to retirement enables strategic milestone planning, personal savings pacing, career transition roadmaps, and work-life balance adjustments as you approach your target retirement years.
+            </p>
 
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-1">
+              <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-1">
+                <div className="font-bold text-slate-900 text-sm flex items-center gap-1.5">
+                  <Briefcase className="w-4 h-4 text-orange-600" />
+                  <span>Working Days Remaining</span>
+                </div>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  Track actual Monday–Friday working shifts left before transitioning into retirement.
+                </p>
+              </div>
+
+              <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-1">
+                <div className="font-bold text-slate-900 text-sm flex items-center gap-1.5">
+                  <Calendar className="w-4 h-4 text-blue-600" />
+                  <span>Exact Milestone Date</span>
+                </div>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  Identify the exact calendar day of the week your retirement age birthday lands on.
+                </p>
+              </div>
+
+              <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-1">
+                <div className="font-bold text-slate-900 text-sm flex items-center gap-1.5">
+                  <TrendingUp className="w-4 h-4 text-emerald-600" />
+                  <span>Savings Pacing</span>
+                </div>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  Align 401(k), IRA, and superannuation contribution schedules with exact time horizons.
+                </p>
+              </div>
+            </div>
+
+            <div className="p-4 bg-orange-50 border border-orange-200 rounded-xl flex items-start gap-2.5 text-xs text-slate-700">
+              <ShieldAlert className="w-5 h-5 text-orange-600 shrink-0 mt-0.5" />
+              <div>
+                <strong>Non-Financial Disclaimer:</strong> This calculator is an educational utility tool designed for calendar countdowns and milestone planning. It does not calculate financial returns, annuity payouts, social security benefits, or tax implications. Consult a certified financial planner for individual retirement advice.
+              </div>
+            </div>
+
+            <div className="pt-4 border-t border-slate-100 flex items-center justify-between text-sm">
+              <span className="text-slate-600">Want to calculate your exact current age instead?</span>
+              <Link
+                href="/age-calculator/"
+                className="font-bold text-orange-700 hover:text-orange-800 inline-flex items-center gap-1"
+              >
+                <span>Main Age Calculator</span>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </div>
+
+          <SocialShare
+            title="Retirement Age Calculator – Retirement Timeline"
+            url="/retirement-age-calculator/"
+            className="mt-6"
+          />
+
+          <FAQAccordion items={FAQS} />
+
+          {/* Related Tools Internal Linking Grid */}
           <RelatedCalculators currentSlug="/retirement-age-calculator" />
         </div>
       </div>

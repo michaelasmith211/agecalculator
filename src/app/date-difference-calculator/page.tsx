@@ -10,7 +10,6 @@ import AdSlot from '@/components/AdSlot';
 import SocialShare from '@/components/SocialShare';
 import { WebApplicationJsonLd, FaqJsonLd, BreadcrumbJsonLd } from '@/components/JsonLd';
 import { SITE_CONFIG } from '@/lib/constants';
-import { getPageData } from '@/lib/i18n/page-translations';
 
 export const metadata: Metadata = {
   title: 'Date Difference Calculator – Calculate Exact Time Between Two Dates',
@@ -18,43 +17,77 @@ export const metadata: Metadata = {
     'Find the exact difference between any two dates in years, months, days, weeks, hours, and minutes. Free online calendar duration calculator.',
   alternates: {
     canonical: '/date-difference-calculator/'
+  },
+  openGraph: {
+    title: 'Date Difference Calculator – Time Duration Between Two Dates',
+    description: 'Calculate duration between two dates across years, months, days, weeks, and hours.',
+    url: `${SITE_CONFIG.domain}/date-difference-calculator/`,
+    type: 'website',
+    images: [`${SITE_CONFIG.domain}/og-image.svg`]
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Date Difference Calculator – Multi-Unit Duration',
+    description: 'Calculate duration between two dates across years, months, days, weeks, and hours.',
+    images: [`${SITE_CONFIG.domain}/og-image.svg`]
   }
 };
 
-export default function DateDifferencePage({ lang = 'en' }: { lang?: string }) {
-  const data = getPageData('date-difference-calculator', lang);
+const FAQS = [
+  {
+    question: 'How does the Date Difference Calculator measure duration?',
+    answer:
+      'The calculator computes exact calendar duration by taking the earlier date and performing borrow-subtraction up to the later date, providing exact elapsed years, months, days, and total days.'
+  },
+  {
+    question: 'Can I calculate the duration between past dates?',
+    answer:
+      'Yes. You can enter any two historical dates (e.g., historical event spans, anniversary dates, employment tenures) to measure exact duration.'
+  },
+  {
+    question: 'Does this calculator handle reverse date entries?',
+    answer:
+      'Yes. If the end date is entered earlier than the start date, our engine automatically normalizes the interval and accurately calculates the positive span between them.'
+  },
+  {
+    question: 'How are total elapsed hours and minutes calculated?',
+    answer:
+      'Total hours equal the total number of elapsed calendar days multiplied by 24 (plus any custom time delta). Total minutes equal total hours multiplied by 60.'
+  }
+];
 
+export default function DateDifferencePage() {
   return (
     <>
       <WebApplicationJsonLd
-        name={data.heroTitle}
-        description={data.description}
+        name="Date Difference Calculator"
+        description="Compute exact time and duration between two dates across multiple units."
         url="/date-difference-calculator/"
         applicationCategory="UtilityApplication"
       />
       <BreadcrumbJsonLd
         items={[
           { name: 'Home', item: '/' },
-          { name: data.breadcrumb, item: '/date-difference-calculator/' }
+          { name: 'Date Difference Calculator', item: '/date-difference-calculator/' }
         ]}
       />
-      <FaqJsonLd items={data.faqs} />
+      <FaqJsonLd items={FAQS} />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10">
         <Breadcrumbs
           items={[
             { name: 'Age Calculators', href: '/' },
-            { name: data.breadcrumb, href: '/date-difference-calculator/' }
+            { name: 'Date Difference Calculator', href: '/date-difference-calculator/' }
           ]}
         />
 
         <div className="max-w-4xl mx-auto mt-4">
           <div className="text-center mb-8">
             <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
-              {data.heroTitle}
+              Date Difference Calculator
             </h1>
             <p className="mt-2 text-base text-slate-600 max-w-xl mx-auto">
-              {data.heroSubtitle}
+              Find the exact time difference and duration between any two calendar dates in years, months, days, weeks, and hours.
             </p>
           </div>
 
@@ -62,7 +95,7 @@ export default function DateDifferencePage({ lang = 'en' }: { lang?: string }) {
 
           <AdSlot slotId="datediff-mid" format="horizontal" />
 
-          {/* Educational Guide */}
+          {/* Educational Content */}
           <div className="mt-12 bg-white border border-slate-200 rounded-2xl p-6 sm:p-8 space-y-6">
             <h2 className="text-xl sm:text-2xl font-bold text-slate-900">
               Why Calendar Intervals Matter
@@ -116,13 +149,14 @@ export default function DateDifferencePage({ lang = 'en' }: { lang?: string }) {
           </div>
 
           <SocialShare
-            title={`${data.heroTitle} – ${SITE_CONFIG.name}`}
+            title="Date Difference Calculator – Calculate Time Between Two Dates"
             url="/date-difference-calculator/"
             className="mt-6"
           />
 
-          <FAQAccordion items={data.faqs} />
+          <FAQAccordion items={FAQS} />
 
+          {/* Related Tools Internal Linking Grid */}
           <RelatedCalculators currentSlug="/date-difference-calculator" />
         </div>
       </div>
