@@ -1,0 +1,318 @@
+{
+  "meta": {
+    "homeTitle": "Életkor Kalkulátor – Pontos Életkor Kiszámítása Években, Hónapokban és Napokban",
+    "homeDescription": "Ingyenes online életkor kalkulátor. Számítsa ki pontos életkorát években, hónapokban, napokban és másodpercekben. Születésnapi visszaszámlálás és élettani statisztikák.",
+    "homeH1": "Online Életkor Kalkulátor",
+    "homeSubtitle": "Számítsa ki pontos kronológiai életkorát években, hónapokban, napokban, órákban és élő másodpercekben a Gergely-naptár pontosságával."
+  },
+  "navigation": {
+    "home": "Főoldal",
+    "ageCalculator": "Életkor Kalkulátor",
+    "birthday": "Születésnap Kalkulátor",
+    "ageDifference": "Korkülönbség",
+    "dateDifference": "Dátumkülönbség",
+    "dateOfBirth": "Születési Dátum",
+    "moreTools": "További Eszközök",
+    "allAgeTools": "Összes Kor és Dátum Eszköz",
+    "calculateAge": "Életkor Számítás",
+    "calculateMyAgeNow": "Életkorom Kiszámítása",
+    "mainTools": "Fő Eszközök",
+    "moreCalculators": "További Kalkulátorok"
+  },
+  "calculator": {
+    "badge": "Azonnali Naptári és Időbeli Precíziós Számítás",
+    "dobLabel": "Születési Dátum",
+    "dobPlaceholder": "Válassza ki a születési dátumot",
+    "dobHelper": "Válassza ki a születési napot, hónapot és évet (ÉÉÉÉ.HH.NN). Helyileg a sütikben tárolódik.",
+    "targetDateLabel": "Életkor Ezen a Napon",
+    "useToday": "Mai Nap Használata",
+    "changeDate": "Dátum Módosítása",
+    "includeTime": "Pontos Születési Idő Megadása (Opcionális)",
+    "includeTimeHelper": "Percpontos pontossághoz",
+    "birthTimeLabel": "Születési Idő (Helyi Idő)",
+    "calculate": "Életkor Kiszámítása",
+    "reset": "Visszaállítás",
+    "clear": "Törlés",
+    "copied": "Másolva!",
+    "copy": "Másolás",
+    "print": "Nyomtatás",
+    "yourExactAge": "Az Ön Pontos Életkora",
+    "years": "Év",
+    "months": "Hónap",
+    "days": "Nap",
+    "hours": "Óra",
+    "minutes": "Perc",
+    "seconds": "Másodperc",
+    "nextBirthday": "Következő Születésnap",
+    "daysRemaining": "nap van hátra",
+    "turning": "Betöltött életkor",
+    "happyBirthday": "🎉 Boldog születésnapot kívánunk ma!",
+    "totalDaysLived": "Összesen Megélt Napok",
+    "totalWeeks": "Összesen Megélt Hetek",
+    "heartbeats": "Becsült Szívverések Száma",
+    "solarOrbit": "Napév Előrehaladása",
+    "liveSeconds": "Megélt Másodpercek Élőben",
+    "timeBreakdown": "Részletes Időbontás",
+    "zodiacSign": "Csillagjegy",
+    "chineseZodiac": "Kínai Horoszkóp",
+    "dayBorn": "Születési Hét Napja"
+  },
+  "features": {
+    "gregorianPrecisionTitle": "Gergely-naptári Pontosság",
+    "gregorianPrecisionDesc": "Figyelembe veszi a szökőéveket, a 30/31 napos hónapokat és a február 29-ét másodpercre pontosan.",
+    "liveSecondsTitle": "Élő Másodpercszámláló",
+    "liveSecondsDesc": "Valós idejű életkorszámláló, amely szinkronizálódik a készülék helyi órájával.",
+    "privateAndFreeTitle": "100% Bizalmas és Ingyenes",
+    "privateAndFreeDesc": "Nincs regisztráció és nem küldünk adatokat a szerverre. Minden számítás a böngészőjében fut."
+  },
+  "howItWorks": {
+    "title": "Hogyan Működik az Életkor Kalkulátor",
+    "subtitle": "A naptári napok, hónapátvitelek és másodpercszámítások algoritmusának átlátható bemutatása."
+  },
+  "faq": {
+    "title": "Gyakran Ismételt Kérdések (GYIK)",
+    "items": [
+      {
+        "question": "Hogyan számítja ki a kalkulátor a pontos életkort?",
+        "answer": "Összehasonlítja a születési dátumot a céldátummal a Gergely-naptár szabályai szerint, kiszámítva a teljes éveket, hónapokat és napokat."
+      },
+      {
+        "question": "Figyelembe veszi a szökőéveket?",
+        "answer": "Igen. A február 29-én születettek számára a hivatalos négyéves szökőév-ciklusokat alkalmazza."
+      },
+      {
+        "question": "Mennyire pontos az élő másodpercszámláló?",
+        "answer": "Minden másodpercben valós időben szinkronizálódik a készülék rendszerórájával."
+      },
+      {
+        "question": "Biztonságban vannak a személyes adataim?",
+        "answer": "Igen, 100%-ban. Minden számítás kizárólag a böngészőjében történik, semmilyen adat nem hagyja el a gépet."
+      },
+      {
+        "question": "Kiszámíthatom két ember közötti korkülönbséget?",
+        "answer": "Igen, használja a 'Korkülönbség Kalkulátor' eszközt két születési dátum összehasonlítására."
+      }
+    ]
+  },
+  "breadcrumbs": {
+    "home": "Főoldal"
+  },
+  "related": {
+    "title": "Kapcsolódó Kor- és Dátumeszközök",
+    "description": "Fedezze fel további ingyenes naptári és időszámítási kalkulátorainkat.",
+    "openCalculator": "Kalkulátor Megnyitása"
+  },
+  "languageSelector": {
+    "title": "Válasszon Nyelvet",
+    "subtitle": "Használja az életkor kalkulátort a saját nyelvén",
+    "searchPlaceholder": "Nyelvek keresése...",
+    "close": "Bezárás"
+  },
+  "footer": {
+    "brandDescription": "Ingyenes, pontos és biztonságos online életkor- és naptárszámítások mindenkinek.",
+    "coreCalculators": "Fő Kalkulátorok",
+    "specialtyTools": "Speciális Eszközök",
+    "guide": "Útmutató",
+    "company": "Vállalat",
+    "aboutUs": "Rólunk",
+    "contact": "Kapcsolat",
+    "privacy": "Adatvédelmi Irányelvek",
+    "terms": "Felhasználási Feltételek",
+    "languages": "Nyelvek",
+    "clientSideBadge": "100% Kliensoldali Böngészős Számítás",
+    "allRightsReserved": "Minden jog fenntartva."
+  },
+  "errors": {
+    "invalidDate": "Kérjük, adjon meg érvényes dátumot.",
+    "futureDate": "A születési dátum nem lehet a jövőben.",
+    "requiredDate": "A dátum mező kitöltése kötelező."
+  },
+  "tools": {
+    "age-calculator": {
+      "title": "Pontos Életkor Kalkulátor",
+      "desc": "Számítsa ki pontos életkorát években, hónapokban, napokban és másodpercekben azonnal."
+    },
+    "birthday-calculator": {
+      "title": "Születésnap Kalkulátor",
+      "desc": "Tudja meg, a hét melyik napján született és mikor lesz a következő születésnapja."
+    },
+    "age-difference-calculator": {
+      "title": "Korkülönbség Kalkulátor",
+      "desc": "Hasonlítsa össze két ember pontos életkori különbségét években, hónapokban és napokban."
+    },
+    "birthday-countdown": {
+      "title": "Születésnapi Visszaszámlálás",
+      "desc": "Kövesse nyomon élőben a napokat, órákat, perceket és másodperceket a következő születésnapjáig."
+    },
+    "date-difference-calculator": {
+      "title": "Dátumkülönbség Kalkulátor",
+      "desc": "Számítsa ki a napok, hetek és hónapok számát bármely két naptári dátum között."
+    },
+    "date-of-birth-calculator": {
+      "title": "Születési Dátum Kalkulátor",
+      "desc": "Határozza meg a pontos vagy becsült születési dátumot életkor alapján."
+    },
+    "days-between-dates": {
+      "title": "Napok Két Dátum Között",
+      "desc": "Számítsa ki a munkanapokat, hétvégéket és az összes napot két dátum között."
+    },
+    "chronological-age-calculator": {
+      "title": "Kronológiai Életkor Kalkulátor",
+      "desc": "Számítson kronológiai és korrigált életkort koraszülött babák számára."
+    },
+    "retirement-age-calculator": {
+      "title": "Nyugdíjkorhatár Kalkulátor",
+      "desc": "Tervezze meg a tervezett nyugdíjazásig hátralévő időt és munkanapokat."
+    },
+    "leap-year-age-calculator": {
+      "title": "Szökőév és Február 29. Kalkulátor",
+      "desc": "Ismerje meg a ténylegesen megélt február 29-i születésnapokat szökőévi születés esetén."
+    },
+    "how-to-calculate-age": {
+      "title": "Hogyan Számoljunk Életkort?",
+      "desc": "Részletes útmutató a naptári szabályokról és a precíz életkorszámításról."
+    }
+  },
+  "calculators": {
+    "birthday": {
+      "title": "Birthday & Milestone Calculator",
+      "desc": "Discover when your next birthday is, how many days remain, and see the exact days of the week for all your milestone birthdays.",
+      "dobLabel": "Születési Dátum",
+      "btnCalculate": "Születésnap Számítása",
+      "nextCountdown": "Next Birthday Countdown",
+      "daysUntil": "Days",
+      "turning": "until you turn",
+      "onDate": "Your next birthday falls on",
+      "todayBday": "Happy Birthday Today!",
+      "milestoneTitle": "Milestone Birthdays",
+      "age": "Age",
+      "year": "Year",
+      "date": "Date",
+      "dayOfWeek": "Day of Week",
+      "status": "Status",
+      "passed": "Passed",
+      "upcoming": "Upcoming"
+    },
+    "ageDifference": {
+      "title": "Age Difference Calculator",
+      "desc": "Compare two dates of birth to calculate the precise age gap in years, months, and days.",
+      "personA": "A Személy",
+      "personB": "B Személy",
+      "dobLabel": "Születési Dátum",
+      "btnCalculate": "Különbség Kiszámítása",
+      "resultTitle": "Korkülönbség Eredménye",
+      "olderThan": "idősebb mint",
+      "by": "ennyivel:",
+      "totalDaysDiff": "Teljes Különbség Napokban",
+      "totalWeeksDiff": "Teljes Különbség Hetekben",
+      "copySummary": "Copy Summary",
+      "copied": "Copied to clipboard!",
+      "sameAge": "Both persons were born on the exact same date."
+    },
+    "dateDifference": {
+      "title": "Date Difference Calculator",
+      "desc": "Calculate the exact duration between any two calendar dates in years, months, and days.",
+      "startDate": "Kezdő Dátum",
+      "endDate": "Záró Dátum",
+      "btnCalculate": "Dátumkülönbség Számítása",
+      "resultTitle": "Dátumok Közötti Különbség",
+      "diffYMD": "Difference",
+      "totalDays": "Összes Nap",
+      "totalWeeks": "Hetek",
+      "totalHours": "Órák",
+      "totalMinutes": "Percek",
+      "errorInvalid": "Please select valid start and end dates."
+    },
+    "dateOfBirth": {
+      "title": "Születési Dátum Kalkulátor",
+      "desc": "Határozza meg a becsült vagy pontos születési dátumot megadott kor alapján.",
+      "ageYears": "Év",
+      "ageMonths": "Hónap",
+      "ageDays": "Nap",
+      "asOfDate": "Életkor Ezen a Napon",
+      "btnCalculate": "Születési Dátum Megkeresése",
+      "resultTitle": "Kiszámított Születési Dátum",
+      "estimatedDob": "Estimated Date of Birth",
+      "dayBorn": "Születési Nap"
+    },
+    "birthdayCountdown": {
+      "title": "Születésnapi Visszaszámlálás",
+      "desc": "Kövesse valós időben a következő születésnapjáig hátralévő időt.",
+      "dobLabel": "Születési Dátum",
+      "days": "Nap",
+      "hours": "Óra",
+      "minutes": "Perc",
+      "seconds": "Másodperc",
+      "turningAge": "Betöltendő Kor",
+      "nextBdayOn": "Következő Születésnap Dátuma",
+      "happyBday": "Boldog születésnapot!"
+    },
+    "daysBetween": {
+      "title": "Napok Két Dátum Között",
+      "desc": "Számítsa ki a munkanapokat, hétvégéket és az összes naptári napot két dátum között.",
+      "startDate": "Kezdő Dátum",
+      "endDate": "Záró Dátum",
+      "includeEndDay": "Záró nap beleszámítása (+1 nap)",
+      "btnCalculate": "Napok Kiszámítása",
+      "totalDays": "Összes Nap",
+      "businessDays": "Munkanapok",
+      "weekendDays": "Hétvégi Napok",
+      "totalWeeks": "Teljes Hetek"
+    },
+    "chronological": {
+      "title": "Kronológiai Életkor Kalkulátor",
+      "desc": "Számítson kronológiai és korrigált kort gyermekgyógyászati értékelésekhez.",
+      "birthDate": "Születési Dátum",
+      "testDate": "Vizsgálati Dátum",
+      "weeksPremature": "Koraszülés Hetek Száma",
+      "btnCalculate": "Kronológiai Kor Számítása",
+      "chronologicalAge": "Kronológiai Életkor",
+      "notation": "Klinikai Jelölés (É;H;N)",
+      "exactInterval": "Pontosan Eltelt Időtartam",
+      "adjustedAge": "Korrigált Életkor"
+    },
+    "retirement": {
+      "title": "Nyugdíjkorhatár Kalkulátor",
+      "desc": "Becsülje meg a nyugdíjazásig hátralévő időt és munkanapokat.",
+      "birthDate": "Születési Dátum",
+      "currentAge": "Jelenlegi Kor",
+      "targetAge": "Célzott Nyugdíjkorhatár",
+      "asOfDate": "Számítási Dátum",
+      "btnCalculate": "Nyugdíjazás Számítása",
+      "yearsRemaining": "Hátralévő Évek",
+      "targetYear": "Várható Nyugdíjazási Év",
+      "workingDaysLeft": "Becsült Hátralévő Munkanapok",
+      "alreadyReached": "A célzott nyugdíjkorhatárt már elérte."
+    },
+    "leapYear": {
+      "title": "Szökőév és Február 29. Kalkulátor",
+      "desc": "Tudja meg a ténylegesen megélt szökőnapi születésnapokat és a következő dátumot.",
+      "dobLabel": "Születési Dátum",
+      "btnCalculate": "Szökőév Ellenőrzése",
+      "leapYearsLived": "Megélt Február 29-ék",
+      "actualBirthdays": "Hivatalos Szökőnapi Születésnapok",
+      "nextLeapBirthday": "Következő Február 29-i Születésnap",
+      "leapBabyBadge": "Szökőnapi Baba (Február 29.)"
+    },
+    "liveTicker": {
+      "title": "Valós Idejű Életkorszámláló",
+      "syncedLocal": "Szinkronizálva a készülék helyi órájával",
+      "asOfTarget": "A céldátumra számítva",
+      "clock": "Óra",
+      "runningTotalSeconds": "Összesen Megélt Másodpercek",
+      "seconds": "másodperc",
+      "solarOrbit": "Napév Előrehaladása",
+      "completed": "Teljesítve",
+      "turnedAge": "Betöltve a legutóbbi születésnapon",
+      "turningAgeIn": "Betöltésig hátralevő idő",
+      "bioMilestones": "Biológiai Mérföldkövek",
+      "spaceTravel": "Űr- és Bolygóbeli Utazás",
+      "heartbeats": "Becsült Szívverések",
+      "breaths": "Vett Lélegzetek",
+      "blinks": "Pislogások Száma",
+      "hoursSlept": "Alvással Töltött Órák",
+      "earthRotation": "Föld Felszíni Forgása",
+      "sunOrbit": "Megtett Távolság a Nap Körül"
+    }
+  }
+}

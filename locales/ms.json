@@ -1,0 +1,318 @@
+{
+  "meta": {
+    "homeTitle": "Kalkulator Umur – Kira Umur Tepat dalam Tahun, Bulan & Hari",
+    "homeDescription": "Kalkulator umur dalam talian percuma. Kira umur tepat anda dalam tahun, bulan, hari dan saat secara langsung. Kiraan detik hari lahir dan statistik hayat.",
+    "homeH1": "Kalkulator Umur Dalam Talian",
+    "homeSubtitle": "Kira umur kronologi tepat anda dalam tahun, bulan, hari, jam dan saat langsung dengan ketepatan kalendar Gregory."
+  },
+  "navigation": {
+    "home": "Laman Utama",
+    "ageCalculator": "Kalkulator Umur",
+    "birthday": "Kalkulator Hari Lahir",
+    "ageDifference": "Perbezaan Umur",
+    "dateDifference": "Perbezaan Tarikh",
+    "dateOfBirth": "Tarikh Lahir",
+    "moreTools": "Alat Lain",
+    "allAgeTools": "Semua Alat Umur & Tarikh",
+    "calculateAge": "Kira Umur",
+    "calculateMyAgeNow": "Kira Umur Saya",
+    "mainTools": "Alat Utama",
+    "moreCalculators": "Lebih Banyak Kalkulator"
+  },
+  "calculator": {
+    "badge": "Pengiraan Kalendar & Masa Pantas dan Tepat",
+    "dobLabel": "Tarikh Lahir",
+    "dobPlaceholder": "Pilih tarikh lahir anda",
+    "dobHelper": "Pilih hari, bulan dan tahun kelahiran anda (HH / BB / TTTT). Disimpan secara setempat dalam kuki.",
+    "targetDateLabel": "Umur Pada Tarikh",
+    "useToday": "Gunakan Hari Ini",
+    "changeDate": "Tukar Tarikh",
+    "includeTime": "Sertakan Masa Lahir Tepat (Pilihan)",
+    "includeTimeHelper": "Untuk ketepatan sehingga minit",
+    "birthTimeLabel": "Masa Kelahiran (Masa Tempatan)",
+    "calculate": "Kira Umur",
+    "reset": "Tetapkan Semula",
+    "clear": "Kosongkan",
+    "copied": "Disalin!",
+    "copy": "Salin",
+    "print": "Cetak",
+    "yourExactAge": "Umur Tepat Anda",
+    "years": "Tahun",
+    "months": "Bulan",
+    "days": "Hari",
+    "hours": "Jam",
+    "minutes": "Minit",
+    "seconds": "Saat",
+    "nextBirthday": "Hari Lahir Seterusnya",
+    "daysRemaining": "hari lagi",
+    "turning": "Menjelang umur",
+    "happyBirthday": "🎉 Selamat hari lahir hari ini!",
+    "totalDaysLived": "Jumlah Hari Dihidup",
+    "totalWeeks": "Jumlah Minggu Dihidup",
+    "heartbeats": "Anggaran Denyutan Jantung",
+    "solarOrbit": "Kemajuan Tahun Suria",
+    "liveSeconds": "Jumlah Saat Dihidup Langsung",
+    "timeBreakdown": "Pecahan Masa Terperinci",
+    "zodiacSign": "Tanda Zodiak",
+    "chineseZodiac": "Zodiak Cina",
+    "dayBorn": "Hari Kelahiran Dalam Seminggu"
+  },
+  "features": {
+    "gregorianPrecisionTitle": "Ketepatan Kalendar Gregory",
+    "gregorianPrecisionDesc": "Mengambil kira tahun lompat, bulan 30/31 hari dan 29 Februari dengan ketepatan saat.",
+    "liveSecondsTitle": "Detik Saat Masa Nyata",
+    "liveSecondsDesc": "Pembilang umur masa nyata yang disegerakkan dengan jam setempat peranti anda.",
+    "privateAndFreeTitle": "100% Peribadi & Percuma",
+    "privateAndFreeDesc": "Tanpa pendaftaran dan tiada data dihantar ke pelayan. Semua pengiraan dibuat dalam pelayar anda."
+  },
+  "howItWorks": {
+    "title": "Bagaimana Kalkulator Umur Berfungsi",
+    "subtitle": "Penerangan jelas tentang algoritma pengiraan hari kalendar, bawaan bulan dan saat."
+  },
+  "faq": {
+    "title": "Soalan Lazim (FAQ)",
+    "items": [
+      {
+        "question": "Bagaimana kalkulator mengira umur yang tepat?",
+        "answer": "Ia membandingkan tarikh lahir dengan tarikh sasaran mengikut kalendar Gregory, mengira tahun, bulan dan baki hari."
+      },
+      {
+        "question": "Adakah tahun lompat diambil kira?",
+        "answer": "Ya. Bagi mereka yang lahir pada 29 Februari, kitaran tahun lompat 4 tahun digunakan sepenuhnya."
+      },
+      {
+        "question": "Berapa tepatkah pembilang saat masa nyata?",
+        "answer": "Ia disegerakkan dengan jam sistem peranti anda setiap saat dalam masa nyata."
+      },
+      {
+        "question": "Adakah data peribadi saya selamat?",
+        "answer": "Ya, 100%. Semua pengiraan berjalan dalam pelayar web anda tanpa menghantar maklumat ke pelayan."
+      },
+      {
+        "question": "Bolehkah saya mengira perbezaan umur antara dua orang?",
+        "answer": "Ya, gunakan 'Kalkulator Perbezaan Umur' untuk membandingkan dua tarikh lahir dalam tahun, bulan dan hari."
+      }
+    ]
+  },
+  "breadcrumbs": {
+    "home": "Laman Utama"
+  },
+  "related": {
+    "title": "Alat Umur & Tarikh Berkaitan",
+    "description": "Terokai alat percuma kami yang lain untuk pengiraan kalendar dan masa.",
+    "openCalculator": "Buka Kalkulator"
+  },
+  "languageSelector": {
+    "title": "Pilih Bahasa",
+    "subtitle": "Gunakan kalkulator umur dalam bahasa pilihan anda",
+    "searchPlaceholder": "Cari bahasa...",
+    "close": "Tutup"
+  },
+  "footer": {
+    "brandDescription": "Pengiraan umur dan kalendar dalam talian yang percuma, tepat dan selamat untuk semua orang.",
+    "coreCalculators": "Kalkulator Utama",
+    "specialtyTools": "Alat Khas",
+    "guide": "Panduan",
+    "company": "Syarikat",
+    "aboutUs": "Tentang Kami",
+    "contact": "Hubungi",
+    "privacy": "Dasar Privasi",
+    "terms": "Syarat Penggunaan",
+    "languages": "Bahasa",
+    "clientSideBadge": "100% Pengiraan Sisi Pelanggan",
+    "allRightsReserved": "Hak cipta terpelihara."
+  },
+  "errors": {
+    "invalidDate": "Sila masukkan tarikh yang sah.",
+    "futureDate": "Tarikh lahir tidak boleh pada masa hadapan.",
+    "requiredDate": "Medan tarikh diperlukan."
+  },
+  "tools": {
+    "age-calculator": {
+      "title": "Kalkulator Umur Tepat",
+      "desc": "Kira umur tepat anda dalam tahun, bulan, hari dan saat langsung serta-merta."
+    },
+    "birthday-calculator": {
+      "title": "Kalkulator Hari Lahir",
+      "desc": "Ketahui hari dalam seminggu anda dilahirkan dan masa sehingga hari lahir seterusnya."
+    },
+    "age-difference-calculator": {
+      "title": "Kalkulator Perbezaan Umur",
+      "desc": "Bandingkan perbezaan umur tepat antara dua individu dalam tahun, bulan dan hari."
+    },
+    "birthday-countdown": {
+      "title": "Kiraan Detik Hari Lahir",
+      "desc": "Pantau hari, jam, minit dan saat langsung sehingga hari lahir anda yang seterusnya."
+    },
+    "date-difference-calculator": {
+      "title": "Kalkulator Perbezaan Tarikh",
+      "desc": "Kira bilangan hari, minggu dan bulan antara mana-mana dua tarikh kalendar."
+    },
+    "date-of-birth-calculator": {
+      "title": "Kalkulator Tarikh Lahir",
+      "desc": "Cari tarikh lahir anggaran atau tepat berdasarkan umur dan tarikh rujukan."
+    },
+    "days-between-dates": {
+      "title": "Hari Antara Dua Tarikh",
+      "desc": "Kira hari bekerja, hujung minggu dan jumlah hari antara dua tarikh."
+    },
+    "chronological-age-calculator": {
+      "title": "Kalkulator Umur Kronologi",
+      "desc": "Kira umur kronologi dan umur diselaraskan untuk bayi pramatang."
+    },
+    "retirement-age-calculator": {
+      "title": "Kalkulator Umur Bersara",
+      "desc": "Rancang masa dan hari bekerja yang tinggal sehingga umur persaraan sasaran anda."
+    },
+    "leap-year-age-calculator": {
+      "title": "Kalkulator Tahun Lompat & 29 Feb",
+      "desc": "Ketahui sambutan hari lahir 29 Februari sebenar yang telah dilalui."
+    },
+    "how-to-calculate-age": {
+      "title": "Bagaimana Cara Mengira Umur?",
+      "desc": "Panduan terperinci mengenai peraturan kalendar dan pengiraan umur yang tepat."
+    }
+  },
+  "calculators": {
+    "birthday": {
+      "title": "Birthday & Milestone Calculator",
+      "desc": "Discover when your next birthday is, how many days remain, and see the exact days of the week for all your milestone birthdays.",
+      "dobLabel": "Tarikh Lahir",
+      "btnCalculate": "Kira Maklumat Hari Lahir",
+      "nextCountdown": "Next Birthday Countdown",
+      "daysUntil": "Days",
+      "turning": "until you turn",
+      "onDate": "Your next birthday falls on",
+      "todayBday": "Happy Birthday Today!",
+      "milestoneTitle": "Milestone Birthdays",
+      "age": "Age",
+      "year": "Year",
+      "date": "Date",
+      "dayOfWeek": "Day of Week",
+      "status": "Status",
+      "passed": "Passed",
+      "upcoming": "Upcoming"
+    },
+    "ageDifference": {
+      "title": "Age Difference Calculator",
+      "desc": "Compare two dates of birth to calculate the precise age gap in years, months, and days.",
+      "personA": "Orang A",
+      "personB": "Orang B",
+      "dobLabel": "Tarikh Lahir",
+      "btnCalculate": "Kira Perbezaan",
+      "resultTitle": "Hasil Perbezaan Umur",
+      "olderThan": "lebih tua daripada",
+      "by": "sebanyak:",
+      "totalDaysDiff": "Jumlah Perbezaan Hari",
+      "totalWeeksDiff": "Jumlah Perbezaan Minggu",
+      "copySummary": "Copy Summary",
+      "copied": "Copied to clipboard!",
+      "sameAge": "Both persons were born on the exact same date."
+    },
+    "dateDifference": {
+      "title": "Date Difference Calculator",
+      "desc": "Calculate the exact duration between any two calendar dates in years, months, and days.",
+      "startDate": "Tarikh Mula",
+      "endDate": "Tarikh Tamat",
+      "btnCalculate": "Kira Perbezaan Tarikh",
+      "resultTitle": "Perbezaan Antara Tarikh",
+      "diffYMD": "Difference",
+      "totalDays": "Jumlah Hari",
+      "totalWeeks": "Minggu",
+      "totalHours": "Jam",
+      "totalMinutes": "Minit",
+      "errorInvalid": "Please select valid start and end dates."
+    },
+    "dateOfBirth": {
+      "title": "Kalkulator Tarikh Lahir",
+      "desc": "Tentukan anggaran atau tarikh lahir tepat anda berdasarkan umur.",
+      "ageYears": "Tahun",
+      "ageMonths": "Bulan",
+      "ageDays": "Hari",
+      "asOfDate": "Umur Pada Tarikh",
+      "btnCalculate": "Cari Tarikh Lahir",
+      "resultTitle": "Tarikh Lahir Dikira",
+      "estimatedDob": "Estimated Date of Birth",
+      "dayBorn": "Hari Lahir"
+    },
+    "birthdayCountdown": {
+      "title": "Kiraan Detik Hari Lahir",
+      "desc": "Tonton saat-saat berlalu menuju hari lahir anda seterusnya secara langsung.",
+      "dobLabel": "Tarikh Lahir",
+      "days": "Hari",
+      "hours": "Jam",
+      "minutes": "Minit",
+      "seconds": "Saat",
+      "turningAge": "Menjelang Umur",
+      "nextBdayOn": "Tarikh Hari Lahir Seterusnya",
+      "happyBday": "Selamat hari lahir!"
+    },
+    "daysBetween": {
+      "title": "Hari Antara Dua Tarikh",
+      "desc": "Kira jumlah hari, hari bekerja dan hujung minggu antara dua tarikh kalendar.",
+      "startDate": "Tarikh Mula",
+      "endDate": "Tarikh Tamat",
+      "includeEndDay": "Sertakan hari tamat (+1 hari)",
+      "btnCalculate": "Kira Hari",
+      "totalDays": "Jumlah Hari",
+      "businessDays": "Hari Bekerja",
+      "weekendDays": "Hari Hujung Minggu",
+      "totalWeeks": "Minggu Penuh"
+    },
+    "chronological": {
+      "title": "Kalkulator Umur Kronologi",
+      "desc": "Kira umur kronologi dan umur diperbetulkan bagi penilaian pediatrik.",
+      "birthDate": "Tarikh Lahir",
+      "testDate": "Tarikh Ujian",
+      "weeksPremature": "Minggu Pramatang",
+      "btnCalculate": "Kira Umur Kronologi",
+      "chronologicalAge": "Umur Kronologi",
+      "notation": "Notasi Klinikal (T;B;H)",
+      "exactInterval": "Tempoh Masa Tepat",
+      "adjustedAge": "Umur Disesuaikan"
+    },
+    "retirement": {
+      "title": "Kalkulator Umur Bersara",
+      "desc": "Anggarkan masa dan hari bekerja yang tinggal sehingga persaraan sasaran.",
+      "birthDate": "Tarikh Lahir",
+      "currentAge": "Umur Semasa",
+      "targetAge": "Umur Persaraan Sasaran",
+      "asOfDate": "Tarikh Pengiraan",
+      "btnCalculate": "Kira Persaraan",
+      "yearsRemaining": "Tahun Berbaki",
+      "targetYear": "Tahun Persaraan Dijangka",
+      "workingDaysLeft": "Hari Bekerja Berbaki",
+      "alreadyReached": "Umur persaraan sasaran telah dicapai."
+    },
+    "leapYear": {
+      "title": "Kalkulator Tahun Lompat & 29 Feb",
+      "desc": "Ketahui sambutan hari lahir 29 Februari sebenar dan tarikh seterusnya.",
+      "dobLabel": "Tarikh Lahir",
+      "btnCalculate": "Periksa Tahun Lompat",
+      "leapYearsLived": "Hari 29 Feb Dihidup",
+      "actualBirthdays": "Hari Lahir Rasmi Tahun Lompat",
+      "nextLeapBirthday": "Hari Lahir 29 Feb Seterusnya",
+      "leapBabyBadge": "Bayi Tahun Lompat (29 Februari)"
+    },
+    "liveTicker": {
+      "title": "Detik Umur Masa Nyata",
+      "syncedLocal": "Disegerakkan dengan jam setempat peranti",
+      "asOfTarget": "Dikira pada tarikh sasaran",
+      "clock": "Jam",
+      "runningTotalSeconds": "Jumlah Saat Dihidup",
+      "seconds": "saat",
+      "solarOrbit": "Kemajuan Tahun Suria",
+      "completed": "Selesai",
+      "turnedAge": "Dicapai pada hari lahir lalu",
+      "turningAgeIn": "Menjelang umur dalam",
+      "bioMilestones": "Pencapaian Biologi",
+      "spaceTravel": "Perjalanan Angkasa & Planet",
+      "heartbeats": "Anggaran Denyutan Jantung",
+      "breaths": "Nafas Diambil",
+      "blinks": "Kelipan Mata",
+      "hoursSlept": "Jam Tidur",
+      "earthRotation": "Putaran Permukaan Bumi",
+      "sunOrbit": "Jarak Mengelilingi Matahari"
+    }
+  }
+}

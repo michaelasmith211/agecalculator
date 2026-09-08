@@ -27,6 +27,19 @@ import el from '../locales/el.json';
 import he from '../locales/he.json';
 import fa from '../locales/fa.json';
 import ur from '../locales/ur.json';
+import az from '../locales/az.json';
+import bg from '../locales/bg.json';
+import hr from '../locales/hr.json';
+import hu from '../locales/hu.json';
+import kk from '../locales/kk.json';
+import ms from '../locales/ms.json';
+import ro from '../locales/ro.json';
+import sk from '../locales/sk.json';
+import sr from '../locales/sr.json';
+import th from '../locales/th.json';
+import tl from '../locales/tl.json';
+import uz from '../locales/uz.json';
+import vi from '../locales/vi.json';
 
 export type TranslationSchema = typeof en;
 
@@ -57,7 +70,20 @@ export const DICTIONARIES: Record<string, TranslationSchema> = {
   el,
   he,
   fa,
-  ur
+  ur,
+  az,
+  bg,
+  hr,
+  hu,
+  kk,
+  ms,
+  ro,
+  sk,
+  sr,
+  th,
+  tl,
+  uz,
+  vi
 };
 
 /**

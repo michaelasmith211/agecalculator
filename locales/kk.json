@@ -1,0 +1,318 @@
+{
+  "meta": {
+    "homeTitle": "Жас Калькуляторы – Жыл, Ай және Күндер бойынша Нақты Жасты Есептеу",
+    "homeDescription": "Тегін онлайн жас калькуляторы. Нақты жасыңызды жылдар, айлар, күндер және секундтарда есептеңіз. Туған күнге кері санақ және өмірлік статистика.",
+    "homeH1": "Онлайн Жас Калькуляторы",
+    "homeSubtitle": "Григориан күнтізбесінің дәлдігімен жыл, ай, күн, сағат және тікелей секундтарда нақты жасыңызды есептеңіз."
+  },
+  "navigation": {
+    "home": "Басты бет",
+    "ageCalculator": "Жас Калькуляторы",
+    "birthday": "Туған Күн Калькуляторы",
+    "ageDifference": "Жас Айырмашылығы",
+    "dateDifference": "Күндер Айырмашылығы",
+    "dateOfBirth": "Туған Күн Мерзімі",
+    "moreTools": "Басқа Құралдар",
+    "allAgeTools": "Барлық Жас және Күн Құралдары",
+    "calculateAge": "Жасты Есептеу",
+    "calculateMyAgeNow": "Жасымды Қазір Есептеу",
+    "mainTools": "Негізгі Құралдар",
+    "moreCalculators": "Қосымша Калькуляторлар"
+  },
+  "calculator": {
+    "badge": "Күнтізбе мен Уақытты Дәл Есептеу",
+    "dobLabel": "Туған Күні",
+    "dobPlaceholder": "Туған күніңізді таңдаңыз",
+    "dobHelper": "Туған күніңізді, айыңызды және жылыңызды таңдаңыз (КК / АА / ЖЖЖЖ). Cookie файлдарында сақталады.",
+    "targetDateLabel": "Есептелетін Күн",
+    "useToday": "Бүгінгі Күнді Қолдану",
+    "changeDate": "Күнді Өзгерту",
+    "includeTime": "Нақты Туған Уақытын Қосу (Міндетті емес)",
+    "includeTimeHelper": "Минутына дейінгі дәлдік үшін",
+    "birthTimeLabel": "Туған Уақыты (Жергілікті Уақыт)",
+    "calculate": "Жасты Есептеу",
+    "reset": "Қалпына келтіру",
+    "clear": "Тазалау",
+    "copied": "Көшірілді!",
+    "copy": "Көшіру",
+    "print": "Басып шығару",
+    "yourExactAge": "Сіздің Нақты Жасыңыз",
+    "years": "Жыл",
+    "months": "Ай",
+    "days": "Күн",
+    "hours": "Сағат",
+    "minutes": "Минут",
+    "seconds": "Секунд",
+    "nextBirthday": "Келесі Туған Күн",
+    "daysRemaining": "күн қалды",
+    "turning": "Толатын жас",
+    "happyBirthday": "🎉 Бүгінгі туған күніңізбен!",
+    "totalDaysLived": "Жалпы Сүрілген Күндер",
+    "totalWeeks": "Жалпы Сүрілген Апталар",
+    "heartbeats": "Шамамен Жүрек Соғысы",
+    "solarOrbit": "Күн Жылының Прогресі",
+    "liveSeconds": "Өмір Сүрген Секундтар",
+    "timeBreakdown": "Толық Уақыт Талдауы",
+    "zodiacSign": "Зодиак Белгісі",
+    "chineseZodiac": "Шығыс Жұлдызнамасы",
+    "dayBorn": "Туған Апта Күні"
+  },
+  "features": {
+    "gregorianPrecisionTitle": "Григориан Дәлдігі",
+    "gregorianPrecisionDesc": "Кібісе жылдарды, 30/31 күндік айларды және 29 ақпанды секундқа дейін ескереді.",
+    "liveSecondsTitle": "Тікелей Секундтар Санағышы",
+    "liveSecondsDesc": "Құрылғыңыздың жергілікті сағатымен синхрондалған нақты уақыттағы жас санауышы.",
+    "privateAndFreeTitle": "100% Құпия және Тегін",
+    "privateAndFreeDesc": "Тіркелусіз және деректерді серверге жібермей. Барлық есептеулер браузеріңізде орындалады."
+  },
+  "howItWorks": {
+    "title": "Жас Калькуляторы Қалай Жұмыс Істейді",
+    "subtitle": "Күнтізбе күндері, айларды ауыстыру және секундтарды есептеу алгоритмінің анық түсіндірмесі."
+  },
+  "faq": {
+    "title": "Жиі Қойылатын Сұрақтар (ЖҚС)",
+    "items": [
+      {
+        "question": "Калькулятор нақты жасты қалай есептейді?",
+        "answer": "Ол туған күнді Григориан күнтізбесінің ережелері бойынша мақсатты күнмен салыстырып, толық жылдарды, айларды және күндерді есептейді."
+      },
+      {
+        "question": "Кібісе жылдар ескеріле ме?",
+        "answer": "Иә. 29 ақпанда туғандар үшін ресми төрт жылдық кібісе циклдері қолданылады."
+      },
+      {
+        "question": "Тікелей секунд өлшеуіш қаншалықты дәл?",
+        "answer": "Ол әр секунд сайын құрылғыңыздың жүйелік сағатымен нақты уақытта синхрондалады."
+      },
+      {
+        "question": "Менің жеке деректерім қауіпсіз бе?",
+        "answer": "Иә, 100%. Барлық есептеулер тікелей браузеріңізде жасалады, серверге дерек жіберілмейді."
+      },
+      {
+        "question": "Екі адамның арасындағы жас айырмашылығын есептеуге бола ма?",
+        "answer": "Иә, екі туған күнді жылдар, айлар және күндермен салыстыру үшін 'Жас Айырмашылығы Калькуляторын' қолданыңыз."
+      }
+    ]
+  },
+  "breadcrumbs": {
+    "home": "Басты"
+  },
+  "related": {
+    "title": "Байланысты Жас және Күн Құралдары",
+    "description": "Күнтізбелік және уақыттық есептеулерге арналған басқа тегін құралдарымызды қараңыз.",
+    "openCalculator": "Калькуляторды Ашу"
+  },
+  "languageSelector": {
+    "title": "Тілді Таңдаңыз",
+    "subtitle": "Жас калькуляторын өз тіліңізде қолданыңыз",
+    "searchPlaceholder": "Тілдерді іздеу...",
+    "close": "Жабу"
+  },
+  "footer": {
+    "brandDescription": "Барлығына арналған тегін, дәл және қауіпсіз онлайн жас пен күнтізбе есептеулері.",
+    "coreCalculators": "Негізгі Калькуляторлар",
+    "specialtyTools": "Арнайы Құралдар",
+    "guide": "Нұсқаулық",
+    "company": "Компания",
+    "aboutUs": "Біз туралы",
+    "contact": "Байланыс",
+    "privacy": "Құпиялылық Саясаты",
+    "terms": "Қолдану Шарттары",
+    "languages": "Тілдер",
+    "clientSideBadge": "100% Браузердегі Жергілікті Есептеу",
+    "allRightsReserved": "Барлық құқықтар қорғалған."
+  },
+  "errors": {
+    "invalidDate": "Дұрыс күнді енгізіңіз.",
+    "futureDate": "Туған күн болашақта болмауы керек.",
+    "requiredDate": "Күн өрісі толтырылуы тиіс."
+  },
+  "tools": {
+    "age-calculator": {
+      "title": "Нақты Жас Калькуляторы",
+      "desc": "Жыл, ай, күн және тікелей секундтарда нақты жасыңызды бірден есептеңіз."
+    },
+    "birthday-calculator": {
+      "title": "Туған Күн Калькуляторы",
+      "desc": "Қай апта күні туғаныңызды және келесі туған күнге қанша уақыт қалғанын біліңіз."
+    },
+    "age-difference-calculator": {
+      "title": "Жас Айырмашылығы Калькуляторы",
+      "desc": "Екі адамның нақты жас айырмашылығын жылдар, айлар және күндерде салыстырыңыз."
+    },
+    "birthday-countdown": {
+      "title": "Туған Күнге Кері Санақ",
+      "desc": "Келесі туған күніңізге дейінгі күн, сағат, минут және секундтарды тікелей бақылаңыз."
+    },
+    "date-difference-calculator": {
+      "title": "Күндер Айырмашылығы Калькуляторы",
+      "desc": "Кез келген екі күнтізбе күні арасындағы күндер, апталар және айлар санын есептеңіз."
+    },
+    "date-of-birth-calculator": {
+      "title": "Туған Күнді Анықтау Калькуляторы",
+      "desc": "Белгілі жас пен салыстырмалы күн негізінде туған күніңізді анықтаңыз."
+    },
+    "days-between-dates": {
+      "title": "Күндер Арасындағы Мерзім",
+      "desc": "Екі күн арасындағы жұмыс күндерін, демалыстарды және жалпы күндерді есептеңіз."
+    },
+    "chronological-age-calculator": {
+      "title": "Хронологиялық Жас Калькуляторы",
+      "desc": "Шала туған сәбилер үшін түзетілген және хронологиялық жасты есептеңіз."
+    },
+    "retirement-age-calculator": {
+      "title": "Зейнет Жасы Калькуляторы",
+      "desc": "Мақсатты зейнет жасына дейінгі қалған уақыт пен жұмыс күндерін есептеңіз."
+    },
+    "leap-year-age-calculator": {
+      "title": "Кібісе Жыл және 29 Ақпан Калькуляторы",
+      "desc": "29 ақпанда туғандар үшін нақты атап өткен туған күндерін біліңіз."
+    },
+    "how-to-calculate-age": {
+      "title": "Жасты Қалай Есептейді?",
+      "desc": "Күнтізбе ережелері мен жасты дәл есептеу туралы толық нұсқаулық."
+    }
+  },
+  "calculators": {
+    "birthday": {
+      "title": "Birthday & Milestone Calculator",
+      "desc": "Discover when your next birthday is, how many days remain, and see the exact days of the week for all your milestone birthdays.",
+      "dobLabel": "Туған Күні",
+      "btnCalculate": "Туған Күнді Есептеу",
+      "nextCountdown": "Next Birthday Countdown",
+      "daysUntil": "Days",
+      "turning": "until you turn",
+      "onDate": "Your next birthday falls on",
+      "todayBday": "Happy Birthday Today!",
+      "milestoneTitle": "Milestone Birthdays",
+      "age": "Age",
+      "year": "Year",
+      "date": "Date",
+      "dayOfWeek": "Day of Week",
+      "status": "Status",
+      "passed": "Passed",
+      "upcoming": "Upcoming"
+    },
+    "ageDifference": {
+      "title": "Age Difference Calculator",
+      "desc": "Compare two dates of birth to calculate the precise age gap in years, months, and days.",
+      "personA": "Адам A",
+      "personB": "Адам B",
+      "dobLabel": "Туған Күні",
+      "btnCalculate": "Айырмашылықты Есептеу",
+      "resultTitle": "Жас Айырмашылығы Нәтижесі",
+      "olderThan": "үлкенірек",
+      "by": "айырмашылығы:",
+      "totalDaysDiff": "Жалпы Күндер Айырмашылығы",
+      "totalWeeksDiff": "Жалпы Апталар Айырмашылығы",
+      "copySummary": "Copy Summary",
+      "copied": "Copied to clipboard!",
+      "sameAge": "Both persons were born on the exact same date."
+    },
+    "dateDifference": {
+      "title": "Date Difference Calculator",
+      "desc": "Calculate the exact duration between any two calendar dates in years, months, and days.",
+      "startDate": "Басталу Күні",
+      "endDate": "Аяқталу Күні",
+      "btnCalculate": "Күндер Айырмашылығын Есептеу",
+      "resultTitle": "Күндер Арасындағы Айырмашылық",
+      "diffYMD": "Difference",
+      "totalDays": "Жалпы Күндер",
+      "totalWeeks": "Апталар",
+      "totalHours": "Сағаттар",
+      "totalMinutes": "Минуттар",
+      "errorInvalid": "Please select valid start and end dates."
+    },
+    "dateOfBirth": {
+      "title": "Туған Күн Калькуляторы",
+      "desc": "Жасыңызға байланысты болжамды немесе нақты туған күніңізді табыңыз.",
+      "ageYears": "Жыл",
+      "ageMonths": "Ай",
+      "ageDays": "Күн",
+      "asOfDate": "Есептелетін Күн",
+      "btnCalculate": "Туған Күнді Табу",
+      "resultTitle": "Есептелген Туған Күн",
+      "estimatedDob": "Estimated Date of Birth",
+      "dayBorn": "Туған Күн Аптасы"
+    },
+    "birthdayCountdown": {
+      "title": "Туған Күнге Кері Санақ",
+      "desc": "Келесі туған күніңізге дейінгі уақытты нақты уақытта бақылаңыз.",
+      "dobLabel": "Туған Күні",
+      "days": "Күн",
+      "hours": "Сағат",
+      "minutes": "Минут",
+      "seconds": "Секунд",
+      "turningAge": "Толатын Жас",
+      "nextBdayOn": "Келесі Туған Күн Мерзімі",
+      "happyBday": "Туған күніңізбен!"
+    },
+    "daysBetween": {
+      "title": "Күндер Арасындағы Мерзім",
+      "desc": "Екі күнтізбе күні арасындағы нақты күндерді, жұмыс күндерін және демалыстарды есептеңіз.",
+      "startDate": "Басталу Күні",
+      "endDate": "Аяқталу Күні",
+      "includeEndDay": "Соңғы күнді қосу (+1 күн)",
+      "btnCalculate": "Күндерді Есептеу",
+      "totalDays": "Жалпы Күндер",
+      "businessDays": "Жұмыс Күндері",
+      "weekendDays": "Демалыс Күндері",
+      "totalWeeks": "Толық Апталар"
+    },
+    "chronological": {
+      "title": "Хронологиялық Жас Калькуляторы",
+      "desc": "Шала туған нәрестелерді бағалау үшін хронологиялық және түзетілген жасты есептеңіз.",
+      "birthDate": "Туған Күні",
+      "testDate": "Тексеру Күні",
+      "weeksPremature": "Шала Туған Апталар",
+      "btnCalculate": "Хронологиялық Жасты Есептеу",
+      "chronologicalAge": "Хронологиялық Жас",
+      "notation": "Клиникалық Жазу (Ж;А;К)",
+      "exactInterval": "Өткен Нақты Мерзім",
+      "adjustedAge": "Түзетілген Жас"
+    },
+    "retirement": {
+      "title": "Зейнет Жасы Калькуляторы",
+      "desc": "Зейнетке шығуға дейінгі қалған уақыт пен жұмыс күндерін есептеңіз.",
+      "birthDate": "Туған Күні",
+      "currentAge": "Қазіргі Жас",
+      "targetAge": "Мақсатты Зейнет Жасы",
+      "asOfDate": "Есептеу Күні",
+      "btnCalculate": "Зейнетті Есептеу",
+      "yearsRemaining": "Қалған Жылдар",
+      "targetYear": "Болжалды Зейнет Жылы",
+      "workingDaysLeft": "Қалған Жұмыс Күндері",
+      "alreadyReached": "Зейнет жасына жеттіңіз."
+    },
+    "leapYear": {
+      "title": "Кібісе Жыл және 29 Ақпан Калькуляторы",
+      "desc": "29 ақпанда туғандардың ресми мерейтойларын және келесі күнді біліңіз.",
+      "dobLabel": "Туған Күні",
+      "btnCalculate": "Кібісе Жылды Тексеру",
+      "leapYearsLived": "Өмір Сүрген 29 Ақпандар",
+      "actualBirthdays": "Ресми Кібісе Туған Күндер",
+      "nextLeapBirthday": "Келесі 29 Ақпан Туған Күні",
+      "leapBabyBadge": "Кібісе Күн Сәбиі (29 ақпан)"
+    },
+    "liveTicker": {
+      "title": "Тікелей Жас Санауышы",
+      "syncedLocal": "Құрылғының жергілікті сағатымен синхрондалған",
+      "asOfTarget": "Мақсатты күн үшін есептелген",
+      "clock": "Сағат",
+      "runningTotalSeconds": "Жалпы Өмір Сүрген Секундтар",
+      "seconds": "секунд",
+      "solarOrbit": "Күн Жылының Прогресі",
+      "completed": "Орындалды",
+      "turnedAge": "Өткен туған күнде толған",
+      "turningAgeIn": "Толуына қалды",
+      "bioMilestones": "Биологиялық Кезеңдер",
+      "spaceTravel": "Ғарыштық және Планеталық Саяхат",
+      "heartbeats": "Шамамен Жүрек Соғысы",
+      "breaths": "Алынған Тыныс",
+      "blinks": "Көз Жыпылықтауы",
+      "hoursSlept": "Ұйқы Сағаттары",
+      "earthRotation": "Жер Бетінің Айналу Қашықтығы",
+      "sunOrbit": "Күнді Айналу Қашықтығы"
+    }
+  }
+}

@@ -1,0 +1,318 @@
+{
+  "meta": {
+    "homeTitle": "Yaş Kalkulyatoru – İllər, Aylar və Günlərlə Dəqiq Yaşı Hesabla",
+    "homeDescription": "Pulsuz onlayn yaş kalkulyatoru. İllər, aylar, günlər və canlı axan saniyələrlə dəqiq yaşınızı hesablayın. Ad günü geri sayımı və həyat statistikası.",
+    "homeH1": "Onlayn Yaş Kalkulyatoru",
+    "homeSubtitle": "Qriqorian təqvimi dəqiqliyi ilə illər, aylar, günlər, saatlar və canlı saniyələrlə dəqiq xronoloji yaşınızı hesablayın."
+  },
+  "navigation": {
+    "home": "Əsas Səhifə",
+    "ageCalculator": "Yaş Kalkulyatoru",
+    "birthday": "Ad Günü Kalkulyatoru",
+    "ageDifference": "Yaş Fərqi",
+    "dateDifference": "Tarix Fərqi",
+    "dateOfBirth": "Doğum Tarixi",
+    "moreTools": "Digər Alətlər",
+    "allAgeTools": "Bütün Yaş və Tarix Alətləri",
+    "calculateAge": "Yaşı Hesabla",
+    "calculateMyAgeNow": "Yaşımı İndi Hesabla",
+    "mainTools": "Əsas Alətlər",
+    "moreCalculators": "Daha Çox Kalkulyator"
+  },
+  "calculator": {
+    "badge": "Dərhal Təqvim və Dəqiq Vaxt Hesablanması",
+    "dobLabel": "Doğum Tarixi",
+    "dobPlaceholder": "Doğum tarixinizi seçin",
+    "dobHelper": "Doğum gününüzü, ayınızı və ilinizi seçin (GG / AA / İİİİ). Kukilərdə lokal olaraq saxlanılır.",
+    "targetDateLabel": "Hesablama Tarixi",
+    "useToday": "Bu Günü İstifadə Et",
+    "changeDate": "Tarixi Dəyiş",
+    "includeTime": "Dəqiq Doğum Saatını Daxil Et (İstəyə görə)",
+    "includeTimeHelper": "Dəqiqəsinə qədər dəqiqlik üçün",
+    "birthTimeLabel": "Doğum Vaxtı (Yerli Vaxt)",
+    "calculate": "Yaşı Hesabla",
+    "reset": "Sıfırla",
+    "clear": "Təmizlə",
+    "copied": "Kopyalandı!",
+    "copy": "Kopyala",
+    "print": "Çap Et",
+    "yourExactAge": "Dəqiq Yaşınız",
+    "years": "İl",
+    "months": "Ay",
+    "days": "Gün",
+    "hours": "Saat",
+    "minutes": "Dəqiqə",
+    "seconds": "Saniyə",
+    "nextBirthday": "Növbəti Ad Günü",
+    "daysRemaining": "gün qaldı",
+    "turning": "Yaşınız tamam olacaq",
+    "happyBirthday": "🎉 Bu gün ad gününüz mübarək!",
+    "totalDaysLived": "Ümumi Yaşanmış Günlər",
+    "totalWeeks": "Ümumi Yaşanmış Həftələr",
+    "heartbeats": "Təxmini Ürək Döyüntüləri",
+    "solarOrbit": "Günəş İli Tərəqqisi",
+    "liveSeconds": "Canlı Yaşanmış Saniyələr",
+    "timeBreakdown": "Ətraflı Vaxt Bölgüsü",
+    "zodiacSign": "Bürclər",
+    "chineseZodiac": "Şərq Təqvimi",
+    "dayBorn": "Doğulduğunuz Həftə Günü"
+  },
+  "features": {
+    "gregorianPrecisionTitle": "Qriqorian Dəqiqliyi",
+    "gregorianPrecisionDesc": "Artıq illəri, 30/31 günlük ayları və 29 fevralı saniyəsinə qədər nəzərə alır.",
+    "liveSecondsTitle": "Real Vaxt Ticker",
+    "liveSecondsDesc": "Cihazınızın yerli saatı ilə sinxronlaşdırılmış real vaxt yaş sayğacı.",
+    "privateAndFreeTitle": "100% Məxfi və Pulsuz",
+    "privateAndFreeDesc": "Serverə heç bir məlumat göndərilmir. Bütün hesablamalar birbaşa brauzerinizdə aparılır."
+  },
+  "howItWorks": {
+    "title": "Yaş Kalkulyatoru Necə İşləyir",
+    "subtitle": "Təqvim günləri, keçid ayları və saniyələrin hesablanması alqoritminin şəffaf izahı."
+  },
+  "faq": {
+    "title": "Tez-tez Verilən Suallar (FAQ)",
+    "items": [
+      {
+        "question": "Kalkulyator dəqiq yaşı necə hesablayır?",
+        "answer": "O, doğum tarixinizi Qriqorian təqvimi qaydalarına əsasən hədəf tarixlə müqayisə edərək tam illəri, ayları və qalan günləri hesablayır."
+      },
+      {
+        "question": "Artıq illər nəzərə alınırmı?",
+        "answer": "Bəli. 29 fevralda doğulanlar üçün dördillik təqvim dövrləri tam tətbiq olunur."
+      },
+      {
+        "question": "Canlı saniyəölçən nə dərəcədə dəqiqdir?",
+        "answer": "O, cihazınızın sistem saatı ilə hər saniyə real vaxtda sinxronlaşır."
+      },
+      {
+        "question": "Şəxsi məlumatlarım təhlükəsizdirmi?",
+        "answer": "Bəli, 100%. Bütün hesablamalar birbaşa brauzerinizdə həyata keçirilir və heç bir məlumat serverə göndərilmir."
+      },
+      {
+        "question": "İki şəxs arasındakı yaş fərqini hesablamaq mümkündürmü?",
+        "answer": "Bəli, iki tarixi illər, aylar və günlərlə müqayisə etmək üçün 'Yaş Fərqi Kalkulyatoru'ndan istifadə edin."
+      }
+    ]
+  },
+  "breadcrumbs": {
+    "home": "Əsas"
+  },
+  "related": {
+    "title": "Əlaqədar Tarix və Yaş Alətləri",
+    "description": "Müxtəlif təqvim və zaman hesablamaları üçün digər pulsuz alətlərimizi kəşf edin.",
+    "openCalculator": "Kalkulyatoru Aç"
+  },
+  "languageSelector": {
+    "title": "Dili Seçin",
+    "subtitle": "Seçdiyiniz dildə yaş kalkulyatorundan istifadə edin",
+    "searchPlaceholder": "Dilləri axtarın...",
+    "close": "Bağla"
+  },
+  "footer": {
+    "brandDescription": "Hər kəs üçün pulsuz, dəqiq və təhlükəsiz onlayn yaş və təqvim hesablamaları.",
+    "coreCalculators": "Əsas Kalkulyatorlar",
+    "specialtyTools": "Xüsusi Alətlər",
+    "guide": "Bələdçi",
+    "company": "Şirkət",
+    "aboutUs": "Haqqımızda",
+    "contact": "Əlaqə",
+    "privacy": "Məxfilik Siyasəti",
+    "terms": "İstifadə Şərtləri",
+    "languages": "Dillər",
+    "clientSideBadge": "100% Müştəri Tərəfli Hesablama",
+    "allRightsReserved": "Bütün hüquqlar qorunur."
+  },
+  "errors": {
+    "invalidDate": "Zəhmət olmasa düzgün tarix daxil edin.",
+    "futureDate": "Doğum tarixi gələcəkdə ola bilməz.",
+    "requiredDate": "Tarix sahəsi tələb olunur."
+  },
+  "tools": {
+    "age-calculator": {
+      "title": "Dəqiq Yaş Kalkulyatoru",
+      "desc": "İllər, aylar, günlər və canlı saniyələrlə dəqiq yaşınızı dərhal hesablayın."
+    },
+    "birthday-calculator": {
+      "title": "Ad Günü Kalkulyatoru",
+      "desc": "Doğulduğunuz həftənin gününü və növbəti ad gününüzə qalan vaxtı öyrənin."
+    },
+    "age-difference-calculator": {
+      "title": "Yaş Fərqi Kalkulyatoru",
+      "desc": "İki nəfər arasındakı dəqiq yaş fərqini illər, aylar və günlərlə müqayisə edin."
+    },
+    "birthday-countdown": {
+      "title": "Ad Günü Geri Sayımı",
+      "desc": "Növbəti ad gününüzə qalan gün, saat, dəqiqə və saniyələri canlı izləyin."
+    },
+    "date-difference-calculator": {
+      "title": "Tarix Fərqi Kalkulyatoru",
+      "desc": "İstənilən iki təqvim tarixi arasındakı günləri, həftələri və ayları hesablayın."
+    },
+    "date-of-birth-calculator": {
+      "title": "Doğum Tarixi Kalkulyatoru",
+      "desc": "Məlum yaş və istinad tarixinə əsasən doğum tarixinizi dəqiq tapın."
+    },
+    "days-between-dates": {
+      "title": "Tarixlər Arasındakı Günlər",
+      "desc": "İki tarix arasındakı iş günləri və istirahət günlərini hesablayın."
+    },
+    "chronological-age-calculator": {
+      "title": "Xronoloji Yaş Kalkulyatoru",
+      "desc": "Erkən doğulan körpələr üçün tənzimlənmiş və xronoloji yaşı hesablayın."
+    },
+    "retirement-age-calculator": {
+      "title": "Təqaüd Yaşı Kalkulyatoru",
+      "desc": "Hədəf təqaüd yaşınıza qədər qalan vaxtı və iş günlərini planlaşdırın."
+    },
+    "leap-year-age-calculator": {
+      "title": "Artıq İl və 29 Fevral Kalkulyatoru",
+      "desc": "29 fevralda doğulanlar üçün rəsmi ad günlərini və artıq il yaşını öyrənin."
+    },
+    "how-to-calculate-age": {
+      "title": "Yaş Necə Hesablanır?",
+      "desc": "Dəqiq təqvim və yaş hesablaması qaydaları haqqında ətraflı bələdçi."
+    }
+  },
+  "calculators": {
+    "birthday": {
+      "title": "Birthday & Milestone Calculator",
+      "desc": "Discover when your next birthday is, how many days remain, and see the exact days of the week for all your milestone birthdays.",
+      "dobLabel": "Doğum Tarixi",
+      "btnCalculate": "Ad Günü Məlumatını Hesabla",
+      "nextCountdown": "Next Birthday Countdown",
+      "daysUntil": "Days",
+      "turning": "until you turn",
+      "onDate": "Your next birthday falls on",
+      "todayBday": "Happy Birthday Today!",
+      "milestoneTitle": "Milestone Birthdays",
+      "age": "Age",
+      "year": "Year",
+      "date": "Date",
+      "dayOfWeek": "Day of Week",
+      "status": "Status",
+      "passed": "Passed",
+      "upcoming": "Upcoming"
+    },
+    "ageDifference": {
+      "title": "Age Difference Calculator",
+      "desc": "Compare two dates of birth to calculate the precise age gap in years, months, and days.",
+      "personA": "Şəxs A",
+      "personB": "Şəxs B",
+      "dobLabel": "Doğum Tarixi",
+      "btnCalculate": "Fərqi Hesabla",
+      "resultTitle": "Yaş Fərqi Nəticəsi",
+      "olderThan": "daha böyükdür",
+      "by": "fərq:",
+      "totalDaysDiff": "Ümumi Gün Fərqi",
+      "totalWeeksDiff": "Ümumi Həftə Fərqi",
+      "copySummary": "Copy Summary",
+      "copied": "Copied to clipboard!",
+      "sameAge": "Both persons were born on the exact same date."
+    },
+    "dateDifference": {
+      "title": "Date Difference Calculator",
+      "desc": "Calculate the exact duration between any two calendar dates in years, months, and days.",
+      "startDate": "Başlanğıc Tarixi",
+      "endDate": "Bitiş Tarixi",
+      "btnCalculate": "Tarix Fərqini Hesabla",
+      "resultTitle": "Tarix Fərqi",
+      "diffYMD": "Difference",
+      "totalDays": "Ümumi Günlər",
+      "totalWeeks": "Həftələr",
+      "totalHours": "Saatlar",
+      "totalMinutes": "Dəqiqələr",
+      "errorInvalid": "Please select valid start and end dates."
+    },
+    "dateOfBirth": {
+      "title": "Doğum Tarixi Kalkulyatoru",
+      "desc": "Yaşınıza əsasən təxmini və ya dəqiq doğum tarixinizi müəyyən edin.",
+      "ageYears": "İl",
+      "ageMonths": "Ay",
+      "ageDays": "Gün",
+      "asOfDate": "Hesablama Tarixi",
+      "btnCalculate": "Doğum Tarixini Tap",
+      "resultTitle": "Hesablanmış Doğum Tarixi",
+      "estimatedDob": "Estimated Date of Birth",
+      "dayBorn": "Doğulduğunuz Gün"
+    },
+    "birthdayCountdown": {
+      "title": "Ad Günü Geri Sayımı",
+      "desc": "Növbəti ad gününüzə qalan vaxtı real vaxtda izləyin.",
+      "dobLabel": "Doğum Tarixi",
+      "days": "Gün",
+      "hours": "Saat",
+      "minutes": "Dəqiqə",
+      "seconds": "Saniyə",
+      "turningAge": "Gələcək Yaş",
+      "nextBdayOn": "Növbəti Ad Günü Tarixi",
+      "happyBday": "Ad gününüz mübarək!"
+    },
+    "daysBetween": {
+      "title": "Tarixlər Arasındakı Günlər Kalkulyatoru",
+      "desc": "İki tarix arasındakı ümumi günləri, iş günlərini və həftəsonlarını hesablayın.",
+      "startDate": "Başlanğıc Tarixi",
+      "endDate": "Bitiş Tarixi",
+      "includeEndDay": "Bitiş gününü daxil et (+1 gün)",
+      "btnCalculate": "Günləri Hesabla",
+      "totalDays": "Ümumi Günlər",
+      "businessDays": "İş Günləri",
+      "weekendDays": "Həftəsonu Günləri",
+      "totalWeeks": "Tam Həftələr"
+    },
+    "chronological": {
+      "title": "Xronoloji Yaş Kalkulyatoru",
+      "desc": "Klinik və inkişaf qiymətləndirmələri üçün xronoloji və düzəliş edilmiş yaşı hesablayın.",
+      "birthDate": "Doğum Tarixi",
+      "testDate": "Qiymətləndirmə Tarixi",
+      "weeksPremature": "Erkən Doğum Həftələri",
+      "btnCalculate": "Xronoloji Yaşı Hesabla",
+      "chronologicalAge": "Xronoloji Yaş",
+      "notation": "Klinik Qeyd (İ;A;G)",
+      "exactInterval": "Dəqiq Keçən Müddət",
+      "adjustedAge": "Düzəliş Edilmiş Yaş"
+    },
+    "retirement": {
+      "title": "Təqaüd Yaşı Kalkulyatoru",
+      "desc": "Hədəf təqaüd yaşınıza qədər qalan vaxtı və iş günlərini təxmin edin.",
+      "birthDate": "Doğum Tarixi",
+      "currentAge": "Hazırkı Yaş",
+      "targetAge": "Hədəf Təqaüd Yaşı",
+      "asOfDate": "Hesablama Tarixi",
+      "btnCalculate": "Təqaüd Vaxtını Hesabla",
+      "yearsRemaining": "Təqaüdə Qalan İllər",
+      "targetYear": "Gözlənilən Təqaüd İli",
+      "workingDaysLeft": "Təxmini Qalan İş Günləri",
+      "alreadyReached": "Hədəf təqaüd yaşına çatmısınız."
+    },
+    "leapYear": {
+      "title": "Artıq İl və 29 Fevral Kalkulyatoru",
+      "desc": "Fevralın 29-da doğulanlar üçün faktiki qeyd olunan ad günlərini və növbəti təqvim tarixini öyrənin.",
+      "dobLabel": "Doğum Tarixi",
+      "btnCalculate": "Artıq İl Məlumatını Yoxla",
+      "leapYearsLived": "Yaşanmış 29 Fevrallar",
+      "actualBirthdays": "Rəsmi Qeyd Olunan Ad Günləri",
+      "nextLeapBirthday": "Növbəti 29 Fevral Ad Günü",
+      "leapBabyBadge": "Artıq İl Doğumlusu (29 Fevral)"
+    },
+    "liveTicker": {
+      "title": "Canlı Real Vaxt Yaş Ticker",
+      "syncedLocal": "Cihazınızın yerli saatı ilə sinxronlaşdırılıb",
+      "asOfTarget": "Hədəf tarix üçün hesablanıb",
+      "clock": "Saat",
+      "runningTotalSeconds": "Ümumi Yaşanmış Saniyələr",
+      "seconds": "saniyə",
+      "solarOrbit": "Günəş İli Tərəqqisi",
+      "completed": "Tamamlandı",
+      "turnedAge": "Son ad günündə tamamlanan",
+      "turningAgeIn": "Tamamlanmasına qalır",
+      "bioMilestones": "Bioloji Mərhələlər",
+      "spaceTravel": "Kosmik və Planetar Səyahət",
+      "heartbeats": "Təxmini Ürək Döyüntüləri",
+      "breaths": "Alınan Nəfəslər",
+      "blinks": "Göz Qırpımları",
+      "hoursSlept": "Yatılan Saatlar",
+      "earthRotation": "Yerin Fırlanma Məsafəsi",
+      "sunOrbit": "Günəş Ətrafında Qət Edilən Məsafə"
+    }
+  }
+}

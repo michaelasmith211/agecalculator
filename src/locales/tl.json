@@ -1,0 +1,318 @@
+{
+  "meta": {
+    "homeTitle": "Kalkulator ng Edad – Kalkulahin ang Eksaktong Edad sa Taon, Buwan at Araw",
+    "homeDescription": "Libreng online na kalkulator ng edad. Alamin ang iyong eksaktong edad sa mga taon, buwan, araw, at live na segundo. Countdown sa kaarawan at mga estadistika sa buhay.",
+    "homeH1": "Online na Kalkulator ng Edad",
+    "homeSubtitle": "Kalkulahin ang iyong eksaktong kronolohikal na edad sa mga taon, buwan, araw, oras, at live na segundo nang may katumpakan ng kalendaryong Gregorian."
+  },
+  "navigation": {
+    "home": "Tahanan",
+    "ageCalculator": "Kalkulator ng Edad",
+    "birthday": "Kalkulator ng Kaarawan",
+    "ageDifference": "Pagkakaiba sa Edad",
+    "dateDifference": "Pagkakaiba sa Petsa",
+    "dateOfBirth": "Petsa ng Kapanganakan",
+    "moreTools": "Iba Pang Kasangkapan",
+    "allAgeTools": "Lahat ng Kasangkapan sa Edad at Petsa",
+    "calculateAge": "Kalkulahin ang Edad",
+    "calculateMyAgeNow": "Kalkulahin ang Aking Edad",
+    "mainTools": "Pangunahing Kasangkapan",
+    "moreCalculators": "Higit Pang Kalkulator"
+  },
+  "calculator": {
+    "badge": "Mabilis at Tumpak na Pagkalkula ng Kalendaryo at Oras",
+    "dobLabel": "Petsa ng Kapanganakan",
+    "dobPlaceholder": "Piliin ang iyong petsa ng kapanganakan",
+    "dobHelper": "Piliin ang iyong araw, buwan, at taon ng kapanganakan (DD / MM / YYYY). Naka-save nang lokal sa cookies.",
+    "targetDateLabel": "Edad sa Petsang",
+    "useToday": "Gamitin ang Araw na Ito",
+    "changeDate": "Baguhin ang Petsa",
+    "includeTime": "Isama ang Eksaktong Oras ng Kapanganakan (Opsyonal)",
+    "includeTimeHelper": "Para sa katumpakan bawat minuto",
+    "birthTimeLabel": "Oras ng Kapanganakan (Lokal na Oras)",
+    "calculate": "Kalkulahin ang Edad",
+    "reset": "I-reset",
+    "clear": "Linisin",
+    "copied": "Nakopya na!",
+    "copy": "Kopyahin",
+    "print": "I-print",
+    "yourExactAge": "Ang Iyong Eksaktong Edad",
+    "years": "Taon",
+    "months": "Buwan",
+    "days": "Araw",
+    "hours": "Oras",
+    "minutes": "Minuto",
+    "seconds": "Segundo",
+    "nextBirthday": "Susunod na Kaarawan",
+    "daysRemaining": "natitirang araw",
+    "turning": "Papatak sa edad na",
+    "happyBirthday": "🎉 Maligayang kaarawan ngayon!",
+    "totalDaysLived": "Kabuuang Araw na Nabuhay",
+    "totalWeeks": "Kabuuang Linggo na Nabuhay",
+    "heartbeats": "Tinatayang Tibok ng Puso",
+    "solarOrbit": "Pagsulong ng Taon ng Araw",
+    "liveSeconds": "Kabuuang Segundo na Nabuhay nang Live",
+    "timeBreakdown": "Detalyadong Paghahati ng Oras",
+    "zodiacSign": "Zodiac Sign",
+    "chineseZodiac": "Chinese Horoscope",
+    "dayBorn": "Araw sa Linggo ng Kapanganakan"
+  },
+  "features": {
+    "gregorianPrecisionTitle": "Katumpakang Gregorian",
+    "gregorianPrecisionDesc": "Isinasaalang-alang ang mga leap year, 30/31 araw na buwan, at Pebrero 29 nang may katumpakan bawat segundo.",
+    "liveSecondsTitle": "Real-Time na Ticker ng Segundo",
+    "liveSecondsDesc": "Live na tagabilang ng edad na naka-sync sa lokal na orasan ng iyong device.",
+    "privateAndFreeTitle": "100% Pribado at Libre",
+    "privateAndFreeDesc": "Walang pagpaparehistro at walang data na ipinapadala sa server. Lahat ng kalkulasyon ay ginagawa sa iyong browser."
+  },
+  "howItWorks": {
+    "title": "Paano Gumagana ang Kalkulator ng Edad",
+    "subtitle": "Malinaw na paliwanag sa algorithm para sa mga araw ng kalendaryo, paglilipat ng buwan, at pagkalkula ng segundo."
+  },
+  "faq": {
+    "title": "Mga Madalas Itanong (FAQ)",
+    "items": [
+      {
+        "question": "Paano kinakalkula ng tool ang eksaktong edad?",
+        "answer": "Inihahambing nito ang petsa ng kapanganakan sa target na petsa ayon sa kalendaryong Gregorian, binibilang ang mga buong taon, buwan, at natitirang araw."
+      },
+      {
+        "question": "Isinasaalang-alang ba ang mga leap year?",
+        "answer": "Oo. Para sa mga ipinanganak noong Pebrero 29, inilalapat ang opisyal na 4-taong siklo ng leap year."
+      },
+      {
+        "question": "Gaano katumpak ang live na tagabilang ng segundo?",
+        "answer": "Naka-synchronize ito sa orasan ng iyong device bawat segundo sa real time."
+      },
+      {
+        "question": "Ligtas ba ang aking personal na impormasyon?",
+        "answer": "Oo, 100%. Lahat ng kalkulasyon ay isinasagawa lamang sa iyong browser nang walang ipinapadalang data sa labas."
+      },
+      {
+        "question": "Maaari ko bang kalkulahin ang agwat ng edad ng dalawang tao?",
+        "answer": "Oo, gamitin ang 'Kalkulator ng Pagkakaiba sa Edad' upang ihambing ang dalawang petsa sa taon, buwan, at araw."
+      }
+    ]
+  },
+  "breadcrumbs": {
+    "home": "Tahanan"
+  },
+  "related": {
+    "title": "Mga Kaugnay na Kasangkapan sa Edad at Petsa",
+    "description": "Tuklasin ang aming iba pang mga libreng kasangkapan para sa mga kalkulasyon sa kalendaryo at oras.",
+    "openCalculator": "Buksan ang Kalkulator"
+  },
+  "languageSelector": {
+    "title": "Pumili ng Wika",
+    "subtitle": "Gamitin ang kalkulator ng edad sa iyong gustong wika",
+    "searchPlaceholder": "Maghanap ng mga wika...",
+    "close": "Isara"
+  },
+  "footer": {
+    "brandDescription": "Libre, tumpak, at ligtas na online na kalkulasyon ng edad at kalendaryo para sa lahat.",
+    "coreCalculators": "Pangunahing Kalkulator",
+    "specialtyTools": "Espesyal na Kasangkapan",
+    "guide": "Gabay",
+    "company": "Kompanya",
+    "aboutUs": "Tungkol sa Amin",
+    "contact": "Makipag-ugnayan",
+    "privacy": "Patakaran sa Privacy",
+    "terms": "Mga Tuntunin sa Paggamit",
+    "languages": "Mga Wika",
+    "clientSideBadge": "100% Pagkalkula sa Browser",
+    "allRightsReserved": "Lahat ng karapatan ay nakalaan."
+  },
+  "errors": {
+    "invalidDate": "Mangyaring maglagay ng wastong petsa.",
+    "futureDate": "Ang petsa ng kapanganakan ay hindi maaaring sa hinaharap.",
+    "requiredDate": "Kinakailangan ang petsa."
+  },
+  "tools": {
+    "age-calculator": {
+      "title": "Tumpak na Kalkulator ng Edad",
+      "desc": "Kalkulahin ang iyong eksaktong edad sa mga taon, buwan, araw, at live na segundo agad-agad."
+    },
+    "birthday-calculator": {
+      "title": "Kalkulator ng Kaarawan",
+      "desc": "Alamin kung anong araw sa linggo ka ipinanganak at kung gaano katagal bago ang susunod mong kaarawan."
+    },
+    "age-difference-calculator": {
+      "title": "Kalkulator ng Pagkakaiba sa Edad",
+      "desc": "Ihambing ang eksaktong agwat ng edad ng dalawang tao sa mga taon, buwan, at araw."
+    },
+    "birthday-countdown": {
+      "title": "Countdown sa Kaarawan",
+      "desc": "Subaybayan nang live ang mga araw, oras, minuto, at segundo bago ang iyong susunod na kaarawan."
+    },
+    "date-difference-calculator": {
+      "title": "Kalkulator ng Pagkakaiba sa Petsa",
+      "desc": "Kalkulahin ang bilang ng mga araw, linggo, at buwan sa pagitan ng anumang dalawang petsa."
+    },
+    "date-of-birth-calculator": {
+      "title": "Kalkulator ng Petsa ng Kapanganakan",
+      "desc": "Alamin ang tinatayang o eksaktong petsa ng kapanganakan batay sa edad."
+    },
+    "days-between-dates": {
+      "title": "Mga Araw sa Pagitan ng mga Petsa",
+      "desc": "Kalkulahin ang mga araw ng trabaho, katapusan ng linggo, at kabuuang araw sa pagitan ng dalawang petsa."
+    },
+    "chronological-age-calculator": {
+      "title": "Kalkulator ng Kronolohikal na Edad",
+      "desc": "Kalkulahin ang kronolohikal at adjusted na edad para sa mga sanggol na ipinanganak nang maaga."
+    },
+    "retirement-age-calculator": {
+      "title": "Kalkulator ng Edad sa Pagreretiro",
+      "desc": "Planuhin ang natitirang oras at mga araw ng trabaho bago ang iyong target na pagreretiro."
+    },
+    "leap-year-age-calculator": {
+      "title": "Kalkulator ng Leap Year at Peb 29",
+      "desc": "Alamin ang opisyal na ipinagdiwang na mga kaarawan sa Pebrero 29."
+    },
+    "how-to-calculate-age": {
+      "title": "Paano Kalkulahin ang Edad?",
+      "desc": "Detalyadong gabay sa mga patakaran ng kalendaryo at tumpak na pagkalkula ng edad."
+    }
+  },
+  "calculators": {
+    "birthday": {
+      "title": "Birthday & Milestone Calculator",
+      "desc": "Discover when your next birthday is, how many days remain, and see the exact days of the week for all your milestone birthdays.",
+      "dobLabel": "Petsa ng Kapanganakan",
+      "btnCalculate": "Kalkulahin ang Kaarawan",
+      "nextCountdown": "Next Birthday Countdown",
+      "daysUntil": "Days",
+      "turning": "until you turn",
+      "onDate": "Your next birthday falls on",
+      "todayBday": "Happy Birthday Today!",
+      "milestoneTitle": "Milestone Birthdays",
+      "age": "Age",
+      "year": "Year",
+      "date": "Date",
+      "dayOfWeek": "Day of Week",
+      "status": "Status",
+      "passed": "Passed",
+      "upcoming": "Upcoming"
+    },
+    "ageDifference": {
+      "title": "Age Difference Calculator",
+      "desc": "Compare two dates of birth to calculate the precise age gap in years, months, and days.",
+      "personA": "Taong A",
+      "personB": "Taong B",
+      "dobLabel": "Petsa ng Kapanganakan",
+      "btnCalculate": "Kalkulahin ang Pagkakaiba",
+      "resultTitle": "Resulta ng Pagkakaiba sa Edad",
+      "olderThan": "ay mas matanda kaysa kay",
+      "by": "nang:",
+      "totalDaysDiff": "Kabuuang Pagkakaiba sa Araw",
+      "totalWeeksDiff": "Kabuuang Pagkakaiba sa Linggo",
+      "copySummary": "Copy Summary",
+      "copied": "Copied to clipboard!",
+      "sameAge": "Both persons were born on the exact same date."
+    },
+    "dateDifference": {
+      "title": "Date Difference Calculator",
+      "desc": "Calculate the exact duration between any two calendar dates in years, months, and days.",
+      "startDate": "Petsa ng Pagsisimula",
+      "endDate": "Petsa ng Pagtatapos",
+      "btnCalculate": "Kalkulahin ang Agwat ng Petsa",
+      "resultTitle": "Pagkakaiba sa Pagitan ng mga Petsa",
+      "diffYMD": "Difference",
+      "totalDays": "Kabuuang Araw",
+      "totalWeeks": "Linggo",
+      "totalHours": "Oras",
+      "totalMinutes": "Minuto",
+      "errorInvalid": "Please select valid start and end dates."
+    },
+    "dateOfBirth": {
+      "title": "Kalkulator ng Petsa ng Kapanganakan",
+      "desc": "Alamin ang iyong tinataya o eksaktong petsa ng kapanganakan ayon sa edad.",
+      "ageYears": "Taon",
+      "ageMonths": "Buwan",
+      "ageDays": "Araw",
+      "asOfDate": "Edad sa Petsang",
+      "btnCalculate": "Hanapin ang Petsa ng Kapanganakan",
+      "resultTitle": "Kinalkulang Petsa ng Kapanganakan",
+      "estimatedDob": "Estimated Date of Birth",
+      "dayBorn": "Araw ng Kapanganakan"
+    },
+    "birthdayCountdown": {
+      "title": "Countdown sa Kaarawan",
+      "desc": "Panoorin nang live ang pagbawas ng mga segundo bago ang iyong susunod na kaarawan.",
+      "dobLabel": "Petsa ng Kapanganakan",
+      "days": "Araw",
+      "hours": "Oras",
+      "minutes": "Minuto",
+      "seconds": "Segundo",
+      "turningAge": "Edad na Sasapit",
+      "nextBdayOn": "Petsa ng Susunod na Kaarawan",
+      "happyBday": "Maligayang kaarawan!"
+    },
+    "daysBetween": {
+      "title": "Mga Araw sa Pagitan ng mga Petsa",
+      "desc": "Kalkulahin ang kabuuang mga araw, araw ng trabaho, at katapusan ng linggo sa pagitan ng dalawang petsa.",
+      "startDate": "Petsa ng Pagsisimula",
+      "endDate": "Petsa ng Pagtatapos",
+      "includeEndDay": "Isama ang huling araw (+1 araw)",
+      "btnCalculate": "Kalkulahin ang mga Araw",
+      "totalDays": "Kabuuang Araw",
+      "businessDays": "Mga Araw ng Trabaho",
+      "weekendDays": "Mga Araw ng Katapusan ng Linggo",
+      "totalWeeks": "Mga Buong Linggo"
+    },
+    "chronological": {
+      "title": "Kalkulator ng Kronolohikal na Edad",
+      "desc": "Kalkulahin ang kronolohikal at corrected na edad para sa pediatric na pagsusuri.",
+      "birthDate": "Petsa ng Kapanganakan",
+      "testDate": "Petsa ng Pagsusuri",
+      "weeksPremature": "Mga Linggo ng Maagang Panganganak",
+      "btnCalculate": "Kalkulahin ang Kronolohikal na Edad",
+      "chronologicalAge": "Kronolohikal na Edad",
+      "notation": "Klinikal na Notasyon (T;B;A)",
+      "exactInterval": "Eksaktong Lumipas na Panahon",
+      "adjustedAge": "Adjusted na Edad"
+    },
+    "retirement": {
+      "title": "Kalkulator ng Edad sa Pagreretiro",
+      "desc": "Tantyahin ang natitirang oras at mga araw ng trabaho bago ang iyong pagreretiro.",
+      "birthDate": "Petsa ng Kapanganakan",
+      "currentAge": "Kasalukuyang Edad",
+      "targetAge": "Target na Edad sa Pagreretiro",
+      "asOfDate": "Petsa ng Pagkalkula",
+      "btnCalculate": "Kalkulahin ang Pagreretiro",
+      "yearsRemaining": "Natitirang Taon",
+      "targetYear": "Inaasahang Taon ng Pagreretiro",
+      "workingDaysLeft": "Tinatayang Natitirang Araw ng Trabaho",
+      "alreadyReached": "Naabot na ang target na edad sa pagreretiro."
+    },
+    "leapYear": {
+      "title": "Kalkulator ng Leap Year at Peb 29",
+      "desc": "Tuklasin ang mga opisyal na ipinagdiwang na kaarawan sa Pebrero 29.",
+      "dobLabel": "Petsa ng Kapanganakan",
+      "btnCalculate": "Suriin ang Leap Year",
+      "leapYearsLived": "Mga Pebrero 29 na Nabuhay",
+      "actualBirthdays": "Mga Opisyal na Leap Birthday",
+      "nextLeapBirthday": "Susunod na Kaarawan sa Pebrero 29",
+      "leapBabyBadge": "Sanggol ng Leap Year (Peb 29)"
+    },
+    "liveTicker": {
+      "title": "Real-Time na Ticker ng Edad",
+      "syncedLocal": "Naka-sync sa lokal na orasan ng iyong device",
+      "asOfTarget": "Kinalkula para sa target na petsa",
+      "clock": "Orasan",
+      "runningTotalSeconds": "Kabuuang Segundo na Nabuhay",
+      "seconds": "segundo",
+      "solarOrbit": "Pagsulong ng Taon ng Araw",
+      "completed": "Nakumpleto",
+      "turnedAge": "Nakamit noong nakaraang kaarawan",
+      "turningAgeIn": "Papatak sa loob ng",
+      "bioMilestones": "Biyolohikal na mga Milestone",
+      "spaceTravel": "Paglalakbay sa Kalawakan at Planeta",
+      "heartbeats": "Tinatayang Tibok ng Puso",
+      "breaths": "Naisagawang Paghinga",
+      "blinks": "Kurap ng Mata",
+      "hoursSlept": "Oras ng Tulog",
+      "earthRotation": "Pag-ikot ng Ibabaw ng Daigdig",
+      "sunOrbit": "Distansyang Nalibot sa Paligid ng Araw"
+    }
+  }
+}

@@ -1,0 +1,318 @@
+{
+  "meta": {
+    "homeTitle": "Calculator de Vârstă – Calculează Vârsta Exactă în Ani, Luni și Zile",
+    "homeDescription": "Calculator de vârstă online gratuit. Calculează vârsta ta exactă în ani, luni, zile și secunde în timp real. Numărătoare inversă până la ziua de naștere.",
+    "homeH1": "Calculator de Vârstă Online",
+    "homeSubtitle": "Calculează vârsta ta cronologică exactă în ani, luni, zile, ore și secunde în timp real cu precizia calendarului gregorian."
+  },
+  "navigation": {
+    "home": "Acasă",
+    "ageCalculator": "Calculator Vârstă",
+    "birthday": "Calculator Zi de Naștere",
+    "ageDifference": "Diferență de Vârstă",
+    "dateDifference": "Diferență între Date",
+    "dateOfBirth": "Data Nașterii",
+    "moreTools": "Alte Instrumente",
+    "allAgeTools": "Toate Instrumentele de Vârstă",
+    "calculateAge": "Calculează Vârsta",
+    "calculateMyAgeNow": "Calculează Vârsta Mea",
+    "mainTools": "Instrumente Principale",
+    "moreCalculators": "Mai Multe Calculatoare"
+  },
+  "calculator": {
+    "badge": "Calcul Instantaneu de Mare Precizie Calendaristică",
+    "dobLabel": "Data Nașterii",
+    "dobPlaceholder": "Selectează data nașterii",
+    "dobHelper": "Selectează ziua, luna și anul nașterii (ZZ / LL / AAAA). Salvat local în cookie-uri.",
+    "targetDateLabel": "Vârsta la Data de",
+    "useToday": "Folosește Ziua de Azi",
+    "changeDate": "Schimbă Data",
+    "includeTime": "Include Ora Exactă a Nașterii (Opțional)",
+    "includeTimeHelper": "Pentru precizie până la minut",
+    "birthTimeLabel": "Ora Nașterii (Ora Locală)",
+    "calculate": "Calculează Vârsta",
+    "reset": "Resetează",
+    "clear": "Șterge",
+    "copied": "Copiat!",
+    "copy": "Copiază",
+    "print": "Printează",
+    "yourExactAge": "Vârsta Ta Exactă",
+    "years": "Ani",
+    "months": "Luni",
+    "days": "Zile",
+    "hours": "Ore",
+    "minutes": "Minute",
+    "seconds": "Secunde",
+    "nextBirthday": "Următoarea Zi de Naștere",
+    "daysRemaining": "zile rămase",
+    "turning": "Vei împlini",
+    "happyBirthday": "🎉 La mulți ani astăzi!",
+    "totalDaysLived": "Total Zile Trăite",
+    "totalWeeks": "Total Săptămâni Trăite",
+    "heartbeats": "Bătăi Estimate ale Inimii",
+    "solarOrbit": "Progresul Anului Solar",
+    "liveSeconds": "Secunde Trăite în Timp Real",
+    "timeBreakdown": "Defalcare Detaliată a Timpului",
+    "zodiacSign": "Zodie",
+    "chineseZodiac": "Zodiac Chinezesc",
+    "dayBorn": "Ziua Săptămânii în Care Te-ai Născut"
+  },
+  "features": {
+    "gregorianPrecisionTitle": "Precizie Gregoriană",
+    "gregorianPrecisionDesc": "Ia în calcul anii bisecți, lunile de 30/31 de zile și 29 februarie cu precizie la secundă.",
+    "liveSecondsTitle": "Contor Secunde Live",
+    "liveSecondsDesc": "Contor de vârstă în timp real sincronizat cu ceasul local al dispozitivului tău.",
+    "privateAndFreeTitle": "100% Confidențial și Gratuit",
+    "privateAndFreeDesc": "Fără înregistrare și fără date trimise pe server. Toate calculele au loc direct în browser."
+  },
+  "howItWorks": {
+    "title": "Cum Funcționează Calculatorul de Vârstă",
+    "subtitle": "Explicație clară a algoritmului de calcul pentru zile calendaristice, report de luni și secunde."
+  },
+  "faq": {
+    "title": "Întrebări Frecvente (FAQ)",
+    "items": [
+      {
+        "question": "Cum calculează calculatorul vârsta exactă?",
+        "answer": "Compară data nașterii cu data țintă conform regulilor calendarului gregorian, calculând anii întregi, lunile și zilele rămase."
+      },
+      {
+        "question": "Sunt luați în considerare anii bisecți?",
+        "answer": "Da. Pentru cei născuți pe 29 februarie se aplică ciclurile oficiale de 4 ani ale anilor bisecți."
+      },
+      {
+        "question": "Cât de precis este contorul de secunde live?",
+        "answer": "Se sincronizează cu ceasul de sistem al dispozitivului în fiecare secundă în timp real."
+      },
+      {
+        "question": "Sunt datele mele personale în siguranță?",
+        "answer": "Da, 100%. Calculele au loc exclusiv în browserul tău, fără a transmite date pe servere externe."
+      },
+      {
+        "question": "Pot calcula diferența de vârstă între două persoane?",
+        "answer": "Da, folosește 'Calculatorul de Diferență de Vârstă' pentru a compara două date de naștere."
+      }
+    ]
+  },
+  "breadcrumbs": {
+    "home": "Acasă"
+  },
+  "related": {
+    "title": "Instrumente Conexe de Vârstă și Date",
+    "description": "Descoperă celelalte calculatoare gratuite pentru calcule calendaristice și temporale.",
+    "openCalculator": "Deschide Calculatorul"
+  },
+  "languageSelector": {
+    "title": "Alege Limba",
+    "subtitle": "Folosește calculatorul de vârstă în limba ta maternă",
+    "searchPlaceholder": "Caută limbi...",
+    "close": "Închide"
+  },
+  "footer": {
+    "brandDescription": "Calcule online de vârstă și calendar gratuite, precise și sigure pentru toată lumea.",
+    "coreCalculators": "Calculatoare Principale",
+    "specialtyTools": "Instrumente Speciale",
+    "guide": "Ghid",
+    "company": "Companie",
+    "aboutUs": "Despre Noi",
+    "contact": "Contact",
+    "privacy": "Politica de Confidențialitate",
+    "terms": "Termeni de Utilizare",
+    "languages": "Limbi",
+    "clientSideBadge": "100% Calcule Locale în Browser",
+    "allRightsReserved": "Toate drepturile rezervate."
+  },
+  "errors": {
+    "invalidDate": "Te rugăm să introduci o dată validă.",
+    "futureDate": "Data nașterii nu poate fi în viitor.",
+    "requiredDate": "Câmpul de dată este obligatoriu."
+  },
+  "tools": {
+    "age-calculator": {
+      "title": "Calculator de Vârstă Exactă",
+      "desc": "Calculează vârsta exactă în ani, luni, zile și secunde în timp real imediat."
+    },
+    "birthday-calculator": {
+      "title": "Calculator Zi de Naștere",
+      "desc": "Află în ce zi a săptămânii te-ai născut și cât mai este până la următoarea aniversare."
+    },
+    "age-difference-calculator": {
+      "title": "Calculator Diferență de Vârstă",
+      "desc": "Compară diferența exactă de vârstă între două persoane în ani, luni și zile."
+    },
+    "birthday-countdown": {
+      "title": "Numărătoare Inversă Zi de Naștere",
+      "desc": "Urmărește în direct zilele, orele, minutele și secundele până la următoarea zi de naștere."
+    },
+    "date-difference-calculator": {
+      "title": "Calculator Diferență între Date",
+      "desc": "Calculează numărul de zile, săptămâni și luni dintre oricare două date calendaristice."
+    },
+    "date-of-birth-calculator": {
+      "title": "Calculator Data Nașterii",
+      "desc": "Determină data estimată sau exactă a nașterii pe baza vârstei curente."
+    },
+    "days-between-dates": {
+      "title": "Zile între Două Date",
+      "desc": "Calculează zilele lucrătoare, weekendurile și totalul de zile dintre două date."
+    },
+    "chronological-age-calculator": {
+      "title": "Calculator Vârstă Cronologică",
+      "desc": "Calculează vârsta cronologică și vârsta ajustată pentru bebeluși născuți prematur."
+    },
+    "retirement-age-calculator": {
+      "title": "Calculator Vârstă de Pensionare",
+      "desc": "Planifică timpul și zilele lucrătoare rămase până la vârsta țintă de pensionare."
+    },
+    "leap-year-age-calculator": {
+      "title": "Calculator An Bisect și 29 Februarie",
+      "desc": "Află aniversările reale trăite pe 29 februarie pentru cei născuți în an bisect."
+    },
+    "how-to-calculate-age": {
+      "title": "Cum se Calculează Vârsta?",
+      "desc": "Ghid detaliat despre regulile calendarului și calculul precis al vârstei."
+    }
+  },
+  "calculators": {
+    "birthday": {
+      "title": "Birthday & Milestone Calculator",
+      "desc": "Discover when your next birthday is, how many days remain, and see the exact days of the week for all your milestone birthdays.",
+      "dobLabel": "Data Nașterii",
+      "btnCalculate": "Calculează Ziua de Naștere",
+      "nextCountdown": "Next Birthday Countdown",
+      "daysUntil": "Days",
+      "turning": "until you turn",
+      "onDate": "Your next birthday falls on",
+      "todayBday": "Happy Birthday Today!",
+      "milestoneTitle": "Milestone Birthdays",
+      "age": "Age",
+      "year": "Year",
+      "date": "Date",
+      "dayOfWeek": "Day of Week",
+      "status": "Status",
+      "passed": "Passed",
+      "upcoming": "Upcoming"
+    },
+    "ageDifference": {
+      "title": "Age Difference Calculator",
+      "desc": "Compare two dates of birth to calculate the precise age gap in years, months, and days.",
+      "personA": "Persoana A",
+      "personB": "Persoana B",
+      "dobLabel": "Data Nașterii",
+      "btnCalculate": "Calculează Diferența",
+      "resultTitle": "Rezultatul Diferenței de Vârstă",
+      "olderThan": "este mai în vârstă decât",
+      "by": "cu:",
+      "totalDaysDiff": "Diferență Totală în Zile",
+      "totalWeeksDiff": "Diferență Totală în Săptămâni",
+      "copySummary": "Copy Summary",
+      "copied": "Copied to clipboard!",
+      "sameAge": "Both persons were born on the exact same date."
+    },
+    "dateDifference": {
+      "title": "Date Difference Calculator",
+      "desc": "Calculate the exact duration between any two calendar dates in years, months, and days.",
+      "startDate": "Data de Început",
+      "endDate": "Data de Sfârșit",
+      "btnCalculate": "Calculează Diferența de Date",
+      "resultTitle": "Diferența Dintre Date",
+      "diffYMD": "Difference",
+      "totalDays": "Total Zile",
+      "totalWeeks": "Săptămâni",
+      "totalHours": "Ore",
+      "totalMinutes": "Minute",
+      "errorInvalid": "Please select valid start and end dates."
+    },
+    "dateOfBirth": {
+      "title": "Calculator Data Nașterii",
+      "desc": "Determină data probabilă a nașterii pornind de la vârsta curentă.",
+      "ageYears": "Ani",
+      "ageMonths": "Luni",
+      "ageDays": "Zile",
+      "asOfDate": "Vârsta la Data de",
+      "btnCalculate": "Găsește Data Nașterii",
+      "resultTitle": "Data Calculată a Nașterii",
+      "estimatedDob": "Estimated Date of Birth",
+      "dayBorn": "Ziua Nașterii"
+    },
+    "birthdayCountdown": {
+      "title": "Numărătoare Inversă Zi de Naștere",
+      "desc": "Privește secundele cum se scurg până la următoarea ta aniversare.",
+      "dobLabel": "Data Nașterii",
+      "days": "Zile",
+      "hours": "Ore",
+      "minutes": "Minute",
+      "seconds": "Secunde",
+      "turningAge": "Vârsta pe Care o Împlinești",
+      "nextBdayOn": "Data Următoarei Zile de Naștere",
+      "happyBday": "La mulți ani!"
+    },
+    "daysBetween": {
+      "title": "Zile între Două Date",
+      "desc": "Calculează numărul total de zile, zile lucrătoare și zile de weekend dintre două date.",
+      "startDate": "Data de Început",
+      "endDate": "Data de Sfârșit",
+      "includeEndDay": "Include ziua de sfârșit (+1 zi)",
+      "btnCalculate": "Calculează Zilele",
+      "totalDays": "Total Zile",
+      "businessDays": "Zile Lucrătoare",
+      "weekendDays": "Zile de Weekend",
+      "totalWeeks": "Săptămâni Complete"
+    },
+    "chronological": {
+      "title": "Calculator Vârstă Cronologică",
+      "desc": "Calculează vârsta cronologică și corectată pentru evaluări pediatrice.",
+      "birthDate": "Data Nașterii",
+      "testDate": "Data Testării",
+      "weeksPremature": "Săptămâni de Prematuritate",
+      "btnCalculate": "Calculează Vârsta Cronologică",
+      "chronologicalAge": "Vârstă Cronologică",
+      "notation": "Notație Clinică (A;L;Z)",
+      "exactInterval": "Interval Exact Scurs",
+      "adjustedAge": "Vârstă Corectată"
+    },
+    "retirement": {
+      "title": "Calculator Vârstă de Pensionare",
+      "desc": "Estimează timpul și zilele lucrătoare rămase până la pensionare.",
+      "birthDate": "Data Nașterii",
+      "currentAge": "Vârsta Curentă",
+      "targetAge": "Vârsta Țintă de Pensionare",
+      "asOfDate": "Data Calculului",
+      "btnCalculate": "Calculează Pensionarea",
+      "yearsRemaining": "Ani Rămași",
+      "targetYear": "Anul Preconizat al Pensionării",
+      "workingDaysLeft": "Zile Lucrătoare Rămase",
+      "alreadyReached": "Vârsta țintă de pensionare a fost deja atinsă."
+    },
+    "leapYear": {
+      "title": "Calculator An Bisect și 29 Februarie",
+      "desc": "Află zilele de 29 februarie trăite efectiv și data următoarei sărbătoriri.",
+      "dobLabel": "Data Nașterii",
+      "btnCalculate": "Verifică Anul Bisect",
+      "leapYearsLived": "Zile de 29 Februarie Trăite",
+      "actualBirthdays": "Aniversări Oficiale în An Bisect",
+      "nextLeapBirthday": "Următoarea Zi de Naștere pe 29 Februarie",
+      "leapBabyBadge": "Născut în Zi Bisectă (29 Februarie)"
+    },
+    "liveTicker": {
+      "title": "Contor de Vârstă în Timp Real",
+      "syncedLocal": "Sincronizat cu ceasul local al dispozitivului",
+      "asOfTarget": "Calculat pentru data țintă",
+      "clock": "Ceas",
+      "runningTotalSeconds": "Total Secunde Trăite",
+      "seconds": "secunde",
+      "solarOrbit": "Progresul Anului Solar",
+      "completed": "Finalizat",
+      "turnedAge": "Împlinit la ultima zi de naștere",
+      "turningAgeIn": "Împlinire peste",
+      "bioMilestones": "Repere Biologice",
+      "spaceTravel": "Călătorie Spațială și Planetară",
+      "heartbeats": "Bătăi Estimate ale Inimii",
+      "breaths": "Respirații Efectuate",
+      "blinks": "Clipiri din Ochi",
+      "hoursSlept": "Ore Dormite",
+      "earthRotation": "Rotația Suprafeței Pământului",
+      "sunOrbit": "Distanța Parcursă în Jurul Soarelui"
+    }
+  }
+}

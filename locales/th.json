@@ -1,0 +1,318 @@
+{
+  "meta": {
+    "homeTitle": "คำนวณอายุ – คำนวณอายุที่แน่นอนเป็น ปี เดือน และวัน",
+    "homeDescription": "โปรแกรมคำนวณอายุออนไลน์ฟรี คำนวณอายุที่แม่นยำของคุณเป็นปี เดือน วัน และวินาทีแบบเรียลไทม์ พร้อมการนับถอยหลังวันเกิดและสถิติชีวิต",
+    "homeH1": "โปรแกรมคำนวณอายุออนไลน์",
+    "homeSubtitle": "คำนวณอายุตามลำดับเวลาที่แน่นอนของคุณเป็นปี เดือน วัน ชั่วโมง และวินาทีสดด้วยความแม่นยำของปฏิทินเกรกอเรียน"
+  },
+  "navigation": {
+    "home": "หน้าแรก",
+    "ageCalculator": "คำนวณอายุ",
+    "birthday": "คำนวณวันเกิด",
+    "ageDifference": "ความต่างของอายุ",
+    "dateDifference": "ความต่างของวันที่",
+    "dateOfBirth": "คำนวณวันเดือนปีเกิด",
+    "moreTools": "เครื่องมือเพิ่มเติม",
+    "allAgeTools": "เครื่องมืออายุและวันที่ทั้งหมด",
+    "calculateAge": "คำนวณอายุ",
+    "calculateMyAgeNow": "คำนวณอายุของฉัน",
+    "mainTools": "เครื่องมือหลัก",
+    "moreCalculators": "เครื่องคำนวณเพิ่มเติม"
+  },
+  "calculator": {
+    "badge": "การคำนวณปฏิทินและเวลาที่แม่นยำทันที",
+    "dobLabel": "วันเกิด",
+    "dobPlaceholder": "เลือกวันเกิดของคุณ",
+    "dobHelper": "เลือกวัน เดือน และปีเกิดของคุณ (วว / ดด / ปปปป) บันทึกไว้ในคุกกี้อย่างปลอดภัย",
+    "targetDateLabel": "อายุ ณ วันที่",
+    "useToday": "ใช้วันนี้",
+    "changeDate": "เปลี่ยนวันที่",
+    "includeTime": "ระบุเวลาเกิดที่แน่นอน (ไม่บังคับ)",
+    "includeTimeHelper": "เพื่อความแม่นยำระดับนาที",
+    "birthTimeLabel": "เวลาเกิด (เวลาท้องถิ่น)",
+    "calculate": "คำนวณอายุ",
+    "reset": "รีเซ็ต",
+    "clear": "ล้างข้อมูล",
+    "copied": "คัดลอกแล้ว!",
+    "copy": "คัดลอก",
+    "print": "พิมพ์",
+    "yourExactAge": "อายุที่แน่นอนของคุณ",
+    "years": "ปี",
+    "months": "เดือน",
+    "days": "วัน",
+    "hours": "ชั่วโมง",
+    "minutes": "นาที",
+    "seconds": "วินาที",
+    "nextBirthday": "วันเกิดครั้งต่อไป",
+    "daysRemaining": "วันที่เหลือ",
+    "turning": "อายุจะครบ",
+    "happyBirthday": "🎉 สุขสันต์วันเกิดในวันนี้!",
+    "totalDaysLived": "จำนวนวันที่ใช้ชีวิตมาทั้งหมด",
+    "totalWeeks": "จำนวนสัปดาห์ทั้งหมด",
+    "heartbeats": "ประมาณการการเต้นของหัวใจ",
+    "solarOrbit": "ความคืบหน้าของปีสุริยคติ",
+    "liveSeconds": "วินาทีที่ใช้ชีวิตสด",
+    "timeBreakdown": "การแจกแจงเวลาอย่างละเอียด",
+    "zodiacSign": "ราศี",
+    "chineseZodiac": "ปีนักษัตร",
+    "dayBorn": "วันเกิดในสัปดาห์"
+  },
+  "features": {
+    "gregorianPrecisionTitle": "ความแม่นยำตามปฏิทินเกรกอเรียน",
+    "gregorianPrecisionDesc": "คำนึงถึงปีอธิกสุรทิน เดือนที่มี 30/31 วัน และวันที่ 29 กุมภาพันธ์ อย่างแม่นยำระดับวินาที",
+    "liveSecondsTitle": "ตัวนับวินาทีแบบเรียลไทม์",
+    "liveSecondsDesc": "ตัวนับอายุสดที่ซิงค์กับนาฬิกาของอุปกรณ์ของคุณแบบเรียลไทม์",
+    "privateAndFreeTitle": "เป็นส่วนตัวและฟรี 100%",
+    "privateAndFreeDesc": "ไม่ต้องลงทะเบียนและไม่มีการส่งข้อมูลไปยังเซิร์ฟเวอร์ การคำนวณทั้งหมดเกิดขึ้นในเบราว์เซอร์ของคุณ"
+  },
+  "howItWorks": {
+    "title": "เครื่องคำนวณอายุทำงานอย่างไร",
+    "subtitle": "คำอธิบายที่ชัดเจนเกี่ยวกับอัลกอริทึมการคำนวณวันในปฏิทิน การทดเดือน และการคำนวณวินาที"
+  },
+  "faq": {
+    "title": "คำถามที่พบบ่อย (FAQ)",
+    "items": [
+      {
+        "question": "เครื่องคำนวณอายุคำนวณอายุที่แน่นอนอย่างไร?",
+        "answer": "ระบบจะเปรียบเทียบวันเกิดของคุณกับวันที่เป้าหมายตามกฎปฏิทินเกรกอเรียน โดยคำนวณปีเต็ม เดือน และวันที่เหลือ"
+      },
+      {
+        "question": "มีการคำนึงถึงปีอธิกสุรทินหรือไม่?",
+        "answer": "ใช่ สำหรับผู้ที่เกิดวันที่ 29 กุมภาพันธ์ จะใช้วงรอบ 4 ปีของปีอธิกสุรทินอย่างเป็นทางการ"
+      },
+      {
+        "question": "ตัวนับวินาทีสดมีความแม่นยำเพียงใด?",
+        "answer": "ตัวนับจะซิงโครไนซ์กับนาฬิการะบบของอุปกรณ์ของคุณทุกวินาทีแบบเรียลไทม์"
+      },
+      {
+        "question": "ข้อมูลส่วนตัวของฉันปลอดภัยหรือไม่?",
+        "answer": "ปลอดภัย 100% การคำนวณทั้งหมดทำงานบนอุปกรณ์ของคุณ ไม่มีการส่งข้อมูลออกไปภายนอก"
+      },
+      {
+        "question": "ฉันสามารถคำนวณความต่างของอายุระหว่างคนสองคนได้หรือไม่?",
+        "answer": "ได้ คุณสามารถใช้ 'เครื่องคำนวณความต่างของอายุ' เพื่อเปรียบเทียบวันเกิดสองวันในหน่วยปี เดือน และวัน"
+      }
+    ]
+  },
+  "breadcrumbs": {
+    "home": "หน้าแรก"
+  },
+  "related": {
+    "title": "เครื่องมืออายุและวันที่ที่เกี่ยวข้อง",
+    "description": "สำรวจเครื่องคำนวณฟรีอื่นๆ ของเราสำหรับการคำนวณปฏิทินและเวลา",
+    "openCalculator": "เปิดเครื่องคำนวณ"
+  },
+  "languageSelector": {
+    "title": "เลือกภาษา",
+    "subtitle": "ใช้เครื่องคำนวณอายุในภาษาที่คุณต้องการ",
+    "searchPlaceholder": "ค้นหาภาษา...",
+    "close": "ปิด"
+  },
+  "footer": {
+    "brandDescription": "การคำนวณอายุและปฏิทินออนไลน์ฟรี แม่นยำ และปลอดภัยสำหรับทุกคน",
+    "coreCalculators": "เครื่องคำนวณหลัก",
+    "specialtyTools": "เครื่องมือพิเศษ",
+    "guide": "คู่มือ",
+    "company": "บริษัท",
+    "aboutUs": "เกี่ยวกับเรา",
+    "contact": "ติดต่อ",
+    "privacy": "นโยบายความเป็นส่วนตัว",
+    "terms": "ข้อกำหนดการใช้งาน",
+    "languages": "ภาษา",
+    "clientSideBadge": "การประมวลผลบนเบราว์เซอร์ 100%",
+    "allRightsReserved": "สงวนลิขสิทธิ์ทั้งหมด"
+  },
+  "errors": {
+    "invalidDate": "โปรดระบุวันที่ที่ถูกต้อง",
+    "futureDate": "วันเกิดต้องไม่อยู่ในอนาคต",
+    "requiredDate": "จำเป็นต้องระบุวันที่"
+  },
+  "tools": {
+    "age-calculator": {
+      "title": "เครื่องคำนวณอายุที่แม่นยำ",
+      "desc": "คำนวณอายุที่แน่นอนของคุณเป็นปี เดือน วัน และวินาทีสดได้ทันที"
+    },
+    "birthday-calculator": {
+      "title": "เครื่องคำนวณวันเกิด",
+      "desc": "ค้นหาว่าคุณเกิดวันอะไรในสัปดาห์และเหลือเวลาอีกเท่าใดจะถึงวันเกิดครั้งต่อไป"
+    },
+    "age-difference-calculator": {
+      "title": "เครื่องคำนวณความต่างของอายุ",
+      "desc": "เปรียบเทียบความต่างของอายุระหว่างบุคคลสองคนเป็นปี เดือน และวันอย่างแม่นยำ"
+    },
+    "birthday-countdown": {
+      "title": "นับถอยหลังวันเกิด",
+      "desc": "ติดตามวัน ชั่วโมง นาที และวินาทีสดที่เหลือก่อนถึงวันเกิดครั้งถัดไปของคุณ"
+    },
+    "date-difference-calculator": {
+      "title": "เครื่องคำนวณความต่างของวันที่",
+      "desc": "คำนวณจำนวนวัน สัปดาห์ และเดือนระหว่างวันที่ในปฏิทินสองวันใดๆ"
+    },
+    "date-of-birth-calculator": {
+      "title": "เครื่องคำนวณวันเดือนปีเกิด",
+      "desc": "ค้นหาวันเกิดที่แน่นอนหรือโดยประมาณตามอายุและวันที่อ้างอิง"
+    },
+    "days-between-dates": {
+      "title": "จำนวนวันระหว่างสองวันที่",
+      "desc": "คำนวณวันทำงาน วันหยุดสุดสัปดาห์ และจำนวนวันทั้งหมดระหว่างสองวันที่"
+    },
+    "chronological-age-calculator": {
+      "title": "เครื่องคำนวณอายุตามลำดับเวลา",
+      "desc": "คำนวณอายุตามลำดับเวลาและอายุที่ปรับแล้วสำหรับทารกคลอดก่อนกำหนด"
+    },
+    "retirement-age-calculator": {
+      "title": "เครื่องคำนวณอายุเกษียณ",
+      "desc": "วางแผนเวลาและวันทำงานที่เหลือก่อนถึงอายุเกษียณเป้าหมายของคุณ"
+    },
+    "leap-year-age-calculator": {
+      "title": "เครื่องคำนวณปีอธิกสุรทินและ 29 ก.พ.",
+      "desc": "ค้นหาวันเกิด 29 กุมภาพันธ์ที่เกิดขึ้นจริงและรอบวันเกิดถัดไป"
+    },
+    "how-to-calculate-age": {
+      "title": "วิธีคำนวณอายุ?",
+      "desc": "คู่มืออย่างละเอียดเกี่ยวกับกฎเกณฑ์ปฏิทินและการคำนวณอายุอย่างแม่นยำ"
+    }
+  },
+  "calculators": {
+    "birthday": {
+      "title": "Birthday & Milestone Calculator",
+      "desc": "Discover when your next birthday is, how many days remain, and see the exact days of the week for all your milestone birthdays.",
+      "dobLabel": "วันเกิด",
+      "btnCalculate": "คำนวณข้อมูลวันเกิด",
+      "nextCountdown": "Next Birthday Countdown",
+      "daysUntil": "Days",
+      "turning": "until you turn",
+      "onDate": "Your next birthday falls on",
+      "todayBday": "Happy Birthday Today!",
+      "milestoneTitle": "Milestone Birthdays",
+      "age": "Age",
+      "year": "Year",
+      "date": "Date",
+      "dayOfWeek": "Day of Week",
+      "status": "Status",
+      "passed": "Passed",
+      "upcoming": "Upcoming"
+    },
+    "ageDifference": {
+      "title": "Age Difference Calculator",
+      "desc": "Compare two dates of birth to calculate the precise age gap in years, months, and days.",
+      "personA": "บุคคล A",
+      "personB": "บุคคล B",
+      "dobLabel": "วันเกิด",
+      "btnCalculate": "คำนวณความต่าง",
+      "resultTitle": "ผลลัพธ์ความต่างของอายุ",
+      "olderThan": "อายุมากกว่า",
+      "by": "เป็นจำนวน:",
+      "totalDaysDiff": "ความต่างของวันทั้งหมด",
+      "totalWeeksDiff": "ความต่างของสัปดาห์ทั้งหมด",
+      "copySummary": "Copy Summary",
+      "copied": "Copied to clipboard!",
+      "sameAge": "Both persons were born on the exact same date."
+    },
+    "dateDifference": {
+      "title": "Date Difference Calculator",
+      "desc": "Calculate the exact duration between any two calendar dates in years, months, and days.",
+      "startDate": "วันที่เริ่มต้น",
+      "endDate": "วันที่สิ้นสุด",
+      "btnCalculate": "คำนวณความต่างของวันที่",
+      "resultTitle": "ความต่างระหว่างวันที่",
+      "diffYMD": "Difference",
+      "totalDays": "จำนวนวันทั้งหมด",
+      "totalWeeks": "สัปดาห์",
+      "totalHours": "ชั่วโมง",
+      "totalMinutes": "นาที",
+      "errorInvalid": "Please select valid start and end dates."
+    },
+    "dateOfBirth": {
+      "title": "เครื่องคำนวณวันเดือนปีเกิด",
+      "desc": "ระบุวันเกิดที่คาดการณ์หรือแน่นอนตามอายุที่กำหนด",
+      "ageYears": "ปี",
+      "ageMonths": "เดือน",
+      "ageDays": "วัน",
+      "asOfDate": "อายุ ณ วันที่",
+      "btnCalculate": "ค้นหาวันเกิด",
+      "resultTitle": "วันเกิดที่คำนวณได้",
+      "estimatedDob": "Estimated Date of Birth",
+      "dayBorn": "วันเกิดในสัปดาห์"
+    },
+    "birthdayCountdown": {
+      "title": "นับถอยหลังวันเกิด",
+      "desc": "ดูเวลานับถอยหลังวินาทีสู่การฉลองวันเกิดครั้งต่อไปของคุณ",
+      "dobLabel": "วันเกิด",
+      "days": "วัน",
+      "hours": "ชั่วโมง",
+      "minutes": "นาที",
+      "seconds": "วินาที",
+      "turningAge": "อายุที่จะครบ",
+      "nextBdayOn": "วันที่ของวันเกิดครั้งต่อไป",
+      "happyBday": "สุขสันต์วันเกิด!"
+    },
+    "daysBetween": {
+      "title": "จำนวนวันระหว่างสองวันที่",
+      "desc": "คำนวณจำนวนวันทั้งหมด วันทำงาน และวันหยุดสุดสัปดาห์ระหว่างสองวันที่",
+      "startDate": "วันที่เริ่มต้น",
+      "endDate": "วันที่สิ้นสุด",
+      "includeEndDay": "รวมวันสิ้นสุดด้วย (+1 วัน)",
+      "btnCalculate": "คำนวณจำนวนวัน",
+      "totalDays": "จำนวนวันทั้งหมด",
+      "businessDays": "วันทำงาน",
+      "weekendDays": "วันหยุดสุดสัปดาห์",
+      "totalWeeks": "สัปดาห์เต็ม"
+    },
+    "chronological": {
+      "title": "เครื่องคำนวณอายุตามลำดับเวลา",
+      "desc": "คำนวณอายุจริงและอายุที่ปรับแก้แล้วสำหรับการประเมินทางคลินิก",
+      "birthDate": "วันเกิด",
+      "testDate": "วันที่ประเมิน",
+      "weeksPremature": "จำนวนสัปดาห์ที่คลอดก่อนกำหนด",
+      "btnCalculate": "คำนวณอายุตามลำดับเวลา",
+      "chronologicalAge": "อายุตามลำดับเวลา",
+      "notation": "สัญกรณ์ทางคลินิก (ป;ด;ว)",
+      "exactInterval": "ช่วงเวลาที่ผ่านไปอย่างแม่นยำ",
+      "adjustedAge": "อายุที่ปรับแก้แล้ว"
+    },
+    "retirement": {
+      "title": "เครื่องคำนวณอายุเกษียณ",
+      "desc": "ประมาณการเวลาและวันทำงานที่เหลือก่อนถึงอายุเกษียณที่คุณตั้งเป้าไว้",
+      "birthDate": "วันเกิด",
+      "currentAge": "อายุปัจจุบัน",
+      "targetAge": "อายุเกษียณเป้าหมาย",
+      "asOfDate": "วันที่คำนวณ",
+      "btnCalculate": "คำนวณการเกษียณ",
+      "yearsRemaining": "จำนวนปีที่เหลือ",
+      "targetYear": "ปีเกษียณที่คาดการณ์",
+      "workingDaysLeft": "ประมาณการวันทำงานที่เหลือ",
+      "alreadyReached": "ถึงเป้าหมายอายุเกษียณแล้ว"
+    },
+    "leapYear": {
+      "title": "เครื่องคำนวณปีอธิกสุรทินและ 29 ก.พ.",
+      "desc": "เรียนรู้วันเกิด 29 กุมภาพันธ์ที่เป็นทางการและกำหนดวันครั้งต่อไป",
+      "dobLabel": "วันเกิด",
+      "btnCalculate": "ตรวจสอบปีอธิกสุรทิน",
+      "leapYearsLived": "วันที่ 29 ก.พ. ที่มีชีวิตผ่านมา",
+      "actualBirthdays": "วันเกิดที่เป็นทางการในรอบ 4 ปี",
+      "nextLeapBirthday": "วันเกิด 29 ก.พ. ครั้งถัดไป",
+      "leapBabyBadge": "ผู้ที่เกิดปีอธิกสุรทิน (29 ก.พ.)"
+    },
+    "liveTicker": {
+      "title": "ตัวนับอายุสดแบบเรียลไทม์",
+      "syncedLocal": "ซิงค์กับนาฬิกาของอุปกรณ์ของคุณ",
+      "asOfTarget": "คำนวณตามวันที่เป้าหมาย",
+      "clock": "นาฬิกา",
+      "runningTotalSeconds": "จำนวนวินาทีที่ใช้ชีวิตทั้งหมด",
+      "seconds": "วินาที",
+      "solarOrbit": "ความคืบหน้าของปีสุริยคติ",
+      "completed": "เสร็จสิ้น",
+      "turnedAge": "อายุที่ครบในวันเกิดล่าสุด",
+      "turningAgeIn": "จะครบอายุในอีก",
+      "bioMilestones": "หมุดหมายทางชีววิทยา",
+      "spaceTravel": "การเดินทางในอวกาศและดาวเคราะห์",
+      "heartbeats": "ประมาณการการเต้นของหัวใจ",
+      "breaths": "การหายใจเข้า",
+      "blinks": "การกะพริบตา",
+      "hoursSlept": "ชั่วโมงการนอนหลับ",
+      "earthRotation": "ระยะทางการหมุนรอบตัวเองของโลก",
+      "sunOrbit": "ระยะทางการโคจรรอบดวงอาทิตย์"
+    }
+  }
+}

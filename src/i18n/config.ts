@@ -257,6 +257,123 @@ export const LOCALES: Record<string, LocaleConfig> = {
     intlLocale: 'ur-PK',
     ogLocale: 'ur_PK',
     enabled: true
+  },
+  az: {
+    code: 'az',
+    nativeName: 'Azərbaycanca',
+    englishName: 'Azerbaijani',
+    direction: 'ltr',
+    intlLocale: 'az-AZ',
+    ogLocale: 'az_AZ',
+    enabled: true
+  },
+  bg: {
+    code: 'bg',
+    nativeName: 'Български',
+    englishName: 'Bulgarian',
+    direction: 'ltr',
+    intlLocale: 'bg-BG',
+    ogLocale: 'bg_BG',
+    enabled: true
+  },
+  hr: {
+    code: 'hr',
+    nativeName: 'Hrvatski',
+    englishName: 'Croatian',
+    direction: 'ltr',
+    intlLocale: 'hr-HR',
+    ogLocale: 'hr_HR',
+    enabled: true
+  },
+  hu: {
+    code: 'hu',
+    nativeName: 'Magyar',
+    englishName: 'Hungarian',
+    direction: 'ltr',
+    intlLocale: 'hu-HU',
+    ogLocale: 'hu_HU',
+    enabled: true
+  },
+  kk: {
+    code: 'kk',
+    nativeName: 'Қазақша',
+    englishName: 'Kazakh',
+    direction: 'ltr',
+    intlLocale: 'kk-KZ',
+    ogLocale: 'kk_KZ',
+    enabled: true
+  },
+  ms: {
+    code: 'ms',
+    nativeName: 'Bahasa Melayu',
+    englishName: 'Malay',
+    direction: 'ltr',
+    intlLocale: 'ms-MY',
+    ogLocale: 'ms_MY',
+    enabled: true
+  },
+  ro: {
+    code: 'ro',
+    nativeName: 'Română',
+    englishName: 'Romanian',
+    direction: 'ltr',
+    intlLocale: 'ro-RO',
+    ogLocale: 'ro_RO',
+    enabled: true
+  },
+  sk: {
+    code: 'sk',
+    nativeName: 'Slovenčina',
+    englishName: 'Slovak',
+    direction: 'ltr',
+    intlLocale: 'sk-SK',
+    ogLocale: 'sk_SK',
+    enabled: true
+  },
+  sr: {
+    code: 'sr',
+    nativeName: 'Српски',
+    englishName: 'Serbian',
+    direction: 'ltr',
+    intlLocale: 'sr-RS',
+    ogLocale: 'sr_RS',
+    enabled: true
+  },
+  th: {
+    code: 'th',
+    nativeName: 'ไทย',
+    englishName: 'Thai',
+    direction: 'ltr',
+    intlLocale: 'th-TH',
+    ogLocale: 'th_TH',
+    enabled: true
+  },
+  tl: {
+    code: 'tl',
+    nativeName: 'Tagalog',
+    englishName: 'Tagalog',
+    direction: 'ltr',
+    intlLocale: 'tl-PH',
+    ogLocale: 'fil_PH',
+    enabled: true
+  },
+  uz: {
+    code: 'uz',
+    nativeName: 'Oʻzbekcha',
+    englishName: 'Uzbek',
+    direction: 'ltr',
+    intlLocale: 'uz-UZ',
+    ogLocale: 'uz_UZ',
+    enabled: true
+  },
+  vi: {
+    code: 'vi',
+    nativeName: 'Tiếng Việt',
+    englishName: 'Vietnamese',
+    direction: 'ltr',
+    intlLocale: 'vi-VN',
+    ogLocale: 'vi_VN',
+    enabled: true
   }
 };
 

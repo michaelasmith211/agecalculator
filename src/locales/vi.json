@@ -1,0 +1,318 @@
+{
+  "meta": {
+    "homeTitle": "Máy Tính Tuổi – Tính Tuổi Chính Xác Theo Năm, Tháng và Ngày",
+    "homeDescription": "Công cụ tính tuổi trực tuyến miễn phí. Tính tuổi chính xác của bạn theo năm, tháng, ngày và giây theo thời gian thực. Đếm ngược sinh nhật và thống kê cuộc sống.",
+    "homeH1": "Máy Tính Tuổi Trực Tuyến",
+    "homeSubtitle": "Tính tuổi theo trình tự thời gian chính xác của bạn theo năm, tháng, ngày, giờ và giây trực tiếp với độ chuẩn xác của lịch Gregory."
+  },
+  "navigation": {
+    "home": "Trang chủ",
+    "ageCalculator": "Máy Tính Tuổi",
+    "birthday": "Máy Tính Sinh Nhật",
+    "ageDifference": "Chênh Lệch Tuổi",
+    "dateDifference": "Chênh Lệch Ngày",
+    "dateOfBirth": "Ngày Sinh",
+    "moreTools": "Công Cụ Khác",
+    "allAgeTools": "Tất Cả Công Cụ Tuổi & Ngày",
+    "calculateAge": "Tính Tuổi",
+    "calculateMyAgeNow": "Tính Tuổi Của Tôi",
+    "mainTools": "Công Cụ Chính",
+    "moreCalculators": "Thêm Máy Tính"
+  },
+  "calculator": {
+    "badge": "Tính Toán Lịch & Thời Gian Tức Thì và Chuẩn Xác",
+    "dobLabel": "Ngày Sinh",
+    "dobPlaceholder": "Chọn ngày sinh của bạn",
+    "dobHelper": "Chọn ngày, tháng và năm sinh của bạn (DD / MM / YYYY). Được lưu cục bộ trong cookie.",
+    "targetDateLabel": "Tính Tuổi Đến Ngày",
+    "useToday": "Dùng Ngày Hôm Nay",
+    "changeDate": "Đổi Ngày",
+    "includeTime": "Thêm Giờ Sinh Chính Xác (Tùy chọn)",
+    "includeTimeHelper": "Để đạt độ chuẩn xác đến từng phút",
+    "birthTimeLabel": "Giờ Sinh (Giờ Địa Phương)",
+    "calculate": "Tính Tuổi",
+    "reset": "Đặt Lại",
+    "clear": "Xóa",
+    "copied": "Đã sao chép!",
+    "copy": "Sao chép",
+    "print": "In",
+    "yourExactAge": "Tuổi Chính Xác Của Bạn",
+    "years": "Năm",
+    "months": "Tháng",
+    "days": "Ngày",
+    "hours": "Giờ",
+    "minutes": "Phút",
+    "seconds": "Giây",
+    "nextBirthday": "Sinh Nhật Kế Tiếp",
+    "daysRemaining": "ngày còn lại",
+    "turning": "Sẽ tròn",
+    "happyBirthday": "🎉 Chúc mừng sinh nhật bạn hôm nay!",
+    "totalDaysLived": "Tổng Số Ngày Đã Sống",
+    "totalWeeks": "Tổng Số Tuần Đã Sống",
+    "heartbeats": "Ước Tính Nhịp Tim",
+    "solarOrbit": "Tiến Độ Năm Mặt Trời",
+    "liveSeconds": "Tổng Số Giây Đã Sống Trực Tiếp",
+    "timeBreakdown": "Phân Tích Thời Gian Chi Tiết",
+    "zodiacSign": "Cung Hoàng Đạo",
+    "chineseZodiac": "Con Giáp",
+    "dayBorn": "Ngày Trong Tuần Khi Sinh"
+  },
+  "features": {
+    "gregorianPrecisionTitle": "Độ Chuẩn Xác Lịch Gregory",
+    "gregorianPrecisionDesc": "Tính toán năm nhuận, các tháng 30/31 ngày và ngày 29 tháng 2 chuẩn xác đến từng giây.",
+    "liveSecondsTitle": "Đồng Hồ Giây Thời Gian Thực",
+    "liveSecondsDesc": "Bộ đếm tuổi trực tiếp đồng bộ với đồng hồ cục bộ trên thiết bị của bạn.",
+    "privateAndFreeTitle": "100% Riêng Tư & Miễn Phí",
+    "privateAndFreeDesc": "Không cần đăng ký và không gửi dữ liệu về máy chủ. Mọi phép tính đều diễn ra trên trình duyệt của bạn."
+  },
+  "howItWorks": {
+    "title": "Máy Tính Tuổi Hoạt Động Như Thế Nào",
+    "subtitle": "Giải thích rõ ràng về thuật toán tính ngày lịch, chuyển tháng và tính toán giây."
+  },
+  "faq": {
+    "title": "Câu Hỏi Thường Gặp (FAQ)",
+    "items": [
+      {
+        "question": "Máy tính xác định tuổi chính xác bằng cách nào?",
+        "answer": "Hệ thống so sánh ngày sinh với ngày mục tiêu theo quy tắc lịch Gregory, tính đủ số năm, tháng và các ngày còn lại."
+      },
+      {
+        "question": "Có tính đến năm nhuận không?",
+        "answer": "Có. Đối với những người sinh ngày 29 tháng 2, chu kỳ năm nhuận 4 năm chính thức được áp dụng đầy đủ."
+      },
+      {
+        "question": "Bộ đếm giây trực tiếp chính xác đến mức nào?",
+        "answer": "Đồng hồ đồng bộ hóa với hệ thống thiết bị của bạn mỗi giây theo thời gian thực."
+      },
+      {
+        "question": "Dữ liệu cá nhân của tôi có an toàn không?",
+        "answer": "Hoàn toàn 100%. Tất cả các phép tính diễn ra trên trình duyệt của bạn, không có thông tin nào được truyền đi."
+      },
+      {
+        "question": "Tôi có thể tính chênh lệch tuổi giữa hai người không?",
+        "answer": "Có, hãy sử dụng 'Máy Tính Chênh Lệch Tuổi' để so sánh hai ngày sinh theo năm, tháng và ngày."
+      }
+    ]
+  },
+  "breadcrumbs": {
+    "home": "Trang chủ"
+  },
+  "related": {
+    "title": "Công Cụ Tuổi & Ngày Liên Quan",
+    "description": "Khám phá các công cụ miễn phí khác của chúng tôi cho các phép tính lịch và thời gian.",
+    "openCalculator": "Mở Máy Tính"
+  },
+  "languageSelector": {
+    "title": "Chọn Ngôn Ngữ",
+    "subtitle": "Sử dụng máy tính tuổi bằng ngôn ngữ mẹ đẻ của bạn",
+    "searchPlaceholder": "Tìm kiếm ngôn ngữ...",
+    "close": "Đóng"
+  },
+  "footer": {
+    "brandDescription": "Tính toán tuổi và lịch trực tuyến miễn phí, chính xác và an toàn cho tất cả mọi người.",
+    "coreCalculators": "Máy Tính Chính",
+    "specialtyTools": "Công Cụ Chuyên Dụng",
+    "guide": "Hướng Dẫn",
+    "company": "Công Ty",
+    "aboutUs": "Về Chúng Tôi",
+    "contact": "Liên Hệ",
+    "privacy": "Chính Sách Bảo Mật",
+    "terms": "Điều Khoản Sử Dụng",
+    "languages": "Ngôn Ngữ",
+    "clientSideBadge": "100% Tính Toán Phía Trình Duyệt",
+    "allRightsReserved": "Đã đăng ký bản quyền."
+  },
+  "errors": {
+    "invalidDate": "Vui lòng nhập ngày hợp lệ.",
+    "futureDate": "Ngày sinh không thể ở tương lai.",
+    "requiredDate": "Trường ngày là bắt buộc."
+  },
+  "tools": {
+    "age-calculator": {
+      "title": "Máy Tính Tuổi Chính Xác",
+      "desc": "Tính tuổi chính xác của bạn theo năm, tháng, ngày và giây trực tiếp ngay lập tức."
+    },
+    "birthday-calculator": {
+      "title": "Máy Tính Sinh Nhật",
+      "desc": "Tìm hiểu xem bạn sinh vào thứ mấy trong tuần và còn bao lâu đến sinh nhật tiếp theo."
+    },
+    "age-difference-calculator": {
+      "title": "Máy Tính Chênh Lệch Tuổi",
+      "desc": "So sánh khoảng cách tuổi chính xác giữa hai người theo năm, tháng và ngày."
+    },
+    "birthday-countdown": {
+      "title": "Đếm Ngược Sinh Nhật",
+      "desc": "Theo dõi trực tiếp số ngày, giờ, phút và giây còn lại trước sinh nhật tới của bạn."
+    },
+    "date-difference-calculator": {
+      "title": "Máy Tính Chênh Lệch Ngày",
+      "desc": "Tính số ngày, tuần và tháng giữa hai ngày lịch bất kỳ."
+    },
+    "date-of-birth-calculator": {
+      "title": "Máy Tính Ngày Sinh",
+      "desc": "Xác định ngày sinh ước tính hoặc chính xác dựa trên độ tuổi đã biết."
+    },
+    "days-between-dates": {
+      "title": "Số Ngày Giữa Hai Ngày",
+      "desc": "Tính ngày làm việc, ngày cuối tuần và tổng số ngày giữa hai mốc thời gian."
+    },
+    "chronological-age-calculator": {
+      "title": "Máy Tính Tuổi Theo Trình Tự Thời Gian",
+      "desc": "Tính tuổi theo thời gian và tuổi hiệu chỉnh cho trẻ sinh non."
+    },
+    "retirement-age-calculator": {
+      "title": "Máy Tính Tuổi Nghỉ Hưu",
+      "desc": "Lên kế hoạch thời gian và số ngày làm việc còn lại đến tuổi nghỉ hưu mục tiêu."
+    },
+    "leap-year-age-calculator": {
+      "title": "Máy Tính Năm Nhuận & 29 Tháng 2",
+      "desc": "Khám phá số lần kỷ niệm sinh nhật 29 tháng 2 thực tế đã trải qua."
+    },
+    "how-to-calculate-age": {
+      "title": "Cách Tính Tuổi Chuẩn Xác?",
+      "desc": "Hướng dẫn chi tiết về các quy tắc lịch và cách tính tuổi chính xác."
+    }
+  },
+  "calculators": {
+    "birthday": {
+      "title": "Birthday & Milestone Calculator",
+      "desc": "Discover when your next birthday is, how many days remain, and see the exact days of the week for all your milestone birthdays.",
+      "dobLabel": "Ngày Sinh",
+      "btnCalculate": "Tính Thông Tin Sinh Nhật",
+      "nextCountdown": "Next Birthday Countdown",
+      "daysUntil": "Days",
+      "turning": "until you turn",
+      "onDate": "Your next birthday falls on",
+      "todayBday": "Happy Birthday Today!",
+      "milestoneTitle": "Milestone Birthdays",
+      "age": "Age",
+      "year": "Year",
+      "date": "Date",
+      "dayOfWeek": "Day of Week",
+      "status": "Status",
+      "passed": "Passed",
+      "upcoming": "Upcoming"
+    },
+    "ageDifference": {
+      "title": "Age Difference Calculator",
+      "desc": "Compare two dates of birth to calculate the precise age gap in years, months, and days.",
+      "personA": "Người A",
+      "personB": "Người B",
+      "dobLabel": "Ngày Sinh",
+      "btnCalculate": "Tính Chênh Lệch",
+      "resultTitle": "Kết Quả Chênh Lệch Tuổi",
+      "olderThan": "lớn tuổi hơn",
+      "by": "khoảng:",
+      "totalDaysDiff": "Tổng Chênh Lệch Ngày",
+      "totalWeeksDiff": "Tổng Chênh Lệch Tuần",
+      "copySummary": "Copy Summary",
+      "copied": "Copied to clipboard!",
+      "sameAge": "Both persons were born on the exact same date."
+    },
+    "dateDifference": {
+      "title": "Date Difference Calculator",
+      "desc": "Calculate the exact duration between any two calendar dates in years, months, and days.",
+      "startDate": "Ngày Bắt Đầu",
+      "endDate": "Ngày Kết Thúc",
+      "btnCalculate": "Tính Chênh Lệch Ngày",
+      "resultTitle": "Chênh Lệch Giữa Hai Ngày",
+      "diffYMD": "Difference",
+      "totalDays": "Tổng Số Ngày",
+      "totalWeeks": "Tuần",
+      "totalHours": "Giờ",
+      "totalMinutes": "Phút",
+      "errorInvalid": "Please select valid start and end dates."
+    },
+    "dateOfBirth": {
+      "title": "Máy Tính Ngày Sinh",
+      "desc": "Xác định ngày sinh dự kiến hoặc chính xác dựa trên số tuổi.",
+      "ageYears": "Năm",
+      "ageMonths": "Tháng",
+      "ageDays": "Ngày",
+      "asOfDate": "Tính Tuổi Đến Ngày",
+      "btnCalculate": "Tìm Ngày Sinh",
+      "resultTitle": "Ngày Sinh Đã Tính",
+      "estimatedDob": "Estimated Date of Birth",
+      "dayBorn": "Ngày Sinh Trong Tuần"
+    },
+    "birthdayCountdown": {
+      "title": "Đếm Ngược Sinh Nhật",
+      "desc": "Quan sát từng giây trôi qua trước thềm sinh nhật tiếp theo của bạn.",
+      "dobLabel": "Ngày Sinh",
+      "days": "Ngày",
+      "hours": "Giờ",
+      "minutes": "Phút",
+      "seconds": "Giây",
+      "turningAge": "Tuổi Sẽ Tròn",
+      "nextBdayOn": "Ngày Sinh Nhật Tới",
+      "happyBday": "Chúc mừng sinh nhật!"
+    },
+    "daysBetween": {
+      "title": "Số Ngày Giữa Hai Ngày",
+      "desc": "Tính tổng số ngày, ngày làm việc và ngày cuối tuần giữa hai ngày lịch.",
+      "startDate": "Ngày Bắt Đầu",
+      "endDate": "Ngày Kết Thúc",
+      "includeEndDay": "Tính cả ngày kết thúc (+1 ngày)",
+      "btnCalculate": "Tính Số Ngày",
+      "totalDays": "Tổng Số Ngày",
+      "businessDays": "Ngày Làm Việc",
+      "weekendDays": "Ngày Cuối Tuần",
+      "totalWeeks": "Tuần Đầy Đủ"
+    },
+    "chronological": {
+      "title": "Máy Tính Tuổi Theo Trình Tự Thời Gian",
+      "desc": "Tính tuổi theo thời gian và tuổi hiệu chỉnh cho các đánh giá nhi khoa.",
+      "birthDate": "Ngày Sinh",
+      "testDate": "Ngày Đánh Giá",
+      "weeksPremature": "Số Tuần Sinh Non",
+      "btnCalculate": "Tính Tuổi Theo Thời Gian",
+      "chronologicalAge": "Tuổi Theo Thời Gian",
+      "notation": "Ký Hiệu Lâm Sàng (N;T;Ng)",
+      "exactInterval": "Khoảng Thời Gian Trôi Qua Chính Xác",
+      "adjustedAge": "Tuổi Hiệu Chỉnh"
+    },
+    "retirement": {
+      "title": "Máy Tính Tuổi Nghỉ Hưu",
+      "desc": "Ước tính thời gian và số ngày làm việc còn lại đến tuổi nghỉ hưu mục tiêu.",
+      "birthDate": "Ngày Sinh",
+      "currentAge": "Tuổi Hiện Tại",
+      "targetAge": "Tuổi Nghỉ Hưu Mục Tiêu",
+      "asOfDate": "Ngày Tính Toán",
+      "btnCalculate": "Tính Nghỉ Hưu",
+      "yearsRemaining": "Số Năm Còn Lại",
+      "targetYear": "Năm Nghỉ Hưu Dự Kiến",
+      "workingDaysLeft": "Ước Tính Ngày Làm Việc Còn Lại",
+      "alreadyReached": "Đã đạt độ tuổi nghỉ hưu mục tiêu."
+    },
+    "leapYear": {
+      "title": "Máy Tính Năm Nhuận & 29 Tháng 2",
+      "desc": "Khám phá các lần kỷ niệm sinh nhật 29/2 chính thức và ngày tiếp theo.",
+      "dobLabel": "Ngày Sinh",
+      "btnCalculate": "Kiểm Tra Năm Nhuận",
+      "leapYearsLived": "Số Ngày 29/2 Đã Trải Qua",
+      "actualBirthdays": "Sinh Nhật Năm Nhuận Chính Thức",
+      "nextLeapBirthday": "Sinh Nhật 29/2 Tiếp Theo",
+      "leapBabyBadge": "Em Bé Năm Nhuận (29 Tháng 2)"
+    },
+    "liveTicker": {
+      "title": "Bộ Đếm Tuổi Thời Gian Thực",
+      "syncedLocal": "Đồng bộ với đồng hồ cục bộ trên thiết bị",
+      "asOfTarget": "Được tính đến ngày mục tiêu",
+      "clock": "Đồng hồ",
+      "runningTotalSeconds": "Tổng Số Giây Đã Sống",
+      "seconds": "giây",
+      "solarOrbit": "Tiến Độ Năm Mặt Trời",
+      "completed": "Đã hoàn thành",
+      "turnedAge": "Đã tròn ở sinh nhật trước",
+      "turningAgeIn": "Sẽ tròn tuổi sau",
+      "bioMilestones": "Cột Mốc Sinh Học",
+      "spaceTravel": "Du Hành Không Gian & Hành Tinh",
+      "heartbeats": "Ước Tính Nhịp Tim",
+      "breaths": "Hơi Thở Đã Thực Hiện",
+      "blinks": "Lần Chớp Mắt",
+      "hoursSlept": "Số Giờ Đã Ngủ",
+      "earthRotation": "Khoảng Cách Tự Quay Của Trái Đất",
+      "sunOrbit": "Khoảng Cách Quay Quanh Mặt Trời"
+    }
+  }
+}

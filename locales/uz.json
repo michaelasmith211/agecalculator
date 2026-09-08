@@ -1,0 +1,318 @@
+{
+  "meta": {
+    "homeTitle": "Yosh Kalkulyatori – Yil, Oy va Kunlarda Aniq Yoshni Hisoblash",
+    "homeDescription": "Bepul onlayn yosh kalkulyatori. Aniq yoshingizni yillar, oylar, kunlar va jonli soniyalarda hisoblang. Tug'ilgan kunga teskari hisob va hayotiy statistika.",
+    "homeH1": "Onlayn Yosh Kalkulyatori",
+    "homeSubtitle": "Grigorian taqvimi aniqligi bilan xronologik yoshingizni yillar, oylar, kunlar, soatlar va jonli soniyalarda hisoblang."
+  },
+  "navigation": {
+    "home": "Bosh sahifa",
+    "ageCalculator": "Yosh Kalkulyatori",
+    "birthday": "Tug'ilgan Kun Kalkulyatori",
+    "ageDifference": "Yosh Farqi",
+    "dateDifference": "Sanalar Farqi",
+    "dateOfBirth": "Tug'ilgan Sana Kalkulyatori",
+    "moreTools": "Boshqa Vositalar",
+    "allAgeTools": "Barcha Yosh va Sana Vositalari",
+    "calculateAge": "Yoshni Hisoblash",
+    "calculateMyAgeNow": "Yoshimni Hisoblash",
+    "mainTools": "Asosiy Vositalar",
+    "moreCalculators": "Qo'shimcha Kalkulyatorlar"
+  },
+  "calculator": {
+    "badge": "Tezkor va Aniq Taqvimiy Hisoblash",
+    "dobLabel": "Tug'ilgan Sana",
+    "dobPlaceholder": "Tug'ilgan sanangizni tanlang",
+    "dobHelper": "Tug'ilgan kuningiz, oyingiz va yilingizni tanlang (KK / OO / YYYY). Cookie fayllarida lokal saqlanadi.",
+    "targetDateLabel": "Ushbu Sanadagi Yosh",
+    "useToday": "Bugungi Kunni Ishlatish",
+    "changeDate": "Sanani O'zgartirish",
+    "includeTime": "Aniq Tug'ilgan Vaqtni Kiritish (Ixtiyoriy)",
+    "includeTimeHelper": "Daqiqasigacha aniqlik uchun",
+    "birthTimeLabel": "Tug'ilgan Vaqt (Mahalliy Vaqt)",
+    "calculate": "Yoshni Hisoblash",
+    "reset": "Qayta o'rnatish",
+    "clear": "Tozalash",
+    "copied": "Nusxalandi!",
+    "copy": "Nusxalash",
+    "print": "Chop etish",
+    "yourExactAge": "Sizning Aniq Yoshingiz",
+    "years": "Yil",
+    "months": "Oy",
+    "days": "Kun",
+    "hours": "Soat",
+    "minutes": "Daqiqa",
+    "seconds": "Soniya",
+    "nextBirthday": "Keyingi Tug'ilgan Kun",
+    "daysRemaining": "kun qoldi",
+    "turning": "To'ladigan yosh",
+    "happyBirthday": "🎉 Bugungi tug'ilgan kuningiz muborak!",
+    "totalDaysLived": "Umumiy Yashalgan Kunlar",
+    "totalWeeks": "Umumiy Yashalgan Haftalar",
+    "heartbeats": "Taxminiy Yurak Uruşlari",
+    "solarOrbit": "Quyosh Yili Progressi",
+    "liveSeconds": "Jonli Yashalgan Soniyalar",
+    "timeBreakdown": "Vaqtning Batafsil Taqsimoti",
+    "zodiacSign": "Burj Belgisi",
+    "chineseZodiac": "Sharqiy Burj",
+    "dayBorn": "Tug'ilgan Hafta Kuni"
+  },
+  "features": {
+    "gregorianPrecisionTitle": "Grigorian Aniqligi",
+    "gregorianPrecisionDesc": "Kabisa yillari, 30/31 kunlik oylar va 29-fevralni soniyasigacha hisobga oladi.",
+    "liveSecondsTitle": "Jonli Soniyalar Hisoblagichi",
+    "liveSecondsDesc": "Qurilmangizning mahalliy soati bilan sinxronlangan real vaqtdagi yosh hisoblagichi.",
+    "privateAndFreeTitle": "100% Maxfiy va Bepul",
+    "privateAndFreeDesc": "Ro'yxatdan o'tmasdan va serverga ma'lumot yubormasdan. Barcha hisob-kitoblar brauzeringizda amalga oshiriladi."
+  },
+  "howItWorks": {
+    "title": "Yosh Kalkulyatori Qanday Ishlaydi",
+    "subtitle": "Taqvim kunlari, oylarning o'tishi va soniyalarni hisoblash algoritmining shaffof tushuntirilishi."
+  },
+  "faq": {
+    "title": "Ko'p Beriladigan Savollar (FAQ)",
+    "items": [
+      {
+        "question": "Kalkulyator aniq yoshni qanday hisoblaydi?",
+        "answer": "U Grigorian taqvimi qoidalariga asosan tug'ilgan sanani maqsadli sana bilan taqqoslab, to'liq yillar, oylar va kunlarni hisoblaydi."
+      },
+      {
+        "question": "Kabisa yillari hisobga olinadimi?",
+        "answer": "Ha. 29-fevralda tug'ilganlar uchun rasmiy to'rt yillik kabisa davrlari qo'llaniladi."
+      },
+      {
+        "question": "Jonli soniya o'lchagich qanchalik aniq?",
+        "answer": "U har soniyada qurilmangizning tizim soati bilan real vaqtda sinxronlashadi."
+      },
+      {
+        "question": "Mening shaxsiy ma'lumotlarim xavfsizmi?",
+        "answer": "Ha, 100%. Barcha hisoblashlar bevosita brauzeringizda bajariladi va hech qanday ma'lumot uzatilmaydi."
+      },
+      {
+        "question": "Ikki kishi o'rtasidagi yosh farqini hisoblasa bo'ladimi?",
+        "answer": "Ha, ikki sanani yillar, oylar va kunlarda taqqoslash uchun 'Yosh Farqi Kalkulyatori'dan foydalaning."
+      }
+    ]
+  },
+  "breadcrumbs": {
+    "home": "Bosh sahifa"
+  },
+  "related": {
+    "title": "Tegishli Yosh va Sana Vositalari",
+    "description": "Taqvim va vaqt hisob-kitoblari uchun boshqa bepul vositalarimiz bilan tanishing.",
+    "openCalculator": "Kalkulyatorni Ochish"
+  },
+  "languageSelector": {
+    "title": "Tilni Tanlang",
+    "subtitle": "Yosh kalkulyatoridan o'z ona tilingizda foydalaning",
+    "searchPlaceholder": "Tillarni qidiring...",
+    "close": "Yopish"
+  },
+  "footer": {
+    "brandDescription": "Barcha uchun bepul, aniq va xavfsiz onlayn yosh va taqvim hisob-kitoblari.",
+    "coreCalculators": "Asosiy Kalkulyatorlar",
+    "specialtyTools": "Maxsus Vositalar",
+    "guide": "Qo'llanma",
+    "company": "Kompaniya",
+    "aboutUs": "Biz Haqimizda",
+    "contact": "Aloqa",
+    "privacy": "Maxfiylik Siyosati",
+    "terms": "Foydalanish Shartlari",
+    "languages": "Tillar",
+    "clientSideBadge": "100% Brauzerda Bajariladigan Hisob",
+    "allRightsReserved": "Barcha huquqlar himoyalangan."
+  },
+  "errors": {
+    "invalidDate": "Iltimos, to'g'ri sanani kiriting.",
+    "futureDate": "Tug'ilgan sana kelajakda bo'lishi mumkin emas.",
+    "requiredDate": "Sana maydonini to'ldirish shart."
+  },
+  "tools": {
+    "age-calculator": {
+      "title": "Aniq Yosh Kalkulyatori",
+      "desc": "Yil, oy, kun va jonli soniyalarda aniq yoshingizni bir zumda hisoblang."
+    },
+    "birthday-calculator": {
+      "title": "Tug'ilgan Kun Kalkulyatori",
+      "desc": "Haftaning qaysi kunida tug'ilganingizni va keyingi tug'ilgan kuningizgacha qolgan vaqtni biling."
+    },
+    "age-difference-calculator": {
+      "title": "Yosh Farqi Kalkulyatori",
+      "desc": "Ikki kishi orasidagi aniq yosh farqini yillar, oylar va kunlarda taqqoslang."
+    },
+    "birthday-countdown": {
+      "title": "Tug'ilgan Kunga Teskari Hisob",
+      "desc": "Keyingi tug'ilgan kuningizgacha qolgan kun, soat, daqiqa va soniyalarni jonli kuzating."
+    },
+    "date-difference-calculator": {
+      "title": "Sanalar Farqi Kalkulyatori",
+      "desc": "Ixtiyoriy ikki taqvim sanasi orasidagi kunlar, haftalar va oylar sonini hisoblang."
+    },
+    "date-of-birth-calculator": {
+      "title": "Tug'ilgan Sanani Aniqlash",
+      "desc": "Ma'lum yosh va sana asosida aniq yoki taxminiy tug'ilgan sanangizni toping."
+    },
+    "days-between-dates": {
+      "title": "Sanalar Orasidagi Kunlar",
+      "desc": "Ikki sana orasidagi ish kunlari, dam olish kunlari va umumiy kunlarni hisoblang."
+    },
+    "chronological-age-calculator": {
+      "title": "Xronologik Yosh Kalkulyatori",
+      "desc": "Chala tug'ilgan chaqaloqlar uchun to'g'rilangan va xronologik yoshni hisoblang."
+    },
+    "retirement-age-calculator": {
+      "title": "Pensiya Yoshi Kalkulyatori",
+      "desc": "Maqsadli pensiya yoshigacha qolgan vaqt va ish kunlarini rejalashtiring."
+    },
+    "leap-year-age-calculator": {
+      "title": "Kabisa Yili va 29-Fevral Kalkulyatori",
+      "desc": "29-fevralda tug'ilganlar uchun amalda yashalgan tug'ilgan kunlarni bilib oling."
+    },
+    "how-to-calculate-age": {
+      "title": "Yosh Qanday Hisoblanadi?",
+      "desc": "Taqvim qoidalari va yoshni aniq hisoblash bo'yicha to'liq qo'llanma."
+    }
+  },
+  "calculators": {
+    "birthday": {
+      "title": "Birthday & Milestone Calculator",
+      "desc": "Discover when your next birthday is, how many days remain, and see the exact days of the week for all your milestone birthdays.",
+      "dobLabel": "Tug'ilgan Sana",
+      "btnCalculate": "Tug'ilgan Kunni Hisoblash",
+      "nextCountdown": "Next Birthday Countdown",
+      "daysUntil": "Days",
+      "turning": "until you turn",
+      "onDate": "Your next birthday falls on",
+      "todayBday": "Happy Birthday Today!",
+      "milestoneTitle": "Milestone Birthdays",
+      "age": "Age",
+      "year": "Year",
+      "date": "Date",
+      "dayOfWeek": "Day of Week",
+      "status": "Status",
+      "passed": "Passed",
+      "upcoming": "Upcoming"
+    },
+    "ageDifference": {
+      "title": "Age Difference Calculator",
+      "desc": "Compare two dates of birth to calculate the precise age gap in years, months, and days.",
+      "personA": "Shaxs A",
+      "personB": "Shaxs B",
+      "dobLabel": "Tug'ilgan Sana",
+      "btnCalculate": "Farqni Hisoblash",
+      "resultTitle": "Yosh Farqi Natijasi",
+      "olderThan": "yoshi kattaroq",
+      "by": "farqi:",
+      "totalDaysDiff": "Umumiy Kunlar Farqi",
+      "totalWeeksDiff": "Umumiy Haftalar Farqi",
+      "copySummary": "Copy Summary",
+      "copied": "Copied to clipboard!",
+      "sameAge": "Both persons were born on the exact same date."
+    },
+    "dateDifference": {
+      "title": "Date Difference Calculator",
+      "desc": "Calculate the exact duration between any two calendar dates in years, months, and days.",
+      "startDate": "Boshlanish Sanasi",
+      "endDate": "Tugash Sanasi",
+      "btnCalculate": "Sanalar Farqini Hisoblash",
+      "resultTitle": "Sanalar Orasidagi Farq",
+      "diffYMD": "Difference",
+      "totalDays": "Jami Kunlar",
+      "totalWeeks": "Haftalar",
+      "totalHours": "Soatlar",
+      "totalMinutes": "Daqiqalar",
+      "errorInvalid": "Please select valid start and end dates."
+    },
+    "dateOfBirth": {
+      "title": "Tug'ilgan Sana Kalkulyatori",
+      "desc": "Kiritilgan yoshga qarab taxminiy yoki aniq tug'ilgan sanangizni aniqlang.",
+      "ageYears": "Yil",
+      "ageMonths": "Oy",
+      "ageDays": "Kun",
+      "asOfDate": "Ushbu Sanadagi Yosh",
+      "btnCalculate": "Tug'ilgan Sanani Topish",
+      "resultTitle": "Hisoblangan Tug'ilgan Sana",
+      "estimatedDob": "Estimated Date of Birth",
+      "dayBorn": "Tug'ilgan Hafta Kuni"
+    },
+    "birthdayCountdown": {
+      "title": "Tug'ilgan Kunga Teskari Hisob",
+      "desc": "Keyingi tug'ilgan kuningizgacha qolgan vaqtni real vaqtda kuzating.",
+      "dobLabel": "Tug'ilgan Sana",
+      "days": "Kun",
+      "hours": "Soat",
+      "minutes": "Daqiqa",
+      "seconds": "Soniya",
+      "turningAge": "To'ladigan Yosh",
+      "nextBdayOn": "Keyingi Tug'ilgan Kun Sanasi",
+      "happyBday": "Tug'ilgan kuningiz muborak!"
+    },
+    "daysBetween": {
+      "title": "Sanalar Orasidagi Kunlar",
+      "desc": "Ikki taqvim sanasi orasidagi aniq kunlar, ish kunlari va dam olish kunlarini hisoblang.",
+      "startDate": "Boshlanish Sanasi",
+      "endDate": "Tugash Sanasi",
+      "includeEndDay": "Oxirgi kunni qo'shish (+1 kun)",
+      "btnCalculate": "Kunlarni Hisoblash",
+      "totalDays": "Jami Kunlar",
+      "businessDays": "Ish Kunlari",
+      "weekendDays": "Dam Olish Kunlari",
+      "totalWeeks": "To'liq Haftalar"
+    },
+    "chronological": {
+      "title": "Xronologik Yosh Kalkulyatori",
+      "desc": "Pediatrik baholashlar uchun xronologik va tuzatilgan yoshni hisoblang.",
+      "birthDate": "Tug'ilgan Sana",
+      "testDate": "Tekshiruv Sanasi",
+      "weeksPremature": "Chala Tug'ilish Haftalari",
+      "btnCalculate": "Xronologik Yoshni Hisoblash",
+      "chronologicalAge": "Xronologik Yosh",
+      "notation": "Klinik Yozuv (Y;O;K)",
+      "exactInterval": "O'tgan Aniq Davr",
+      "adjustedAge": "Tuzatilgan Yosh"
+    },
+    "retirement": {
+      "title": "Pensiya Yoshi Kalkulyatori",
+      "desc": "Pensiyaga chiqishgacha qolgan vaqt va ish kunlarini hisoblang.",
+      "birthDate": "Tug'ilgan Sana",
+      "currentAge": "Hozirgi Yosh",
+      "targetAge": "Maqsadli Pensiya Yoshi",
+      "asOfDate": "Hisoblash Sanasi",
+      "btnCalculate": "Pensiyani Hisoblash",
+      "yearsRemaining": "Qolgan Yillar",
+      "targetYear": "Kutilayotgan Pensiya Yili",
+      "workingDaysLeft": "Taxminiy Qolgan Ish Kunlari",
+      "alreadyReached": "Maqsadli pensiya yoshiga yetgansiz."
+    },
+    "leapYear": {
+      "title": "Kabisa Yili va 29-Fevral Kalkulyatori",
+      "desc": "29-fevralda nishonlangan tug'ilgan kunlar va keyingi sanani bilib oling.",
+      "dobLabel": "Tug'ilgan Sana",
+      "btnCalculate": "Kabisa Yilini Tekshirish",
+      "leapYearsLived": "Yashalgan 29-Fevrallar",
+      "actualBirthdays": "Rasmiy Kabisa Tug'ilgan Kunlari",
+      "nextLeapBirthday": "Keyingi 29-Fevral Tug'ilgan Kuni",
+      "leapBabyBadge": "Kabisa Kuni Chaqalog'i (29-fevral)"
+    },
+    "liveTicker": {
+      "title": "Jonli Yosh Hisoblagichi",
+      "syncedLocal": "Qurilmaning mahalliy soati bilan sinxronlangan",
+      "asOfTarget": "Maqsadli sana uchun hisoblangan",
+      "clock": "Soat",
+      "runningTotalSeconds": "Umumiy Yashalgan Soniyalar",
+      "seconds": "soniya",
+      "solarOrbit": "Quyosh Yili Progressi",
+      "completed": "Bajarildi",
+      "turnedAge": "O'tgan tug'ilgan kunda to'lgan",
+      "turningAgeIn": "To'lishiga qoldi",
+      "bioMilestones": "Biologik Bosqichlar",
+      "spaceTravel": "Koinot va Sayyoralardagi Sayohat",
+      "heartbeats": "Taxminiy Yurak Uruşlari",
+      "breaths": "Olingan Nafaslar",
+      "blinks": "Ko'z Qirpig'i Qoqishlari",
+      "hoursSlept": "Uyqu Soatlari",
+      "earthRotation": "Yer Yuzasi Aylanish Masofasi",
+      "sunOrbit": "Quyosh Atrofida Bosib O'tilgan Masofa"
+    }
+  }
+}

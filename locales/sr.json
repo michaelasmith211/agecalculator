@@ -1,0 +1,318 @@
+{
+  "meta": {
+    "homeTitle": "Калкулатор Година – Израчунајте Тачне Године у Годинама, Месецима и Данима",
+    "homeDescription": "Бесплатан онлајн калкулатор година. Сазнајте своје тачне године у годинама, месецима, данима и секундама уживо. Одбројавање до рођендана и животна статистика.",
+    "homeH1": "Онлајн Калкулатор Година",
+    "homeSubtitle": "Израчунајте своју тачну хронолошку старост у годинама, месецима, данима, сатима и секундама уживо уз прецизност грегоријанског календара."
+  },
+  "navigation": {
+    "home": "Почетна",
+    "ageCalculator": "Калкулатор Година",
+    "birthday": "Калкулатор Рођендана",
+    "ageDifference": "Разлика у Годинама",
+    "dateDifference": "Разлика Датума",
+    "dateOfBirth": "Датум Рођења",
+    "moreTools": "Остали Алати",
+    "allAgeTools": "Сви Алати за Старост и Датуме",
+    "calculateAge": "Израчунај Године",
+    "calculateMyAgeNow": "Израчунај Моје Године",
+    "mainTools": "Главни Алати",
+    "moreCalculators": "Више Калкулатора"
+  },
+  "calculator": {
+    "badge": "Тренутни Прецизан Прорачун Календара и Времена",
+    "dobLabel": "Датум Рођења",
+    "dobPlaceholder": "Изаберите датум рођења",
+    "dobHelper": "Изаберите дан, месец и годину рођења (ДД / ММ / ГГГГ). Локално сачувано у колачићима.",
+    "targetDateLabel": "Године на Дан",
+    "useToday": "Користи Данас",
+    "changeDate": "Промени Датум",
+    "includeTime": "Укључи Тачно Време Рођења (Опционо)",
+    "includeTimeHelper": "За тачност до минута",
+    "birthTimeLabel": "Време Рођења (Локално Време)",
+    "calculate": "Израчунај Године",
+    "reset": "Поништи",
+    "clear": "Очисти",
+    "copied": "Копирано!",
+    "copy": "Копирај",
+    "print": "Штампај",
+    "yourExactAge": "Ваша Тачна Старост",
+    "years": "Година",
+    "months": "Месеци",
+    "days": "Дана",
+    "hours": "Сати",
+    "minutes": "Минута",
+    "seconds": "Секунди",
+    "nextBirthday": "Следећи Рођендан",
+    "daysRemaining": "преостало дана",
+    "turning": "Пуни се",
+    "happyBirthday": "🎉 Срећан рођендан данас!",
+    "totalDaysLived": "Укупно Проживљених Дана",
+    "totalWeeks": "Укупно Проживљених Недеља",
+    "heartbeats": "Процена Откуцаја Срца",
+    "solarOrbit": "Напредак Сунчеве Године",
+    "liveSeconds": "Проживљене Секунде Уживо",
+    "timeBreakdown": "Детаљна Рашчламба Времена",
+    "zodiacSign": "Хороскопски Знак",
+    "chineseZodiac": "Кинески Хороскоп",
+    "dayBorn": "Дан у Недељи Рођења"
+  },
+  "features": {
+    "gregorianPrecisionTitle": "Грегоријанска Прецизност",
+    "gregorianPrecisionDesc": "Узима у обзир преступне године, месеце од 30/31 дан и 29. фебруар тачно у секунду.",
+    "liveSecondsTitle": "Секунде у Реалном Времену",
+    "liveSecondsDesc": "Бројач година у реалном времену синхронизован са локалним сатом вашег уређаја.",
+    "privateAndFreeTitle": "100% Приватно и Бесплатно",
+    "privateAndFreeDesc": "Без регистрације и без слања података на сервер. Сви прорачуни се обављају у вашем прегледачу."
+  },
+  "howItWorks": {
+    "title": "Како Ради Калкулатор Година",
+    "subtitle": "Јасно објашњење алгоритма за календарске дане, преносе месеци и рачунање секунди."
+  },
+  "faq": {
+    "title": "Често Постављана Питања (FAQ)",
+    "items": [
+      {
+        "question": "Како калкулатор рачуна тачну старост?",
+        "answer": "Упоређује датум рођења са циљаним датумом према грегоријанском календару, рачунајући пуне године, месеце и преостале дане."
+      },
+      {
+        "question": "Да ли се узимају у обзир преступне године?",
+        "answer": "Да. За рођене 29. фебруара примењују се званични четворогодишњи циклуси преступних година."
+      },
+      {
+        "question": "Колико је тачан тајмер уживо?",
+        "answer": "Синхронизује се са системским сатом вашег уређаја сваке секунде у реалном времену."
+      },
+      {
+        "question": "Да ли су моји лични подаци сигурни?",
+        "answer": "Да, 100%. Сви прорачуни се обављају искључиво локално у вашем прегледачу."
+      },
+      {
+        "question": "Могу ли израчунати разлику у годинама између две особе?",
+        "answer": "Да, користите 'Калкулатор Разлике у Годинама' за поређење два датума рођења."
+      }
+    ]
+  },
+  "breadcrumbs": {
+    "home": "Почетна"
+  },
+  "related": {
+    "title": "Повезани Алати за Године и Датуме",
+    "description": "Истражите наше остале бесплатне калкулаторе за календарске и временске прорачуне.",
+    "openCalculator": "Отвори Калкулатор"
+  },
+  "languageSelector": {
+    "title": "Изаберите Језик",
+    "subtitle": "Користите калкулатор година на свом језику",
+    "searchPlaceholder": "Претражи језике...",
+    "close": "Затвори"
+  },
+  "footer": {
+    "brandDescription": "Бесплатни, прецизни и безбедни онлајн калкулатори година и календара за све.",
+    "coreCalculators": "Главни Калкулатори",
+    "specialtyTools": "Специјализовани Алати",
+    "guide": "Водич",
+    "company": "Компанија",
+    "aboutUs": "О Нама",
+    "contact": "Контакт",
+    "privacy": "Политика Приватности",
+    "terms": "Услови Коришћења",
+    "languages": "Језици",
+    "clientSideBadge": "100% Локални Прорачун у Прегледачу",
+    "allRightsReserved": "Сва права задржана."
+  },
+  "errors": {
+    "invalidDate": "Молимо унесите важећи датум.",
+    "futureDate": "Датум рођења не може бити у будућности.",
+    "requiredDate": "Поље датума је обавезно."
+  },
+  "tools": {
+    "age-calculator": {
+      "title": "Тачан Калкулатор Година",
+      "desc": "Израчунајте своје тачне године у годинама, месецима, данима и секундама уживо одмах."
+    },
+    "birthday-calculator": {
+      "title": "Калкулатор Рођендана",
+      "desc": "Сазнајте у ком дану у недељи сте рођени и колико је остало до следећег рођендана."
+    },
+    "age-difference-calculator": {
+      "title": "Калкулатор Разлике у Годинама",
+      "desc": "Упоредите тачну разлику у годинама, месецима и данима између две особе."
+    },
+    "birthday-countdown": {
+      "title": "Одбројавање до Рођендана",
+      "desc": "Пратите дане, сате, минуте и секунде уживо до свог следећег рођендана."
+    },
+    "date-difference-calculator": {
+      "title": "Калкулатор Разлике Датума",
+      "desc": "Израчунајте број дана, недеља и месеци између било која два календарска датума."
+    },
+    "date-of-birth-calculator": {
+      "title": "Калкулатор Датума Рођења",
+      "desc": "Одредите тачан или процењени датум рођења на основу година и референтног датума."
+    },
+    "days-between-dates": {
+      "title": "Дани Између Датума",
+      "desc": "Израчунајте радне дане, викенде и укупан број дана између два датума."
+    },
+    "chronological-age-calculator": {
+      "title": "Калкулатор Хронолошке Старости",
+      "desc": "Израчунајте хронолошку и кориговану старост за превремено рођене бебе."
+    },
+    "retirement-age-calculator": {
+      "title": "Калкулатор Година за Пензију",
+      "desc": "Планирајте преостало време и радне дане до жељене старости за пензионисање."
+    },
+    "leap-year-age-calculator": {
+      "title": "Калкулатор Преступне Године и 29. Фебруара",
+      "desc": "Сазнајте праве преступне рођендане и када је следећи 29. фебруар."
+    },
+    "how-to-calculate-age": {
+      "title": "Како Израчунати Старост?",
+      "desc": "Детаљан водич о правилима календара и тачном израчунавању година."
+    }
+  },
+  "calculators": {
+    "birthday": {
+      "title": "Birthday & Milestone Calculator",
+      "desc": "Discover when your next birthday is, how many days remain, and see the exact days of the week for all your milestone birthdays.",
+      "dobLabel": "Датум Рођења",
+      "btnCalculate": "Израчунај Рођендан",
+      "nextCountdown": "Next Birthday Countdown",
+      "daysUntil": "Days",
+      "turning": "until you turn",
+      "onDate": "Your next birthday falls on",
+      "todayBday": "Happy Birthday Today!",
+      "milestoneTitle": "Milestone Birthdays",
+      "age": "Age",
+      "year": "Year",
+      "date": "Date",
+      "dayOfWeek": "Day of Week",
+      "status": "Status",
+      "passed": "Passed",
+      "upcoming": "Upcoming"
+    },
+    "ageDifference": {
+      "title": "Age Difference Calculator",
+      "desc": "Compare two dates of birth to calculate the precise age gap in years, months, and days.",
+      "personA": "Особа A",
+      "personB": "Особа B",
+      "dobLabel": "Датум Рођења",
+      "btnCalculate": "Израчунај Разлику",
+      "resultTitle": "Резултат Разлике у Годинама",
+      "olderThan": "је старији/а од",
+      "by": "за:",
+      "totalDaysDiff": "Укупна Разлика у Данима",
+      "totalWeeksDiff": "Укупна Разлика у Недељама",
+      "copySummary": "Copy Summary",
+      "copied": "Copied to clipboard!",
+      "sameAge": "Both persons were born on the exact same date."
+    },
+    "dateDifference": {
+      "title": "Date Difference Calculator",
+      "desc": "Calculate the exact duration between any two calendar dates in years, months, and days.",
+      "startDate": "Почетни Датум",
+      "endDate": "Завршни Датум",
+      "btnCalculate": "Израчунај Разлику Датума",
+      "resultTitle": "Разлика Између Датума",
+      "diffYMD": "Difference",
+      "totalDays": "Укупно Дана",
+      "totalWeeks": "Недеља",
+      "totalHours": "Сати",
+      "totalMinutes": "Минута",
+      "errorInvalid": "Please select valid start and end dates."
+    },
+    "dateOfBirth": {
+      "title": "Калкулатор Датума Рођења",
+      "desc": "Одредите свој процењени или тачан датум рођења на основу година.",
+      "ageYears": "Година",
+      "ageMonths": "Месеци",
+      "ageDays": "Дана",
+      "asOfDate": "Старост на Дан",
+      "btnCalculate": "Пронађи Датум Рођења",
+      "resultTitle": "Израчунати Датум Рођења",
+      "estimatedDob": "Estimated Date of Birth",
+      "dayBorn": "Дан Рођења"
+    },
+    "birthdayCountdown": {
+      "title": "Одбројавање до Рођендана",
+      "desc": "Гледајте како секунде теку до вашег следећег рођендана.",
+      "dobLabel": "Датум Рођења",
+      "days": "Дана",
+      "hours": "Сати",
+      "minutes": "Минута",
+      "seconds": "Секунди",
+      "turningAge": "Године Које Пуните",
+      "nextBdayOn": "Датум Следећег Рођендана",
+      "happyBday": "Срећан рођендан!"
+    },
+    "daysBetween": {
+      "title": "Дани Између Датума",
+      "desc": "Израчунајте тачне дане, радне дане и викенде између два датума.",
+      "startDate": "Почетни Датум",
+      "endDate": "Завршни Датум",
+      "includeEndDay": "Укључи завршни дан (+1 дан)",
+      "btnCalculate": "Израчунај Дане",
+      "totalDays": "Укупно Дана",
+      "businessDays": "Радних Дана",
+      "weekendDays": "Дана Викенда",
+      "totalWeeks": "Пуне Недеље"
+    },
+    "chronological": {
+      "title": "Калкулатор Хронолошке Старости",
+      "desc": "Израчунајте хронолошку и кориговану старост за педијатријске процене.",
+      "birthDate": "Датум Рођења",
+      "testDate": "Датум Тестирања",
+      "weeksPremature": "Недеља Превременог Рођења",
+      "btnCalculate": "Израчунај Хронолошку Старост",
+      "chronologicalAge": "Хронолошка Старост",
+      "notation": "Клинички Запис (Г;М;Д)",
+      "exactInterval": "Тачан Протекли Период",
+      "adjustedAge": "Коригована Старост"
+    },
+    "retirement": {
+      "title": "Калкулатор Година за Пензију",
+      "desc": "Процените преостало време и радне дане до одласка у пензију.",
+      "birthDate": "Датум Рођења",
+      "currentAge": "Тренутна Старост",
+      "targetAge": "Жељена Старост за Пензију",
+      "asOfDate": "Датум Прорачуна",
+      "btnCalculate": "Израчунај Пензију",
+      "yearsRemaining": "Преостало Година",
+      "targetYear": "Очекивана Година Пензионисања",
+      "workingDaysLeft": "Преостало Радних Дана",
+      "alreadyReached": "Циљана старост за пензионисање је већ достигнута."
+    },
+    "leapYear": {
+      "title": "Калкулатор Преступне Године и 29. Фебруара",
+      "desc": "Сазнајте праве преступне рођендане и следећи календарски датум.",
+      "dobLabel": "Датум Рођења",
+      "btnCalculate": "Провери Преступну Годину",
+      "leapYearsLived": "Проживљених 29. Фебруара",
+      "actualBirthdays": "Званични Преступни Рођендани",
+      "nextLeapBirthday": "Следећи Рођендан 29. Фебруара",
+      "leapBabyBadge": "Рођен/а на Преступни Дан (29. фебруар)"
+    },
+    "liveTicker": {
+      "title": "Бројач Старости у Реалном Времену",
+      "syncedLocal": "Синхронизовано са локалним сатом уређаја",
+      "asOfTarget": "Израчунато за циљани датум",
+      "clock": "Сат",
+      "runningTotalSeconds": "Укупно Проживљених Секунди",
+      "seconds": "секунди",
+      "solarOrbit": "Напредак Сунчеве Године",
+      "completed": "Завршено",
+      "turnedAge": "Напуњено на прошлом рођендану",
+      "turningAgeIn": "Пуни се за",
+      "bioMilestones": "Биолошке Прекретнице",
+      "spaceTravel": "Свемирско и Планетарно Путовање",
+      "heartbeats": "Процена Откуцаја Срца",
+      "breaths": "Удисаја",
+      "blinks": "Трептаја Очију",
+      "hoursSlept": "Сати Спавања",
+      "earthRotation": "Ротација Земљине Површине",
+      "sunOrbit": "Пређена Удаљеност Око Сунца"
+    }
+  }
+}

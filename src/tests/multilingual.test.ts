@@ -4,12 +4,12 @@ import { getTranslations, DICTIONARIES } from '../i18n/getTranslations';
 import { getLocalizedPath, getCanonicalUrl, getHreflangAlternates, stripLocale, detectLocale } from '../i18n/locale-utils';
 import { formatNumber, formatDate, formatWeekday } from '../lib/format-utils';
 
-describe('Multilingual System (27 Locales with Clean Root English)', () => {
-  it('should support exactly 27 locales with 26 non-default locales', () => {
-    expect(SUPPORTED_LOCALES.length).toBe(27);
-    expect(NON_DEFAULT_LOCALES.length).toBe(26);
-    expect(Object.keys(LOCALES).length).toBe(27);
-    expect(Object.keys(DICTIONARIES).length).toBe(27);
+describe('Multilingual System (40 Locales with Clean Root English)', () => {
+  it('should support exactly 40 locales with 39 non-default locales', () => {
+    expect(SUPPORTED_LOCALES.length).toBe(40);
+    expect(NON_DEFAULT_LOCALES.length).toBe(39);
+    expect(Object.keys(LOCALES).length).toBe(40);
+    expect(Object.keys(DICTIONARIES).length).toBe(40);
   });
 
   it('should correctly configure RTL languages', () => {
@@ -22,6 +22,8 @@ describe('Multilingual System (27 Locales with Clean Root English)', () => {
     expect(isRTL('en')).toBe(false);
     expect(isRTL('es')).toBe(false);
     expect(isRTL('hi')).toBe(false);
+    expect(isRTL('th')).toBe(false);
+    expect(isRTL('vi')).toBe(false);
   });
 
   it('should preserve native names without translation in selector config', () => {
@@ -33,6 +35,19 @@ describe('Multilingual System (27 Locales with Clean Root English)', () => {
     expect(getLocaleConfig('ar').nativeName).toBe('العربية');
     expect(getLocaleConfig('ja').nativeName).toBe('日本語');
     expect(getLocaleConfig('zh').nativeName).toBe('中文');
+    expect(getLocaleConfig('az').nativeName).toBe('Azərbaycanca');
+    expect(getLocaleConfig('bg').nativeName).toBe('Български');
+    expect(getLocaleConfig('hr').nativeName).toBe('Hrvatski');
+    expect(getLocaleConfig('hu').nativeName).toBe('Magyar');
+    expect(getLocaleConfig('kk').nativeName).toBe('Қазақша');
+    expect(getLocaleConfig('ms').nativeName).toBe('Bahasa Melayu');
+    expect(getLocaleConfig('ro').nativeName).toBe('Română');
+    expect(getLocaleConfig('sk').nativeName).toBe('Slovenčina');
+    expect(getLocaleConfig('sr').nativeName).toBe('Српски');
+    expect(getLocaleConfig('th').nativeName).toBe('ไทย');
+    expect(getLocaleConfig('tl').nativeName).toBe('Tagalog');
+    expect(getLocaleConfig('uz').nativeName).toBe('Oʻzbekcha');
+    expect(getLocaleConfig('vi').nativeName).toBe('Tiếng Việt');
   });
 
   it('should load translation dictionary and translate nested keys for every locale', () => {
@@ -69,16 +84,19 @@ describe('Multilingual System (27 Locales with Clean Root English)', () => {
 
   it('should generate complete hreflang alternates pointing to clean English for en & x-default', () => {
     const alternates = getHreflangAlternates('birthday-calculator');
-    expect(Object.keys(alternates).length).toBe(28);
+    expect(Object.keys(alternates).length).toBe(41);
     expect(alternates['x-default']).toBe('https://agecalculators.dev/birthday-calculator/');
     expect(alternates['en']).toBe('https://agecalculators.dev/birthday-calculator/');
     expect(alternates['es']).toBe('https://agecalculators.dev/es/birthday-calculator/');
     expect(alternates['ar']).toBe('https://agecalculators.dev/ar/birthday-calculator/');
+    expect(alternates['th']).toBe('https://agecalculators.dev/th/birthday-calculator/');
+    expect(alternates['vi']).toBe('https://agecalculators.dev/vi/birthday-calculator/');
 
     const homeAlternates = getHreflangAlternates();
     expect(homeAlternates['x-default']).toBe('https://agecalculators.dev/');
     expect(homeAlternates['en']).toBe('https://agecalculators.dev/');
     expect(homeAlternates['fr']).toBe('https://agecalculators.dev/fr/');
+    expect(homeAlternates['th']).toBe('https://agecalculators.dev/th/');
   });
 
   it('should correctly format numbers and dates using native Intl APIs', () => {
