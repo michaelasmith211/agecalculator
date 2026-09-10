@@ -125,7 +125,10 @@ export default function HomePage() {
         </section>
 
         {/* MAIN CALCULATOR (Above the fold focus) */}
-        <section className="max-w-4xl mx-auto">
+        <section className="max-w-4xl mx-auto" aria-labelledby="calculator-heading">
+          <h2 id="calculator-heading" className="sr-only">
+            Interactive Age Calculator & Real-Time Statistics
+          </h2>
           <MainAgeCalculator />
         </section>
 
@@ -149,7 +152,7 @@ export default function HomePage() {
 
           <figure className="max-w-4xl mx-auto overflow-hidden rounded-2xl border border-slate-200 shadow-sm bg-slate-50">
             <Image
-              src="/images/age-calculator-how-it-works.jpg"
+              src="/images/age-calculator-how-it-works.webp"
               alt="Age Calculator – How to calculate your exact age in years, months, days and seconds on agecalculators.dev"
               title="Age Calculator Guide – Step-by-step how to calculate exact age and live running seconds"
               width={1024}

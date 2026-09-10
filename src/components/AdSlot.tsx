@@ -20,10 +20,10 @@ export default function AdSlot({ slotId = 'default-slot', format = 'horizontal',
       data-ad-slot={slotId}
       aria-label="Advertisement Space"
     >
-      <span className="text-[10px] uppercase font-bold tracking-widest text-slate-400 mb-1 select-none">
+      <span className="text-[10px] uppercase font-bold tracking-widest text-slate-600 mb-1 select-none">
         Advertisement
       </span>
-      <div className="text-xs text-slate-400 flex items-center justify-center">
+      <div className="text-xs text-slate-600 font-medium flex items-center justify-center">
         <span>Sponsor Placement Area</span>
       </div>
     </div>

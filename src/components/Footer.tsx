@@ -50,7 +50,7 @@ export default function Footer() {
                 {SITE_CONFIG.name}
               </span>
             </div>
-            <p className="text-sm text-slate-400 leading-relaxed max-w-sm">
+            <p className="text-sm text-slate-300 leading-relaxed max-w-sm">
               {t(
                 'footer.brandDescription',
                 'Free, accurate, and privacy-first online age calculator. Compute your exact age in years, months, and days with calendar precision.'
@@ -72,7 +72,7 @@ export default function Footer() {
                 <li key={calc.href}>
                   <Link
                     href={getLocalizedLink(calc.href)}
-                    className="text-slate-400 hover:text-white hover:underline transition-colors"
+                    className="text-slate-300 hover:text-white hover:underline transition-colors"
                   >
                     {getToolTitle(calc.href, calc.title)}
                   </Link>
@@ -91,7 +91,7 @@ export default function Footer() {
                 <li key={calc.href}>
                   <Link
                     href={getLocalizedLink(calc.href)}
-                    className="text-slate-400 hover:text-white hover:underline transition-colors"
+                    className="text-slate-300 hover:text-white hover:underline transition-colors"
                   >
                     {getToolTitle(calc.href, calc.title)}
                   </Link>
@@ -100,7 +100,7 @@ export default function Footer() {
               <li>
                 <Link
                   href={getLocalizedLink('/how-to-calculate-age')}
-                  className="text-slate-400 hover:text-white hover:underline transition-colors flex items-center gap-1 text-blue-400"
+                  className="text-slate-300 hover:text-white hover:underline transition-colors flex items-center gap-1 text-blue-400"
                 >
                   <Sparkles className="w-3 h-3" />
                   {t('footer.guide', 'Calculation Guide')}
@@ -119,7 +119,7 @@ export default function Footer() {
                 <li key={link.href}>
                   <Link
                     href={getLocalizedLink(link.href)}
-                    className="text-slate-400 hover:text-white hover:underline transition-colors"
+                    className="text-slate-300 hover:text-white hover:underline transition-colors"
                   >
                     {getCompanyLinkTitle(link.href, link.title)}
                   </Link>
@@ -131,8 +131,8 @@ export default function Footer() {
 
         {/* Multi-Language Global SEO Mesh */}
         <div className="py-8 border-b border-slate-800 space-y-3">
-          <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-slate-400">
-            <Globe className="w-3.5 h-3.5 text-slate-500" />
+          <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-slate-300">
+            <Globe className="w-3.5 h-3.5 text-slate-400" />
             <span>{t('footer.languages', 'Supported Languages & International Versions')}</span>
           </div>
           <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs">
@@ -147,7 +147,7 @@ export default function Footer() {
                   className={`transition-colors ${
                     isCurrent
                       ? 'text-blue-400 font-bold underline'
-                      : 'text-slate-400 hover:text-white hover:underline'
+                      : 'text-slate-300 hover:text-white hover:underline'
                   }`}
                   title={`${langConfig.englishName} (${langConfig.nativeName})`}
                 >
@@ -159,19 +159,19 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-300 font-medium">
           <div>
             © {SITE_CONFIG.currentYear} {SITE_CONFIG.name} (agecalculators.dev).{' '}
             {t('footer.allRightsReserved', 'All rights reserved.')}
           </div>
           <div className="flex items-center gap-6">
-            <Link href={getLocalizedLink('/privacy-policy')} className="hover:text-slate-300 transition-colors">
+            <Link href={getLocalizedLink('/privacy-policy')} className="hover:text-white transition-colors">
               {t('footer.privacy', 'Privacy')}
             </Link>
-            <Link href={getLocalizedLink('/terms')} className="hover:text-slate-300 transition-colors">
+            <Link href={getLocalizedLink('/terms')} className="hover:text-white transition-colors">
               {t('footer.terms', 'Terms')}
             </Link>
-            <Link href={getLocalizedLink('/contact')} className="hover:text-slate-300 transition-colors">
+            <Link href={getLocalizedLink('/contact')} className="hover:text-white transition-colors">
               {t('footer.contact', 'Contact')}
             </Link>
           </div>

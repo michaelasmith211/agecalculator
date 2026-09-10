@@ -1072,14 +1072,14 @@ export default function ShareAgeCard({
 
       {/* Visual Live Preview Card (Adapts to Selected Aspect Ratio) */}
       <div className="mt-6">
-        <div className="flex items-center justify-between text-xs font-bold text-slate-500 uppercase tracking-wider mb-2.5 px-1">
+        <div className="flex items-center justify-between text-xs font-bold text-slate-700 uppercase tracking-wider mb-2.5 px-1">
           <span className="flex items-center gap-1.5">
             <Eye className="w-3.5 h-3.5 text-blue-600" />
             <span>
               Live Interactive Preview ({aspectRatio === 'square' ? 'Square 1:1' : aspectRatio === 'story' ? 'Story 9:16' : 'Wide 16:9'})
             </span>
           </span>
-          <span className="text-slate-400 font-mono text-[11px]">
+          <span className="text-slate-600 font-mono text-[11px] font-medium">
             {aspectRatio === 'square' ? '1200 × 1200 px' : aspectRatio === 'story' ? '1080 × 1920 px' : '1200 × 675 px'}
           </span>
         </div>
@@ -1468,7 +1468,7 @@ export default function ShareAgeCard({
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => trackEvent('age_card_social_click', { platform: 'whatsapp' })}
-            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold bg-[#25D366]/10 text-[#128C7E] hover:bg-[#25D366]/20 transition-all border border-[#25D366]/20"
+            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold bg-[#25D366]/15 text-[#075E54] hover:bg-[#25D366]/25 transition-all border border-[#25D366]/30"
           >
             <span>💬 WhatsApp</span>
           </a>
@@ -1490,7 +1490,7 @@ export default function ShareAgeCard({
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => trackEvent('age_card_social_click', { platform: 'facebook' })}
-            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold bg-[#1877F2]/10 text-[#1877F2] hover:bg-[#1877F2]/20 transition-all border border-[#1877F2]/20"
+            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold bg-[#1877F2]/15 text-[#0c4a9e] hover:bg-[#1877F2]/25 transition-all border border-[#1877F2]/30"
           >
             <span>Facebook</span>
           </a>
@@ -1501,7 +1501,7 @@ export default function ShareAgeCard({
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => trackEvent('age_card_social_click', { platform: 'telegram' })}
-            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold bg-[#229ED9]/10 text-[#229ED9] hover:bg-[#229ED9]/20 transition-all border border-[#229ED9]/20"
+            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold bg-[#229ED9]/15 text-[#005a87] hover:bg-[#229ED9]/25 transition-all border border-[#229ED9]/30"
           >
             <span>Telegram</span>
           </a>
@@ -1512,7 +1512,7 @@ export default function ShareAgeCard({
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => trackEvent('age_card_social_click', { platform: 'linkedin' })}
-            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold bg-[#0A66C2]/10 text-[#0A66C2] hover:bg-[#0A66C2]/20 transition-all border border-[#0A66C2]/20"
+            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold bg-[#0A66C2]/15 text-[#004182] hover:bg-[#0A66C2]/25 transition-all border border-[#0A66C2]/30"
           >
             <span>LinkedIn</span>
           </a>
@@ -1523,7 +1523,7 @@ export default function ShareAgeCard({
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => trackEvent('age_card_social_click', { platform: 'reddit' })}
-            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold bg-[#FF4500]/10 text-[#FF4500] hover:bg-[#FF4500]/20 transition-all border border-[#FF4500]/20"
+            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold bg-[#FF4500]/15 text-[#992900] hover:bg-[#FF4500]/25 transition-all border border-[#FF4500]/30"
           >
             <span>Reddit</span>
           </a>

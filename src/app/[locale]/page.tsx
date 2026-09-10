@@ -121,7 +121,10 @@ export default async function LocalizedHomePage({ params }: PageProps) {
         </section>
 
         {/* Main Calculator */}
-        <section className="max-w-4xl mx-auto">
+        <section className="max-w-4xl mx-auto" aria-labelledby="calculator-heading">
+          <h2 id="calculator-heading" className="sr-only">
+            {t('calculator.title', 'Interactive Age Calculator & Real-Time Statistics')}
+          </h2>
           <MainAgeCalculator locale={locale} />
         </section>
 
@@ -138,7 +141,7 @@ export default async function LocalizedHomePage({ params }: PageProps) {
 
           <figure className="relative w-full overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 shadow-sm">
             <Image
-              src="/images/age-calculator-how-it-works.jpg"
+              src="/images/age-calculator-how-it-works.webp"
               alt={`${homeTitle} – How to calculate your exact age in years, months, days and seconds on agecalculators.dev`}
               title={`${homeTitle} Guide – Step-by-step how to calculate exact age and live running seconds`}
               width={1024}
@@ -150,7 +153,10 @@ export default async function LocalizedHomePage({ params }: PageProps) {
         </section>
 
         {/* Key Value Propositions */}
-        <section className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+        <section className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto" aria-labelledby="features-heading">
+          <h2 id="features-heading" className="sr-only">
+            {t('features.title', 'Core Features and Gregorian Calendar Precision')}
+          </h2>
           <div className="p-6 bg-white border border-slate-200 rounded-2xl shadow-2xs space-y-2">
             <div className="w-10 h-10 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center mb-3">
               <Calendar className="w-5 h-5" />

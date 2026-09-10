@@ -112,7 +112,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" data-scroll-behavior="smooth" className="scroll-smooth bg-slate-50 text-slate-900">
+    <html lang="en" data-scroll-behavior="smooth" className="scroll-smooth bg-slate-50 text-slate-900" suppressHydrationWarning>
       <head>
         <GoogleAnalytics />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
@@ -124,7 +124,7 @@ export default function RootLayout({
         <link rel="manifest" href="/manifest.webmanifest" />
         <GlobalWebSiteJsonLd />
       </head>
-      <body className="min-h-screen flex flex-col bg-slate-50 text-slate-900 font-sans antialiased selection:bg-blue-100 selection:text-blue-900">
+      <body className="min-h-screen flex flex-col bg-slate-50 text-slate-900 font-sans antialiased selection:bg-blue-100 selection:text-blue-900" suppressHydrationWarning>
         <Header />
         <main className="flex-1">
           {children}

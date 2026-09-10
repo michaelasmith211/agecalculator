@@ -137,12 +137,16 @@ export default function LiveAgeTicker({
             </div>
           </div>
 
-          {isClient && isTodayTarget && (
-            <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-800/90 border border-slate-700 text-xs font-mono text-slate-300 self-start sm:self-auto">
-              <Clock className="w-3 h-3 text-blue-400 shrink-0" />
-              <span>{c?.clock || 'Clock'}: <strong className="text-white">{systemTimeStr}</strong></span>
-            </div>
-          )}
+          <div
+            className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-800/90 border border-slate-700 text-xs font-mono text-slate-300 self-start sm:self-auto transition-opacity ${
+              isClient && isTodayTarget ? 'opacity-100' : 'opacity-0 pointer-events-none'
+            }`}
+            suppressHydrationWarning
+            aria-hidden={!isClient || !isTodayTarget}
+          >
+            <Clock className="w-3 h-3 text-blue-400 shrink-0" />
+            <span>{c?.clock || 'Clock'}: <strong className="text-white" suppressHydrationWarning>{systemTimeStr || '--:--:--'}</strong></span>
+          </div>
         </div>
 
         {/* Responsive Milliseconds Odometer */}
@@ -150,11 +154,11 @@ export default function LiveAgeTicker({
           <div className="text-[11px] font-semibold uppercase tracking-wider text-slate-400 mb-1">
             {c?.runningTotalSeconds || 'Running Total Seconds Lived'}
           </div>
-          <div className="flex flex-wrap items-baseline justify-center sm:justify-start gap-x-1 gap-y-0">
-            <span className="text-3xl sm:text-5xl md:text-6xl font-black text-white tracking-tight tabular-nums">
+          <div className="flex flex-wrap items-baseline justify-center sm:justify-start gap-x-1 gap-y-0" suppressHydrationWarning>
+            <span className="text-3xl sm:text-5xl md:text-6xl font-black text-white tracking-tight tabular-nums" suppressHydrationWarning>
               {formatNumber(liveSeconds, locale)}
             </span>
-            <span className="text-xl sm:text-3xl md:text-4xl font-extrabold text-blue-400 tabular-nums">
+            <span className="text-xl sm:text-3xl md:text-4xl font-extrabold text-blue-400 tabular-nums" suppressHydrationWarning>
               .{String(liveMillis).padStart(3, '0')}
             </span>
             <span className="text-sm sm:text-lg font-bold text-slate-400 ml-1">
@@ -234,100 +238,100 @@ export default function LiveAgeTicker({
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-3.5 animate-in fade-in duration-150">
             {/* Heartbeats */}
             <div className="p-3 sm:p-4 bg-rose-50/70 border border-rose-100 rounded-xl space-y-1">
-              <div className="flex items-center justify-between text-rose-700">
+              <div className="flex items-center justify-between text-rose-800 font-semibold">
                 <span className="text-[11px] sm:text-xs font-bold uppercase tracking-wider">{c?.heartbeats || 'Heartbeats'}</span>
-                <Heart className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-rose-500 animate-bounce shrink-0" />
+                <Heart className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-rose-600 animate-bounce shrink-0" />
               </div>
-              <div className="text-sm xs:text-base sm:text-lg lg:text-xl font-extrabold text-rose-950 tracking-tight tabular-nums leading-tight">
+              <div className="text-sm xs:text-base sm:text-lg lg:text-xl font-extrabold text-rose-950 tracking-tight tabular-nums leading-tight" suppressHydrationWarning>
                 ~{formatNumber(lifeStats.estimatedHeartbeats, locale)}
               </div>
-              <div className="text-[10px] sm:text-[11px] text-slate-500 leading-tight">~80 / min</div>
+              <div className="text-[10px] sm:text-[11px] text-rose-900 font-semibold leading-tight">~80 / min</div>
             </div>
 
             {/* Breaths */}
             <div className="p-3 sm:p-4 bg-sky-50/70 border border-sky-100 rounded-xl space-y-1">
-              <div className="flex items-center justify-between text-sky-700">
+              <div className="flex items-center justify-between text-sky-800 font-semibold">
                 <span className="text-[11px] sm:text-xs font-bold uppercase tracking-wider">{c?.breaths || 'Breaths Taken'}</span>
-                <Wind className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-sky-500 shrink-0" />
+                <Wind className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-sky-600 shrink-0" />
               </div>
-              <div className="text-sm xs:text-base sm:text-lg lg:text-xl font-extrabold text-sky-950 tracking-tight tabular-nums leading-tight">
+              <div className="text-sm xs:text-base sm:text-lg lg:text-xl font-extrabold text-sky-950 tracking-tight tabular-nums leading-tight" suppressHydrationWarning>
                 ~{formatNumber(lifeStats.estimatedBreaths, locale)}
               </div>
-              <div className="text-[10px] sm:text-[11px] text-slate-500 leading-tight">~16 / min</div>
+              <div className="text-[10px] sm:text-[11px] text-sky-900 font-semibold leading-tight">~16 / min</div>
             </div>
 
             {/* Blinks */}
             <div className="p-3 sm:p-4 bg-amber-50/70 border border-amber-100 rounded-xl space-y-1">
-              <div className="flex items-center justify-between text-amber-800">
+              <div className="flex items-center justify-between text-amber-900 font-semibold">
                 <span className="text-[11px] sm:text-xs font-bold uppercase tracking-wider">{c?.blinks || 'Eye Blinks'}</span>
                 <Eye className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-600 shrink-0" />
               </div>
-              <div className="text-sm xs:text-base sm:text-lg lg:text-xl font-extrabold text-amber-950 tracking-tight tabular-nums leading-tight">
+              <div className="text-sm xs:text-base sm:text-lg lg:text-xl font-extrabold text-amber-950 tracking-tight tabular-nums leading-tight" suppressHydrationWarning>
                 ~{formatNumber(lifeStats.estimatedBlinks, locale)}
               </div>
-              <div className="text-[10px] sm:text-[11px] text-slate-500 leading-tight">~17 / min</div>
+              <div className="text-[10px] sm:text-[11px] text-amber-900 font-semibold leading-tight">~17 / min</div>
             </div>
 
             {/* Sleep */}
             <div className="p-3 sm:p-4 bg-purple-50/70 border border-purple-100 rounded-xl space-y-1">
-              <div className="flex items-center justify-between text-purple-700">
+              <div className="flex items-center justify-between text-purple-800 font-semibold">
                 <span className="text-[11px] sm:text-xs font-bold uppercase tracking-wider">{c?.hoursSlept || 'Time Asleep'}</span>
-                <Moon className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-purple-500 shrink-0" />
+                <Moon className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-purple-600 shrink-0" />
               </div>
-              <div className="text-sm xs:text-base sm:text-lg lg:text-xl font-extrabold text-purple-950 tracking-tight tabular-nums leading-tight">
+              <div className="text-sm xs:text-base sm:text-lg lg:text-xl font-extrabold text-purple-950 tracking-tight tabular-nums leading-tight" suppressHydrationWarning>
                 ~{formatNumber(lifeStats.estimatedDaysSlept, locale)} {t('calculator.days', 'Days')}
               </div>
-              <div className="text-[10px] sm:text-[11px] text-slate-500 leading-tight">~{formatNumber(lifeStats.estimatedHoursSlept, locale)} hrs</div>
+              <div className="text-[10px] sm:text-[11px] text-purple-900 font-semibold leading-tight">~{formatNumber(lifeStats.estimatedHoursSlept, locale)} hrs</div>
             </div>
           </div>
         ) : (
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-3.5 animate-in fade-in duration-150">
             {/* Mercury */}
             <div className="p-3 sm:p-4 bg-slate-50 border border-slate-200 rounded-xl space-y-1">
-              <div className="flex items-center justify-between text-slate-700">
-                <span className="text-[11px] sm:text-xs font-bold uppercase tracking-wider">Mercury</span>
-                <Globe2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-slate-500 shrink-0" />
+              <div className="flex items-center justify-between text-slate-800 font-semibold">
+                <span className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-slate-800">Mercury</span>
+                <Globe2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-slate-600 shrink-0" />
               </div>
-              <div className="text-sm xs:text-base sm:text-lg lg:text-xl font-extrabold text-slate-900 tracking-tight tabular-nums leading-tight">
+              <div className="text-sm xs:text-base sm:text-lg lg:text-xl font-extrabold text-slate-900 tracking-tight tabular-nums leading-tight" suppressHydrationWarning>
                 {formatNumber(lifeStats.ageOnMercury, locale)} {t('calculator.years', 'Years')}
               </div>
-              <div className="text-[10px] sm:text-[11px] text-slate-500 leading-tight">88d / orbit</div>
+              <div className="text-[10px] sm:text-[11px] text-slate-700 font-semibold leading-tight">88d / orbit</div>
             </div>
 
             {/* Venus */}
             <div className="p-3 sm:p-4 bg-amber-50/70 border border-amber-200 rounded-xl space-y-1">
-              <div className="flex items-center justify-between text-amber-800">
-                <span className="text-[11px] sm:text-xs font-bold uppercase tracking-wider">Venus</span>
+              <div className="flex items-center justify-between text-amber-900 font-semibold">
+                <span className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-amber-900">Venus</span>
                 <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-600 shrink-0" />
               </div>
-              <div className="text-sm xs:text-base sm:text-lg lg:text-xl font-extrabold text-amber-950 tracking-tight tabular-nums leading-tight">
+              <div className="text-sm xs:text-base sm:text-lg lg:text-xl font-extrabold text-amber-950 tracking-tight tabular-nums leading-tight" suppressHydrationWarning>
                 {formatNumber(lifeStats.ageOnVenus, locale)} {t('calculator.years', 'Years')}
               </div>
-              <div className="text-[10px] sm:text-[11px] text-slate-500 leading-tight">224.7d / orbit</div>
+              <div className="text-[10px] sm:text-[11px] text-amber-900 font-semibold leading-tight">224.7d / orbit</div>
             </div>
 
             {/* Mars */}
             <div className="p-3 sm:p-4 bg-rose-50/70 border border-rose-200 rounded-xl space-y-1">
-              <div className="flex items-center justify-between text-rose-700">
-                <span className="text-[11px] sm:text-xs font-bold uppercase tracking-wider">Mars</span>
+              <div className="flex items-center justify-between text-rose-800 font-semibold">
+                <span className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-rose-900">Mars</span>
                 <Globe2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-rose-600 shrink-0" />
               </div>
-              <div className="text-sm xs:text-base sm:text-lg lg:text-xl font-extrabold text-rose-950 tracking-tight tabular-nums leading-tight">
+              <div className="text-sm xs:text-base sm:text-lg lg:text-xl font-extrabold text-rose-950 tracking-tight tabular-nums leading-tight" suppressHydrationWarning>
                 {formatNumber(lifeStats.ageOnMars, locale)} {t('calculator.years', 'Years')}
               </div>
-              <div className="text-[10px] sm:text-[11px] text-slate-500 leading-tight">687d / orbit</div>
+              <div className="text-[10px] sm:text-[11px] text-rose-900 font-semibold leading-tight">687d / orbit</div>
             </div>
 
             {/* Jupiter */}
             <div className="p-3 sm:p-4 bg-indigo-50/70 border border-indigo-200 rounded-xl space-y-1">
-              <div className="flex items-center justify-between text-indigo-700">
-                <span className="text-[11px] sm:text-xs font-bold uppercase tracking-wider">Jupiter</span>
+              <div className="flex items-center justify-between text-indigo-800 font-semibold">
+                <span className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-indigo-900">Jupiter</span>
                 <Globe2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-indigo-600 shrink-0" />
               </div>
-              <div className="text-sm xs:text-base sm:text-lg lg:text-xl font-extrabold text-indigo-950 tracking-tight tabular-nums leading-tight">
+              <div className="text-sm xs:text-base sm:text-lg lg:text-xl font-extrabold text-indigo-950 tracking-tight tabular-nums leading-tight" suppressHydrationWarning>
                 {formatNumber(lifeStats.ageOnJupiter, locale)} {t('calculator.years', 'Years')}
               </div>
-              <div className="text-[10px] sm:text-[11px] text-slate-500 leading-tight">11.86y / orbit</div>
+              <div className="text-[10px] sm:text-[11px] text-indigo-900 font-semibold leading-tight">11.86y / orbit</div>
             </div>
           </div>
         )}
