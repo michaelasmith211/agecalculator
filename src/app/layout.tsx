@@ -43,10 +43,11 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
+      { url: '/favicon.ico', sizes: '48x48', type: 'image/x-icon' },
       { url: '/favicon.svg', type: 'image/svg+xml' },
-      { url: '/favicon.ico', sizes: '48x48' },
       { url: '/favicon-48x48.png', sizes: '48x48', type: 'image/png' },
       { url: '/favicon-96x96.png', sizes: '96x96', type: 'image/png' },
+      { url: '/favicon-144x144.png', sizes: '144x144', type: 'image/png' },
       { url: '/favicon-192x192.png', sizes: '192x192', type: 'image/png' },
       { url: '/favicon-512x512.png', sizes: '512x512', type: 'image/png' }
     ],
@@ -57,6 +58,11 @@ export const metadata: Metadata = {
       {
         rel: 'apple-touch-icon-precomposed',
         url: '/apple-touch-icon-precomposed.png'
+      },
+      {
+        rel: 'mask-icon',
+        url: '/favicon.svg',
+        color: '#2563eb'
       }
     ]
   },
@@ -115,13 +121,15 @@ export default function RootLayout({
     <html lang="en" data-scroll-behavior="smooth" className="scroll-smooth bg-slate-50 text-slate-900" suppressHydrationWarning>
       <head>
         <GoogleAnalytics />
-        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <meta name="msapplication-config" content="/browserconfig.xml" />
+        <meta name="msapplication-TileColor" content="#2563eb" />
         <link rel="icon" href="/favicon.ico" sizes="48x48" />
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
         <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+        <link rel="icon" type="image/png" sizes="144x144" href="/favicon-144x144.png" />
         <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-        <link rel="manifest" href="/manifest.webmanifest" />
         <GlobalWebSiteJsonLd />
       </head>
       <body className="min-h-screen flex flex-col bg-slate-50 text-slate-900 font-sans antialiased selection:bg-blue-100 selection:text-blue-900" suppressHydrationWarning>
