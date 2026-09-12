@@ -122,6 +122,21 @@ export default function Header() {
                         <div className="text-xs text-slate-500 truncate">{getToolDesc(calc.href, calc.description)}</div>
                       </Link>
                     ))}
+                    <div className="pt-2 mt-2 border-t border-slate-100">
+                      <div className="px-3 py-1 text-xs font-semibold text-slate-400 uppercase tracking-wider">
+                        Guides & Formulas
+                      </div>
+                      <Link
+                        href={getLocalizedLink('/how-to-calculate-age')}
+                        className="block px-3 py-2 text-sm text-blue-700 hover:bg-blue-50 font-medium transition-colors"
+                      >
+                        <div className="font-semibold text-blue-700 flex items-center gap-1.5">
+                          <Sparkles className="w-3.5 h-3.5 text-blue-600" />
+                          <span>How to Calculate Age Guide</span>
+                        </div>
+                        <div className="text-xs text-slate-500 truncate">Formulas, leap years & calendar math</div>
+                      </Link>
+                    </div>
                   </div>
                 )}
               </div>
@@ -204,6 +219,13 @@ export default function Header() {
                   {getToolTitle(calc.href, calc.title)}
                 </Link>
               ))}
+              <Link
+                href={getLocalizedLink('/how-to-calculate-age')}
+                onClick={() => setMobileMenuOpen(false)}
+                className="block px-3 py-2 rounded-lg text-sm font-semibold text-blue-700 hover:bg-blue-50"
+              >
+                📖 How to Calculate Age Guide
+              </Link>
             </div>
             <div className="pt-2">
               <Link

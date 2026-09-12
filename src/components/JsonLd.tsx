@@ -195,7 +195,7 @@ export function ArticleJsonLd({
   description,
   url,
   datePublished = '2026-01-01T00:00:00Z',
-  dateModified = '2026-09-02T00:00:00Z'
+  dateModified = '2026-09-12T00:00:00Z'
 }: ArticleJsonLdProps) {
   const schema = {
     '@context': 'https://schema.org',

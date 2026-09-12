@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useSyncExternalStore } from 'react';
+import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import {
   Calendar,
@@ -13,7 +14,10 @@ import {
   AlertCircle,
   Printer,
   BookmarkCheck,
-  Trash2
+  Trash2,
+  Users,
+  ArrowRight,
+  BookOpen
 } from 'lucide-react';
 import {
   AgeResult,
@@ -214,6 +218,14 @@ export default function MainAgeCalculator({
   const parsedTargetDate = parseDateString(targetDateStr) || today;
   const isTodayTarget = targetDateStr === todayStr;
   const parsedBirthTime = includeTime ? parseTimeString(birthTimeStr) || undefined : undefined;
+
+  const getLocalizedLink = (href: string) => {
+    const clean = href.replace(/^\/+|\/+$/g, '');
+    if (locale === 'en') {
+      return clean ? `/${clean}/` : '/';
+    }
+    return clean ? `/${locale}/${clean}/` : `/${locale}/`;
+  };
 
   return (
     <div id="calculator" className="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-sm">
@@ -643,6 +655,86 @@ export default function MainAgeCalculator({
             title="Age Calculator Result"
             resultText={`I am ${result.years} Years, ${result.months} Months, and ${result.days} Days old (${formatNumber(result.totalDays, locale)} total days lived)!`}
           />
+
+          {/* Contextual Next Steps & Related Calculations */}
+          <div className="mt-8 p-5 bg-slate-50 border border-slate-200 rounded-2xl">
+            <div className="text-xs font-bold uppercase tracking-wider text-slate-500 mb-3">
+              Explore Next Steps & Related Calculations
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <Link
+                href={getLocalizedLink('/age-difference-calculator')}
+                className="p-3.5 bg-white border border-slate-200 hover:border-indigo-300 rounded-xl flex items-center justify-between group transition-all"
+              >
+                <div className="flex items-center gap-2.5">
+                  <div className="w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center shrink-0">
+                    <Users className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <div className="text-xs font-bold text-slate-900 group-hover:text-indigo-600 transition-colors">
+                      Age Difference Calculator
+                    </div>
+                    <div className="text-[11px] text-slate-500">Compare two birth dates</div>
+                  </div>
+                </div>
+                <ArrowRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-indigo-600 group-hover:translate-x-0.5 transition-transform" />
+              </Link>
+
+              <Link
+                href={getLocalizedLink('/date-difference-calculator')}
+                className="p-3.5 bg-white border border-slate-200 hover:border-violet-300 rounded-xl flex items-center justify-between group transition-all"
+              >
+                <div className="flex items-center gap-2.5">
+                  <div className="w-8 h-8 rounded-lg bg-violet-50 text-violet-600 flex items-center justify-center shrink-0">
+                    <Clock className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <div className="text-xs font-bold text-slate-900 group-hover:text-violet-600 transition-colors">
+                      Date Difference Calculator
+                    </div>
+                    <div className="text-[11px] text-slate-500">Days & hours between any 2 dates</div>
+                  </div>
+                </div>
+                <ArrowRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-violet-600 group-hover:translate-x-0.5 transition-transform" />
+              </Link>
+
+              <Link
+                href={getLocalizedLink('/date-of-birth-calculator')}
+                className="p-3.5 bg-white border border-slate-200 hover:border-amber-300 rounded-xl flex items-center justify-between group transition-all"
+              >
+                <div className="flex items-center gap-2.5">
+                  <div className="w-8 h-8 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center shrink-0">
+                    <Calendar className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <div className="text-xs font-bold text-slate-900 group-hover:text-amber-700 transition-colors">
+                      Date of Birth Calculator
+                    </div>
+                    <div className="text-[11px] text-slate-500">Find birth date from age</div>
+                  </div>
+                </div>
+                <ArrowRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-amber-700 group-hover:translate-x-0.5 transition-transform" />
+              </Link>
+
+              <Link
+                href={getLocalizedLink('/how-to-calculate-age')}
+                className="p-3.5 bg-white border border-slate-200 hover:border-blue-300 rounded-xl flex items-center justify-between group transition-all"
+              >
+                <div className="flex items-center gap-2.5">
+                  <div className="w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
+                    <BookOpen className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <div className="text-xs font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
+                      How to Calculate Age
+                    </div>
+                    <div className="text-[11px] text-slate-500">Learn the math & leap rules</div>
+                  </div>
+                </div>
+                <ArrowRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-blue-600 group-hover:translate-x-0.5 transition-transform" />
+              </Link>
+            </div>
+          </div>
         </div>
       )}
     </div>

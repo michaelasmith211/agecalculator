@@ -34,29 +34,44 @@ export default function sitemap(): MetadataRoute.Sitemap {
     });
   }
 
+  // High priority calculators specifically flagged for fast Googlebot indexation
+  const HIGH_PRIORITY_SLUGS = [
+    'age-difference-calculator',
+    'date-difference-calculator',
+    'date-of-birth-calculator'
+  ];
+
   // English Calculator Pages
   for (const calc of ALL_CALCULATORS) {
     const slug = calc.href.replace(/^\//, '');
+    let priority = 0.85;
+    if (slug === 'age-calculator') {
+      priority = 0.95;
+    } else if (HIGH_PRIORITY_SLUGS.includes(slug)) {
+      priority = 0.9;
+    }
+
     routes.push({
       url: `${baseUrl}/${slug}/`,
       lastModified: now,
       changeFrequency: 'weekly',
-      priority: slug === 'age-calculator' ? 0.95 : 0.85,
+      priority,
       alternates: {
         languages: getHreflangAlternates(slug)
       }
     });
   }
 
-  // Non-English Calculator Pages (26 languages × 11 calculators)
+  // Non-English Calculator Pages (39 languages × 11 calculators)
   for (const calc of ALL_CALCULATORS) {
     const slug = calc.href.replace(/^\//, '');
+    const priority = HIGH_PRIORITY_SLUGS.includes(slug) ? 0.85 : 0.8;
     for (const locale of NON_DEFAULT_LOCALES) {
       routes.push({
         url: `${baseUrl}/${locale}/${slug}/`,
         lastModified: now,
         changeFrequency: 'weekly',
-        priority: 0.8,
+        priority,
         alternates: {
           languages: getHreflangAlternates(slug)
         }
@@ -64,12 +79,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
   }
 
-  // English How to calculate age guide
+  // English How to calculate age guide (Direct 0.9 priority signal for Googlebot)
   routes.push({
     url: `${baseUrl}/how-to-calculate-age/`,
     lastModified: now,
-    changeFrequency: 'monthly',
-    priority: 0.8,
+    changeFrequency: 'weekly',
+    priority: 0.9,
     alternates: {
       languages: getHreflangAlternates('how-to-calculate-age')
     }
@@ -80,8 +95,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     routes.push({
       url: `${baseUrl}/${locale}/how-to-calculate-age/`,
       lastModified: now,
-      changeFrequency: 'monthly',
-      priority: 0.75,
+      changeFrequency: 'weekly',
+      priority: 0.85,
       alternates: {
         languages: getHreflangAlternates('how-to-calculate-age')
       }

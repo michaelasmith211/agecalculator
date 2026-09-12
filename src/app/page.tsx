@@ -440,6 +440,29 @@ export default function HomePage() {
             </div>
           </div>
 
+          {/* Deep-Dive Guide Callout to /how-to-calculate-age/ */}
+          <div className="mt-8 p-6 bg-linear-to-r from-blue-600 to-indigo-700 rounded-2xl text-white shadow-md flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+            <div className="space-y-1.5 max-w-xl">
+              <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-bold bg-white/20 text-white backdrop-blur-xs">
+                <BookOpen className="w-3.5 h-3.5" />
+                <span>Complete Reference Guide</span>
+              </div>
+              <h3 className="text-xl font-bold tracking-tight text-white">
+                Learn the Complete Mathematical Formulas & Leap Year Rules
+              </h3>
+              <p className="text-sm text-blue-100 leading-relaxed">
+                Discover step-by-step arithmetic proofs, Gregorian leap day adjustments, calendar borrowing tables, and manual calculation walkthroughs.
+              </p>
+            </div>
+            <Link
+              href="/how-to-calculate-age/"
+              className="inline-flex items-center gap-2 px-5 py-3 rounded-xl font-bold bg-white text-blue-700 hover:bg-blue-50 shadow-sm transition-all shrink-0 text-sm"
+            >
+              <span>Read How to Calculate Age</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+
           {/* Cultural & International Age Systems */}
           <div className="mt-8 pt-8 border-t border-slate-200 grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="p-5 bg-slate-50 border border-slate-200 rounded-xl space-y-2">
@@ -537,6 +560,140 @@ export default function HomePage() {
               <p className="text-sm text-slate-600 leading-relaxed">
                 No sign-up, no registration, and no hidden subscriptions. Access all 10+ calculators freely without limits.
               </p>
+            </div>
+          </div>
+        </section>
+
+        {/* CONTEXTUAL CROSS-LINKING GRID */}
+        <section className="my-16 bg-white border border-slate-200 rounded-3xl p-6 sm:p-10 shadow-xs">
+          <div className="max-w-3xl mb-8">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-100 mb-3 shadow-2xs">
+              <Calculator className="w-3.5 h-3.5 text-blue-600" />
+              <span>Specialized Calculation Engines</span>
+            </div>
+            <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
+              Essential Age & Date Utilities
+            </h2>
+            <p className="mt-2 text-sm sm:text-base text-slate-600 leading-relaxed">
+              Explore our core calculation tools designed with calendar borrow precision, leap year safety, and instant multi-unit conversions.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Tool 1: Age Difference */}
+            <div className="p-6 bg-slate-50 border border-slate-200 rounded-2xl hover:border-indigo-300 transition-colors flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-xs font-bold uppercase tracking-wider text-indigo-700 bg-indigo-50 border border-indigo-200/60 px-2.5 py-0.5 rounded-full">
+                    Comparative Analysis
+                  </span>
+                  <Users className="w-5 h-5 text-indigo-600" />
+                </div>
+                <h3 className="text-lg font-bold text-slate-900">
+                  <Link href="/age-difference-calculator/" className="hover:text-indigo-600 transition-colors">
+                    Age Difference Calculator
+                  </Link>
+                </h3>
+                <p className="text-sm text-slate-600 mt-2 leading-relaxed">
+                  Calculate the exact chronological gap between two individuals in years, months, and days. Perfect for couples, siblings, generational gaps, and legal seniority comparisons.
+                </p>
+              </div>
+              <div className="mt-5 pt-3 border-t border-slate-200/80">
+                <Link
+                  href="/age-difference-calculator/"
+                  className="inline-flex items-center gap-1.5 text-sm font-semibold text-indigo-600 hover:text-indigo-700 group"
+                >
+                  <span>Launch Age Difference Tool</span>
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </div>
+            </div>
+
+            {/* Tool 2: Date Difference */}
+            <div className="p-6 bg-slate-50 border border-slate-200 rounded-2xl hover:border-violet-300 transition-colors flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-xs font-bold uppercase tracking-wider text-violet-700 bg-violet-50 border border-violet-200/60 px-2.5 py-0.5 rounded-full">
+                    Duration Engine
+                  </span>
+                  <Clock className="w-5 h-5 text-violet-600" />
+                </div>
+                <h3 className="text-lg font-bold text-slate-900">
+                  <Link href="/date-difference-calculator/" className="hover:text-violet-600 transition-colors">
+                    Date Difference Calculator
+                  </Link>
+                </h3>
+                <p className="text-sm text-slate-600 mt-2 leading-relaxed">
+                  Compute the exact duration between any two calendar dates across full years, months, weeks, days, and total hours with business day counting.
+                </p>
+              </div>
+              <div className="mt-5 pt-3 border-t border-slate-200/80">
+                <Link
+                  href="/date-difference-calculator/"
+                  className="inline-flex items-center gap-1.5 text-sm font-semibold text-violet-600 hover:text-violet-700 group"
+                >
+                  <span>Launch Date Difference Tool</span>
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </div>
+            </div>
+
+            {/* Tool 3: Date of Birth */}
+            <div className="p-6 bg-slate-50 border border-slate-200 rounded-2xl hover:border-amber-300 transition-colors flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-xs font-bold uppercase tracking-wider text-amber-800 bg-amber-50 border border-amber-200/60 px-2.5 py-0.5 rounded-full">
+                    Reverse Estimator
+                  </span>
+                  <Calendar className="w-5 h-5 text-amber-600" />
+                </div>
+                <h3 className="text-lg font-bold text-slate-900">
+                  <Link href="/date-of-birth-calculator/" className="hover:text-amber-700 transition-colors">
+                    Date of Birth Calculator
+                  </Link>
+                </h3>
+                <p className="text-sm text-slate-600 mt-2 leading-relaxed">
+                  Determine an exact or approximate birth date from someone&apos;s current age in years, months, and days using reverse calendar subtraction.
+                </p>
+              </div>
+              <div className="mt-5 pt-3 border-t border-slate-200/80">
+                <Link
+                  href="/date-of-birth-calculator/"
+                  className="inline-flex items-center gap-1.5 text-sm font-semibold text-amber-700 hover:text-amber-800 group"
+                >
+                  <span>Estimate Date of Birth</span>
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </div>
+            </div>
+
+            {/* Guide 4: How to Calculate Age */}
+            <div className="p-6 bg-slate-50 border border-slate-200 rounded-2xl hover:border-blue-300 transition-colors flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-xs font-bold uppercase tracking-wider text-blue-700 bg-blue-50 border border-blue-200/60 px-2.5 py-0.5 rounded-full">
+                    Methodology & Proofs
+                  </span>
+                  <BookOpen className="w-5 h-5 text-blue-600" />
+                </div>
+                <h3 className="text-lg font-bold text-slate-900">
+                  <Link href="/how-to-calculate-age/" className="hover:text-blue-700 transition-colors">
+                    How to Calculate Age (Step-by-Step Guide)
+                  </Link>
+                </h3>
+                <p className="text-sm text-slate-600 mt-2 leading-relaxed">
+                  Learn the exact manual formulas, Gregorian leap year adjustments, and month borrowing techniques used by computer algorithms and clinicians.
+                </p>
+              </div>
+              <div className="mt-5 pt-3 border-t border-slate-200/80">
+                <Link
+                  href="/how-to-calculate-age/"
+                  className="inline-flex items-center gap-1.5 text-sm font-semibold text-blue-600 hover:text-blue-700 group"
+                >
+                  <span>Read Complete Math Guide</span>
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </div>
             </div>
           </div>
         </section>

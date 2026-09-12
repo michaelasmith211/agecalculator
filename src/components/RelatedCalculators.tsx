@@ -107,6 +107,26 @@ export default function RelatedCalculators({
           );
         })}
       </div>
+
+      {currentSlug !== 'how-to-calculate-age' && (
+        <div className="mt-8 p-5 bg-blue-50/70 border border-blue-200/80 rounded-2xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <div className="space-y-1">
+            <div className="text-xs font-bold text-blue-800 uppercase tracking-wider">
+              Calculation Methodology & Proofs
+            </div>
+            <p className="text-sm text-slate-700">
+              Want to understand how calendar borrowing, leap days, and year subtractions are calculated mathematically?
+            </p>
+          </div>
+          <Link
+            href={locale === 'en' ? '/how-to-calculate-age/' : `/${locale}/how-to-calculate-age/`}
+            className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl text-xs font-bold bg-blue-600 text-white hover:bg-blue-700 shadow-2xs transition-all shrink-0"
+          >
+            <span>Read How to Calculate Age</span>
+            <ArrowRight className="w-3.5 h-3.5" />
+          </Link>
+        </div>
+      )}
     </section>
   );
 }
