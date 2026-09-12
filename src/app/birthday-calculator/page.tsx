@@ -65,7 +65,7 @@ export default function BirthdayCalculatorPage() {
         name="Birthday Calculator"
         description="Find days until your next birthday and see your complete milestone birthday schedule."
         url="/birthday-calculator/"
-        applicationCategory="UtilityApplication"
+        applicationCategory="UtilitiesApplication"
       />
       <BreadcrumbJsonLd
         items={[

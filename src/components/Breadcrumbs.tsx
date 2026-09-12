@@ -4,7 +4,6 @@ import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { ChevronRight, Home } from 'lucide-react';
-import { SITE_CONFIG } from '@/lib/constants';
 import { detectLocale } from '@/i18n/locale-utils';
 import { getTranslations } from '@/i18n/getTranslations';
 
@@ -24,34 +23,8 @@ export default function Breadcrumbs({ items, locale: propLocale }: BreadcrumbsPr
   const { t } = getTranslations(locale);
   const homeLabel = t('breadcrumbs.home', 'Home');
 
-  const homeUrl = locale === 'en' ? `${SITE_CONFIG.domain}/` : `${SITE_CONFIG.domain}/${locale}/`;
-
-  const breadcrumbListSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      {
-        '@type': 'ListItem',
-        position: 1,
-        name: homeLabel,
-        item: homeUrl
-      },
-      ...items.map((item, idx) => ({
-        '@type': 'ListItem',
-        position: idx + 2,
-        name: item.name,
-        item: item.href.startsWith('http') ? item.href : `${SITE_CONFIG.domain}${item.href}`
-      }))
-    ]
-  };
-
   return (
-    <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbListSchema) }}
-      />
-      <nav aria-label="Breadcrumb" className="py-3 text-xs text-slate-500 font-medium">
+    <nav aria-label="Breadcrumb" className="py-3 text-xs text-slate-500 font-medium">
         <ol className="flex items-center flex-wrap gap-1.5">
           <li className="flex items-center">
             <Link
@@ -84,6 +57,5 @@ export default function Breadcrumbs({ items, locale: propLocale }: BreadcrumbsPr
           })}
         </ol>
       </nav>
-    </>
   );
 }

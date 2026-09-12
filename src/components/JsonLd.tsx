@@ -6,6 +6,7 @@ interface WebApplicationSchemaProps {
   description: string;
   url: string;
   applicationCategory?: string;
+  operatingSystem?: string;
   features?: string[];
   image?: string;
 }
@@ -14,7 +15,8 @@ export function WebApplicationJsonLd({
   name,
   description,
   url,
-  applicationCategory = 'UtilityApplication',
+  applicationCategory = 'UtilitiesApplication',
+  operatingSystem = 'All (Web Browser)',
   image = `${SITE_CONFIG.domain}/images/age-calculator-how-it-works.jpg`,
   features = [
     'Exact calendar years, months, and days calculation',
@@ -25,16 +27,20 @@ export function WebApplicationJsonLd({
     'Device cookie auto-save and zero-click restoration'
   ]
 }: WebApplicationSchemaProps) {
+  const cleanUrl = url.startsWith('http')
+    ? url
+    : `${SITE_CONFIG.domain}${url.startsWith('/') ? url : `/${url}`}`;
+
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
-    '@id': `${SITE_CONFIG.domain}${url}#webapp`,
+    '@id': `${cleanUrl}#webapp`,
     name,
     description,
-    url: `${SITE_CONFIG.domain}${url}`,
+    url: cleanUrl,
     applicationCategory,
     applicationSubCategory: 'Age & Date Calculation Tool',
-    operatingSystem: 'All (Web Browser, iOS, Android, macOS, Windows, Linux)',
+    operatingSystem,
     browserRequirements: 'Requires JavaScript. Works on all modern web browsers.',
     inLanguage: 'en-US',
     isAccessibleForFree: true,
@@ -45,6 +51,7 @@ export function WebApplicationJsonLd({
       '@type': 'AggregateRating',
       ratingValue: '4.9',
       reviewCount: '1850',
+      ratingCount: '1850',
       bestRating: '5',
       worstRating: '1'
     },
@@ -57,7 +64,7 @@ export function WebApplicationJsonLd({
     publisher: {
       '@type': 'Organization',
       name: SITE_CONFIG.name,
-      url: SITE_CONFIG.domain,
+      url: `${SITE_CONFIG.domain}/`,
       logo: {
         '@type': 'ImageObject',
         url: `${SITE_CONFIG.domain}/icon.svg`,

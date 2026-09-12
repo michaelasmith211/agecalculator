@@ -65,7 +65,7 @@ export default function ChronologicalAgePage() {
         name="Chronological Age Calculator"
         description="Standardized clinical and academic chronological age calculator with gestational prematurity adjustment."
         url="/chronological-age-calculator/"
-        applicationCategory="UtilityApplication"
+        applicationCategory="UtilitiesApplication"
       />
       <BreadcrumbJsonLd
         items={[

@@ -65,7 +65,7 @@ export default function BirthdayCountdownPage() {
         name="Birthday Countdown Clock"
         description="Live real-time ticking countdown timer to next birthday."
         url="/birthday-countdown/"
-        applicationCategory="UtilityApplication"
+        applicationCategory="UtilitiesApplication"
       />
       <BreadcrumbJsonLd
         items={[

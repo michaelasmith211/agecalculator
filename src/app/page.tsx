@@ -100,11 +100,12 @@ export default function HomePage() {
     <>
       {/* Structured Data */}
       <WebApplicationJsonLd
-        name="Age Calculator"
+        name="Age Calculator – Exact Chronological Age Tool"
         description="Calculate your exact age in years, months, and days with calendar precision and live running seconds."
         url="/"
         image={`${SITE_CONFIG.domain}/images/age-calculator-how-it-works.jpg`}
-        applicationCategory="UtilityApplication"
+        applicationCategory="UtilitiesApplication"
+        operatingSystem="All (Web Browser)"
       />
       <BreadcrumbJsonLd items={[{ name: 'Home', item: '/' }]} />
       <FaqJsonLd items={HOMEPAGE_FAQS} />

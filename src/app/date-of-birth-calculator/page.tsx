@@ -65,7 +65,7 @@ export default function DateOfBirthPage() {
         name="Date of Birth Calculator"
         description="Estimate date of birth from current age in years, months, and days."
         url="/date-of-birth-calculator/"
-        applicationCategory="UtilityApplication"
+        applicationCategory="UtilitiesApplication"
       />
       <BreadcrumbJsonLd
         items={[

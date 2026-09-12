@@ -62,10 +62,11 @@ export default function AgeDifferencePage() {
   return (
     <>
       <WebApplicationJsonLd
-        name="Age Difference Calculator"
-        description="Calculate the exact age difference between two people in years, months, and days."
+        name="Age Difference Calculator – Exact Age Gap Tool"
+        description="Calculate the exact age difference between two people in years, months, and days with calendar precision."
         url="/age-difference-calculator/"
-        applicationCategory="UtilityApplication"
+        applicationCategory="UtilitiesApplication"
+        operatingSystem="All (Web Browser)"
       />
       <BreadcrumbJsonLd
         items={[

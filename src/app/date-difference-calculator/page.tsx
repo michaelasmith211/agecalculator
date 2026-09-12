@@ -65,7 +65,7 @@ export default function DateDifferencePage() {
         name="Date Difference Calculator"
         description="Compute exact time and duration between two dates across multiple units."
         url="/date-difference-calculator/"
-        applicationCategory="UtilityApplication"
+        applicationCategory="UtilitiesApplication"
       />
       <BreadcrumbJsonLd
         items={[

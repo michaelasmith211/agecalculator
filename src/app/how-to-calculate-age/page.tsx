@@ -13,7 +13,7 @@ import Breadcrumbs from '@/components/Breadcrumbs';
 import RelatedCalculators from '@/components/RelatedCalculators';
 import AgeReferenceTable from '@/components/ui/AgeReferenceTable';
 import SocialShare from '@/components/SocialShare';
-import { FaqJsonLd, ArticleJsonLd, HowToJsonLd, BreadcrumbJsonLd } from '@/components/JsonLd';
+import { WebApplicationJsonLd, FaqJsonLd, ArticleJsonLd, HowToJsonLd, BreadcrumbJsonLd } from '@/components/JsonLd';
 import { SITE_CONFIG } from '@/lib/constants';
 
 export const metadata: Metadata = {
@@ -80,6 +80,13 @@ const FAQS = [
 export default function HowToCalculateAgePage() {
   return (
     <>
+      <WebApplicationJsonLd
+        name="How to Calculate Age – Mathematical Guide & Calculation Tool"
+        description="Comprehensive interactive guide and calculation utility for computing chronological age, calendar borrowing subtraction, and leap year formulas."
+        url="/how-to-calculate-age/"
+        applicationCategory="EducationalApplication"
+        operatingSystem="All (Web Browser)"
+      />
       <ArticleJsonLd
         headline="How to Calculate Age: Formulas, Step-by-Step Algorithm & Calendar Math"
         description="Comprehensive mathematical guide to manual date subtraction, calendar borrowing, leap year calculations, and precision time units."

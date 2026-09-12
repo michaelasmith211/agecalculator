@@ -65,7 +65,7 @@ export default function RetirementAgePage() {
         name="Retirement Age Calculator"
         description="Estimate retirement milestone date and count down remaining time."
         url="/retirement-age-calculator/"
-        applicationCategory="UtilityApplication"
+        applicationCategory="UtilitiesApplication"
       />
       <BreadcrumbJsonLd
         items={[

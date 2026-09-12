@@ -65,7 +65,7 @@ export default function DaysBetweenDatesPage() {
         name="Days Between Dates Calculator"
         description="Calculate total days, weeks, business days, and duration between two dates."
         url="/days-between-dates/"
-        applicationCategory="UtilityApplication"
+        applicationCategory="UtilitiesApplication"
       />
       <BreadcrumbJsonLd
         items={[

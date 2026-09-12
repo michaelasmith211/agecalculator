@@ -65,7 +65,7 @@ export default function LeapYearAgePage() {
         name="Leap Year Age Calculator"
         description="Calculate leap year birthday milestones and true quadrennial age."
         url="/leap-year-age-calculator/"
-        applicationCategory="UtilityApplication"
+        applicationCategory="UtilitiesApplication"
       />
       <BreadcrumbJsonLd
         items={[

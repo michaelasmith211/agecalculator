@@ -64,7 +64,7 @@ export default function AgeCalculatorPage() {
         name="Age Calculator – Years, Months & Days"
         description="Calculate your exact age in years, months, and days with custom calculation dates."
         url="/age-calculator/"
-        applicationCategory="UtilityApplication"
+        applicationCategory="UtilitiesApplication"
       />
       <BreadcrumbJsonLd
         items={[
