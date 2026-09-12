@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   description:
     'Estimate your possible date of birth by entering your age in years, months, and days. Fast, accurate reverse birthday lookup tool.',
   alternates: {
-    canonical: '/date-of-birth-calculator/',
+    canonical: `${SITE_CONFIG.domain}/date-of-birth-calculator/`,
     languages: getHreflangAlternates('date-of-birth-calculator')
   },
   openGraph: {

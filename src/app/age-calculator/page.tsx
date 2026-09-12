@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   description:
     'Calculate your exact age in years, months, and days from your date of birth. View detailed breakdown in weeks, days, hours, and minutes with custom target date options.',
   alternates: {
-    canonical: '/age-calculator/',
+    canonical: `${SITE_CONFIG.domain}/age-calculator/`,
     languages: getHreflangAlternates('age-calculator')
   },
   openGraph: {

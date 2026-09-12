@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   description:
     'Calculate the exact number of days, weeks, business days, and weekends between any two dates. Free online date interval calculator with inclusive counting options.',
   alternates: {
-    canonical: '/days-between-dates/',
+    canonical: `${SITE_CONFIG.domain}/days-between-dates/`,
     languages: getHreflangAlternates('days-between-dates')
   },
   openGraph: {

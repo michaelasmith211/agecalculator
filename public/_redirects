@@ -1,0 +1,4 @@
+# Force HTTPS & Canonical Non-WWW Domain
+http://agecalculators.dev/* https://agecalculators.dev/:splat 301!
+http://www.agecalculators.dev/* https://agecalculators.dev/:splat 301!
+https://www.agecalculators.dev/* https://agecalculators.dev/:splat 301!

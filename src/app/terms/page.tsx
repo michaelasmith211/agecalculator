@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description:
     'Terms of service and usage conditions for Age Calculator (agecalculators.dev). Information regarding mathematical calculations and non-legal disclaimers.',
   alternates: {
-    canonical: '/terms/'
+    canonical: `${SITE_CONFIG.domain}/terms/`
   },
   openGraph: {
     title: 'Terms of Service – Age Calculator',

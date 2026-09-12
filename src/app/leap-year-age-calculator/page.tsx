@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   description:
     'Calculate your quadrennial leap age (number of February 29ths lived) and discover all upcoming Leap Day birthday celebrations for leap year babies.',
   alternates: {
-    canonical: '/leap-year-age-calculator/',
+    canonical: `${SITE_CONFIG.domain}/leap-year-age-calculator/`,
     languages: getHreflangAlternates('leap-year-age-calculator')
   },
   openGraph: {

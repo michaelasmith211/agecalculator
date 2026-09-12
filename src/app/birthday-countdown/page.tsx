@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   description:
     'Real-time live ticking countdown clock to your next birthday. Track exact days, hours, minutes, and seconds remaining until your next milestone celebration.',
   alternates: {
-    canonical: '/birthday-countdown/',
+    canonical: `${SITE_CONFIG.domain}/birthday-countdown/`,
     languages: getHreflangAlternates('birthday-countdown')
   },
   openGraph: {

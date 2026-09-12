@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   description:
     'Learn about Age Calculator (agecalculators.dev), our commitment to mathematical precision, 100% client-side privacy, and fast utility calculators.',
   alternates: {
-    canonical: '/about/'
+    canonical: `${SITE_CONFIG.domain}/about/`
   },
   openGraph: {
     title: 'About Age Calculator – Standards & Calculation Methodology',

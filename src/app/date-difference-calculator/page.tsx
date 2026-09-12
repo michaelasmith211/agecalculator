@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   description:
     'Find the exact difference between any two dates in years, months, days, weeks, hours, and minutes. Free online calendar duration calculator.',
   alternates: {
-    canonical: '/date-difference-calculator/',
+    canonical: `${SITE_CONFIG.domain}/date-difference-calculator/`,
     languages: getHreflangAlternates('date-difference-calculator')
   },
   openGraph: {

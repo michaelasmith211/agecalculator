@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   description:
     'Estimate your projected retirement date and calculate the exact years, months, total days, and working days remaining until your target retirement age.',
   alternates: {
-    canonical: '/retirement-age-calculator/',
+    canonical: `${SITE_CONFIG.domain}/retirement-age-calculator/`,
     languages: getHreflangAlternates('retirement-age-calculator')
   },
   openGraph: {

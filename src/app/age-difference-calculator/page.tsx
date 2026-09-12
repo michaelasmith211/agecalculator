@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   description:
     'Calculate the exact age difference between two people in years, months, and days. Accurate calendar calculation for couples, siblings, and friends.',
   alternates: {
-    canonical: '/age-difference-calculator/',
+    canonical: `${SITE_CONFIG.domain}/age-difference-calculator/`,
     languages: getHreflangAlternates('age-difference-calculator')
   },
   openGraph: {

@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   description:
     'Our privacy policy explains how Age Calculator processes all dates 100% locally in your web browser with zero server data storage.',
   alternates: {
-    canonical: '/privacy-policy/'
+    canonical: `${SITE_CONFIG.domain}/privacy-policy/`
   },
   openGraph: {
     title: 'Privacy Policy – 100% Client-Side Privacy Commitment',

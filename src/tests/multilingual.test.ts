@@ -77,9 +77,14 @@ describe('Multilingual System (40 Locales with Clean Root English)', () => {
 
   it('should generate canonical URLs correctly (clean root for English, prefixed for others)', () => {
     expect(getCanonicalUrl('en')).toBe('https://agecalculators.dev/');
+    expect(getCanonicalUrl('en')).toMatch(/^https:\/\/agecalculators\.dev\//);
+    expect(getCanonicalUrl('en', 'how-to-calculate-age')).toBe('https://agecalculators.dev/how-to-calculate-age/');
     expect(getCanonicalUrl('en', 'birthday-calculator')).toBe('https://agecalculators.dev/birthday-calculator/');
     expect(getCanonicalUrl('es', 'birthday-calculator')).toBe('https://agecalculators.dev/es/birthday-calculator/');
     expect(getCanonicalUrl('ar', 'age-difference-calculator')).toBe('https://agecalculators.dev/ar/age-difference-calculator/');
+    // Verify HTTPS protocol is strictly enforced on all URLs
+    expect(getCanonicalUrl('en').startsWith('https://')).toBe(true);
+    expect(getCanonicalUrl('en').includes('http://')).toBe(false);
   });
 
   it('should generate complete hreflang alternates pointing to clean English for en & x-default', () => {

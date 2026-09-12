@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   description:
     'Use our free Birthday Calculator to discover how many days remain until your next birthday, what day of the week you were born on, and key milestone ages.',
   alternates: {
-    canonical: '/birthday-calculator/',
+    canonical: `${SITE_CONFIG.domain}/birthday-calculator/`,
     languages: getHreflangAlternates('birthday-calculator')
   },
   openGraph: {

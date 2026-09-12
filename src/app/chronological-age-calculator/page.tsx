@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   description:
     'Calculate exact chronological age in standardized assessment notation (Years;Months;Days) for psychological testing, speech therapy, and clinical evaluations with prematurity correction.',
   alternates: {
-    canonical: '/chronological-age-calculator/',
+    canonical: `${SITE_CONFIG.domain}/chronological-age-calculator/`,
     languages: getHreflangAlternates('chronological-age-calculator')
   },
   openGraph: {

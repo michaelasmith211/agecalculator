@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   description:
     'Free online Age Calculator. Calculate your exact age in years, months, days, and live running seconds. Features birthday countdown, total days lived, and stats.',
   alternates: {
-    canonical: '/',
+    canonical: `${SITE_CONFIG.domain}/`,
     languages: getHreflangAlternates()
   },
   openGraph: {

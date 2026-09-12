@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   description:
     'Comprehensive guide on calculating age manually and digitally. Learn the exact mathematical formulas for year, month, and day subtraction with calendar borrow rules.',
   alternates: {
-    canonical: '/how-to-calculate-age/',
+    canonical: `${SITE_CONFIG.domain}/how-to-calculate-age/`,
     languages: getHreflangAlternates('how-to-calculate-age')
   },
   openGraph: {
