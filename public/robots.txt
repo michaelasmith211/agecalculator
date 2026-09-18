@@ -2,3 +2,5 @@ User-agent: *
 Allow: /
 
 Sitemap: https://agecalculators.dev/sitemap.xml
+Sitemap: https://agecalculators.dev/video-sitemap.xml
+

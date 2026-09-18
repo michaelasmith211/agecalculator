@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+  <url>
+    <loc>https://agecalculators.dev/</loc>
+    <video:video>
+      <video:thumbnail_loc>https://agecalculators.dev/images/video-poster.webp</video:thumbnail_loc>
+      <video:title>How the Age Calculator Works – Step-by-Step Video Guide</video:title>
+      <video:description>Watch how to calculate your exact chronological age in years, months, and days with live running seconds on agecalculators.dev.</video:description>
+      <video:content_loc>https://agecalculators.dev/videos/how-it-works.mp4</video:content_loc>
+      <video:player_loc>https://agecalculators.dev/#video-guide</video:player_loc>
+      <video:duration>25</video:duration>
+      <video:publication_date>2026-09-18T10:00:00+00:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:uploader info="https://agecalculators.dev">Age Calculator Team</video:uploader>
+    </video:video>
+  </url>
+</urlset>

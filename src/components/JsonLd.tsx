@@ -300,3 +300,75 @@ export function GlobalWebSiteJsonLd() {
     </>
   );
 }
+
+export interface VideoClip {
+  name: string;
+  startOffset: number;
+  endOffset: number;
+  url: string;
+}
+
+interface VideoObjectSchemaProps {
+  name: string;
+  description: string;
+  thumbnailUrl: string[];
+  uploadDate: string;
+  duration?: string;
+  contentUrl: string;
+  embedUrl: string;
+  clips?: VideoClip[];
+}
+
+export function VideoObjectJsonLd({
+  name,
+  description,
+  thumbnailUrl,
+  uploadDate,
+  duration = 'PT25S',
+  contentUrl,
+  embedUrl,
+  clips = []
+}: VideoObjectSchemaProps) {
+  const schema: Record<string, unknown> = {
+    '@context': 'https://schema.org',
+    '@type': 'VideoObject',
+    name,
+    description,
+    thumbnailUrl,
+    uploadDate,
+    duration,
+    contentUrl,
+    embedUrl,
+    publisher: {
+      '@type': 'Organization',
+      name: SITE_CONFIG.name,
+      url: `${SITE_CONFIG.domain}/`,
+      logo: {
+        '@type': 'ImageObject',
+        url: `${SITE_CONFIG.domain}/icon.svg`,
+        width: 512,
+        height: 512
+      }
+    },
+    inLanguage: 'en-US',
+    isFamilyFriendly: true
+  };
+
+  if (clips.length > 0) {
+    schema.hasPart = clips.map((clip) => ({
+      '@type': 'Clip',
+      name: clip.name,
+      startOffset: clip.startOffset,
+      endOffset: clip.endOffset,
+      url: clip.url
+    }));
+  }
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  );
+}
+
