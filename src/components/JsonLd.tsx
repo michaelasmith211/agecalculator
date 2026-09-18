@@ -1,5 +1,5 @@
 import React from 'react';
-import { SITE_CONFIG } from '@/lib/constants';
+import { SITE_CONFIG, SOCIAL_LINKS } from '@/lib/constants';
 
 interface WebApplicationSchemaProps {
   name: string;
@@ -284,7 +284,7 @@ export function GlobalWebSiteJsonLd() {
     logo: `${SITE_CONFIG.domain}/icon.svg`,
     description: SITE_CONFIG.description,
     foundingDate: '2026',
-    sameAs: []
+    sameAs: SOCIAL_LINKS.map((s) => s.href)
   };
 
   return (

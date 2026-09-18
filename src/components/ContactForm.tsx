@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { Mail, Send, CheckCircle2 } from 'lucide-react';
+import SocialFollow from '@/components/SocialFollow';
 
 export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
@@ -95,6 +96,19 @@ export default function ContactForm() {
           </button>
         </form>
       )}
+
+      {/* Official Social Media Channels */}
+      <div className="mt-8 pt-8 border-t border-slate-100 text-center">
+        <h2 className="text-sm font-bold text-slate-800 mb-1">
+          Official Social Media Channels
+        </h2>
+        <p className="text-xs text-slate-500 mb-4">
+          Connect with our community, follow updates, and share calculation guides.
+        </p>
+        <div className="flex justify-center">
+          <SocialFollow />
+        </div>
+      </div>
     </div>
   );
 }

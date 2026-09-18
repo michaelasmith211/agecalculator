@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Calendar, ShieldCheck, Sparkles, Globe } from 'lucide-react';
 import { ALL_CALCULATORS, COMPANY_LINKS, SITE_CONFIG } from '@/lib/constants';
+import SocialFollow from '@/components/SocialFollow';
 import { detectLocale } from '@/i18n/locale-utils';
 import { LOCALES, SUPPORTED_LOCALES } from '@/i18n/config';
 import { getTranslations } from '@/i18n/getTranslations';
@@ -59,6 +60,13 @@ export default function Footer() {
             <div className="flex items-center gap-2 text-xs text-emerald-400 bg-emerald-950/50 border border-emerald-800/60 px-3 py-1.5 rounded-lg w-fit">
               <ShieldCheck className="w-4 h-4" />
               <span>{t('footer.clientSideBadge', '100% Client-Side • Zero Data Stored')}</span>
+            </div>
+
+            <div className="pt-2">
+              <span className="text-xs font-semibold uppercase tracking-wider text-slate-400 block mb-2.5">
+                {t('footer.followUs', 'Official Social Handles')}
+              </span>
+              <SocialFollow />
             </div>
           </div>
 

@@ -9,6 +9,58 @@ export const SITE_CONFIG = {
   currentYear: 2026,
 };
 
+export interface SocialLink {
+  name: string;
+  href: string;
+  id: 'facebook' | 'youtube' | 'medium' | 'github' | 'pinterest' | 'quora' | 'reddit';
+  handle: string;
+}
+
+export const SOCIAL_LINKS: SocialLink[] = [
+  {
+    name: 'Facebook',
+    href: 'https://www.facebook.com/AgeCalculatorsdev',
+    id: 'facebook',
+    handle: '@AgeCalculatorsdev'
+  },
+  {
+    name: 'YouTube',
+    href: 'https://www.youtube.com/@AgeCalculators-dev',
+    id: 'youtube',
+    handle: '@AgeCalculators-dev'
+  },
+  {
+    name: 'Medium',
+    href: 'https://medium.com/@age_calculator',
+    id: 'medium',
+    handle: '@age_calculator'
+  },
+  {
+    name: 'GitHub',
+    href: 'https://github.com/agecalculatorsdev',
+    id: 'github',
+    handle: 'agecalculatorsdev'
+  },
+  {
+    name: 'Pinterest',
+    href: 'https://www.pinterest.com/agecalculatorsdev/',
+    id: 'pinterest',
+    handle: 'agecalculatorsdev'
+  },
+  {
+    name: 'Quora',
+    href: 'https://www.quora.com/profile/Age-Caclulator',
+    id: 'quora',
+    handle: 'Age-Caclulator'
+  },
+  {
+    name: 'Reddit',
+    href: 'https://www.reddit.com/user/agecalculatorsdev/',
+    id: 'reddit',
+    handle: 'u/agecalculatorsdev'
+  }
+];
+
 export interface NavItem {
   title: string;
   href: string;
